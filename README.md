@@ -1,18 +1,19 @@
-# Nome do projeto
+# GoAsk
 
 Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Guilherme Campos Barata Diniz
+* Guilherme Oliveira Antonio
+* Matheus Felipe Ferreira Martins
+* Ricardo Christovão da Silva
+* Thiago Jorge Queiroz Silva
 
 ## Orientadores
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Hugo Bastos de Paula
+* Pedro Alves De Oliveira
 
 ## Instruções de utilização
 
