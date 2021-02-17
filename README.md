@@ -4,11 +4,11 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Integrantes
 
-* Guilherme Campos Barata Diniz
-* Guilherme Oliveira Antonio
-* Matheus Felipe Ferreira Martins
-* Ricardo Christovão da Silva
-* Thiago Jorge Queiroz Silva
+* [Guilherme Campos Barata Diniz](https://github.com/Guicbdiniz)
+* [Guilherme Oliveira Antonio](https://github.com/guilhermegoa)
+* [Matheus Felipe Ferreira Martins](https://github.com/MatheusFFM)
+* [Ricardo Christovão da Silva](https://github.com/ricardochristovao)
+* [Thiago Jorge Queiroz Silva](https://github.com/ThiagoQueirozSilva)
 
 ## Orientadores
 
