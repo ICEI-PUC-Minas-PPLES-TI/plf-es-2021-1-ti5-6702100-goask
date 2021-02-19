@@ -4,6 +4,6 @@ Liste os artefatos produzidos, com suas localizaçãoes e descrição do conteú
 
 - `/atas`
 
-  - **Ata_xx_ago_2020.docx**: Ata de reunião do dia xx de agosto de 2020.
+  - **ATA-2021-02-19.md**: Ata de reunião do dia 19 de fevereiro de 2021.
 
 - **ApresentacaoInicial.pptx**: slides de apresentação com a ideia inicial do projeto.
