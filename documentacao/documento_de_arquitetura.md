@@ -69,7 +69,10 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 # 1. Apresentação
 
-_Faça uma introdução ao projeto, apresentando o contexto onde o projeto se situa. É importante deixar claro para o leitor os aspectos que configuram o problema que será apresentado na sequência. Apresente, se possível, números reais que demonstram a relevância do problema apresentado._
+_ O projeto GoAsk se trata do desenvolvimento de uma aplicação distribuída, em ambientes web e mobile que tem como finalidade tornar quizes mais divertidos e com aspectos de competitividade entre os usuários. Visto isso a aplicação permitirá que usuários compitam, em tempo real, entre si para ver quem irá pontuar mais dentro de um quiz sendo que a pontuação depende da velocidade e efetividade do usuário ao selecionar as respostas de cada perguna. Será possível então que usuários criem e administrem quizes por meio de um navegador web e participe de um quiz a partir de uma aplicação mobile. 
+
+
+ Este projeto, desenvolvido na disciplina TISV, possui como autores os alunos Guilherme Diniz, Guilherme Oliveira, Matheus Felipe alunos, Ricardo Christóvão e Thiago Silva do curso de graduação de Engenharia de Software da Puc Minas Unidade Praça da Liberdade. A aplicação terá também a integração de tecnologias e middlwares que permitam mensagens em tempo real. _
 
 ## 1.1. Problema
 
