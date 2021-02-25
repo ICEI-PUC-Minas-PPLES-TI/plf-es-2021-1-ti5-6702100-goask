@@ -1,14 +1,14 @@
 # TITULO DO PROJETO
 
-**Guilherme Campos Barata Diniz, email do aluno 1**
+**Guilherme Campos Barata Diniz, dinizwalker@gmail.com**
 
-**Guilherme Oliveira Antonio, email do aluno 2**
+**Guilherme Oliveira Antonio, gantonio@sga.pucminas.br**
 
-**Matheus Felipe Ferreira Martins, email do aluno 3**
+**Matheus Felipe Ferreira Martins, matheus.martins.1215641@sga.pucminas.br**
 
-**Ricardo Christovão da Silva, email do aluno 4**
+**Ricardo Christovão da Silva, ricardo.christovao@sga.pucminas.br**
 
-**Thiago Jorge Queiroz Silva, email do aluno 5**
+**Thiago Jorge Queiroz Silva, thiago.queiroz@sga.pucminas.br**
 
 ---
 
@@ -33,11 +33,11 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 ## Histórico de Revisões
 
-| **Data**         | **Autor**       | **Descrição**                                                                                               | **Versão** |
-| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------- | ---------- |
-| **[dd/mm/aaaa]** | [Nome do autor] | [Descrever as principais alterações realizadas no documento, evidenciando as seções ou capítulos alterados] | [X]        |
-|                  |                 |                                                                                                             |            |
-|                  |                 |                                                                                                             |            |
+| **Data**         | **Autor**       | **Descrição**                                                                                                  | **Versão** |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------- | ---------- |
+| **[24/02/2021]** |[Matheus Felipe] | [Adição dos nomes dos autores e descrição dos objetivos do projeto na seção 1.2]                               |    [1.0]   |
+| **[24/02/2021]** |[Thiago Silva]   | [Descrição da apresentação do projeto na seção 1]                                                              |    [1.1]   |
+| **[25/02/2021]** |[Thiago Silva]   |[Adição dos e-mails dos autores, descrição do problema na seção 1.1 e preenchimento de abreviaturas na seção 1.3]|    [1.2]   |
 
 ## SUMÁRIO
 
@@ -69,11 +69,17 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 # 1. Apresentação
 
-_Faça uma introdução ao projeto, apresentando o contexto onde o projeto se situa. É importante deixar claro para o leitor os aspectos que configuram o problema que será apresentado na sequência. Apresente, se possível, números reais que demonstram a relevância do problema apresentado._
+O projeto GoAsk se trata do desenvolvimento de uma aplicação distribuída, em ambientes web e mobile que tem como finalidade tornar quizes mais divertidos e com aspectos de competitividade entre os usuários. Visto isso a aplicação permitirá que usuários compitam, em tempo real, entre si para ver quem irá pontuar mais dentro de um quiz sendo que a pontuação depende da velocidade e efetividade do usuário ao selecionar as respostas de cada perguna. Será possível então que usuários criem e administrem quizes por meio de um navegador web e participe de um quiz a partir de uma aplicação mobile. 
+
+Este projeto, desenvolvido na disciplina TISV, possui como autores os alunos Guilherme Diniz, Guilherme Oliveira, Matheus Felipe alunos, Ricardo Christóvão e Thiago Silva do curso de graduação de Engenharia de Software da Puc Minas Unidade Praça da Liberdade. A aplicação terá também a integração de tecnologias e middlwares que permitam mensagens em tempo real.
 
 ## 1.1. Problema
 
-_Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação._
+Diante da pandemia do corona vírus as escolas e faculdades no Brasil tiveram que se adaptar à nova realidade, tornando então necessário que ocorresse uma adaptação da mesma migrando de aulas presenciais para aulas virtuais. Porém essa adaptação não tem sido fácil nem para os professores e nem para os alunos enquanto alunos possuem uma dificuldade maior para concentrar durante as aulas, os professores se deparam com a falta de opções para dar uma aula que pudesse provocar interesse e uma maior interação do aluno com aula.    
+
+Visto isso os professores possuem a missão de tentar despertar o interesse a atenção de seus alunos durante as aulas para que o aprendizado de seus alunos seja maior. O acompanhamento do estudante passou a ser também uma tarefa mais complicada visto que os professores virtualmente possuem uma dificuldade maior em avaliar os conhecimentos dos alunos e saber se estão em dia com a matéria.  
+
+
 
 ## 1.2. Objetivos do trabalho
 
@@ -83,7 +89,12 @@ Para alcançar isso, o projeto tem como objetivo específico um sistema de pontu
 
 ## 1.3. Definições e Abreviaturas
 
-Coloque aqui as definições, siglas e abreviaturas utilizadas no trabalho.\_
+REST(Repesentional State Transfer) - O REST é um estilo arquitetural que tem como objetivo principal a definição de características fundamentais para a construção de aplicações Web seguindo boas práticas e construindo aplicações escaláveis. 
+
+PK(Primary Key) - A sigla PK representa uma associação que é feita a um atributo de alguma tabela no banco de dados onde cada tabela só pode possuir uma PK única, que será utilizada para localizar o elemento na tabela.
+
+FK(Foreign Key) - A sigla FK representa uma associação que é feita a um atributo de alguma tabela, no banco de dados, que liga uma tabela A a uma tabela B por exemplo assim a FK de um elemento da tabela A será a PK do elemento na tabela B. 
+
 
 <a name="requisitos"></a>
 
