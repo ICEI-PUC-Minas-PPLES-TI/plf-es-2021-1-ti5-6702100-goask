@@ -77,7 +77,9 @@ _Nesse momento você deve apresentar o problema que a sua aplicação deve resol
 
 ## 1.2. Objetivos do trabalho
 
-_Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é apresentar a descrição do projeto arquitetural da aplicação escolhida. Apresente também os objetivos específicos do projeto, descrevendo onde você vai concentrar sua atenção na descrição arquitetural, ou seja, os pontos onde você vai aprofundar no seu trabalho._
+Este projeto tem como objetivo principal tornar o aprendizado mais descontraído, leve e autônomo, por meio de um módulo web que permita a administração de quizes onlines nos quais se comunicam por um módulo mobile em que qualquer usuário poderá participar e desafiar esse quiz a partir de um código gerado pela aplicação. 
+
+Para alcançar isso, o projeto tem como objetivo específico um sistema de pontuação e classificação para cada teste criado, que inclui o uso de um módulo de persistência para armazenar jogadores, pontuações e quizes jogados para que ao final do jogo, exiba a colocação final na interface de apresentação ao usuário. Por fim, o projeto também mira desenvolver habilidades sociais por meio da curiosidade e aprendizado, uma vez que este trabalho implementa um sistema distribuído que permitirá a concorrência de vários jogadores em um mesmo quiz, podendo ser amigos ou anônimos.
 
 ## 1.3. Definições e Abreviaturas
 
