@@ -75,9 +75,9 @@ O projeto GoAsk se trata do desenvolvimento de uma aplicação distribuída, em 
 
 ## 1.1. Problema
 
-Diante da pandemia do corona virus as escolas e faculdades no Brasil tiveram que se adaptar a nova realidade, tornando entao necessario que ocorresse uma adaptacao da mesma migrando de aulas presenciais para aulas virtuais. Porem essa adaptacao nao tem sido facil nem para os professores e nem para os alunos enquanto alunos possuem uma dificuldade maior para concentrar durante as aulas, os professores se deparam com a falta de opcoes para dar uma aula que pudesse provocar interesse e uma maior interacao do aluno com aula.  
+Diante da pandemia do corona vírus as escolas e faculdades no Brasil tiveram que se adaptar à nova realidade, tornando então necessário que ocorresse uma adaptação da mesma migrando de aulas presenciais para aulas virtuais. Porém essa adaptação não tem sido fácil nem para os professores e nem para os alunos enquanto alunos possuem uma dificuldade maior para concentrar durante as aulas, os professores se deparam com a falta de opções para dar uma aula que pudesse provocar interesse e uma maior interação do aluno com aula.    
 
-Visto isso os professores possuem a missao de tentar despertar o interesse a atencao de seus alunos durante as aulas para que o aprendizado de seus alunos seja maior. O acompanhamento do estudante passou a ser tambem uma tarefa mais complicada visto que os professores virtualmente possuem uma dificuldade maoir em avaliar os conhecimentos dos alunos e saber se estao em dia com a materia. 
+Visto isso os professores possuem a missão de tentar despertar o interesse a atenção de seus alunos durante as aulas para que o aprendizado de seus alunos seja maior. O acompanhamento do estudante passou a ser também uma tarefa mais complicada visto que os professores virtualmente possuem uma dificuldade maior em avaliar os conhecimentos dos alunos e saber se estão em dia com a matéria.  
 
 
 
