@@ -6,11 +6,11 @@
 
 **Integrantes:**
 
-- [Guilherme Campos Barata Diniz](https://github.com/Guicbdiniz)
-- [Guilherme Oliveira Antonio](https://github.com/guilhermegoa)
-- [Matheus Felipe Ferreira Martins](https://github.com/MatheusFFM)
-- [Ricardo Christovão da Silva](https://github.com/ricardochristovao)
-- [Thiago Jorge Queiroz Silva](https://github.com/ThiagoQueirozSilva)
+- [Guilherme Campos Barata Diniz](https://github.com/Guicbdiniz), gcbdiniz@sgapucminas.br
+- [Guilherme Oliveira Antonio](https://github.com/guilhermegoa), gantonio@sga.pucminas.br
+- [Matheus Felipe Ferreira Martins](https://github.com/MatheusFFM), matheus.martins.1215641@sga.pucminas.br
+- [Ricardo Christovão da Silva](https://github.com/ricardochristovao), ricardo.christovao@sga.pucminas.br
+- [Thiago Jorge Queiroz Silva](https://github.com/ThiagoQueirozSilva), thiago.queiroz@sga.pucminas.br
 
 ---
 
@@ -80,7 +80,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 | **1.** | Uma aplicação mobile que permite entrar em salas e jogar quizzes.   |
 | ------ | ------------------------------------------------------------------- |
 | **2.** | Uma aplicação web que permite a administração de quizzes do perfil. |
-| **3.** |                                                                     |
+|
 
 **2.4 Condições para início do projeto**
 
@@ -88,7 +88,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ## 3. ESTIMATIVA DE PRAZO
 
-**3.1 Prazo previsto (horas):** 9999
+**3.1 Prazo previsto (horas):** 100
 
 **3.2 Data prevista de início: ** 04 / 02 / 2021
 **3.3 Data prevista de término: ** 27 / 05 / 2021
@@ -97,12 +97,12 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 | Item de custo                               | Qtd. horas   | Valor / hora | Valor total |
 | ------------------------------------------- | ------------ | ------------ | ----------- |
-| **4.1 Recursos Humanos** **(especifique):** | 5 devs - 400 | 20           | 10000       |
-| **4.2 Hardware (especifique):**             |              |              |             |
-| **4.3 Rede e serviços de hospedagem:**      |              |              |             |
-| **4.4 Software de terceiros:**              |              |              |             |
-| **4.5 Serviços e treinamento:**             |              |              |             |
-| **4.6 Total Geral:**                        |              |              |             |
+| **4.1 Recursos Humanos** **(especifique):** | 20 | 0           | 0       |
+| **4.2 Hardware (especifique):**             |      0        |        0      |      0       |
+| **4.3 Rede e serviços de hospedagem:**      |      0       |        0      |        0     |
+| **4.4 Software de terceiros:**              |      0        |       0       |      0       |
+| **4.5 Serviços e treinamento:**             |       0       |        0      |      0       |
+| **4.6 Total Geral:**                        |        20      |        0      |        0     |
 
 ## 5. PARTES INTERESSADAS
 
