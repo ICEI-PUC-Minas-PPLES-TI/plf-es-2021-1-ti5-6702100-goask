@@ -96,12 +96,12 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 | Item de custo                               | Qtd. horas   | Valor / hora | Valor total |
 | ------------------------------------------- | ------------ | ------------ | ----------- |
-| **4.1 Recursos Humanos** **(especifique):** | 20 | 0           | 0       |
+| **4.1 Recursos Humanos** **(especifique):** | 5 dev - 20 | 0           | 0       |
 | **4.2 Hardware (especifique):**             |      0        |        0      |      0       |
-| **4.3 Rede e serviços de hospedagem:**      |      0       |        0      |        0     |
+| **4.3 Rede e serviços de hospedagem:**      |      3 containers - 400       |        0      |        0     |
 | **4.4 Software de terceiros:**              |      0        |       0       |      0       |
 | **4.5 Serviços e treinamento:**             |       0       |        0      |      0       |
-| **4.6 Total Geral:**                        |        20      |        0      |        0     |
+| **4.6 Total Geral:**                        |              |        0      |        0     |
 
 ## 5. PARTES INTERESSADAS
 
