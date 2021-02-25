@@ -80,7 +80,6 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 | **1.** | Uma aplicação mobile que permite entrar em salas e jogar quizzes.   |
 | ------ | ------------------------------------------------------------------- |
 | **2.** | Uma aplicação web que permite a administração de quizzes do perfil. |
-|
 
 **2.4 Condições para início do projeto**
 
