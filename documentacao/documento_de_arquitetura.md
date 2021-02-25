@@ -69,14 +69,17 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 # 1. Apresentação
 
-_ O projeto GoAsk se trata do desenvolvimento de uma aplicação distribuída, em ambientes web e mobile que tem como finalidade tornar quizes mais divertidos e com aspectos de competitividade entre os usuários. Visto isso a aplicação permitirá que usuários compitam, em tempo real, entre si para ver quem irá pontuar mais dentro de um quiz sendo que a pontuação depende da velocidade e efetividade do usuário ao selecionar as respostas de cada perguna. Será possível então que usuários criem e administrem quizes por meio de um navegador web e participe de um quiz a partir de uma aplicação mobile. 
+O projeto GoAsk se trata do desenvolvimento de uma aplicação distribuída, em ambientes web e mobile que tem como finalidade tornar quizes mais divertidos e com aspectos de competitividade entre os usuários. Visto isso a aplicação permitirá que usuários compitam, em tempo real, entre si para ver quem irá pontuar mais dentro de um quiz sendo que a pontuação depende da velocidade e efetividade do usuário ao selecionar as respostas de cada perguna. Será possível então que usuários criem e administrem quizes por meio de um navegador web e participe de um quiz a partir de uma aplicação mobile. 
 
-
- Este projeto, desenvolvido na disciplina TISV, possui como autores os alunos Guilherme Diniz, Guilherme Oliveira, Matheus Felipe alunos, Ricardo Christóvão e Thiago Silva do curso de graduação de Engenharia de Software da Puc Minas Unidade Praça da Liberdade. A aplicação terá também a integração de tecnologias e middlwares que permitam mensagens em tempo real. _
+ Este projeto, desenvolvido na disciplina TISV, possui como autores os alunos Guilherme Diniz, Guilherme Oliveira, Matheus Felipe alunos, Ricardo Christóvão e Thiago Silva do curso de graduação de Engenharia de Software da Puc Minas Unidade Praça da Liberdade. A aplicação terá também a integração de tecnologias e middlwares que permitam mensagens em tempo real.
 
 ## 1.1. Problema
 
-_Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação._
+Diante da pandemia do corona virus as escolas e faculdades no Brasil tiveram que se adaptar a nova realidade, tornando entao necessario que ocorresse uma adaptacao da mesma migrando de aulas presenciais para aulas virtuais. Porem essa adaptacao nao tem sido facil nem para os professores e nem para os alunos enquanto alunos possuem uma dificuldade maior para concentrar durante as aulas, os professores se deparam com a falta de opcoes para dar uma aula que pudesse provocar interesse e uma maior interacao do aluno com aula.  
+
+Visto isso os professores possuem a missao de tentar despertar o interesse a atencao de seus alunos durante as aulas para que o aprendizado de seus alunos seja maior. O acompanhamento do estudante passou a ser tambem uma tarefa mais complicada visto que os professores virtualmente possuem uma dificuldade maoir em avaliar os conhecimentos dos alunos e saber se estao em dia com a materia. 
+
+
 
 ## 1.2. Objetivos do trabalho
 
