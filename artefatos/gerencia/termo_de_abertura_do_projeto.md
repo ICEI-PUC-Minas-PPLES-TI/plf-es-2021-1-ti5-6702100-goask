@@ -87,7 +87,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ## 3. ESTIMATIVA DE PRAZO
 
-**3.1 Prazo previsto (horas):** 100
+**3.1 Prazo previsto (horas):** 400
 
 **3.2 Data prevista de início: ** 04 / 02 / 2021
 **3.3 Data prevista de término: ** 27 / 05 / 2021
@@ -96,7 +96,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 | Item de custo                               | Qtd. horas   | Valor / hora | Valor total |
 | ------------------------------------------- | ------------ | ------------ | ----------- |
-| **4.1 Recursos Humanos** **(especifique):** | 5 dev - 20 | 0           | 0       |
+| **4.1 Recursos Humanos** **(especifique):** | 5 dev - 80 | 0           | 0       |
 | **4.2 Hardware (especifique):**             |      0        |        0      |      0       |
 | **4.3 Rede e serviços de hospedagem:**      |      3 containers - 400       |        0      |        0     |
 | **4.4 Software de terceiros:**              |      0        |       0       |      0       |
