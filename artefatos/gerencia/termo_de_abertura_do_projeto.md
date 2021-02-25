@@ -50,7 +50,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 **1.7 Qualidade esperada do produto final (requisitos de qualidade):**
 
 - O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código.
--O sistema deve ter tratamento de erros.
+- O sistema deve ter tratamento de erros.
 
 ## **2. ESCOPO PRELIMINAR E PREMISSAS** 
 
