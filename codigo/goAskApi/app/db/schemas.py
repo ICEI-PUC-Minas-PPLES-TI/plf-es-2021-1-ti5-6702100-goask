@@ -18,6 +18,9 @@ class Category(CategoryCreate):
     """
     idCategory: int
 
+    class Config:
+        orm_mode = True
+
 
 # Answer
 
@@ -36,6 +39,9 @@ class Answer(AnswerCreate):
     createdAt: date
     updatedAt: date
 
+    class Config:
+        orm_mode = True
+
 
 # Question
 
@@ -53,6 +59,9 @@ class Question(QuestionCreate):
     """
     createdAt: date
     updatedAt: date
+
+    class Config:
+        orm_mode = True
 
 
 # Test
@@ -75,6 +84,9 @@ class Test(TestBase):
     createdAt: date
     updatedAt: date
 
+    class Config:
+        orm_mode = True
+
 
 # Rooms
 
@@ -95,6 +107,9 @@ class Room(RoomCreate):
     isActive: bool
     isRunning: bool
     createdAt: date
+
+    class Config:
+        orm_mode = True
 
 
 # User
