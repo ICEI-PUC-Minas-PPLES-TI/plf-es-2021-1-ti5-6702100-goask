@@ -17,7 +17,7 @@ class User(Base):
 
     idUser = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
-    password = Column(String])
+    password = Column(String)
     createdAt = Column(Date)
     updatedAt = Column(Date)
 
@@ -40,7 +40,7 @@ class Category(Base):
 
 class Test(Base):
     """
-    Quizz format database representation.
+    Quiz format database representation.
     """
 
     __tablename__ = "Test"
@@ -60,7 +60,7 @@ class Test(Base):
 
 class Question(Base):
     """
-    Quizz Question database representation.
+    Quiz Question database representation.
     """
 
     __tablename__ = "Question"
@@ -94,7 +94,7 @@ class Answer(Base):
 
 class Room(Base):
     """
-    Quizz Room database representation.
+    Quiz Room database representation.
     """
 
     __tablename__ = "Room"
