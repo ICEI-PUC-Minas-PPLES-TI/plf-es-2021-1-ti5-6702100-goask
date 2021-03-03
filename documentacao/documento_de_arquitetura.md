@@ -117,33 +117,28 @@ _Enumere os requisitos funcionais previstos para a sua aplicação. Concentre-se
 
 | **ID** | **Descrição** | **Prioridade** |
 | ------ | ------------- | -------------- |
-| RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web. |                |
-| RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web. |                |
-| RF003  | O usuário deve ser capaz de cadastrar um quiz pela interface web. |                |
-| RF004  | O usuário deve ser capaz de editar o quiz pela interface web. |                |
-| RF005  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web. |                |
-| RF006  | O usuário deve ser capaz de editar seus dados pela interface web. |                |
-| RF007  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile. |                |
-| RF008  | O usuário deve ser capaz de entrar em um quiz pela interface mobile. |                |
-| RF009  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz. |                |
-| RF010  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz. |
-| RF011  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. |                |
-| RF012  | O usuário deve ser capaz de deletar um quiz criado  pela interface web. |                |
-| RF013  | O usuário deve ser capaz de responder as questões do quiz que está participando. |                |
+| RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web. | Essencial |
+| RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web. | Essencial |
+| RF003  | O usuário deve ser capaz de cadastrar um quiz pela interface web. | Essencial |
+| RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile. | Essencial |
+| RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando. | Essencial |
+| RF006  | O usuário deve ser capaz de editar o quiz pela interface web. | Desejável |
+| RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web. | Desejável |
+| RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz. | Desejável |
+| RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz. | Desejável |
+| RF010  | O usuário deve ser capaz de deletar um quiz criado  pela interface web. | Desejável |
+| RF011  | O usuário deve ser capaz de editar seus dados pela interface web. | Opcional |
+| RF012  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile. | Opcional |
+| RF013  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional |
 
 ## 2.2. Requisitos Não-Funcionais
 
-_Enumere os requisitos não-funcionais previstos para a sua aplicação. Entre os requisitos não funcionais, inclua todos os requisitos que julgar importante do ponto de vista arquitetural ou seja os requisitos que terão impacto na definição da arquitetura. Os requisitos devem ser descritos de forma completa e preferencialmente quantitativa._
-
 | **ID** | **Descrição** |
 | ------ | ------------- |
-| RNF001 |               |
-| RNF002 |               |
+| RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
+| RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado |
+| RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout |
 |        |               |
-|        |               |
-|        |               |
-
-Obs: acrescente mais linhas, se necessário.
 
 ## 2.3. Restrições Arquiteturais
 
