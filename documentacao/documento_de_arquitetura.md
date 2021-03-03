@@ -39,7 +39,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[24/02/2021]** |[Thiago Silva]   | [Descrição da apresentação do projeto na seção 1]                                                              |    [1.1]   |
 | **[25/02/2021]** |[Thiago Silva]   |[Adição dos e-mails dos autores, descrição do problema na seção 1.1 e preenchimento de abreviaturas na seção 1.3]|    [1.2]   |
 | **[28/02/2021]** |[Guilherme Diniz, Guilherme Oliveira, Matheus Felipe]   |[Adição de requistos]|    [2.0]   |
-| **[03/03/2021]** |[Matheus Felipe]   |[Correção dos objetivos]|    [2.0]   |
+| **[03/03/2021]** |[Matheus Felipe]   |[Correção dos objetivos e requisitos não funcionais]|    [2.0]   |
 
 ## SUMÁRIO
 
