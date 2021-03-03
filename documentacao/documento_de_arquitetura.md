@@ -1,4 +1,4 @@
-# TITULO DO PROJETO
+# GoAsk
 
 **Guilherme Campos Barata Diniz, dinizwalker@gmail.com**
 
@@ -38,6 +38,8 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[24/02/2021]** |[Matheus Felipe] | [Adição dos nomes dos autores e descrição dos objetivos do projeto na seção 1.2]                               |    [1.0]   |
 | **[24/02/2021]** |[Thiago Silva]   | [Descrição da apresentação do projeto na seção 1]                                                              |    [1.1]   |
 | **[25/02/2021]** |[Thiago Silva]   |[Adição dos e-mails dos autores, descrição do problema na seção 1.1 e preenchimento de abreviaturas na seção 1.3]|    [1.2]   |
+| **[28/02/2021]** |[Guilherme Diniz, Guilherme Oliveira, Matheus Felipe]   |[Adição de requistos]|    [2.0]   |
+| **[03/03/2021]** |[Matheus Felipe]   |[Correção dos objetivos e requisitos não funcionais]|    [2.1]   |
 
 ## SUMÁRIO
 
@@ -83,9 +85,16 @@ Visto isso os professores possuem a missão de tentar despertar o interesse a at
 
 ## 1.2. Objetivos do trabalho
 
-Este projeto tem como objetivo principal tornar o aprendizado mais descontraído, leve e autônomo, por meio de um módulo web que permita a administração de quizes onlines nos quais se comunicam por um módulo mobile em que qualquer usuário poderá participar e desafiar esse quiz a partir de um código gerado pela aplicação. 
+Este projeto tem como objetivo principal tornar o aprendizado mais descontraído, leve e autônomo, por meio de um módulo web que permita a administração de quizes onlines nos quais se comunicam por um módulo mobile em que qualquer usuário poderá participar e desafiar esse quiz a partir de um código gerado pela aplicação. Para alcançar isso, o projeto tem alguns objetivos específicos:
 
-Para alcançar isso, o projeto tem como objetivo específico um sistema de pontuação e classificação para cada teste criado, que inclui o uso de um módulo de persistência para armazenar jogadores, pontuações e quizes jogados para que ao final do jogo, exiba a colocação final na interface de apresentação ao usuário. Por fim, o projeto também mira desenvolver habilidades sociais por meio da curiosidade e aprendizado, uma vez que este trabalho implementa um sistema distribuído que permitirá a concorrência de vários jogadores em um mesmo quiz, podendo ser amigos ou anônimos.
+- Auxiliar a avaliação do conhecimento de um grupo de pessoas por meio da implementação de um sistema de pontuação e classificação para cada teste criado, que inclui o uso de um módulo de persistência que armazena jogadores, pontuações e quizes jogados para que ao final do jogo, exiba a colocação final na interface de apresentação ao usuário. 
+  
+- Desenvolver habilidades sociais por meio da curiosidade e aprendizado, uma vez que este trabalho implementa um sistema distribuído que permitirá a concorrência de vários jogadores em um mesmo quiz, podendo ser amigos ou anônimos.
+  
+- Criar artefatos que auxiliem no processo de desenvolvimento da aplicação, como a modelagem das classes e o desenho das interfaces que irão compor o sistema;
+
+- Projetar a arquitetura do software para reduzir riscos associados ao projeto e sua manutenção, alinhando expectativas e modelando o sistema com qualidade e flexibilidade.
+
 
 ## 1.3. Definições e Abreviaturas
 
@@ -108,27 +117,27 @@ _Enumere os requisitos funcionais previstos para a sua aplicação. Concentre-se
 
 | **ID** | **Descrição** | **Prioridade** |
 | ------ | ------------- | -------------- |
-| RF001  |               |                |
-| RF002  |               |                |
-|        |               |                |
-|        |               |                |
-|        |               |                |
-
-Obs: acrescente mais linhas, se necessário.
+| RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web. | Essencial |
+| RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web. | Essencial |
+| RF003  | O usuário deve ser capaz de cadastrar um quiz pela interface web. | Essencial |
+| RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile. | Essencial |
+| RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando. | Essencial |
+| RF006  | O usuário deve ser capaz de editar o quiz pela interface web. | Desejável |
+| RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web. | Desejável |
+| RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz. | Desejável |
+| RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz. | Desejável |
+| RF010  | O usuário deve ser capaz de deletar um quiz criado  pela interface web. | Desejável |
+| RF011  | O usuário deve ser capaz de editar seus dados pela interface web. | Opcional |
+| RF012  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile. | Opcional |
+| RF013  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional |
 
 ## 2.2. Requisitos Não-Funcionais
 
-_Enumere os requisitos não-funcionais previstos para a sua aplicação. Entre os requisitos não funcionais, inclua todos os requisitos que julgar importante do ponto de vista arquitetural ou seja os requisitos que terão impacto na definição da arquitetura. Os requisitos devem ser descritos de forma completa e preferencialmente quantitativa._
-
 | **ID** | **Descrição** |
 | ------ | ------------- |
-| RNF001 |               |
-| RNF002 |               |
-|        |               |
-|        |               |
-|        |               |
-
-Obs: acrescente mais linhas, se necessário.
+| RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
+| RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado |
+| RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout |
 
 ## 2.3. Restrições Arquiteturais
 
