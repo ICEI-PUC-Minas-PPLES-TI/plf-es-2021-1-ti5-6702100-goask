@@ -39,6 +39,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[24/02/2021]** |[Thiago Silva]   | [Descrição da apresentação do projeto na seção 1]                                                              |    [1.1]   |
 | **[25/02/2021]** |[Thiago Silva]   |[Adição dos e-mails dos autores, descrição do problema na seção 1.1 e preenchimento de abreviaturas na seção 1.3]|    [1.2]   |
 | **[28/02/2021]** |[Guilherme Diniz, Guilherme Oliveira, Matheus Felipe]   |[Adição de requistos]|    [2.0]   |
+| **[03/03/2021]** |[Matheus Felipe]   |[Correção dos objetivos]|    [2.0]   |
 
 ## SUMÁRIO
 
@@ -84,9 +85,16 @@ Visto isso os professores possuem a missão de tentar despertar o interesse a at
 
 ## 1.2. Objetivos do trabalho
 
-Este projeto tem como objetivo principal tornar o aprendizado mais descontraído, leve e autônomo, por meio de um módulo web que permita a administração de quizes onlines nos quais se comunicam por um módulo mobile em que qualquer usuário poderá participar e desafiar esse quiz a partir de um código gerado pela aplicação. 
+Este projeto tem como objetivo principal tornar o aprendizado mais descontraído, leve e autônomo, por meio de um módulo web que permita a administração de quizes onlines nos quais se comunicam por um módulo mobile em que qualquer usuário poderá participar e desafiar esse quiz a partir de um código gerado pela aplicação. Para alcançar isso, o projeto tem alguns objetivos específicos:
 
-Para alcançar isso, o projeto tem como objetivo específico um sistema de pontuação e classificação para cada teste criado, que inclui o uso de um módulo de persistência para armazenar jogadores, pontuações e quizes jogados para que ao final do jogo, exiba a colocação final na interface de apresentação ao usuário. Por fim, o projeto também mira desenvolver habilidades sociais por meio da curiosidade e aprendizado, uma vez que este trabalho implementa um sistema distribuído que permitirá a concorrência de vários jogadores em um mesmo quiz, podendo ser amigos ou anônimos.
+- Auxiliar a avaliação do conhecimento de um grupo de pessoas por meio da implementação de um sistema de pontuação e classificação para cada teste criado, que inclui o uso de um módulo de persistência que armazena jogadores, pontuações e quizes jogados para que ao final do jogo, exiba a colocação final na interface de apresentação ao usuário. 
+  
+- Desenvolver habilidades sociais por meio da curiosidade e aprendizado, uma vez que este trabalho implementa um sistema distribuído que permitirá a concorrência de vários jogadores em um mesmo quiz, podendo ser amigos ou anônimos.
+  
+- Criar artefatos que auxiliem no processo de desenvolvimento da aplicação, como a modelagem das classes e o desenho das interfaces que irão compor o sistema;
+
+- Projetar a arquitetura do software para reduzir riscos associados ao projeto e sua manutenção, alinhando expectativas e modelando o sistema com qualidade e flexibilidade.
+
 
 ## 1.3. Definições e Abreviaturas
 
