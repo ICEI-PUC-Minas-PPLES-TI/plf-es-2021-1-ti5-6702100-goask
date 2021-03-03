@@ -33,7 +33,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 **1.2 Gerente do Projeto:** Guilherme Oliveira Antônio
 
-**1.3 Cliente do Projeto:**
+**1.3 Cliente do Projeto:** Matheus Felipe Ferreira Martins
 
 **1.4 Tipo de Projeto:**
 
@@ -45,25 +45,29 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 **1.5 Objetivo do projeto:** Tornar o aprendizado mais descontraído, leve e autônomo, desenvolvendo habilidades técnicas e sociais pela curiosidade e diversão.
 
-**1.6 Benefícios que justificam o projeto:** A partir do uso educativo dos quizzes criados e rodados na aplicação.
+**1.6 Benefícios que justificam o projeto:**
+
+- Fazer atividades interativas durante as aula, para melhorar o aprendizado.
+- Despertar o interesse das pessoas a partir de atividades dinâmicas.
+- A partir do uso educativo dos quizzes criados e rodados na aplicação.
 
 **1.7 Qualidade esperada do produto final (requisitos de qualidade):**
 
 - O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código.
 - O sistema deve ter tratamento de erros.
 
-## **2. ESCOPO PRELIMINAR E PREMISSAS** 
+## **2. ESCOPO PRELIMINAR E PREMISSAS**
 
 **2.1 O que será feito (escopo do projeto)**
 
-- Cadastro de usuário na interface web.
-- Cadastro de quiz na interface web.
-- Criação de sala para quiz na interface web.
-- Alteração dos dados do usuário na interface web.
+- Cadastro de usuário.
+- Cadastro de quiz
+- Criação de sala para quiz.
+- Alteração dos dados do usuário.
 - Ver/editar quiz.
 - Estatísticas do quiz,
-- Visualização de salas ativas na interface mobile.
-- Fazer quiz na interface mobile.
+- Visualização de salas ativas.
+- Fazer quiz.
 - Fazer quiz sem necessidade de cadastro.
 - Visualização do resultado ao responder pergunta do quiz.
 - Visualização do resultado no final do quiz.
@@ -73,7 +77,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 - Possibilidade de criar quizzes pera interface mobile.
 - Possibilidade de participar do quiz na interface web.
 - Cadastro de usuário na interface mobile.
-- Quiz ser feito entrada de imagens.
+- Entrada de imagens na criação do quiz.
 
 **2.3 Resultados / serviços / produtos a serem entregues**
 
@@ -94,24 +98,24 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ## 4. ESTIMATIVA DE CUSTO
 
-| Item de custo                               | Qtd. horas   | Valor / hora | Valor total |
-| ------------------------------------------- | ------------ | ------------ | ----------- |
-| **4.1 Recursos Humanos** **(especifique):** | 5 dev - 80 | 0           | 0       |
-| **4.2 Hardware (especifique):**             |      0        |        0      |      0       |
-| **4.3 Rede e serviços de hospedagem:**      |      3 containers - 400       |        0      |        0     |
-| **4.4 Software de terceiros:**              |      0        |       0       |      0       |
-| **4.5 Serviços e treinamento:**             |       0       |        0      |      0       |
-| **4.6 Total Geral:**                        |              |        0      |        0     |
+| Item de custo                               | Qtd. horas | Valor / hora | Valor total |
+| ------------------------------------------- | ---------- | ------------ | ----------- |
+| **4.1 Recursos Humanos** **(especifique):** | 5 dev - 80 | 20           | 8000        |
+| **4.2 Hardware (especifique):**             | 0          | 0            | 0           |
+| **4.3 Rede e serviços de hospedagem:**      | 0          | 0            | 0           |
+| **4.4 Software de terceiros:**              | 0          | 0            | 0           |
+| **4.5 Serviços e treinamento:**             | 0          | 0            | 0           |
+| **4.6 Total Geral:**                        |            | 0            | 8000        |
 
 ## 5. PARTES INTERESSADAS
 
-| Nome                                | Papel no projeto                   | Assinatura |
-| ----------------------------------- | ---------------------------------- | ---------- |
-| Guilherme Campos Barata Diniz       | Desenvolvedor / Gerente do projeto |            |
-| Guilherme Oliveira Antônio          | Desenvolvedor                      |            |
-| Matheus Felipe Ferreira Martins     | Desenvolvedor                      |            |
-| Ricardo Christovão Ferreira Martins | Desenvolvedor                      |            |
-| Thiago Jorge Queiroz Silva          | Desenvolvedor                      |            |
+| Nome                                | Papel no projeto    | Assinatura |
+| ----------------------------------- | ------------------- | ---------- |
+| Guilherme Campos Barata Diniz       | Desenvolvedor lider |            |
+| Guilherme Oliveira Antônio          | Gerente do projeto  |            |
+| Matheus Felipe Ferreira Martins     | Dono do produto     |            |
+| Ricardo Christovão Ferreira Martins | Designer            |            |
+| Thiago Jorge Queiroz Silva          | Lider tecnico       |            |
 
 **Observações:**
 
