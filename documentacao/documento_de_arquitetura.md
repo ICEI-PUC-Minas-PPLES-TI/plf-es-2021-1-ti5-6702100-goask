@@ -39,7 +39,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[24/02/2021]** |[Thiago Silva]   | [Descrição da apresentação do projeto na seção 1]                                                              |    [1.1]   |
 | **[25/02/2021]** |[Thiago Silva]   |[Adição dos e-mails dos autores, descrição do problema na seção 1.1 e preenchimento de abreviaturas na seção 1.3]|    [1.2]   |
 | **[28/02/2021]** |[Guilherme Diniz, Guilherme Oliveira, Matheus Felipe]   |[Adição de requistos]|    [2.0]   |
-| **[03/03/2021]** |[Matheus Felipe]   |[Correção dos objetivos e requisitos não funcionais]|    [2.0]   |
+| **[03/03/2021]** |[Matheus Felipe]   |[Correção dos objetivos e requisitos não funcionais]|    [2.1]   |
 
 ## SUMÁRIO
 
@@ -138,7 +138,6 @@ _Enumere os requisitos funcionais previstos para a sua aplicação. Concentre-se
 | RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
 | RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado |
 | RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout |
-|        |               |
 
 ## 2.3. Restrições Arquiteturais
 
