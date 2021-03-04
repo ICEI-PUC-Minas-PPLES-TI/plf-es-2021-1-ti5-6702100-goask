@@ -40,7 +40,8 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[25/02/2021]** | [Thiago Silva]                                        | [Adição dos e-mails dos autores, descrição do problema na seção 1.1 e preenchimento de abreviaturas na seção 1.3] | [1.2]      |
 | **[28/02/2021]** | [Guilherme Diniz, Guilherme Oliveira, Matheus Felipe] | [Adição de requistos]                                                                                             | [2.0]      |
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Correção dos objetivos e requisitos não funcionais]                                                              | [2.1]      |
-| **[04/03/2021]** | [Thiago Silve]                                        | [Correção da apresentacao e problema]                                                                             | [2.2]      |
+| **[03/03/2021]** | [Matheus Felipe]                                      | [Restrições arquiteturais]                                                                                        | [2.2]      |
+| **[04/03/2021]** | [Thiago Silva]                                        | [Correção da Apresentação e Problema]                                                                             | [2.3]      |
 
 
 ## SUMÁRIO
@@ -109,11 +110,9 @@ FK(Foreign Key) - A sigla FK representa uma associação que é feita a um atrib
 
 # 2. Requisitos
 
-_Esta seção descreve os requisitos comtemplados nesta descrição arquitetural, divididos em dois grupos: funcionais e não funcionais._
+Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 
 ## 2.1. Requisitos Funcionais
-
-_Enumere os requisitos funcionais previstos para a sua aplicação. Concentre-se nos requisitos funcionais que sejam críticos para a definição arquitetural. Lembre-se de listar todos os requisitos que são necessários para garantir cobertura arquitetural. Esta seção deve conter uma lista de requisitos ainda sem modelagem. Na coluna Prioridade utilize uma escala (do mais prioritário para o menos): Essencial, Desejável, Opcional._
 
 | **ID** | **Descrição**                                                                           | **Prioridade** |
 | ------ | --------------------------------------------------------------------------------------- | -------------- |
@@ -141,17 +140,17 @@ _Enumere os requisitos funcionais previstos para a sua aplicação. Concentre-se
 
 ## 2.3. Restrições Arquiteturais
 
-_Enumere as restrições arquiteturais. Lembre-se de que as restrições arquiteturais geralmente não são consideradas requisitos uma vez que limitam a solução candidata. Os requisitos não impõem restrição, mas precisam ser satisfeitos._
+As restrições arquiteturais impostas ao projeto são:
 
-As restrições impostas ao projeto que afetam sua arquitetura são (por exemplo):
-
-- O software deverá ser desenvolvido em Python/Django;
+- A api do software deverá ser desenvolvido em Python/FastApi;
+  
 - A comunicação da API deve seguir o padrão RESTful.
 
-## 2.4. Mecanismos Arquiteturais
+- A interface web deve ser uma single page application desenvolvida em React.
+  
+- O cliente e o servidor devem ser capazes de serem desenvolvidas e alteradas separadamente, sem qualquer dependência um do outro, desde que haja uma conexão.
 
-_Visão geral dos mecanismos que compõem a arquitetura do sosftware baseando-se em três estados: (1) análise, (2) design e (3) implementação. Em termos de Análise devem ser listados os aspectos gerais que compõem a arquitetura do software como: persistência, integração com sistemas legados, geração de logs do sistema, ambiente de front end, tratamento de exceções, formato dos testes, formato de distribuição/implantação (deploy), entre outros. Em Design deve-se identificar o padrão tecnológico a seguir para cada mecanismo identificado na análise. Em Implementação, deve-se identificar o produto a ser utilizado na solução.
-Ex: Análise (Persistência), Design (ORM), Implementação (Hibernate)._
+## 2.4. Mecanismos Arquiteturais
 
 | **Análise**       | **Design**                                 | **Implementação**             |
 | ----------------- | ------------------------------------------ | ----------------------------- |
