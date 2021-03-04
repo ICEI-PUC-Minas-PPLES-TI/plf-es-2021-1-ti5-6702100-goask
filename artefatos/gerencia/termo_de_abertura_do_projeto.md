@@ -33,7 +33,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 **1.2 Gerente do Projeto:** Guilherme Oliveira Antônio
 
-**1.3 Cliente do Projeto:** Matheus Felipe Ferreira Martins
+**1.3 Cliente do Projeto:** Hugo Bastos de Paula, Pedro Alves De Oliveira
 
 **1.4 Tipo de Projeto:**
 
@@ -43,7 +43,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 [ ] Outro: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**1.5 Objetivo do projeto:** Tornar o aprendizado mais descontraído, leve e autônomo, desenvolvendo habilidades técnicas e sociais pela curiosidade e diversão.
+**1.5 Objetivo do projeto:** Desenvolver um sistema que torne o aprendizado mais descontraído, leve e autônomo, desenvolvendo habilidades técnicas e sociais pela curiosidade e diversão.
 
 **1.6 Benefícios que justificam o projeto:**
 
@@ -60,24 +60,26 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 **2.1 O que será feito (escopo do projeto)**
 
-- Cadastro de usuário.
-- Cadastro de quiz
-- Criação de sala para quiz.
-- Alteração dos dados do usuário.
-- Ver/editar quiz.
-- Estatísticas do quiz,
-- Visualização de salas ativas.
-- Fazer quiz.
-- Fazer quiz sem necessidade de cadastro.
-- Visualização do resultado ao responder pergunta do quiz.
-- Visualização do resultado no final do quiz.
+- Desenvolver um sistema que permita cadastro de usuário na interface web.
+- Desenvolver um sistema que permita cadastro de quiz na interface web.
+- Desenvolver um sistema que permita criar salas para quizzes na interface web.
+- Desenvolver um sistema que permita alterar dados do usuário na interface web.
+- Desenvolver um sistema que permita ver e editar um quiz.
+- Desenvolver um sistema que exibe estatísticas de quizzes.
+- Desenvolver um sistema que exibe salas ativas na interface mobile.
+- Desenvolver um sistema que permita ao usuário realizar um quiz na interface - mobile.
+- Desenvolver um sistema que permita ao usuário realizar os quizes sem - necessidade de cadastro.
+- Desenvolver um sistema que exiba os resultados ao responder pergunta do quiz.
+- Desenvolver um sistema exiba o resultado final do quiz.
+
 
 **2.2 O que não será feito no projeto (contra-escopo)**
 
-- Possibilidade de criar quizzes pera interface mobile.
-- Possibilidade de participar do quiz na interface web.
-- Cadastro de usuário na interface mobile.
-- Entrada de imagens na criação do quiz.
+- Desenvolver um sistema que permita criar quizzes pera interface mobile.
+- Desenvolver um sistema que permita a participação de usuários em um quiz pela interface web.
+- Desenvolver um sistema que permita cadastro de usuário na interface mobile.
+- Desenvolver um sistema que permita a entrada de imagens em quiz.
+
 
 **2.3 Resultados / serviços / produtos a serem entregues**
 
