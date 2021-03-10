@@ -117,17 +117,16 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | ------ | --------------------------------------------------------------------------------------- | -------------- |
 | RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web.                     | Essencial      |
 | RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web.          | Essencial      |
-| RF003  | O usuário deve ser capaz de cadastrar um quiz pela interface web.                       | Essencial      |
+| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.                       | Essencial      |
 | RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile.                    | Essencial      |
 | RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando.        | Essencial      |
 | RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.        | Essencial      |
-| RF007  | O usuário deve ser capaz de editar ou excluir o quiz pela interface web.                           | Desejável      |
-| RF008  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
-| RF009  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
-| RF010  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
-| RF011  | O usuário deve ser capaz de editar seus dados pela interface web.                       | Opcional       |
-| RF012  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile.      | Opcional       |
-| RF013  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional       |
+| RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
+| RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
+| RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
+| RF010  | O usuário deve ser capaz de editar seus dados pela interface web.                       | Opcional       |
+| RF011  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile.      | Opcional       |
+| RF012  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional       |
 
 ## 2.2. Requisitos Não-Funcionais
 
