@@ -124,9 +124,8 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
 | RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
 | RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
-| RF010  | O usuário deve ser capaz de editar seus dados pela interface web.                       | Opcional       |
-| RF011  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile.      | Opcional       |
-| RF012  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional       |
+| RF010  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile.      | Opcional       |
+| RF011  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional       |
 
 ## 2.2. Requisitos Não-Funcionais
 
