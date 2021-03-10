@@ -113,8 +113,10 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 | Nome                                | Papel no projeto    | Assinatura |
 | ----------------------------------- | ------------------- | ---------- |
-| Guilherme Campos Barata Diniz       | Desenvolvedor lider |            |
 | Guilherme Oliveira Antônio          | Gerente do projeto  |            |
+| Hugo Bastos de Paula                | Cliente             |            |
+| Pedro Alves De Oliveira             | Cliente             |            |
+| Guilherme Campos Barata Diniz       | Desenvolvedor lider |            |
 | Matheus Felipe Ferreira Martins     | Dono do produto     |            |
 | Ricardo Christovão Ferreira Martins | Designer            |            |
 | Thiago Jorge Queiroz Silva          | Lider tecnico       |            |
