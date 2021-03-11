@@ -42,6 +42,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Correção dos objetivos e requisitos não funcionais]                                                              | [2.1]      |
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Restrições arquiteturais]                                                                                        | [2.2]      |
 | **[04/03/2021]** | [Thiago Silva]                                        | [Correção da Apresentação e Problema]                                                                             | [2.3]      |
+| **[10/03/2021]** | [Matheus Felipe]                                        | [Revisão de objetivos e requisitos]                                                                             | [3.0]      |
 
 
 ## SUMÁRIO
@@ -90,10 +91,8 @@ Visto isso os professores possuem a missão de tentar despertar o interesse e a 
 
 ## 1.2. Objetivos do trabalho
 
-Este projeto tem como objetivo principal tornar o aprendizado mais descontraído, leve e autônomo, por meio de um módulo web que permita a administração de quizes onlines nos quais se comunicam por um módulo mobile em que qualquer usuário poderá participar e desafiar esse quiz a partir de um código gerado pela aplicação. Para alcançar isso, o projeto tem alguns objetivos específicos:
-
-- Auxiliar a avaliação do conhecimento de um grupo de pessoas por meio da implementação de um sistema de pontuação e classificação para cada teste criado, que inclui o uso de um módulo de persistência que armazena jogadores, pontuações e quizes jogados para que ao final do jogo, exiba a colocação final na interface de apresentação ao usuário.
-- Desenvolver habilidades sociais por meio da curiosidade e aprendizado, uma vez que este trabalho implementa um sistema distribuído que permitirá a concorrência de vários jogadores em um mesmo quiz, podendo ser amigos ou anônimos.
+Este projeto tem como objetivo principal implementar um sistema distribuído que permitirá a criação de quizes personalizados e a concorrência de vários jogadores que entram para jogar esse quiz, podendo ser amigos ou anônimos. Para alcançar isso, o projeto tem alguns objetivos específicos:
+  
 - Criar artefatos que auxiliem no processo de desenvolvimento da aplicação, como a modelagem das classes e o desenho das interfaces que irão compor o sistema;
 
 - Projetar a arquitetura do software para reduzir riscos associados ao projeto e sua manutenção, alinhando expectativas e modelando o sistema com qualidade e flexibilidade.
@@ -118,17 +117,15 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | ------ | --------------------------------------------------------------------------------------- | -------------- |
 | RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web.                     | Essencial      |
 | RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web.          | Essencial      |
-| RF003  | O usuário deve ser capaz de cadastrar um quiz pela interface web.                       | Essencial      |
+| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.                       | Essencial      |
 | RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile.                    | Essencial      |
 | RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando.        | Essencial      |
-| RF006  | O usuário deve ser capaz de editar o quiz pela interface web.                           | Desejável      |
+| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.        | Essencial      |
 | RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
 | RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
 | RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
-| RF010  | O usuário deve ser capaz de deletar um quiz criado pela interface web.                  | Desejável      |
-| RF011  | O usuário deve ser capaz de editar seus dados pela interface web.                       | Opcional       |
-| RF012  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile.      | Opcional       |
-| RF013  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional       |
+| RF010  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile.      | Opcional       |
+| RF011  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional       |
 
 ## 2.2. Requisitos Não-Funcionais
 
@@ -137,6 +134,7 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
 | RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado                                                 |
 | RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout                                                   |
+| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                   |
 
 ## 2.3. Restrições Arquiteturais
 
