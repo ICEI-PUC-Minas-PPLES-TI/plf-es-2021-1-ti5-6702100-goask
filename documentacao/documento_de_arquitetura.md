@@ -242,15 +242,19 @@ Ex: conforme diagrama apresentado na Figura X, as entidades participantes da sol
 - **Componente 1** - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc magna, accumsan eget porta a, tincidunt sed mauris. Suspendisse orci nulla, sagittis a lorem laoreet, tincidunt imperdiet ipsum. Morbi malesuada pretium suscipit.
 - **Componente 2** - Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
 
-## 3.3. Modelo de dados (opcional)
-
-_Caso julgue necessário para explicar a arquitetura, apresente o diagrama de classes ou diagrama de Entidade/Relacionamentos ou tabelas do banco de dados. Este modelo pode ser essencial caso a arquitetura utilize uma solução de banco de dados distribuídos ou um banco NoSQL._
+## 3.3. Modelo de dados 
 
 ![Diagrama de Entidade Relacionamento (ER) ](imagens/der.png "Diagrama de Entidade Relacionamento (ER) ")
 
-**Figura 4 – Diagrama de Entidade Relacionamento (ER) - exemplo. Fonte: o próprio autor.**
+**Figura 4 – Diagrama de Entidade Relacionamento (ER) - Fonte: o próprio grupo.**
 
-Obs: Acrescente uma breve descrição sobre o diagrama apresentado na Figura 3.
+Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos dados. No diagrama acima, pode-se perceber que nosso banco apresenta uma modelagem bem simples. Utilizamos apenas 5 tabelas com poucas colunas cada.  
+
+- **Test**: representa o "modelo" de um quiz. Relacionando o usuário criador com as perguntas e a categoria do quiz.
+- **User**: representa um usuário dentro do sistema de criação de quiz. Esse usuário pode criar modelos dos quiz e salas.
+- **Category**: representa uma categoria de um modelo de quiz criado.
+- **Question**: representa uma questão de um modelo de quiz criado.
+- **Answer**: representa uma reposta de uma pergunta de um modelo de quiz.
 
 <a name="avaliacao"></a>
 
