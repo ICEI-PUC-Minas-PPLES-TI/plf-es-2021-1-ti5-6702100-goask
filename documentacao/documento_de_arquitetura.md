@@ -42,8 +42,8 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Correção dos objetivos e requisitos não funcionais]                                                              | [2.1]      |
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Restrições arquiteturais]                                                                                        | [2.2]      |
 | **[04/03/2021]** | [Thiago Silva]                                        | [Correção da Apresentação e Problema]                                                                             | [2.3]      |
-| **[10/03/2021]** | [Matheus Felipe]                                        | [Revisão de objetivos e requisitos]                                                                             | [3.0]      |
-
+| **[10/03/2021]** | [Matheus Felipe]                                      | [Revisão de objetivos e requisitos]                                                                               | [3.0]      |
+| **[17/03/2021]** | [Guilherme Diniz ]                                    | [Modelo de Dados]                                                                                                 | [4.1]      |
 
 ## SUMÁRIO
 
@@ -117,10 +117,10 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | ------ | --------------------------------------------------------------------------------------- | -------------- |
 | RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web.                     | Essencial      |
 | RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web.          | Essencial      |
-| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.                       | Essencial      |
+| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.    | Essencial      |
 | RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile.                    | Essencial      |
 | RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando.        | Essencial      |
-| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.        | Essencial      |
+| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.                         | Essencial      |
 | RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
 | RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
 | RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
@@ -134,7 +134,7 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
 | RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado                                                 |
 | RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout                                                   |
-| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                   |
+| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                                 |
 
 ## 2.3. Restrições Arquiteturais
 
