@@ -42,8 +42,8 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Correção dos objetivos e requisitos não funcionais]                                                              | [2.1]      |
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Restrições arquiteturais]                                                                                        | [2.2]      |
 | **[04/03/2021]** | [Thiago Silva]                                        | [Correção da Apresentação e Problema]                                                                             | [2.3]      |
-| **[10/03/2021]** | [Matheus Felipe]                                        | [Revisão de objetivos e requisitos]                                                                             | [3.0]      |
-
+| **[10/03/2021]** | [Matheus Felipe]                                      | [Revisão de objetivos e requisitos]                                                                               | [3.0]      |
+| **[17/03/2021]** | [Guilherme Diniz ]                                    | [Modelo de Dados]                                                                                                 | [4.1]      |
 
 ## SUMÁRIO
 
@@ -117,10 +117,10 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | ------ | --------------------------------------------------------------------------------------- | -------------- |
 | RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web.                     | Essencial      |
 | RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web.          | Essencial      |
-| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.                       | Essencial      |
+| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.    | Essencial      |
 | RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile.                    | Essencial      |
 | RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando.        | Essencial      |
-| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.        | Essencial      |
+| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.                         | Essencial      |
 | RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
 | RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
 | RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
@@ -134,7 +134,7 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
 | RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado                                                 |
 | RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout                                                   |
-| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                   |
+| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                                 |
 
 ## 2.3. Restrições Arquiteturais
 
@@ -242,15 +242,19 @@ Ex: conforme diagrama apresentado na Figura X, as entidades participantes da sol
 - **Componente 1** - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc magna, accumsan eget porta a, tincidunt sed mauris. Suspendisse orci nulla, sagittis a lorem laoreet, tincidunt imperdiet ipsum. Morbi malesuada pretium suscipit.
 - **Componente 2** - Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
 
-## 3.3. Modelo de dados (opcional)
-
-_Caso julgue necessário para explicar a arquitetura, apresente o diagrama de classes ou diagrama de Entidade/Relacionamentos ou tabelas do banco de dados. Este modelo pode ser essencial caso a arquitetura utilize uma solução de banco de dados distribuídos ou um banco NoSQL._
+## 3.3. Modelo de dados 
 
 ![Diagrama de Entidade Relacionamento (ER) ](imagens/der.png "Diagrama de Entidade Relacionamento (ER) ")
 
-**Figura 4 – Diagrama de Entidade Relacionamento (ER) - exemplo. Fonte: o próprio autor.**
+**Figura 4 – Diagrama de Entidade Relacionamento (ER) - Fonte: o próprio grupo.**
 
-Obs: Acrescente uma breve descrição sobre o diagrama apresentado na Figura 3.
+Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos dados. No diagrama acima, pode-se perceber que nosso banco apresenta uma modelagem bem simples. Utilizamos apenas 5 tabelas com poucas colunas cada.  
+
+- **Test**: representa o "modelo" de um quiz. Relacionando o usuário criador com as perguntas e a categoria do quiz.
+- **User**: representa um usuário dentro do sistema de criação de quiz. Esse usuário pode criar modelos dos quiz e salas.
+- **Category**: representa uma categoria de um modelo de quiz criado.
+- **Question**: representa uma questão de um modelo de quiz criado.
+- **Answer**: representa uma reposta de uma pergunta de um modelo de quiz.
 
 <a name="avaliacao"></a>
 
