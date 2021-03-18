@@ -42,7 +42,9 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Correção dos objetivos e requisitos não funcionais]                                                              | [2.1]      |
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Restrições arquiteturais]                                                                                        | [2.2]      |
 | **[04/03/2021]** | [Thiago Silva]                                        | [Correção da Apresentação e Problema]                                                                             | [2.3]      |
-| **[10/03/2021]** | [Matheus Felipe]                                        | [Revisão de objetivos e requisitos]                                                                             | [3.0]      |
+| **[10/03/2021]** | [Matheus Felipe]                                      | [Revisão de objetivos e requisitos]                                                                               | [3.0]      |
+| **[17/03/2021]** | [Thiago Silva]                                        | [Descrição de casos de uso e histórias de usuário]                                                                | [4.3]      |
+
 
 
 ## SUMÁRIO
@@ -203,7 +205,7 @@ Obs: a quantidade e o escopo das funcionalidades deve ser negociado com os profe
 | **Atores**                |Usuário web|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF002    |
-| **Fluxo Principal**       |Usuário acessa página de login na plataforma - Usuário preenche formularios de login - Sistema valida os dados preenchidos pelo usuário - Sistema direciona usuário para a página de dashboard|
+| **Fluxo Principal**       |Usuário acessa página de login na plataforma - Usuário preenche formuláios de login - Sistema valida os dados preenchidos pelo usuário - Sistema direciona usuário para a página de dashboard|
 
 #### UC03 – Criar quiz
 
@@ -266,7 +268,7 @@ DUVIDA
 | **Atores**                |Usuário mobile|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF005    |
-| **Fluxo Principal**       |Sistema inicia quiz de acordo com horário previsto pelo criador - Sistema remove quiz da lista de quizes disponíveis - Sistema exibe pergunta aos participantes - Participante sleciona uma pergunta - Sistema salva resposta do participante|
+| **Fluxo Principal**       |Sistema inicia quiz de acordo com horário previsto pelo criador - Sistema remove quiz da lista de quizes disponíveis - Sistema exibe pergunta aos participantes - Participante sleciona uma resposta - Sistema salva resposta do participante|
 
 #### UC10 – Visualizar ranking parcial do quiz
 DUVIDA
@@ -275,7 +277,7 @@ DUVIDA
 | **Atores**                |Usuário mobile|
 | **Prioridade**            | Desejável |
 | **Requisitos associados** |  RF008    |
-| **Fluxo Principal**       ||
+| **Fluxo Principal**       |Sistema exibe uma pergunta do quiz para que usuário possa responder - Usuário seleciona uma resposta - Sistema salva resposta do participante - Sistema atualiza ranking de pontuação dos participantes - Sistema exibe ranking parcial do quiz|
 
 #### UC11 – Visualizar ranking final do quiz
 
@@ -294,8 +296,6 @@ Exemplos de Histórias de Usuário:
 - Como Marta(professora) gostaria de um metodo para tomar uma maior atenção de meus alunos durante as aulas para produzir aulas que provoquem o interesse e a intereção dos alunos durante as aulas. Preciso também conseguir avaliar melhor o desempenho dos meus alunos durante as aulas para ver em quais aspectos da matéria minhas turmas estão tendo dificuldades.
 
 - Como Wesley eu gostaria de poder criar desafios com várias perguntas sobre divresos assuntos para meus amigos responderem para que possamos nos divertirmos e vermos quem consegue se sair melhor diante das perguntas.
-
-- Como gerente eu quero conseguir entender o progresso do trabalho do meu time, para que eu possa ter relatórios periódicos dos nossos acertos e falhas.
 
 ## 3.2. Visão Lógica
 
