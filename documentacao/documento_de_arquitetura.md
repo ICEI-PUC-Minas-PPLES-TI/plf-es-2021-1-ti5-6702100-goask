@@ -180,13 +180,13 @@ A comunicação com o back-end é por meio de uma api RESTful programada em pyth
 
 ## 3.1. Visão de Negócio (Funcionalidades)
 
-_Apresente uma lista simples com as funcionalidades previstas no projeto (escopo do produto)._
-
-1. O sistema deve...
-2. O sistema deve...
-3. ...
-
-Obs: a quantidade e o escopo das funcionalidades deve ser negociado com os professores/orientadores do trabalho.
+1. O sistema deve permitir cadastro e login de usuário na interface web.
+2. O sistema deve permitir manipulação de quiz na interface web.
+3. O sistema deve exibir estatísticas de quizzes.
+4. O sistema deve exibir salas ativas na interface mobile.
+5. O sistema deve permitir a realização de um quiz na interface mobile e a ativação de um quiz pela interface web.
+6. O sistema deve exibir os resultados ao responder pergunta do quiz.
+7. O sistema deve exibir o resultado final do quiz.
 
 ### Descrição resumida dos Casos de Uso / Histórias de Usuário
 
