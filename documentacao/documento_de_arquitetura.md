@@ -43,6 +43,8 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[03/03/2021]** | [Matheus Felipe]                                      | [Restrições arquiteturais]                                                                                        | [2.2]      |
 | **[04/03/2021]** | [Thiago Silva]                                        | [Correção da Apresentação e Problema]                                                                             | [2.3]      |
 | **[10/03/2021]** | [Matheus Felipe]                                      | [Revisão de objetivos e requisitos]                                                                               | [3.0]      |
+| **[17/03/2021]** | [Guilherme Diniz ]                                    | [Modelo de Dados]                                                                                                 | [4.1]      |
+| **[17/03/2021]** | [Matheus Felipe]                                      | [Diagrama de Visão]                                                                                               | [4.2]      |
 | **[17/03/2021]** | [Thiago Silva]                                        | [Descrição de casos de uso e histórias de usuário]                                                                | [4.3]      |
 
 
@@ -119,10 +121,10 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | ------ | --------------------------------------------------------------------------------------- | -------------- |
 | RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web.                     | Essencial      |
 | RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web.          | Essencial      |
-| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.                       | Essencial      |
+| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.    | Essencial      |
 | RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile.                    | Essencial      |
 | RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando.        | Essencial      |
-| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.        | Essencial      |
+| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.                         | Essencial      |
 | RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
 | RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
 | RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
@@ -136,7 +138,7 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 | RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
 | RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado                                                 |
 | RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout                                                   |
-| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                   |
+| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                                 |
 
 ## 2.3. Restrições Arquiteturais
 
@@ -167,13 +169,14 @@ As restrições arquiteturais impostas ao projeto são:
 
 # 3. Modelagem e projeto arquitetural
 
-_Apresente uma visão geral da solução proposta para o projeto e explique brevemente esse diagrama de visão geral, de forma textual. Esse diagrama não precisa seguir os padrões da UML, e deve ser completo e tão simples quanto possível, apresentando a macroarquitetura da solução._
-
 ![Visão Geral da Solução](imagens/visao.png "Visão Geral da Solução")
 
-**Figura 1 - Visão Geral da Solução (fonte: https://medium.com)**
 
-Obs: substitua esta imagem por outra, adequada ao seu projeto (cada arquitetura é única).
+**Figura 1 - Visão Geral da Solução. Fonte: os próprios autores.**
+
+Ao acessar o sistema, o cliente web receberá a interface disponibilizada pelo ReactJs, enquanto para o cliente mobile a interface é renderizada pelo ReactNative, ambos será utilizado a programação em TypeScript para manter o coódigo mais padronizado e auxiliar na descoberta de erros durante o desenvolvimento. Haverá também o Redux para armazenar alguns dados usados a fim de aumentar o desempenho e o NextJs para tornar a aplicação mais performática.
+
+A comunicação com o back-end é por meio de uma api RESTful programada em python e disponibilizada com o framework FastApi. Por meio do python, a aplicação implementa o servidor de mensageria RabbitMQ e se conecta ao banco de dados PostgreSQL pela técnica ORM. Todo o projeto é envolvido pelo ambiente virtual disponibilizado pelo Docker.
 
 ## 3.1. Visão de Negócio (Funcionalidades)
 
@@ -299,40 +302,45 @@ Exemplos de Histórias de Usuário:
 
 ## 3.2. Visão Lógica
 
-_Apresente os artefatos que serão utilizados descrevendo em linhas gerais as motivações que levaram a equipe a utilizar estes diagramas._
-
-### Diagrama de Classes
-
-![Diagrama de classes](imagens/classes.gif "Diagrama de classes")
-
-**Figura 2 – Diagrama de classes (exemplo). Fonte: o próprio autor.**
-
-Obs: Acrescente uma breve descrição sobre o diagrama apresentado na Figura 3.
-
 ### Diagrama de componentes
-
-_Apresente o diagrama de componentes da aplicação, indicando, os elementos da arquitetura e as interfaces entre eles. Liste os estilos/padrões arquiteturais utilizados e faça uma descrição sucinta dos componentes indicando o papel de cada um deles dentro da arquitetura/estilo/padrão arquitetural. Indique também quais componentes serão reutilizados (navegadores, SGBDs, middlewares, etc), quais componentes serão adquiridos por serem proprietários e quais componentes precisam ser desenvolvidos._
 
 ![Diagrama de componentes](imagens/componentes.png "Diagrama de componentes")
 
-**Figura 3 – Diagrama de Componentes (exemplo). Fonte: o próprio autor.**
+**Figura 3 – Diagrama de Componentes. Fonte: o próprio grupo.**
 
-_Apresente uma descrição detalhada dos artefatos que constituem o diagrama de implantação._
+Como mostrado na Figura 3, nossa aplicação apresenta três camadas maiores, além das camadas de banco de dados, de integração e a do próprio cliente.
 
-Ex: conforme diagrama apresentado na Figura X, as entidades participantes da solução são:
+- Camada de FrontEnd:
+  - Utiliza do React, NextJS e Redux da maneira mais simples possíveis.
+  - Existem telas gerais que abrigam componentes TSX, chamadas containers.
+  - A *Store* mantêm todos os dados gerais da aplicação e é a base do Redux.
+  - O componente *App* é o principal, renderizado a na página única acessada pelo cliente no browser através do JavaScript.
+  - A conexão com a API do BackEnd é feita a partir do módulo *ApiConnector*.
+- Camada de Mobile:
+  - Por utilizar ReactNative e Redux, a arquitetura dessa camada é praticamente igual a do FrontEnd. A diferença estando na separação de telas e não de containers.
+  - Além disso, existem módulos separados para o build do Android e do IOs, que apresentam arquivos de configuração específicos.
+  - O cliente acessa o aplicativo mobile através do seu aparelho Android ou IOs.
+- Camada BackEnd:
+  - Utiliza da biblioteca Python FastAPI.
+  - A API é configurada no arquivo principal *main.py*, que pega as rotas do módulo *routers.py* e as dependências do módilo *dependecies.py*.
+  - Os modelo de dados e objetos ORM são declarados no módulo *db.py*, junto da conexão externa com o banco.
 
-- **Componente 1** - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc magna, accumsan eget porta a, tincidunt sed mauris. Suspendisse orci nulla, sagittis a lorem laoreet, tincidunt imperdiet ipsum. Morbi malesuada pretium suscipit.
-- **Componente 2** - Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
+- Todas as camadas apresentam um arquivo de configuração de container Docker (*Dockerfile*). Esses arquivos são utilizados pelo módulo do *DockerCompose*, que apresenta um arquivo de configuração para subir todos ao mesmo tempo.
 
-## 3.3. Modelo de dados (opcional)
 
-_Caso julgue necessário para explicar a arquitetura, apresente o diagrama de classes ou diagrama de Entidade/Relacionamentos ou tabelas do banco de dados. Este modelo pode ser essencial caso a arquitetura utilize uma solução de banco de dados distribuídos ou um banco NoSQL._
+## 3.3. Modelo de dados 
 
 ![Diagrama de Entidade Relacionamento (ER) ](imagens/der.png "Diagrama de Entidade Relacionamento (ER) ")
 
-**Figura 4 – Diagrama de Entidade Relacionamento (ER) - exemplo. Fonte: o próprio autor.**
+**Figura 4 – Diagrama de Entidade Relacionamento (ER) - Fonte: o próprio grupo.**
 
-Obs: Acrescente uma breve descrição sobre o diagrama apresentado na Figura 3.
+Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos dados. No diagrama acima, pode-se perceber que nosso banco apresenta uma modelagem bem simples. Utilizamos apenas 5 tabelas com poucas colunas cada.  
+
+- **Test**: representa o "modelo" de um quiz. Relacionando o usuário criador com as perguntas e a categoria do quiz.
+- **User**: representa um usuário dentro do sistema de criação de quiz. Esse usuário pode criar modelos dos quiz e salas.
+- **Category**: representa uma categoria de um modelo de quiz criado.
+- **Question**: representa uma questão de um modelo de quiz criado.
+- **Answer**: representa uma reposta de uma pergunta de um modelo de quiz.
 
 <a name="avaliacao"></a>
 

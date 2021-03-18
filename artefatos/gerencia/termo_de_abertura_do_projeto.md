@@ -33,7 +33,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 **1.2 Gerente do Projeto:** Guilherme Oliveira Antônio
 
-**1.3 Cliente do Projeto:** Matheus Felipe Ferreira Martins
+**1.3 Cliente do Projeto:** Hugo Bastos de Paula, Pedro Alves De Oliveira
 
 **1.4 Tipo de Projeto:**
 
@@ -43,13 +43,13 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 [ ] Outro: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-**1.5 Objetivo do projeto:** Tornar o aprendizado mais descontraído, leve e autônomo, desenvolvendo habilidades técnicas e sociais pela curiosidade e diversão.
+**1.5 Objetivo do projeto:** Desenvolver um sistema de quiz em que o usuário pode cadastrar quizzes e distribuir para que outros usuários possam faze-lo.
 
 **1.6 Benefícios que justificam o projeto:**
 
 - Fazer atividades interativas durante as aula, para melhorar o aprendizado.
 - Despertar o interesse das pessoas a partir de atividades dinâmicas.
-- A partir do uso educativo dos quizzes criados e rodados na aplicação.
+- Usar quizzes educativo criados e rodados na aplicação.
 
 **1.7 Qualidade esperada do produto final (requisitos de qualidade):**
 
@@ -60,24 +60,26 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 **2.1 O que será feito (escopo do projeto)**
 
-- Cadastro de usuário.
-- Cadastro de quiz
-- Criação de sala para quiz.
-- Alteração dos dados do usuário.
-- Ver/editar quiz.
-- Estatísticas do quiz,
-- Visualização de salas ativas.
-- Fazer quiz.
-- Fazer quiz sem necessidade de cadastro.
-- Visualização do resultado ao responder pergunta do quiz.
-- Visualização do resultado no final do quiz.
+- O sistema deverá permitir cadastro de usuário na interface web.
+- O sistema deverá permitir cadastro de quiz na interface web.
+- O sistema deverá permitir criar salas para quizzes na interface web.
+- O sistema deverá permitir alterar dados do usuário na interface web.
+- O sistema deverá permitir ver e editar um quiz.
+- O sistema deverá exibir estatísticas de quizzes.
+- O sistema deverá exibir salas ativas na interface mobile.
+- O sistema deverá permitir ao usuário realizar um quiz na interface - mobile.
+- O sistema deverá permitir ao usuário realizar os quizes sem - necessidade de cadastro.
+- O sistema deverá exibir os resultados ao responder pergunta do quiz.
+- O sistema deverá exibir o resultado final do quiz.
+
 
 **2.2 O que não será feito no projeto (contra-escopo)**
 
-- Possibilidade de criar quizzes pera interface mobile.
-- Possibilidade de participar do quiz na interface web.
-- Cadastro de usuário na interface mobile.
-- Entrada de imagens na criação do quiz.
+- O sistema deverá permitir criar quizzes pera interface mobile.
+- O sistema deverá permitir a participação de usuários em um quiz pela interface web.
+- O sistema deverá permitir cadastro de usuário na interface mobile.
+- O sistema deverá permitir a entrada de imagens em quiz.
+
 
 **2.3 Resultados / serviços / produtos a serem entregues**
 
@@ -87,7 +89,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 **2.4 Condições para início do projeto**
 
-- O cliente deve ter disponibilidade para consultar os resultados da sprint a cada 2 ou 3 semanas.
+- O cliente deve ter disponibilidade para consultar os resultados da sprint.
 
 ## 3. ESTIMATIVA DE PRAZO
 
@@ -98,21 +100,23 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ## 4. ESTIMATIVA DE CUSTO
 
-| Item de custo                               | Qtd. horas | Valor / hora | Valor total |
-| ------------------------------------------- | ---------- | ------------ | ----------- |
-| **4.1 Recursos Humanos** **(especifique):** | 5 dev - 80 | 20           | 8000        |
-| **4.2 Hardware (especifique):**             | 0          | 0            | 0           |
-| **4.3 Rede e serviços de hospedagem:**      | 0          | 0            | 0           |
-| **4.4 Software de terceiros:**              | 0          | 0            | 0           |
-| **4.5 Serviços e treinamento:**             | 0          | 0            | 0           |
-| **4.6 Total Geral:**                        |            | 0            | 8000        |
+| Item de custo                               |        Qtd. horas           | Valor / hora | Valor total |
+| ------------------------------------------- | --------------------------- | ------------ | ----------- |
+| **4.1 Recursos Humanos** **(especifique):** | 5 devs trabalhando 80h cada | 20           | 8000        |
+| **4.2 Hardware (especifique):**             | 0                           | 0            | 0           |
+| **4.3 Rede e serviços de hospedagem:**      | 0                           | 0            | 0           |
+| **4.4 Software de terceiros:**              | 0                           | 0            | 0           |
+| **4.5 Serviços e treinamento:**             | 0                           | 0            | 0           |
+| **4.6 Total Geral:**                        | 400                         | 20           | 8000        |
 
 ## 5. PARTES INTERESSADAS
 
 | Nome                                | Papel no projeto    | Assinatura |
 | ----------------------------------- | ------------------- | ---------- |
-| Guilherme Campos Barata Diniz       | Desenvolvedor lider |            |
 | Guilherme Oliveira Antônio          | Gerente do projeto  |            |
+| Hugo Bastos de Paula                | Cliente             |            |
+| Pedro Alves De Oliveira             | Cliente             |            |
+| Guilherme Campos Barata Diniz       | Desenvolvedor lider |            |
 | Matheus Felipe Ferreira Martins     | Dono do produto     |            |
 | Ricardo Christovão Ferreira Martins | Designer            |            |
 | Thiago Jorge Queiroz Silva          | Lider tecnico       |            |
