@@ -185,7 +185,7 @@ Obs: a quantidade e o escopo das funcionalidades deve ser negociado com os profe
 
 ### Descrição resumida dos Casos de Uso / Histórias de Usuário
 
-imagens/CasosDeUso.png
+![Visão Geral da Solução](imagens/CasosDeUso.png "Visão Geral da Solução")
 
 #### UC01 – Cadastrar no sistema
 
