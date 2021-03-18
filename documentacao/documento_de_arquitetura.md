@@ -298,7 +298,7 @@ Exemplos de Histórias de Usuário:
 
 - Como Marta(professora) gostaria de um metodo para tomar uma maior atenção de meus alunos durante as aulas para produzir aulas que provoquem o interesse e a intereção dos alunos durante as aulas. Preciso também conseguir avaliar melhor o desempenho dos meus alunos durante as aulas para ver em quais aspectos da matéria minhas turmas estão tendo dificuldades.
 
-- Como Wesley eu gostaria de poder criar desafios com várias perguntas sobre divresos assuntos para meus amigos responderem para que possamos nos divertirmos e vermos quem consegue se sair melhor diante das perguntas.
+- Como Wesley eu gostaria de poder criar desafios com várias perguntas sobre divresos assuntos para meus amigos responderem para que possamos nos divertir e vermos quem consegue se sair melhor diante das perguntas.
 
 ## 3.2. Visão Lógica
 
