@@ -189,29 +189,113 @@ _Nesta seção, os casos de uso devem ser resumidos. Esse detalhamento pode ser 
 
 Exemplos de resumo de Casos de Uso:
 
-#### UC01 – NOME DO CASO DE USO 01
+#### UC01 – Cadastrar no sistema
 
 | **Descrição**             |     |
 | ------------------------- | --- |
-| **Atores**                |     |
-| **Prioridade**            |     |
-| **Requisitos associados** |     |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF001    |
 | **Fluxo Principal**       |     |
 
-#### UC02 – NOME DO CASO DE USO 02
+#### UC02 – Logar no sistema
 
 | **Descrição**             |     |
 | ------------------------- | --- |
-| **Atores**                |     |
-| **Prioridade**            |     |
-| **Requisitos associados** |     |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF002    |
 | **Fluxo Principal**       |     |
+
+#### UC03 – Criar quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF003    |
+| **Fluxo Principal**       |     |
+
+#### UC04 – Iniciar Quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF006    |
+| **Fluxo Principal**       |     |
+
+#### UC05 – Escolher visibilidade do quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Opcional  |
+| **Requisitos associados** |  RF0011   |
+| **Fluxo Principal**       |     |
+
+#### UC06 – Consultar estatísticas de um quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Desejável |
+| **Requisitos associados** |  RF007    |
+| **Fluxo Principal**       |     |
+
+#### UC07 – Entrar em um quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF004    |
+| **Fluxo Principal**       |     |
+
+#### UC08 – Visualizar salas de quiz ativas
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Opcional  |
+| **Requisitos associados** |  RF010    |
+| **Fluxo Principal**       |     |
+
+#### UC09 – Responder pergunta do quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF005    |
+| **Fluxo Principal**       |     |
+
+#### UC10 – Visualizar ranking parcial do quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Desejável |
+| **Requisitos associados** |  RF008    |
+| **Fluxo Principal**       |     |
+
+#### UC01 – Visualizar ranking final do quiz
+
+| **Descrição**             |     |
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Desejável |
+| **Requisitos associados** |  RF009    |
+| **Fluxo Principal**       |     |
+
 
 Exemplos de Histórias de Usuário:
 
-- Como Fulano eu quero poder convidar meus amigos para que a gente possa se reunir...
+- Como Jhonatan eu venho tendo muitos problemas para me concentrar nas aulas principalmente nas virtuais. Sinto que não venho tendo muito interesse nas aulas e me disperso com muita facilidade, com isso acaba que vou mal nas provas e estou com medo de ser reprovado. Gostaria que as aulas provocassem um maior engajamento da minha parte e me exigisse uma maior interação durante as aulas, evitando assim que eu desvie minha atenção durante as aulas e então melhorar meu aprendizado e conseguir ser aprovado.
 
-- Como Cicrano eu quero poder organizar minhas tarefas diárias, para que...
+- Como Marta(professora) gostaria de um metodo para tomar uma maior atenção de meus alunos durante as aulas para produzir aulas que provoquem o interesse e a intereção dos alunos durante as aulas. Preciso também conseguir avaliar melhor o desempenho dos meus alunos durante as aulas para ver em quais aspectos da matéria minhas turmas estão tendo dificuldades.
+
+- Como Wesley eu gostaria de poder criar desafios com várias perguntas sobre divresos assuntos para meus amigos responderem para que possamos nos divertirmos e vermos quem consegue se sair melhor diante das perguntas.
 
 - Como gerente eu quero conseguir entender o progresso do trabalho do meu time, para que eu possa ter relatórios periódicos dos nossos acertos e falhas.
 
