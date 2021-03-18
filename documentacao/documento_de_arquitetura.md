@@ -185,108 +185,106 @@ Obs: a quantidade e o escopo das funcionalidades deve ser negociado com os profe
 
 ### Descrição resumida dos Casos de Uso / Histórias de Usuário
 
-_Nesta seção, os casos de uso devem ser resumidos. Esse detalhamento pode ser na forma de um texto sintético ou, alternativamente, você pode optar por descrever estórias de usuários seguindo os métodos ágeis. Neste caso a seção deve chamar &quot;Histórias de usuários&quot;. Lembre-se das características de qualidade das estórias de usuários, ou seja, o que é preciso para descrever boas histórias de usuários._
-
-Exemplos de resumo de Casos de Uso:
+imagens/CasosDeUso.png
 
 #### UC01 – Cadastrar no sistema
 
-| **Descrição**             |     |
+| **Descrição**             |Usuário poderá criar uma conta pela plataforma web|
 | ------------------------- | --- |
 | **Atores**                |Usuário web|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF001    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário acessa plataforma web - Usuário seleciona a opção de registro na plataforma - Sistema direciona usuário para pagina de cadastro - Usuário preenche formulários de cadastro - Sistema salva usuário no banco de dados - Sistema abre tela de login|
 
 #### UC02 – Logar no sistema
 
-| **Descrição**             |     |
+| **Descrição**             |Usuário poderá fazer login na plataforma web|
 | ------------------------- | --- |
 | **Atores**                |Usuário web|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF002    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário acessa página de login na plataforma - Usuário preenche formularios de login - Sistema valida os dados preenchidos pelo usuário - Sistema direciona usuário para a página de dashboard|
 
 #### UC03 – Criar quiz
 
-| **Descrição**             |     |
+| **Descrição**             |Usuário após logado na plataforma web poderá criar um quiz, criando suas perguntas|
 | ------------------------- | --- |
 | **Atores**                |Usuário web|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF003    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário seleciona opção de criar quiz na dashboard - Sistema direciona usuário para página de criação de quiz - Usuário preenche formulários de criação de quiz - Usuário cria perguntas para o quiz - Usuário submete a criação do quiz - Sistema salva quiz no banco|
 
 #### UC04 – Iniciar Quiz
-
-| **Descrição**             |     |
+DUVIDA
+| **Descrição**             |Usuário poderá selecionar um quiz já criado para iniciar-lo/disponibilizar-lo|
 | ------------------------- | --- |
 | **Atores**                |Usuário web|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF006    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário seleciona opção de meus quizes na dashbord - Sistema direciona usuário para a página de quizes de um usuário - Usuário seleciona um quiz que deseja iniciar - Usuário submete iniciação de quiz - Sistema ativa quiz na lista de quizes|
 
 #### UC05 – Escolher visibilidade do quiz
-
-| **Descrição**             |     |
+DUVIDA
+| **Descrição**             |Usuário poderá escolher a visibilidade do quiz antes de iniciar-lo|
 | ------------------------- | --- |
 | **Atores**                |Usuário web|
 | **Prioridade**            | Opcional  |
 | **Requisitos associados** |  RF0011   |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário acessa página de iniciação de quiz - Usuário seleciona qual visibilidade quer dar para o quiz|
 
 #### UC06 – Consultar estatísticas de um quiz
 
-| **Descrição**             |     |
+| **Descrição**             |Usuário poderá consultar as estatísticas, pontuação e ranking dos participantes, de um seus quizes|
 | ------------------------- | --- |
 | **Atores**                |Usuário web|
 | **Prioridade**            | Desejável |
 | **Requisitos associados** |  RF007    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário seleciona opção de meus quizes na dashboard - Sistema direciona usuário para página de quizes do usuário - Usuário seleciona o quiz desejado - Sistema exibe estatísticas do quiz em selecionado|
 
 #### UC07 – Entrar em um quiz
 
-| **Descrição**             |     |
+| **Descrição**             |Usuário mobile poderá entrar em um quiz a partir do código de quiz|
 | ------------------------- | --- |
-| **Atores**                |Usuário web|
+| **Atores**                |Usuário mobile|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF004    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário acessa a plataforma mobile da aplicação - Sistema exibe formulário de código de quiz - Usuário digita código do quiz desejado - Sistema verifica se quiz está disponível - Sistema solicita que usuário preencha seu nome - Usuário preenche formulário de nome do participante - Sistema adiciona usuário na lista de participantes do quiz - Sistema direciona usuário para sala de espera dos participantes|
 
 #### UC08 – Visualizar salas de quiz ativas
 
-| **Descrição**             |     |
+| **Descrição**             |Usuário mobile poderá visualizar uma lista de quizes disponíveis e então ingressar no quiz desejado|
 | ------------------------- | --- |
-| **Atores**                |Usuário web|
+| **Atores**                |Usuário mobile|
 | **Prioridade**            | Opcional  |
 | **Requisitos associados** |  RF010    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Usuário seleciona opção de visualizar salas de quiz disponíveis - Sistema exibe salas disponíveis - Usuário seleciona uma sala - Sistema adiciona usuário na lista de participantes do quiz - Sistema direciona usuário para sala de espera dos participantes|
 
 #### UC09 – Responder pergunta do quiz
 
-| **Descrição**             |     |
+| **Descrição**             |Usuário mobile poderá responder a perguntas do quiz em que está participando|
 | ------------------------- | --- |
-| **Atores**                |Usuário web|
+| **Atores**                |Usuário mobile|
 | **Prioridade**            | Essencial |
 | **Requisitos associados** |  RF005    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Sistema inicia quiz de acordo com horário previsto pelo criador - Sistema remove quiz da lista de quizes disponíveis - Sistema exibe pergunta aos participantes - Participante sleciona uma pergunta - Sistema salva resposta do participante|
 
 #### UC10 – Visualizar ranking parcial do quiz
-
-| **Descrição**             |     |
+DUVIDA
+| **Descrição**             |Após respondida cada pergunta do quiz o usuário terá acesso a um rankig parcial com a pontuação de cada participante do quiz|
 | ------------------------- | --- |
-| **Atores**                |Usuário web|
+| **Atores**                |Usuário mobile|
 | **Prioridade**            | Desejável |
 | **Requisitos associados** |  RF008    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       ||
 
-#### UC01 – Visualizar ranking final do quiz
+#### UC11 – Visualizar ranking final do quiz
 
-| **Descrição**             |     |
+| **Descrição**             |Após finalizado o quiz será exibido aos participantes um ranking com a pontualção de cada participante|
 | ------------------------- | --- |
-| **Atores**                |Usuário web|
+| **Atores**                |Usuário mobile|
 | **Prioridade**            | Desejável |
 | **Requisitos associados** |  RF009    |
-| **Fluxo Principal**       |     |
+| **Fluxo Principal**       |Quiz é finalizado após ultima pergunta - Sistema exibe ranking de pontuação dos participantes|
 
 
 Exemplos de Histórias de Usuário:
