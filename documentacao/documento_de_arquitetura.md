@@ -217,30 +217,31 @@ Exemplos de Histórias de Usuário:
 
 ## 3.2. Visão Lógica
 
-_Apresente os artefatos que serão utilizados descrevendo em linhas gerais as motivações que levaram a equipe a utilizar estes diagramas._
-
-### Diagrama de Classes
-
-![Diagrama de classes](imagens/classes.gif "Diagrama de classes")
-
-**Figura 2 – Diagrama de classes (exemplo). Fonte: o próprio autor.**
-
-Obs: Acrescente uma breve descrição sobre o diagrama apresentado na Figura 3.
-
 ### Diagrama de componentes
-
-_Apresente o diagrama de componentes da aplicação, indicando, os elementos da arquitetura e as interfaces entre eles. Liste os estilos/padrões arquiteturais utilizados e faça uma descrição sucinta dos componentes indicando o papel de cada um deles dentro da arquitetura/estilo/padrão arquitetural. Indique também quais componentes serão reutilizados (navegadores, SGBDs, middlewares, etc), quais componentes serão adquiridos por serem proprietários e quais componentes precisam ser desenvolvidos._
 
 ![Diagrama de componentes](imagens/componentes.png "Diagrama de componentes")
 
-**Figura 3 – Diagrama de Componentes (exemplo). Fonte: o próprio autor.**
+**Figura 3 – Diagrama de Componentes. Fonte: o próprio grupo.**
 
-_Apresente uma descrição detalhada dos artefatos que constituem o diagrama de implantação._
+Como mostrado na Figura 3, nossa aplicação apresenta três camadas maiores, além das camadas de banco de dados, de integração e a do próprio cliente.
 
-Ex: conforme diagrama apresentado na Figura X, as entidades participantes da solução são:
+- Camada de FrontEnd:
+  - Utiliza do React, NextJS e Redux da maneira mais simples possíveis.
+  - Existem telas gerais que abrigam componentes TSX, chamadas containers.
+  - A *Store* mantêm todos os dados gerais da aplicação e é a base do Redux.
+  - O componente *App* é o principal, renderizado a na página única acessada pelo cliente no browser através do JavaScript.
+  - A conexão com a API do BackEnd é feita a partir do módulo *ApiConnector*.
+- Camada de Mobile:
+  - Por utilizar ReactNative e Redux, a arquitetura dessa camada é praticamente igual a do FrontEnd. A diferença estando na separação de telas e não de containers.
+  - Além disso, existem módulos separados para o build do Android e do IOs, que apresentam arquivos de configuração específicos.
+  - O cliente acessa o aplicativo mobile através do seu aparelho Android ou IOs.
+- Camada BackEnd:
+  - Utiliza da biblioteca Python FastAPI.
+  - A API é configurada no arquivo principal *main.py*, que pega as rotas do módulo *routers.py* e as dependências do módilo *dependecies.py*.
+  - Os modelo de dados e objetos ORM são declarados no módulo *db.py*, junto da conexão externa com o banco.
 
-- **Componente 1** - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc magna, accumsan eget porta a, tincidunt sed mauris. Suspendisse orci nulla, sagittis a lorem laoreet, tincidunt imperdiet ipsum. Morbi malesuada pretium suscipit.
-- **Componente 2** - Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
+- Todas as camadas apresentam um arquivo de configuração de container Docker (*Dockerfile*). Esses arquivos são utilizados pelo módulo do *DockerCompose*, que apresenta um arquivo de configuração para subir todos ao mesmo tempo.
+
 
 ## 3.3. Modelo de dados 
 
