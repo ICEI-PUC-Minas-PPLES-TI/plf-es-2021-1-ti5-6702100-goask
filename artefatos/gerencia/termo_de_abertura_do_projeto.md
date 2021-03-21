@@ -118,7 +118,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 | Pedro Alves De Oliveira             | Cliente             |            |
 | Guilherme Campos Barata Diniz       | Desenvolvedor lider |            |
 | Matheus Felipe Ferreira Martins     | Dono do produto     |            |
-| Ricardo Christovão Ferreira Martins | Designer            |            |
+| Ricardo Christovão da Silva | Designer            |            |
 | Thiago Jorge Queiroz Silva          | Lider tecnico       |            |
 
 **Observações:**
