@@ -6,8 +6,8 @@
 
 - Routers
 - Crud
-- Models
-- Schemas
+- Core
+- Db
 
 ---
 
@@ -20,6 +20,11 @@
 ### dev
 
 > uvicorn app.main:app --reload-dir app
+
+
+### prod
+
+> python my_app.py
 
 
 

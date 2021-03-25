@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import date
-from typing import List
+from typing import List, Optional
 
 
 # Category
@@ -140,3 +140,19 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+
+# Token
+class Token(BaseModel):
+    """
+    App's Token basic representation.
+    """
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    """
+    App's Token basic representation.
+    """
+    user_email: Optional[str] = None
