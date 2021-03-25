@@ -140,3 +140,12 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+
+# Token
+class Token(BaseModel):
+    """
+    App's Token basic representation.
+    """
+    access_token: str
+    token_type: str
