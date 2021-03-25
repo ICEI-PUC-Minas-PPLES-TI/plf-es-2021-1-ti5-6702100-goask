@@ -9,4 +9,6 @@ export const CONTAINER_STYLE_COLORS = {
 
 export const COLORS = {
   BACKGROUND: '#f3f3f3',
+  INPUT_BACKGROUND: '#ffffff',
+  ICONS: '#c9515c'
 };
