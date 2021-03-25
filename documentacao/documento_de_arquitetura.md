@@ -1,20 +1,22 @@
-# TITULO DO PROJETO
+# GoAsk
 
+**Guilherme Campos Barata Diniz, dinizwalker@gmail.com**
 
-**Nome completo do Aluno 1, email do aluno 1**
+**Guilherme Oliveira Antonio, gantonio@sga.pucminas.br**
 
-**Nome completo do Aluno 2, email do aluno 2**
+**Matheus Felipe Ferreira Martins, matheus.martins.1215641@sga.pucminas.br**
 
-**Nome completo do Aluno 3, email do aluno 3**
+**Ricardo Christovão da Silva, ricardo.christovao@sga.pucminas.br**
+
+**Thiago Jorge Queiroz Silva, thiago.queiroz@sga.pucminas.br**
 
 ---
 
 Professores:
 
-**Prof. Nome do Prof 1**
+**Prof. Hugo Bastos de Paula**
 
-**Prof. Nome do Prof 2**
-
+**Prof. Pedro Alves De Oliveira**
 
 ---
 
@@ -24,122 +26,147 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final, 
+_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final,
 mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 ---
 
 ## Histórico de Revisões
 
-| **Data** | **Autor** | **Descrição** | **Versão** |
-| --- | --- | --- | --- |
-| **[dd/mm/aaaa]** | [Nome do autor] | [Descrever as principais alterações realizadas no documento, evidenciando as seções ou capítulos alterados] | [X] |
-| | | | |
-| | | | |
+| **Data**         | **Autor**                                             | **Descrição**                                                                                                     | **Versão** |
+| ---------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------- |
+| **[24/02/2021]** | [Matheus Felipe]                                      | [Adição dos nomes dos autores e descrição dos objetivos do projeto na seção 1.2]                                  | [1.0]      |
+| **[24/02/2021]** | [Thiago Silva]                                        | [Descrição da apresentação do projeto na seção 1]                                                                 | [1.1]      |
+| **[25/02/2021]** | [Thiago Silva]                                        | [Adição dos e-mails dos autores, descrição do problema na seção 1.1 e preenchimento de abreviaturas na seção 1.3] | [1.2]      |
+| **[28/02/2021]** | [Guilherme Diniz, Guilherme Oliveira, Matheus Felipe] | [Adição de requistos]                                                                                             | [2.0]      |
+| **[03/03/2021]** | [Matheus Felipe]                                      | [Correção dos objetivos e requisitos não funcionais]                                                              | [2.1]      |
+| **[03/03/2021]** | [Matheus Felipe]                                      | [Restrições arquiteturais]                                                                                        | [2.2]      |
+| **[04/03/2021]** | [Thiago Silva]                                        | [Correção da Apresentação e Problema]                                                                             | [2.3]      |
+| **[10/03/2021]** | [Matheus Felipe]                                      | [Revisão de objetivos e requisitos]                                                                               | [3.0]      |
+| **[17/03/2021]** | [Thiago Silva]                                        | [Descrição de casos de uso e histórias de usuário]                                                                | [4.3]      |
+| **[24/03/2021]** | [Thiago Silva]                                        | [Atualização diagrama de casos de uso]                                                                            | [4.4]      |
+
+
+
 
 ## SUMÁRIO
 
 1. [Apresentação](#apresentacao "Apresentação") <br />
-	1.1. Problema <br />
-	1.2. Objetivos do trabalho <br />
-	1.3. Definições e Abreviaturas <br />
+   1.1. Problema <br />
+   1.2. Objetivos do trabalho <br />
+   1.3. Definições e Abreviaturas <br />
 
 2. [Requisitos](#requisitos "Requisitos") <br />
-'	2.1. Requisitos Funcionais <br />
-	2.2. Requisitos Não-Funcionais <br />
-	2.3. Restrições Arquiteturais <br />
-	2.4. Mecanismos Arquiteturais <br />
+   ' 2.1. Requisitos Funcionais <br />
+   2.2. Requisitos Não-Funcionais <br />
+   2.3. Restrições Arquiteturais <br />
+   2.4. Mecanismos Arquiteturais <br />
 
 3. [Modelagem](#modelagem "Modelagem e projeto arquitetural") <br />
-	3.1. Visão de Negócio <br />
-	3.2. Visão Lógica <br />
-	3.3. Modelo de dados (opcional) <br />
+   3.1. Visão de Negócio <br />
+   3.2. Visão Lógica <br />
+   3.3. Modelo de dados (opcional) <br />
 
 4. [Avaliação](#avaliacao "Avaliação da Arquitetura") <br />
-	4.1. Cenários <br />
-	4.2. Avaliação <br />
+   4.1. Cenários <br />
+   4.2. Avaliação <br />
 
 5. [Referências](#referencias "REFERÊNCIAS")<br />
 
 6. [Apêndices](#apendices "APÊNDICES")<br />
 
-
 <a name="apresentacao"></a>
+
 # 1. Apresentação
 
-_Faça uma introdução ao projeto, apresentando o contexto onde o projeto se situa. É importante deixar claro para o leitor os aspectos que configuram o problema que será apresentado na sequência. Apresente, se possível, números reais que demonstram a relevância do problema apresentado._
+Com os avanços tecnológicos a maneira das pessoas viverem e levarem o seu dia a dia mudou e continua mudando de maneira gradativa. Os avanços computacionais trouxeram mais simplicidade e facilidade para o cotidiano das pessoas que tem acesso a esse tipo de tecnologia, algumas evidencias disso podem ser encontradas pelo fato de as pessoas estarem muito mais conectadas entre si independente da distância, as empresas conseguirem contratar e se relacionar com seus trabalhadores através da internet e também como uma grande ajuda em se tratado da educação e busca de conhecimento.  
 
+Em se tratando de educação a internet vem ajudando estudantes principalmente por trazer um fácil acesso a informações como artigos e matérias que auxiliam no aprendizado dos mesmos. Existem também outras utilidades da internet para os estudantes como por exemplo as vídeo aulas e aulas online que servem como um material muito importante na evolução do indivíduo. Com o surgimento do corona vírus em 2019 cada vez mais países, inclusive o Brasil, estão tendo que buscar medidas para impedir o aglomeramento de pessoas como o fechamento de escolas e assim migrando as aulas de presenciais para aulas online. 
+
+Porem o processo de adaptação a esse novo modelo de ensino não tem sido fácil para muitos alunos, que apresentam dificuldades para acompanhar as aulas, e professores, que tem dificuldade em atrair a atenção do aluno e acompanhar como está a evolução de sua turma em relação ao conteúdo. Visto isso o GoAsk vem com o propósito de facilitar a vida para esses alunos e professores com uma proposta de quizes que estimulem a competitividade entre os alunos e facilitem ao mesmo tempo o entendimento do professor sobre o que os alunos entenderam sobre o conteúdo. 
 
 ## 1.1. Problema
 
-_Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação._
+Diante da pandemia do corona vírus as escolas e faculdades no Brasil tiveram que se adaptar à nova realidade, tornando então necessário que ocorresse uma adaptação da mesma migrando de aulas presenciais para aulas virtuais. Porém essa adaptação não tem sido fácil nem para os professores e nem para os alunos enquanto alunos possuem uma dificuldade maior para concentrar durante as aulas, os professores se deparam com a falta de opções para dar uma aula que pudesse provocar interesse e uma maior interação do aluno com aula.     
+
+Com esse novo modelo de aula muitos alunos desanimados acabam por faltar muito as aulas e irem dando cada vez menos importância para as aulas, com isso as aulas ficam cada vez mais paradas e com menos interações de alunos o que afeta no processo de aprendizagem e amadurecimento do aluno e ao mesmo tempo dificulta ainda mais o sucesso da missão do professor em repassar seu conhecimento e amadurecer seus alunos.  
+
+Visto isso os professores possuem a missão de tentar despertar o interesse e a atenção de seus alunos durante as aulas para que o aprendizado de seus alunos seja maior. O acompanhamento do estudante passou a ser também uma tarefa mais complicada visto que os professores virtualmente possuem uma dificuldade maior em avaliar os conhecimentos dos alunos e saber se estão em dia com a matéria. Assim professores precisam ser criativos para fazer com que os seus alunos se interessarem pela aula. Com isso os professores acabam buscando softwares que possam auxilia-los nessa missão. 
 
 ## 1.2. Objetivos do trabalho
 
-_Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é apresentar a descrição do projeto arquitetural da aplicação escolhida. Apresente também os objetivos específicos do projeto, descrevendo onde você vai concentrar sua atenção na descrição arquitetural, ou seja, os pontos onde você vai aprofundar no seu trabalho._
+Este projeto tem como objetivo principal implementar um sistema distribuído que permitirá a criação de quizes personalizados e a concorrência de vários jogadores que entram para jogar esse quiz, podendo ser amigos ou anônimos. Para alcançar isso, o projeto tem alguns objetivos específicos:
+  
+- Criar artefatos que auxiliem no processo de desenvolvimento da aplicação, como a modelagem das classes e o desenho das interfaces que irão compor o sistema;
+
+- Projetar a arquitetura do software para reduzir riscos associados ao projeto e sua manutenção, alinhando expectativas e modelando o sistema com qualidade e flexibilidade.
 
 ## 1.3. Definições e Abreviaturas
 
-Coloque aqui as definições, siglas e abreviaturas utilizadas no trabalho._
+REST(Repesentional State Transfer) - O REST é um estilo arquitetural que tem como objetivo principal a definição de características fundamentais para a construção de aplicações Web seguindo boas práticas e construindo aplicações escaláveis.
+
+PK(Primary Key) - A sigla PK representa uma associação que é feita a um atributo de alguma tabela no banco de dados onde cada tabela só pode possuir uma PK única, que será utilizada para localizar o elemento na tabela.
+
+FK(Foreign Key) - A sigla FK representa uma associação que é feita a um atributo de alguma tabela, no banco de dados, que liga uma tabela A a uma tabela B por exemplo assim a FK de um elemento da tabela A será a PK do elemento na tabela B.
 
 <a name="requisitos"></a>
+
 # 2. Requisitos
 
-_Esta seção descreve os requisitos comtemplados nesta descrição arquitetural, divididos em dois grupos: funcionais e não funcionais._
+Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 
 ## 2.1. Requisitos Funcionais
 
-_Enumere os requisitos funcionais previstos para a sua aplicação. Concentre-se nos requisitos funcionais que sejam críticos para a definição arquitetural. Lembre-se de listar todos os requisitos que são necessários para garantir cobertura arquitetural. Esta seção deve conter uma lista de requisitos ainda sem modelagem. Na coluna Prioridade utilize uma escala (do mais prioritário para o menos): Essencial, Desejável, Opcional._
-
-| **ID** | **Descrição** | **Prioridade** |
-| --- | --- | --- |
-| RF001 | | |
-| RF002 | | |
-| | | |
-| | | |
-| | | |
-
-Obs: acrescente mais linhas, se necessário.
+| **ID** | **Descrição**                                                                           | **Prioridade** |
+| ------ | --------------------------------------------------------------------------------------- | -------------- |
+| RF001  | O usuário deve ser capaz de cadastrar uma conta pela interface web.                     | Essencial      |
+| RF002  | O usuário deve ser capaz de entrar em uma conta cadastrada pela interface web.          | Essencial      |
+| RF003  | O usuário deve ser capaz de cadastrar, editar ou excluir um quiz pela interface web.                       | Essencial      |
+| RF004  | O usuário deve ser capaz de entrar em um quiz pela interface mobile.                    | Essencial      |
+| RF005  | O usuário deve ser capaz de responder as questões do quiz que está participando.        | Essencial      |
+| RF006  | O usuário deve ser capaz de iniciar um quiz pela interface web.        | Essencial      |
+| RF007  | O usuário deve ser capaz de ver estatísticas de seu quiz pela interface web.            | Desejável      |
+| RF008  | O usuário deve ser capaz de ver o resultado após responder uma pergunta do quiz.        | Desejável      |
+| RF009  | O usuário deve ser capaz de ver o ranking de colocação final de um quiz.                | Desejável      |
+| RF010  | O usuário deve ser capaz de visualizar salas de quiz ativas pela interface mobile.      | Opcional       |
+| RF011  | O usuário deve ser capaz escolher a visibilidade de seu quiz criado pela interface web. | Opcional       |
 
 ## 2.2. Requisitos Não-Funcionais
 
-_Enumere os requisitos não-funcionais previstos para a sua aplicação. Entre os requisitos não funcionais, inclua todos os requisitos que julgar importante do ponto de vista arquitetural ou seja os requisitos que terão impacto na definição da arquitetura. Os requisitos devem ser descritos de forma completa e preferencialmente quantitativa._
-
-| **ID** | **Descrição** |
-| --- | --- |
-| RNF001 | |
-| RNF002 | |
-| | |
-| | |
-| | |
-
-Obs: acrescente mais linhas, se necessário.
+| **ID** | **Descrição**                                                                                                               |
+| ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
+| RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado                                                 |
+| RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout                                                   |
+| RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                   |
 
 ## 2.3. Restrições Arquiteturais
 
-_Enumere as restrições arquiteturais. Lembre-se de que as restrições arquiteturais geralmente não são consideradas requisitos uma vez que limitam a solução candidata. Os requisitos não impõem restrição, mas precisam ser satisfeitos._
+As restrições arquiteturais impostas ao projeto são:
 
-As restrições impostas ao projeto que afetam sua arquitetura são (por exemplo):
-
-- O software deverá ser desenvolvido em Python/Django;
+- A api do software deverá ser desenvolvido em Python/FastApi;
+  
 - A comunicação da API deve seguir o padrão RESTful.
+
+- A interface web deve ser uma single page application desenvolvida em React.
+  
+- O cliente e o servidor devem ser capazes de serem desenvolvidas e alteradas separadamente, sem qualquer dependência um do outro, desde que haja uma conexão.
 
 ## 2.4. Mecanismos Arquiteturais
 
-_Visão geral dos mecanismos que compõem a arquitetura do sosftware baseando-se em três estados: (1) análise, (2) design e (3) implementação. Em termos de Análise devem ser listados os aspectos gerais que compõem a arquitetura do software como: persistência, integração com sistemas legados, geração de logs do sistema, ambiente de front end, tratamento de exceções, formato dos testes, formato de distribuição/implantação (deploy), entre outros. Em Design deve-se identificar o padrão tecnológico a seguir para cada mecanismo identificado na análise. Em Implementação, deve-se identificar o produto a ser utilizado na solução.
- Ex: Análise (Persistência), Design (ORM), Implementação (Hibernate)._
-
-| **Análise** | **Design** | **Implementação** |
-| --- | --- | --- |
-| Persistência | | |
-| Front end | | |
-| Back end | | |
-| Integração | | |
-| Log do sistema | | |
-| Teste de Software | | |
-| Deploy | | |
+| **Análise**       | **Design**                                 | **Implementação**             |
+| ----------------- | ------------------------------------------ | ----------------------------- |
+| Persistência      | ORM                                        | PostgreSQL + SqlAlchemy       |
+| Front end         | WEB                                        | ReactJS + Typescript + NextJs |
+| Mobile            | IOs + Android                              | ReactNative + Typescript      |
+| Back end          | API RESTful                                | FastAPI                       |
+| Integração        | Entrega contínua com pipelines automáticos | Heroku + GitHub + Netlify     |
+| Log do sistema    | Logs em produção                           | FastAPI                       |
+| Teste de Software | Testes unitários                           | Python unittest + Jest        |
+| Deploy            | Cointainers Docker                         | Docker + Heroku + Netlify     |
 
 <a name="modelagem"></a>
+
 # 3. Modelagem e projeto arquitetural
 
 _Apresente uma visão geral da solução proposta para o projeto e explique brevemente esse diagrama de visão geral, de forma textual. Esse diagrama não precisa seguir os padrões da UML, e deve ser completo e tão simples quanto possível, apresentando a macroarquitetura da solução._
@@ -162,35 +189,115 @@ Obs: a quantidade e o escopo das funcionalidades deve ser negociado com os profe
 
 ### Descrição resumida dos Casos de Uso / Histórias de Usuário
 
-_Nesta seção, os casos de uso devem ser resumidos. Esse detalhamento pode ser na forma de um texto sintético ou, alternativamente, você pode optar por descrever estórias de usuários seguindo os métodos ágeis. Neste caso a seção deve chamar &quot;Histórias de usuários&quot;. Lembre-se das características de qualidade das estórias de usuários, ou seja, o que é preciso para descrever boas histórias de usuários._
+![Visão Geral da Solução](imagens/CasosDeUso.png "Visão Geral da Solução")
 
-Exemplos de resumo de Casos de Uso:
+#### UC01 – Cadastrar no sistema
 
-#### UC01 – NOME DO CASO DE USO 01
+| **Descrição**             |Usuário poderá criar uma conta pela plataforma web|
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF001    |
+| **Fluxo Principal**       |Usuário acessa plataforma web - Usuário seleciona a opção de registro na plataforma - Sistema direciona usuário para pagina de cadastro - Usuário preenche formulários de cadastro - Sistema salva usuário no banco de dados - Sistema abre tela de login|
 
-| **Descrição** | |
-| --- | --- |
-| **Atores** | |
-| **Prioridade** | |
-| **Requisitos associados** | |
-| **Fluxo Principal** | |
+#### UC02 – Logar no sistema
 
-#### UC02 – NOME DO CASO DE USO 02
+| **Descrição**             |Usuário poderá fazer login na plataforma web|
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF002    |
+| **Fluxo Principal**       |Usuário acessa página de login na plataforma - Usuário preenche formuláios de login - Sistema valida os dados preenchidos pelo usuário - Sistema direciona usuário para a página de dashboard|
 
-| **Descrição** | |
-| --- | --- |
-| **Atores** | |
-| **Prioridade** | |
-| **Requisitos associados** | |
-| **Fluxo Principal** | |
+#### UC03 – Criar quiz
+
+| **Descrição**             |Usuário após logado na plataforma web poderá criar um quiz, criando suas perguntas|
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF003    |
+| **Fluxo Principal**       |Usuário seleciona opção de criar quiz na dashboard - Sistema direciona usuário para página de criação de quiz - Usuário preenche formulários de criação de quiz - Usuário cria perguntas para o quiz - Usuário submete a criação do quiz - Sistema salva quiz no banco|
+
+#### UC04 – Iniciar Quiz
+DUVIDA
+| **Descrição**             |Usuário poderá selecionar um quiz já criado para iniciar-lo/disponibilizar-lo|
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF006    |
+| **Fluxo Principal**       |Usuário seleciona opção de meus quizes na dashbord - Sistema direciona usuário para a página de quizes de um usuário - Usuário seleciona um quiz que deseja iniciar - Usuário submete iniciação de quiz - Sistema ativa quiz na lista de quizes|
+
+#### UC05 – Escolher visibilidade do quiz
+DUVIDA
+| **Descrição**             |Usuário poderá escolher a visibilidade do quiz antes de iniciar-lo|
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Opcional  |
+| **Requisitos associados** |  RF0011   |
+| **Fluxo Principal**       |Usuário acessa página de iniciação de quiz - Usuário seleciona qual visibilidade quer dar para o quiz|
+
+#### UC06 – Consultar estatísticas de um quiz
+
+| **Descrição**             |Usuário poderá consultar as estatísticas, pontuação e ranking dos participantes, de um seus quizes|
+| ------------------------- | --- |
+| **Atores**                |Usuário web|
+| **Prioridade**            | Desejável |
+| **Requisitos associados** |  RF007    |
+| **Fluxo Principal**       |Usuário seleciona opção de meus quizes na dashboard - Sistema direciona usuário para página de quizes do usuário - Usuário seleciona o quiz desejado - Sistema exibe estatísticas do quiz em selecionado|
+
+#### UC07 – Entrar em um quiz
+
+| **Descrição**             |Usuário mobile poderá entrar em um quiz a partir do código de quiz|
+| ------------------------- | --- |
+| **Atores**                |Usuário mobile|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF004    |
+| **Fluxo Principal**       |Usuário acessa a plataforma mobile da aplicação - Sistema exibe formulário de código de quiz - Usuário digita código do quiz desejado - Sistema verifica se quiz está disponível - Sistema solicita que usuário preencha seu nome - Usuário preenche formulário de nome do participante - Sistema adiciona usuário na lista de participantes do quiz - Sistema direciona usuário para sala de espera dos participantes|
+
+#### UC08 – Visualizar salas de quiz ativas
+
+| **Descrição**             |Usuário mobile poderá visualizar uma lista de quizes disponíveis e então ingressar no quiz desejado|
+| ------------------------- | --- |
+| **Atores**                |Usuário mobile|
+| **Prioridade**            | Opcional  |
+| **Requisitos associados** |  RF010    |
+| **Fluxo Principal**       |Usuário seleciona opção de visualizar salas de quiz disponíveis - Sistema exibe salas disponíveis - Usuário seleciona uma sala - Sistema adiciona usuário na lista de participantes do quiz - Sistema direciona usuário para sala de espera dos participantes|
+
+#### UC09 – Responder pergunta do quiz
+
+| **Descrição**             |Usuário mobile poderá responder a perguntas do quiz em que está participando|
+| ------------------------- | --- |
+| **Atores**                |Usuário mobile|
+| **Prioridade**            | Essencial |
+| **Requisitos associados** |  RF005    |
+| **Fluxo Principal**       |Sistema inicia quiz de acordo com horário previsto pelo criador - Sistema remove quiz da lista de quizes disponíveis - Sistema exibe pergunta aos participantes - Participante sleciona uma resposta - Sistema salva resposta do participante|
+
+#### UC10 – Visualizar ranking parcial do quiz
+DUVIDA
+| **Descrição**             |Após respondida cada pergunta do quiz o usuário terá acesso a um rankig parcial com a pontuação de cada participante do quiz|
+| ------------------------- | --- |
+| **Atores**                |Usuário mobile|
+| **Prioridade**            | Desejável |
+| **Requisitos associados** |  RF008    |
+| **Fluxo Principal**       |Sistema exibe uma pergunta do quiz para que usuário possa responder - Usuário seleciona uma resposta - Sistema salva resposta do participante - Sistema atualiza ranking de pontuação dos participantes - Sistema exibe ranking parcial do quiz|
+
+#### UC11 – Visualizar ranking final do quiz
+
+| **Descrição**             |Após finalizado o quiz será exibido aos participantes um ranking com a pontualção de cada participante|
+| ------------------------- | --- |
+| **Atores**                |Usuário mobile|
+| **Prioridade**            | Desejável |
+| **Requisitos associados** |  RF009    |
+| **Fluxo Principal**       |Quiz é finalizado após ultima pergunta - Sistema exibe ranking de pontuação dos participantes|
+
 
 Exemplos de Histórias de Usuário:
 
-- Como Fulano eu quero poder convidar meus amigos para que a gente possa se reunir...
+- Como Jhonatan eu venho tendo muitos problemas para me concentrar nas aulas principalmente nas virtuais. Sinto que não venho tendo muito interesse nas aulas e me disperso com muita facilidade, com isso acaba que vou mal nas provas e estou com medo de ser reprovado. Gostaria que as aulas provocassem um maior engajamento da minha parte e me exigisse uma maior interação durante as aulas, evitando assim que eu desvie minha atenção durante as aulas e então melhorar meu aprendizado e conseguir ser aprovado.
 
-- Como Cicrano eu quero poder organizar minhas tarefas diárias, para que...
+- Como Marta(professora) gostaria de um metodo para tomar uma maior atenção de meus alunos durante as aulas para produzir aulas que provoquem o interesse e a intereção dos alunos durante as aulas. Preciso também conseguir avaliar melhor o desempenho dos meus alunos durante as aulas para ver em quais aspectos da matéria minhas turmas estão tendo dificuldades.
 
-- Como gerente eu quero conseguir entender o progresso do trabalho do meu time, para que eu possa ter relatórios periódicos dos nossos acertos e falhas.
+- Como Wesley eu gostaria de poder criar desafios com várias perguntas sobre divresos assuntos para meus amigos responderem para que possamos nos divertirmos e vermos quem consegue se sair melhor diante das perguntas.
 
 ## 3.2. Visão Lógica
 
@@ -199,7 +306,6 @@ _Apresente os artefatos que serão utilizados descrevendo em linhas gerais as mo
 ### Diagrama de Classes
 
 ![Diagrama de classes](imagens/classes.gif "Diagrama de classes")
-
 
 **Figura 2 – Diagrama de classes (exemplo). Fonte: o próprio autor.**
 
@@ -231,6 +337,7 @@ _Caso julgue necessário para explicar a arquitetura, apresente o diagrama de cl
 Obs: Acrescente uma breve descrição sobre o diagrama apresentado na Figura 3.
 
 <a name="avaliacao"></a>
+
 # 4. Avaliação da Arquitetura
 
 _Esta seção descreve a avaliação da arquitetura apresentada, baseada no método ATAM._
@@ -251,28 +358,29 @@ _Apresente os cenários de testes utilizados na realização dos testes da sua a
 
 _Apresente as medidas registradas na coleta de dados. O que não for possível quantificar apresente uma justificativa baseada em evidências qualitativas que suportam o atendimento do requisito não-funcional. Apresente uma avaliação geral da arquitetura indicando os pontos fortes e as limitações da arquitetura proposta._
 
-| **Atributo de Qualidade:** | Segurança |
-| --- | --- |
-| **Requisito de Qualidade** | Acesso aos recursos restritos deve ser controlado |
-| **Preocupação:** | Os acessos de usuários devem ser controlados de forma que cada um tenha acesso apenas aos recursos condizentes as suas credenciais. |
-| **Cenários(s):** | Cenário 4 |
-| **Ambiente:** | Sistema em operação normal |
-| **Estímulo:** | Acesso do administrador do sistema as funcionalidades de cadastro de novos produtos e exclusão de produtos. |
-| **Mecanismo:** | O servidor de aplicação (Rails) gera um _token_ de acesso para o usuário que se autentica no sistema. Este _token_ é transferido para a camada de visualização (Angular) após a autenticação e o tratamento visual das funcionalidades podem ser tratados neste nível. |
-| **Medida de Resposta:** | As áreas restritas do sistema devem ser disponibilizadas apenas quando há o acesso de usuários credenciados. |
+| **Atributo de Qualidade:** | Segurança                                                                                                                                                                                                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisito de Qualidade** | Acesso aos recursos restritos deve ser controlado                                                                                                                                                                                                                      |
+| **Preocupação:**           | Os acessos de usuários devem ser controlados de forma que cada um tenha acesso apenas aos recursos condizentes as suas credenciais.                                                                                                                                    |
+| **Cenários(s):**           | Cenário 4                                                                                                                                                                                                                                                              |
+| **Ambiente:**              | Sistema em operação normal                                                                                                                                                                                                                                             |
+| **Estímulo:**              | Acesso do administrador do sistema as funcionalidades de cadastro de novos produtos e exclusão de produtos.                                                                                                                                                            |
+| **Mecanismo:**             | O servidor de aplicação (Rails) gera um _token_ de acesso para o usuário que se autentica no sistema. Este _token_ é transferido para a camada de visualização (Angular) após a autenticação e o tratamento visual das funcionalidades podem ser tratados neste nível. |
+| **Medida de Resposta:**    | As áreas restritas do sistema devem ser disponibilizadas apenas quando há o acesso de usuários credenciados.                                                                                                                                                           |
 
 **Considerações sobre a arquitetura:**
 
-| **Riscos:** | Não existe |
-| --- | --- |
+| **Riscos:**                  | Não existe |
+| ---------------------------- | ---------- |
 | **Pontos de Sensibilidade:** | Não existe |
-| _ **Tradeoff** _ **:** | Não existe |
+| _ **Tradeoff** _ **:**       | Não existe |
 
 Evidências dos testes realizados
 
 _Apresente imagens, descreva os testes de tal forma que se comprove a realização da avaliação._
 
 <a name="referencias"></a>
+
 # 5. REFERÊNCIAS
 
 _Como um projeto da arquitetura de uma aplicação não requer revisão bibliográfica, a inclusão das referências não é obrigatória. No entanto, caso você deseje incluir referências relacionadas às tecnologias, padrões, ou metodologias que serão usadas no seu trabalho, relacione-as de acordo com a ABNT._
@@ -280,7 +388,6 @@ _Como um projeto da arquitetura de uma aplicação não requer revisão bibliogr
 Verifique no link abaixo como devem ser as referências no padrão ABNT:
 
 http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
-
 
 **[1]** - _ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019. E-book. ISBN 9788543025001._
 
@@ -292,8 +399,8 @@ http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
 
 **[5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
 
-
 <a name="apendices"></a>
+
 # 6. APÊNDICES
 
 _Inclua o URL do repositório (Github, Bitbucket, etc) onde você armazenou o código da sua prova de conceito/protótipo arquitetural da aplicação como anexos. A inclusão da URL desse repositório de código servirá como base para garantir a autenticidade dos trabalhos._
