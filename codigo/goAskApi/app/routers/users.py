@@ -5,10 +5,8 @@ from sqlalchemy.orm import Session
 
 from app.core.auth import check_token_access
 from app.crud import crud_user
-from app.db.database import SessionLocal, engine
-from app.db import models, schemas
-
-models.Base.metadata.create_all(bind=engine)
+from app.db.database import SessionLocal
+from app.db import schemas
 
 router = APIRouter()
 
@@ -31,7 +29,8 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 @router.get("/all", response_model=List[schemas.User])
-def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), user_email: str = Depends(check_token_access)):
+def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db),
+               user_email: str = Depends(check_token_access)):
     return crud_user.get_users(db, skip=skip, limit=limit)
 
 
