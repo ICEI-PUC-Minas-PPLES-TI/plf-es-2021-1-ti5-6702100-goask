@@ -31,7 +31,7 @@
 
 > docker build -t goask .
 
-> docker run -d -p 80:80 goask
+> docker run -d --name goask_container -p 80:80 goask
 
 
 
