@@ -29,13 +29,13 @@
 
 #### local
 
-> docker build -t goask .
+> sudo docker build -t goask .
 
 #### oracle
 
-> sudo docker build vi--network=host -t goask .
+> sudo docker build --no-cache --network=host -t goask .
 
-> docker run -d --name goask_container -p 8080:3232 goask
+> sudo docker run -d --name goask_container -p 8080:3232 goask
 
 
 

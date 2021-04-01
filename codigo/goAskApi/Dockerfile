@@ -14,4 +14,4 @@ COPY ./app /app
 
 EXPOSE 3232
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "3232"]
