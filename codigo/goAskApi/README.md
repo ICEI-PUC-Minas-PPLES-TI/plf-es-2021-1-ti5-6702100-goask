@@ -27,6 +27,15 @@
 > python my_app.py
 
 
+### docker
+
+> docker build -t goask .
+
+> docker run -d -p 80:80 goask
+
+
+
+
 
 
 
