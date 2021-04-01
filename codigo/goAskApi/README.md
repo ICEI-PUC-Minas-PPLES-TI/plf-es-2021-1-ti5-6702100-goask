@@ -2,7 +2,7 @@
 
 ---
 
-##  Estrutura das pastas
+## Estrutura das pastas
 
 - Routers
 - Crud
@@ -21,17 +21,21 @@
 
 > uvicorn app.main:app --reload-dir app
 
-
 ### prod
 
 > python my_app.py
 
-
 ### docker
 
-> docker build -t goask .
+#### local
 
-> docker run -d -p 80:80 goask
+> sudo docker build -t goask .
+
+#### oracle
+
+> sudo docker build --no-cache --network=host -t goask .
+
+> sudo docker run -d --name goask_container -p 8080:3232 goask
 
 
 
