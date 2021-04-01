@@ -6,10 +6,9 @@ from sqlalchemy.orm import Session
 
 from app.core.auth import verify_password, create_access_token
 from app.crud import crud_user
-from app.db.database import SessionLocal, engine
-from app.db import models, schemas
-
-models.Base.metadata.create_all(bind=engine)
+from app.db.database import SessionLocal
+from app.schemas.tokens import Token
+from app.models.users import User
 
 router = APIRouter()
 
@@ -23,9 +22,9 @@ def get_db():
         db.close()
 
 
-@router.post("/token", response_model=schemas.Token)
+@router.post("/token", response_model=Token)
 def login_user(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    db_user: models.User = crud_user.get_user_by_email(db, email=form_data.username)
+    db_user: User = crud_user.get_user_by_email(db, email=form_data.username)
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     if not verify_password(form_data.password, db_user.password):

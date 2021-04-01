@@ -8,7 +8,7 @@ from passlib.context import CryptContext
 from dotenv import load_dotenv
 import os
 
-from app.db.schemas import TokenData
+from app.schemas.tokens import TokenData
 
 load_dotenv()
 
