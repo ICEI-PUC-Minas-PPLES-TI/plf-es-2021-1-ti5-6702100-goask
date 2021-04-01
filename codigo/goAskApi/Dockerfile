@@ -12,6 +12,6 @@ COPY .env /app/.env
 
 COPY ./app /app
 
-EXPOSE 80
+EXPOSE 3232
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
