@@ -1,17 +1,17 @@
 import * as styles from "./styles";
 import IndexImage from "../../components/index/IndexImage";
 import IndexFormContainer from "../../components/index/IndexFormContainer";
-import FormContainerLogin from "../../components/login/FormContainerLogin";
+import FormContainerSignin from "../../components/signin/FormContainerSignin";
 
-const LoginPage: React.FC = () => {
+const SignInPage: React.FC = () => {
   return (
     <styles.Container>
       <IndexFormContainer>
-        <FormContainerLogin></FormContainerLogin>
+        <FormContainerSignin />
       </IndexFormContainer>
-      <IndexImage></IndexImage>
+      <IndexImage />
     </styles.Container>
   );
 };
 
-export default LoginPage;
+export default SignInPage;

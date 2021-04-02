@@ -6,7 +6,7 @@ export const BorderContainer = styled.div`
   min-width: 50%;
   background-color: #f27225;
   border-radius: 0 30px 30px 0;
-  @media (max-width: ${theme.breakpoint.md}) {
+  @media (max-width: ${theme.breakpoint.lg}) {
     min-width: 100%;
   }
   .border {
@@ -26,8 +26,4 @@ export const BorderContainer = styled.div`
   .dark-blue {
     background-color: #26265e;
   }
-`;
-
-export const FormContainer = styled.div`
-  background-color: #f3f3f3;
 `;

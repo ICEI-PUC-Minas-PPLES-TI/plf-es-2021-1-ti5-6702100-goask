@@ -1,17 +1,12 @@
 import * as styles from "./styles";
-import IndexHeader from "../IndexHeader";
 
-const IndexFormContainer: React.FC = () => {
+const IndexFormContainer: React.FC = ({ children }) => {
   return (
     <styles.BorderContainer>
       <div className="border light-green">
         <div className="border green">
           <div className="border light-blue">
-            <div className="border dark-blue">
-              <styles.FormContainer className="border">
-                <IndexHeader title="Login"></IndexHeader>
-              </styles.FormContainer>
-            </div>
+            <div className="border dark-blue">{children}</div>
           </div>
         </div>
       </div>

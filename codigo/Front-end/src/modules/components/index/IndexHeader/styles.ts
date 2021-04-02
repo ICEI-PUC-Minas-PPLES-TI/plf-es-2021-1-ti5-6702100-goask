@@ -1,4 +1,3 @@
-import theme from "src/share/styles/themes";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
@@ -7,7 +6,7 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 80px 80px 0;
+  padding: 40px 80px 0;
   div {
     align-self: center;
     .image {

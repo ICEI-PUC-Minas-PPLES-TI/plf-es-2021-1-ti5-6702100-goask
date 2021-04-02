@@ -7,7 +7,7 @@ export const ImageContainer = styled.div`
   background-color: #c9515c;
   display: flex;
   align-items: center;
-  @media (max-width: ${theme.breakpoint.md}) {
+  @media (max-width: ${theme.breakpoint.lg}) {
     display: none;
   }
 
