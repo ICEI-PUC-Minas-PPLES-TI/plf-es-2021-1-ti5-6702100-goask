@@ -7,7 +7,8 @@ export const Container = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   padding: 80px 80px 0;
-  a {
+  a,
+  p {
     font-size: 22px;
     color: #c9515c;
     font-weight: 500;

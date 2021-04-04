@@ -8,9 +8,9 @@ const IndexHeader: React.FC<Content> = ({ title }) => {
   return (
     <styles.HeaderContainer>
       <div>
-        <img className="image" src="/logo.svg" alt="GoAsk" />
+        <img src="/logo.svg" alt="GoAsk" />
       </div>
-      <div className="title">{title}</div>
+      <h1>{title}</h1>
     </styles.HeaderContainer>
   );
 };

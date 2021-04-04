@@ -1,22 +1,52 @@
 import * as styles from "./styles";
+
+//Hooks
+import { useRouter } from "next/router";
+import { useState } from "react";
+
+//From components
 import Input from "../../index/Input";
 import ButtonForm from "../../ButtonForm";
+
+//From next
 import Link from "next/link";
 
+//From api
+import { registerUser } from "../../../../share/api/api";
+
+//From models
+import { RegisterUser, User } from "../../../../models/User";
+
 const SigninForm: React.FC = () => {
-  const signin = (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+  const [signinError, setSigninError] = useState(false);
+
+  const signin = async (e: React.FormEvent<HTMLFormElement>) => {
+    setSigninError(false);
     e.preventDefault();
     const target = e.currentTarget;
     const username: string = target.username.value;
     const email: string = target.email.value;
     const pass: string = target.pass.value;
     if (email && pass && username) {
+      const user: RegisterUser = {
+        email,
+        password: pass,
+        name: username,
+      };
+      const response: User = await registerUser(user);
+      if (response) {
+        router.push("/login");
+      } else {
+        setSigninError(true);
+      }
     }
   };
 
   return (
     <form onSubmit={signin}>
       <styles.Container>
+        {signinError ? <p>Já existe uma conta com esse email</p> : <></>}
         <Input
           type="text"
           icon="/user.svg"
@@ -30,7 +60,7 @@ const SigninForm: React.FC = () => {
           placeHolder="Digite seu e-mail"
           alt="E-mail"
           name="email"
-        />
+        />{" "}
         <Input
           type="password"
           icon="/password-icon.svg"

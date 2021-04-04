@@ -1,4 +1,6 @@
 import * as styles from "./styles";
+
+//From components
 import IndexHeader from "../../index/IndexHeader";
 import LoginForm from "../LoginForm";
 

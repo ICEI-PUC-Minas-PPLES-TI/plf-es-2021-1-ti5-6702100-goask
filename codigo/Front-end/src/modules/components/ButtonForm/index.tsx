@@ -1,5 +1,4 @@
 import * as styles from "./styles";
-
 interface Content {
   icon: string;
   alt: string;

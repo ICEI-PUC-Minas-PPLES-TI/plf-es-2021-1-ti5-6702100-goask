@@ -1,5 +1,4 @@
 import * as styles from "./styles";
-
 interface InputConfig {
   icon: string;
   type: string;
@@ -17,7 +16,7 @@ const Input: React.FC<InputConfig> = ({
 }) => {
   return (
     <styles.InputContainer>
-      <styles.IconDiv className="oi">
+      <styles.IconDiv>
         <img src={icon} alt={alt} />
       </styles.IconDiv>
       <styles.InputDiv>

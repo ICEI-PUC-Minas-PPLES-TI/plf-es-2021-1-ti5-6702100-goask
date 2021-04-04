@@ -9,13 +9,12 @@ export const HeaderContainer = styled.div`
   padding: 40px 80px 0;
   div {
     align-self: center;
-    .image {
+    img {
       min-width: 130px;
       min-height: 130px;
     }
   }
-
-  .title {
+  h1 {
     font-size: 50px;
     font-weight: bolder;
   }

@@ -1,4 +1,6 @@
 import * as styles from "./styles";
+
+//From components
 import IndexImage from "../../components/index/IndexImage";
 import IndexFormContainer from "../../components/index/IndexFormContainer";
 import FormContainerLogin from "../../components/login/FormContainerLogin";
