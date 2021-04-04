@@ -33,13 +33,6 @@
 
 #### oracle
 
-> sudo docker build --no-cache --network=host -t goask .
+> sudo docker build --network=host -t goask .
 
-> sudo docker run -d --name goask_container -p 8080:3232 goask
-
-
-
-
-
-
-
+> sudo docker run -d --name goask_container -p 3232:3232 goask
