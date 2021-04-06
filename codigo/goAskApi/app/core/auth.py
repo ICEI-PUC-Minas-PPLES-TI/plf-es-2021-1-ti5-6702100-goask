@@ -44,16 +44,16 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
     )
     try:
         payload = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=[os.getenv('ALGORITHM')])
-        user_email: str = payload.get("email")
-        if user_email is None:
+        uuid: str = payload.get("uuid")
+        if uuid is None:
             raise credentials_exception
-        token_data = TokenData(user_email=user_email)
+        token_data = TokenData(uuid=uuid)
     except JWTError:
         raise credentials_exception
-    return token_data.user_email
+    return token_data.uuid
 
 
-async def check_token_access(user_email: str = Depends(get_current_user)):
-    if user_email is None:
+async def check_token_access(uuid: str = Depends(get_current_user)):
+    if uuid is None:
         raise HTTPException(status_code=400, detail="User email error")
-    return user_email
+    return uuid

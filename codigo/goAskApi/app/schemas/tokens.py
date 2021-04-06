@@ -15,4 +15,4 @@ class TokenData(BaseModel):
     """
     App's Token basic representation.
     """
-    user_email: Optional[str] = None
+    uuid: Optional[str] = None

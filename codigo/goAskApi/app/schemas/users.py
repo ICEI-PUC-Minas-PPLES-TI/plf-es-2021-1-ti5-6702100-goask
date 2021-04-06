@@ -13,6 +13,7 @@ class UserBase(BaseModel):
     App's User basic representation.
     """
     email: str
+    name: str
 
 
 class UserCreate(UserBase):
@@ -27,6 +28,7 @@ class User(UserBase):
     App's User overall representation.
     """
     idUser: int
+    uuid: str
     createdAt: date
     updatedAt: date
     tests: List[Test] = []

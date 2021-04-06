@@ -1,12 +1,13 @@
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
+import uuid
 
 from app.db.database import Base
 
 
-# This file contains the database ORM Objects, do not confund with the Pydantic models
-# which can be found in the db.schemas.py file.
+def generate_uuid():
+    return str(uuid.uuid4())
 
 
 class User(Base):
@@ -17,7 +18,9 @@ class User(Base):
     __tablename__ = "User"
 
     idUser = Column(Integer, primary_key=True, index=True)
+    uuid = Column(String, name="uuid", default=generate_uuid)
     email = Column(String, unique=True, index=True)
+    name = Column(String)
     password = Column(String)
     createdAt = Column(DateTime(timezone=True), server_default=func.now())
     updatedAt = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
