@@ -1,9 +1,9 @@
-import IndexPage from '../modules/pages/Index';
+import HomePage from "../modules/pages/Home";
 
-const Home = () => (
-    <>
-        <IndexPage />
-    </>
+const Index = () => (
+  <>
+    <HomePage />
+  </>
 );
 
-export default Home;
+export default Index;
