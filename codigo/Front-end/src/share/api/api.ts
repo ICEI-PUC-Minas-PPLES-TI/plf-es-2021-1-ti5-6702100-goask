@@ -16,7 +16,15 @@ export const registerUser = async (user: RegisterUser): Promise<User> => {
 
 export const loginUser = async (user: LoginUser): Promise<Token> => {
   try {
-    return await api.post("/token", user);
+    return await api.post("/login", user);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const verifyToken = async (token: string): Promise<boolean> => {
+  try {
+    return true;
   } catch (e) {
     console.error(e);
   }

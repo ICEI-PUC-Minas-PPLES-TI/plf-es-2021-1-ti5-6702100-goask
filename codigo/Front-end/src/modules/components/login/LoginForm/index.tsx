@@ -14,6 +14,9 @@ import Link from "next/link";
 //From api
 import { loginUser } from "../../../../share/api/api";
 
+//From utils
+import { check } from "../../../../share/utils/loginChecker";
+
 //From models
 import { LoginUser } from "../../../../models/User";
 import { Token } from "../../../../models/Token";
@@ -33,13 +36,21 @@ const LoginForm: React.FC = () => {
     };
     const response: Token = await loginUser(user);
     if (response) {
-      localStorage.setItem("$$access_token", response.access_token);
-      localStorage.setItem("$$token_type", response.token_type);
-      router.push("/home");
+      localStorage.setItem("$$access_token", response.data.access_token);
+      localStorage.setItem("$$token_type", response.data.token_type);
+      router.push("/");
     } else {
       setLoginError(true);
     }
   };
+
+  const verify = async () => {
+    if (await check(localStorage.getItem("$$access_token"))) {
+      router.push("/");
+    }
+  };
+
+  verify();
 
   return (
     <form onSubmit={login}>

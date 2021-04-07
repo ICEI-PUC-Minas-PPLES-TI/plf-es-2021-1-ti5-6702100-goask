@@ -14,6 +14,9 @@ import Link from "next/link";
 //From api
 import { registerUser } from "../../../../share/api/api";
 
+//From utils
+import { check } from "../../../../share/utils/loginChecker";
+
 //From models
 import { RegisterUser, User } from "../../../../models/User";
 
@@ -42,6 +45,14 @@ const SigninForm: React.FC = () => {
       }
     }
   };
+
+  const verify = async () => {
+    if (await check(localStorage.getItem("$$access_token"))) {
+      router.push("/");
+    }
+  };
+
+  verify();
 
   return (
     <form onSubmit={signin}>
