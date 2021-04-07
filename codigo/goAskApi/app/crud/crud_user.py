@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
 from app.core.auth import get_password_hash
-from app.schemas.users import UserCreate
+from app.schemas.users import UserCreate, UserBase
 from app.models.users import User
 
 
@@ -26,7 +26,7 @@ def create_user(db: Session, user: UserCreate):
     return db_user
 
 
-def update_user(db: Session, user: UserCreate, db_user: User):
+def update_user(db: Session, user: UserBase, db_user: User):
     db_user.name = user.name
     db_user.email = user.email
     db.flush()
