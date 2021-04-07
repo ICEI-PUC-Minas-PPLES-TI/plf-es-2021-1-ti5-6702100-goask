@@ -6,7 +6,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {RootStackParamList} from './utils/navigationTypes';
 
 // Screens Imports
-import LoginScreen from './screens/Login';
+import NameLogin from './screens/NameLogin';
+import RoomLogin from './screens/RoomLogin';
 
 const App = () => {
   const {Navigator, Screen} = createStackNavigator<RootStackParamList>();
@@ -15,14 +16,19 @@ const App = () => {
     <NavigationContainer>
       <AppCointainer>
         <Navigator
-          initialRouteName="LoginScreen"
+          initialRouteName="NameLogin"
           screenOptions={{
             headerShown: false,
             cardStyle: {backgroundColor: 'transparent'},
           }}>
           <Screen
-            name="LoginScreen"
-            component={LoginScreen}
+            name="NameLogin"
+            component={NameLogin}
+            options={{headerTransparent: true}}
+          />
+          <Screen
+            name="RoomLogin"
+            component={RoomLogin}
             options={{headerTransparent: true}}
           />
         </Navigator>

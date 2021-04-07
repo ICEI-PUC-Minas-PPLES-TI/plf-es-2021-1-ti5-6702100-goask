@@ -1,41 +1,45 @@
 import {RouteProp} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useState} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import AppInput from '../components/AppInput';
 import {RootStackParamList} from '../utils/navigationTypes';
 import Styles from '../utils/styles';
 import {Icon} from 'react-native-elements';
 import {COLORS} from '../utils/colors';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 interface Props {
-  navigation: StackNavigationProp<RootStackParamList, 'LoginScreen'>;
-  route: RouteProp<RootStackParamList, 'LoginScreen'>;
+  navigation: StackNavigationProp<RootStackParamList, 'RoomLogin'>;
+  route: RouteProp<RootStackParamList, 'RoomLogin'>;
 }
 
-const Login: React.FC<Props> = (props) => {
-  const [name, setName] = useState('');
+const RoomLogin: React.FC<Props> = (props) => {
+  const {navigation} = props;
+
   const [roomName, setRoomName] = useState('');
 
   return (
     <View style={styles.container}>
-      <Image source={require('../static/Logo.png')} style={styles.logo} />
-      <View style={styles.inputContainer}>
-        <AppInput
-          value={name}
-          setValue={setName}
-          style={styles.input}
-          placeholder="Digite o seu nome"
-          hasIcon={true}>
+      <View style={styles.backIconView}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack();
+          }}>
           <Icon
-            name="person-circle-sharp"
+            name="arrow-back-circle-outline"
             type="ionicon"
-            size={60}
-            style={styles.icon}
             color={COLORS.ICONS}
+            size={40}
+            style={styles.backIcon}
           />
-        </AppInput>
+        </TouchableOpacity>
+      </View>
+      <Image source={require('../static/Logo.png')} style={styles.logo} />
+      <Text style={styles.text}>
+        Insira o seu nome da sala para ingressar no quizz.
+      </Text>
+      <View style={styles.inputContainer}>
         <AppInput
           value={roomName}
           setValue={setRoomName}
@@ -52,7 +56,12 @@ const Login: React.FC<Props> = (props) => {
         </AppInput>
       </View>
       <TouchableOpacity onPress={() => {}}>
-        <Icon name='arrow-forward-circle' type='ionicon' color={COLORS.ICONS} size={10080} />
+        <Icon
+          name="arrow-forward-circle"
+          type="ionicon"
+          color={COLORS.ICONS}
+          size={100}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -63,16 +72,24 @@ const styles = StyleSheet.create({
     ...Styles.container,
   },
   logo: {
-    marginTop: 100,
-    width: 100,
+    marginTop: 30,
+    width: 105,
     height: 160,
     resizeMode: 'contain',
+  },
+  text: {
+    marginHorizontal: 30,
+    marginTop: 50,
+    marginBottom: 0,
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   inputContainer: {
     width: '90%',
     marginTop: 50,
     alignItems: 'center',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   input: {
     width: '90%',
@@ -80,7 +97,13 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 30,
-  }
+  },
+  backIconView: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
+  backIcon: {marginLeft: 30, marginTop: 10},
 });
 
-export default Login;
+export default RoomLogin;
