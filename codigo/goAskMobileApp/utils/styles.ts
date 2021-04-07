@@ -7,10 +7,9 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopRightRadius: 25,
     borderBottomRightRadius: 25,
-    marginRight: 3,
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
 });
 
-export default styles
+export default styles;
