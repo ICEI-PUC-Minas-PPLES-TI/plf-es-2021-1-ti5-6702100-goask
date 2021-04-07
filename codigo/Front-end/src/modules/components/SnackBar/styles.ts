@@ -8,7 +8,7 @@ interface Props {
 export const Container = styled.div<Props>`
   background-color: ${(props) => props.backgroundColor};
   visibility: ${(props) => props.visibility};
-  width: 330px;
+  width: 300px;
   height: 60px;
   border-radius: 20px;
   display: flex;
@@ -21,8 +21,9 @@ export const Container = styled.div<Props>`
     color: #fff;
     font-size: 18px;
     font-weight: 600;
-    width: 90%;
+    width: 70%;
     padding-left: 10px;
+    text-align: center;
   }
   button {
     border: none;
@@ -35,8 +36,6 @@ export const Container = styled.div<Props>`
 
     &:hover {
       cursor: pointer;
-      color: ${(props) => props.backgroundColor};
-      background-color: #fff;
     }
 
     &:focus {
