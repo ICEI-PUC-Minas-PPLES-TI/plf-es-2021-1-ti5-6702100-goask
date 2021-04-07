@@ -7,6 +7,7 @@ import { useState } from "react";
 //From components
 import Input from "../../index/Input";
 import ButtonForm from "../../ButtonForm";
+import SnackBar from "../../SnackBar";
 
 //From next
 import Link from "next/link";
@@ -53,31 +54,41 @@ const LoginForm: React.FC = () => {
   verify();
 
   return (
-    <form onSubmit={login}>
-      <styles.Container>
-        {loginError ? <p>Email ou senha inválidos</p> : <></>}
-        <Input
-          type="text"
-          icon="/mail-icon.svg"
-          placeHolder="Digite seu e-mail"
-          alt="E-mail"
-          name="email"
+    <div>
+      {loginError ? (
+        <SnackBar
+          message="Email ou senha inválidos"
+          backgroundColor="#BD232F"
+          timer={5000}
         />
-        <Input
-          type="password"
-          icon="/password-icon.svg"
-          placeHolder="Digite sua senha"
-          alt="Senha"
-          name="pass"
-        />
-        <Link href="/signin">
-          <a>Não tenho cadastro</a>
-        </Link>
-        <styles.ButtonDiv>
-          <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
-        </styles.ButtonDiv>
-      </styles.Container>
-    </form>
+      ) : (
+        <></>
+      )}
+      <form onSubmit={login}>
+        <styles.Container>
+          <Input
+            type="text"
+            icon="/mail-icon.svg"
+            placeHolder="Digite seu e-mail"
+            alt="E-mail"
+            name="email"
+          />
+          <Input
+            type="password"
+            icon="/password-icon.svg"
+            placeHolder="Digite sua senha"
+            alt="Senha"
+            name="pass"
+          />
+          <Link href="/signin">
+            <a>Não tenho cadastro</a>
+          </Link>
+          <styles.ButtonDiv>
+            <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
+          </styles.ButtonDiv>
+        </styles.Container>
+      </form>
+    </div>
   );
 };
 

@@ -7,6 +7,7 @@ import { useState } from "react";
 //From components
 import Input from "../../index/Input";
 import ButtonForm from "../../ButtonForm";
+import SnackBar from "../../SnackBar";
 
 //From next
 import Link from "next/link";
@@ -55,38 +56,48 @@ const SigninForm: React.FC = () => {
   verify();
 
   return (
-    <form onSubmit={signin}>
-      <styles.Container>
-        {signinError ? <p>Já existe uma conta com esse email</p> : <></>}
-        <Input
-          type="text"
-          icon="/user.svg"
-          placeHolder="Digite seu nome"
-          alt="Nome"
-          name="username"
+    <div>
+      {signinError ? (
+        <SnackBar
+          message="Já existe uma conta com esse email"
+          backgroundColor="#BD232F"
+          timer={5000}
         />
-        <Input
-          type="text"
-          icon="/mail-icon.svg"
-          placeHolder="Digite seu e-mail"
-          alt="E-mail"
-          name="email"
-        />{" "}
-        <Input
-          type="password"
-          icon="/password-icon.svg"
-          placeHolder="Digite sua senha"
-          alt="Senha"
-          name="pass"
-        />
-        <Link href="/login">
-          <a>Já possuo uma conta</a>
-        </Link>
-        <styles.ButtonDiv>
-          <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
-        </styles.ButtonDiv>
-      </styles.Container>
-    </form>
+      ) : (
+        <></>
+      )}
+      <form onSubmit={signin}>
+        <styles.Container>
+          <Input
+            type="text"
+            icon="/user.svg"
+            placeHolder="Digite seu nome"
+            alt="Nome"
+            name="username"
+          />
+          <Input
+            type="text"
+            icon="/mail-icon.svg"
+            placeHolder="Digite seu e-mail"
+            alt="E-mail"
+            name="email"
+          />{" "}
+          <Input
+            type="password"
+            icon="/password-icon.svg"
+            placeHolder="Digite sua senha"
+            alt="Senha"
+            name="pass"
+          />
+          <Link href="/login">
+            <a>Já possuo uma conta</a>
+          </Link>
+          <styles.ButtonDiv>
+            <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
+          </styles.ButtonDiv>
+        </styles.Container>
+      </form>
+    </div>
   );
 };
 
