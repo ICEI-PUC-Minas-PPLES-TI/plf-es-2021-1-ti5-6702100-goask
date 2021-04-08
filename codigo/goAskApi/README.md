@@ -29,10 +29,10 @@
 
 #### local
 
-> sudo docker build -t goask .
+> docker build -t goask .
 
 #### oracle
 
-> sudo docker build --network=host -t goask .
+> docker build --network=host -t goask .
 
-> sudo docker run -d --name goask_container -p 3232:3232 goask
+> docker run -d --name goask_container -p 3232:3232 goask
