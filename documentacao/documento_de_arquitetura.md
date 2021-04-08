@@ -191,7 +191,7 @@ A comunicação com o back-end é por meio de uma api RESTful programada em pyth
 
 ### Descrição resumida dos Casos de Uso / Histórias de Usuário
 
-![Visão Geral da Solução](imagens/CasosDeUso.png "Visão Geral da Solução")
+![Casos de uso](imagens/CasosDeUso.png "Casos de uso")
 
 #### UC01 – Cadastrar no sistema
 
