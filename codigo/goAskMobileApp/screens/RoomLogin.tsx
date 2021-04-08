@@ -1,6 +1,6 @@
 import {RouteProp} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useState} from 'react';
+import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import AppInput from '../components/AppInput';
 import {RootStackParamList} from '../utils/navigationTypes';
@@ -8,6 +8,8 @@ import Styles from '../utils/styles';
 import {Icon} from 'react-native-elements';
 import {COLORS} from '../utils/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useAppDispatch, useAppSelector} from '../utils/hooks';
+import {changeRoomName} from '../store/usersSlice';
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, 'RoomLogin'>;
@@ -17,7 +19,16 @@ interface Props {
 const RoomLogin: React.FC<Props> = (props) => {
   const {navigation} = props;
 
-  const [roomName, setRoomName] = useState('');
+  const roomName = useAppSelector((state) => state.users.roomName);
+  const dispatch = useAppDispatch();
+
+  const setRoomName = (text: string) => {
+    dispatch(
+      changeRoomName({
+        roomName: text,
+      }),
+    );
+  };
 
   return (
     <View style={styles.container}>

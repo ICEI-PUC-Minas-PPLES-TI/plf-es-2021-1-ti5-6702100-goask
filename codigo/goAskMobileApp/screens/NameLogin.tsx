@@ -1,6 +1,6 @@
 import {RouteProp} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useState} from 'react';
+import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import AppInput from '../components/AppInput';
 import {RootStackParamList} from '../utils/navigationTypes';
@@ -8,6 +8,8 @@ import Styles from '../utils/styles';
 import {Icon} from 'react-native-elements';
 import {COLORS} from '../utils/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useAppDispatch, useAppSelector} from '../utils/hooks';
+import {changeUserName} from '../store/usersSlice';
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, 'NameLogin'>;
@@ -17,7 +19,12 @@ interface Props {
 const NameLogin: React.FC<Props> = (props) => {
   const {navigation} = props;
 
-  const [name, setName] = useState('');
+  const name = useAppSelector((state) => state.users.userName);
+  const dispatch = useAppDispatch();
+
+  const setName = (text: string) => {
+    dispatch(changeUserName({userName: text}));
+  };
 
   return (
     <View style={styles.container}>
