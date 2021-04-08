@@ -16,7 +16,8 @@ class Question(Base):
     questionText = Column(String)
     createdAt = Column(DateTime(timezone=True), server_default=func.now())
     updatedAt = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
-    idTest = Column(Integer, ForeignKey("Test.idTest"))
+    idTest = Column(Integer, ForeignKey("Test.idTest", ondelete='CASCADE'))
 
-    test = relationship("Test", back_populates="questions")
-    answers = relationship("Answer", back_populates="question")
+    test = relationship("Test", back_populates="questions", lazy='joined')
+    answers = relationship("Answer", back_populates="question", lazy='joined', cascade="all, delete-orphan",
+                           passive_deletes=True)

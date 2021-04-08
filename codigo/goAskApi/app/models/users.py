@@ -25,5 +25,7 @@ class User(Base):
     createdAt = Column(DateTime(timezone=True), server_default=func.now())
     updatedAt = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
-    tests = relationship("Test", back_populates="owner")
-    rooms = relationship("Room", back_populates="owner")
+    tests = relationship("Test", back_populates="owner", lazy='joined', cascade="all, delete-orphan",
+                         passive_deletes=True)
+    rooms = relationship("Room", back_populates="owner", lazy='joined', cascade="all, delete-orphan",
+                         passive_deletes=True)

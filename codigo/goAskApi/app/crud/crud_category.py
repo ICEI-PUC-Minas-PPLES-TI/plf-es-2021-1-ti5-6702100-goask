@@ -25,7 +25,8 @@ def get_all_categories(db: Session, skip: int = 0, limit: int = 100):
 
 
 def update_category(db: Session, category: Category, db_category: Category):
-    db_category.name = category.name.upper()
-    db.flush()
-    db.commit()
+    if category.name.strip():
+        db_category.name = category.name.upper()
+        db.flush()
+        db.commit()
     return db_category
