@@ -1,3 +1,5 @@
 export type RootStackParamList = {
-    LoginScreen: undefined,
-}
+  NameLogin: {};
+  RoomLogin: {};
+  Loading: {};
+};
