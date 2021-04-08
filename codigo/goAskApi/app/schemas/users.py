@@ -31,7 +31,6 @@ class User(UserBase):
     uuid: str
     createdAt: date
     updatedAt: date
-    tests: List[Test] = []
     rooms: List[Room] = []
 
     class Config:

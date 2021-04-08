@@ -27,8 +27,10 @@ def create_user(db: Session, user: UserCreate):
 
 
 def update_user(db: Session, user: UserBase, db_user: User):
-    db_user.name = user.name
-    db_user.email = user.email
+    if user.name.strip():
+        db_user.name = user.name
+    if user.email.strip():
+        db_user.email = user.email
     db.flush()
     db.commit()
     return db_user

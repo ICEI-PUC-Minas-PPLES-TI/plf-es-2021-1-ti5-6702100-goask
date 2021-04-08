@@ -14,17 +14,34 @@ class TestBase(BaseModel):
     """
     name: str
     description: str
-    category: Category
-    questions: List[Question]
 
 
-class Test(TestBase):
+class TestCreate(TestBase):
+    """
+    Quiz format basic representation.
+    """
+
+    idCategory: int
+    idUser: int
+
+
+class TestUpdate(TestBase):
+    """
+    Quiz format basic representation.
+    """
+
+    idTest: int
+
+
+class Test(TestCreate):
     """
     Quiz format representation.
     """
     idTest: int
     createdAt: date
     updatedAt: date
+    questions: List[Question]
+    category: Category
 
     class Config:
         orm_mode = True

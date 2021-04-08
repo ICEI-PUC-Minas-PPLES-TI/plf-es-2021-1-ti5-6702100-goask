@@ -12,6 +12,7 @@ class QuestionCreate(BaseModel):
     Quiz Question to be created representation.
     """
     questionText: str
+    idTest: int
     answers: List[Answer]
 
 

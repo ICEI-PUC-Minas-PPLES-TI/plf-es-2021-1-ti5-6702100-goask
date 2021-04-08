@@ -14,4 +14,5 @@ class Category(Base):
     idCategory = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
 
-    tests = relationship("Test", back_populates="category")
+    tests = relationship("Test", back_populates="category", lazy='joined', cascade="all, delete-orphan",
+                         passive_deletes=True)
