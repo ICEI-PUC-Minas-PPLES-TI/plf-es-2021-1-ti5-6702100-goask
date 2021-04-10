@@ -66,7 +66,10 @@ const RoomLogin: React.FC<Props> = (props) => {
           />
         </AppInput>
       </View>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Loading', {});
+        }}>
         <Icon
           name="arrow-forward-circle"
           type="ionicon"
