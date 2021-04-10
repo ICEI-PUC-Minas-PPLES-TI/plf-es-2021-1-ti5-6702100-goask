@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export const usersSlice = createSlice({
   name: 'users',
@@ -7,11 +7,11 @@ export const usersSlice = createSlice({
     roomName: '',
   },
   reducers: {
-    changeUserName: (state, action) => {
-      state.userName = action.payload.userName;
+    changeUserName: (state, action: PayloadAction<string>) => {
+      state.userName = action.payload;
     },
-    changeRoomName: (state, action) => {
-      state.roomName = action.payload.roomName;
+    changeRoomName: (state, action: PayloadAction<string>) => {
+      state.roomName = action.payload;
     },
   },
 });

@@ -1,17 +1,36 @@
 import {RouteProp} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import LoadingAnimation from '../components/LoadingAnimation';
+import {useAppDispatch} from '../utils/hooks';
 import {RootStackParamList} from '../utils/navigationTypes';
 import Styles from '../utils/styles';
+import {changeQuestions, changeRoom} from '../store/roomSlice';
+import {mockedQuestions, mockedRoom} from '../mock';
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, 'Loading'>;
   route: RouteProp<RootStackParamList, 'Loading'>;
 }
 
-const Loading: React.FC<Props> = () => {
+const Loading: React.FC<Props> = (props) => {
+  const {navigation} = props;
+  const dispatch = useAppDispatch();
+
+  // TODO
+  useEffect(() => {
+    // Mock
+    dispatch(changeQuestions(mockedQuestions));
+    dispatch(changeRoom(mockedRoom));
+
+    setTimeout(() => {
+      navigation.navigate('Question', {
+        questionId: 0,
+      });
+    }, 5000);
+  });
+
   return (
     <View style={styles.container}>
       <Image source={require('../static/Logo.png')} style={styles.logo} />

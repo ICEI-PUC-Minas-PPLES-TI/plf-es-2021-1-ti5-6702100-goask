@@ -23,11 +23,7 @@ const RoomLogin: React.FC<Props> = (props) => {
   const dispatch = useAppDispatch();
 
   const setRoomName = (text: string) => {
-    dispatch(
-      changeRoomName({
-        roomName: text,
-      }),
-    );
+    dispatch(changeRoomName(text));
   };
 
   return (
