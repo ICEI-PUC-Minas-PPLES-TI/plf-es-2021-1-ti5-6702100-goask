@@ -23,7 +23,7 @@ const NameLogin: React.FC<Props> = (props) => {
   const dispatch = useAppDispatch();
 
   const setName = (text: string) => {
-    dispatch(changeUserName({userName: text}));
+    dispatch(changeUserName(text));
   };
 
   return (
