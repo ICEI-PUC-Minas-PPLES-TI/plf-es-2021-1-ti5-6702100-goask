@@ -1,11 +1,18 @@
 import {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useEffect, useMemo, useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  BackHandler,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Image} from 'react-native-elements/dist/image/Image';
-import {IQuestion} from '../types/question';
+import {increaseNumberOfQuestionsAnswered} from '../store/roomSlice';
+import {IAnswer, IQuestion} from '../types/question';
 import {CONTAINER_STYLE_COLORS} from '../utils/colors';
-import {useAppSelector} from '../utils/hooks';
+import {useAppDispatch, useAppSelector} from '../utils/hooks';
 import {RootStackParamList} from '../utils/navigationTypes';
 import Styles from '../utils/styles';
 
@@ -26,10 +33,17 @@ interface Props {
 }
 
 const Question: React.FC<Props> = (props) => {
-  const {questionId} = props.route.params;
+  const {navigation, route} = props;
+  const {questionId} = route.params;
   const [minutesLeft, setMinutesLeft] = useState(1);
   const [secondsLeft, setSecondsLeft] = useState(0);
 
+  useEffect(() => {
+    // Remove Android back button listener
+    BackHandler.addEventListener('hardwareBackPress', () => true);
+  });
+
+  // Create timer
   useEffect(() => {
     setTimeout(() => {
       if (secondsLeft > 0) {
@@ -37,7 +51,7 @@ const Question: React.FC<Props> = (props) => {
       } else {
         if (minutesLeft > 0) {
           setMinutesLeft(minutesLeft - 1);
-          setSecondsLeft(60);
+          setSecondsLeft(59);
         } else {
         }
       }
@@ -49,11 +63,25 @@ const Question: React.FC<Props> = (props) => {
     (state) => state.room.numberOfQuestionsAnswered,
   );
   const room = useAppSelector((state) => state.room.room);
+  const dispatch = useAppDispatch();
+
   const question = useMemo(
     () =>
       questions ? getQuestionFromQuestions(questions!, questionId) : undefined,
     [questionId, questions],
   );
+
+  const handleAnswerPress = (answer: IAnswer) => {
+    // TODO: send answer
+    if (numberOfQuestionsAnswered + 1 === questions?.length) {
+      // TODO: navigate out of questions
+    } else {
+      dispatch(increaseNumberOfQuestionsAnswered({}));
+      navigation.navigate('Question', {
+        questionId: questions![numberOfQuestionsAnswered + 1].idQuestion!,
+      });
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -82,7 +110,8 @@ const Question: React.FC<Props> = (props) => {
       </View>
       <View style={styles.answersView}>
         <View style={styles.answerRow}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleAnswerPress(question?.answers[0]!)}>
             <View style={styles.answer}>
               <View style={[styles.circleAnswer, styles.orange]}>
                 <Text style={styles.circleAnswerText}>A</Text>
@@ -90,7 +119,8 @@ const Question: React.FC<Props> = (props) => {
               <Text style={styles.bold}>{question?.answers[0].answerText}</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleAnswerPress(question?.answers[1]!)}>
             <View style={styles.answer}>
               <View style={[styles.circleAnswer, styles.green]}>
                 <Text style={styles.circleAnswerText}>B</Text>
@@ -100,7 +130,8 @@ const Question: React.FC<Props> = (props) => {
           </TouchableOpacity>
         </View>
         <View style={styles.answerRow}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleAnswerPress(question?.answers[2]!)}>
             <View style={styles.answer}>
               <View style={[styles.circleAnswer, styles.blue]}>
                 <Text style={styles.circleAnswerText}>C</Text>
@@ -108,7 +139,8 @@ const Question: React.FC<Props> = (props) => {
               <Text style={styles.bold}>{question?.answers[2].answerText}</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleAnswerPress(question?.answers[3]!)}>
             <View style={styles.answer}>
               <View style={[styles.circleAnswer, styles.red]}>
                 <Text style={styles.circleAnswerText}>D</Text>
