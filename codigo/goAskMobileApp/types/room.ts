@@ -4,7 +4,7 @@ export interface IRoom {
   name: string;
   isActive: boolean;
   isRunning: boolean;
-  createdAt: Date;
+  createdAt: string;
   idRoom?: number;
   test?: ITest;
 }
@@ -12,8 +12,8 @@ export interface IRoom {
 export interface ITest {
   name: string;
   description: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   idTest?: number;
   category?: string;
   questions?: IQuestion[];
