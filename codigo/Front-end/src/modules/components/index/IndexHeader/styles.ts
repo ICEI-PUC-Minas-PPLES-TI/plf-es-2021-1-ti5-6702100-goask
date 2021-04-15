@@ -6,16 +6,24 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 40px 80px 0;
+
   div {
-    align-self: center;
+    align-content: center;
     img {
-      min-width: 130px;
-      min-height: 130px;
+      width: calc(
+        110px + (145 - 110) *
+          ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1024 - 320))
+      );
+      height: auto;
     }
   }
+
   h1 {
-    font-size: 50px;
+    font-size: calc(
+      35px + (50 - 35) *
+        ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1399 - 320))
+    );
     font-weight: bolder;
+    margin: auto 0px;
   }
 `;

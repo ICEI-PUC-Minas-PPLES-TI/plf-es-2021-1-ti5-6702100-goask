@@ -1,6 +1,14 @@
 const theme = {
   colors: {
-    background: "#FBFCFC",
+    background: "#f3f3f3",
+    borders: {
+      lightGreen: "#32b24a",
+      green: "#139882",
+      lightBlue: "#125daa",
+      darkBlue: "#26265e",
+      orange: "#F27225",
+      red: "#C9515C",
+    },
   },
   breakpoint: {
     xs: 0,

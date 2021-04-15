@@ -2,15 +2,12 @@ import * as styles from "./styles";
 
 //From components
 import IndexImage from "../../components/index/IndexImage";
-import IndexFormContainer from "../../components/index/IndexFormContainer";
-import FormContainerLogin from "../../components/login/FormContainerLogin";
+import LoginForm from "../../components/login/loginForm";
 
 const LoginPage: React.FC = () => {
   return (
     <styles.Container>
-      <IndexFormContainer>
-        <FormContainerLogin></FormContainerLogin>
-      </IndexFormContainer>
+      <LoginForm/>
       <IndexImage></IndexImage>
     </styles.Container>
   );

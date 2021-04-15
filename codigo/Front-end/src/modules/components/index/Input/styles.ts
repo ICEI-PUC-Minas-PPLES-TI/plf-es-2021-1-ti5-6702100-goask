@@ -1,4 +1,3 @@
-import theme from "src/share/styles/themes";
 import styled from "styled-components";
 
 export const InputContainer = styled.div`
@@ -11,35 +10,26 @@ export const InputContainer = styled.div`
   align-items: center;
 `;
 
-export const IconDiv = styled.div`
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
-  img {
-    width: 60px;
-    height: 60px;
-  }
+export const InputIcon = styled.span`
+  padding: 10px;
 `;
 
 export const InputDiv = styled.div`
-  width: 80%;
-  height: 30px;
+  width: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
 
   input {
-    width: 80%;
+    width: 100%;
     height: 30px;
-    font-weight: 400px;
-    font-size: 24px;
+    font-weight: 400;
+    font-size: calc(
+      17px + (24 - 17) *
+        ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1399 - 320))
+    );
     color: #8d8a8a;
     border: none;
-    @media (max-width: ${theme.breakpoint.xl}) {
-      font-size: 20px;
-    }
   }
 
   input:focus {
