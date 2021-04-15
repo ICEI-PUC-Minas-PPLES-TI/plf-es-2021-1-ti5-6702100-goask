@@ -11,13 +11,13 @@ import { check } from "../../../share/utils/loginChecker";
 const Dashboard: React.FC = () => {
   const router = useRouter();
 
-  // const verify = async () => {
-  //   if (!(await check(localStorage.getItem("$$access_token")))) {
-  //     router.push("/login");
-  //   }
-  // };
+  const verify = async () => {
+    if (!(await check(localStorage.getItem("$$access_token")))) {
+      router.push("/login");
+    }
+  };
 
-  // verify();
+  verify();
 
   return (
     <styles.Container>
