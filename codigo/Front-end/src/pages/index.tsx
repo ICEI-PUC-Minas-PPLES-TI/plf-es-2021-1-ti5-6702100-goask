@@ -1,4 +1,4 @@
-import HomePage from "../modules/pages/Home";
+import HomePage from "../modules/pages/Dashboard";
 
 const Index = () => (
   <>

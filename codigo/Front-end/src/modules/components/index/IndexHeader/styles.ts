@@ -16,6 +16,7 @@ export const HeaderContainer = styled.div`
       );
       height: auto;
     }
+    margin: 0 0 40px 0;
   }
 
   h1 {
