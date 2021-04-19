@@ -1,9 +1,5 @@
 FROM python:3.7
 
-RUN python3 -V
-
-RUN python3 -m pip --version
-
 COPY requirements.txt /app/requirements.txt
 
 RUN pip install -r /app/requirements.txt

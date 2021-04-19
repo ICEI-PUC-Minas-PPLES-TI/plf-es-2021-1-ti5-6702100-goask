@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  goAsk_service:
+    build: .
+    image: goask/api_service
+    container_name: goAsk_service
+    ports:
+      - '3232:3232'
+    network_mode: host

@@ -25,7 +25,17 @@
 
 > python my_app.py
 
-### docker
+## Docker
+
+### Docker compose
+
+Iniciar
+> docker-compose up -d
+
+Parar
+> docker-compose down
+
+### Docker
 
 #### local
 
@@ -36,3 +46,4 @@
 > docker build --network=host -t goask .
 
 > docker run -d --name goask_container -p 3232:3232 goask
+

@@ -12,10 +12,18 @@ class AnswerCreate(BaseModel):
     answerText: str
 
 
+class AnswerUpdate(AnswerCreate):
+    """
+    Question's Answer to be updated representation.
+    """
+    idAnswer: int
+
+
 class Answer(AnswerCreate):
     """
     Question's Answer representation.
     """
+    idAnswer: int
     createdAt: date
     updatedAt: date
 
