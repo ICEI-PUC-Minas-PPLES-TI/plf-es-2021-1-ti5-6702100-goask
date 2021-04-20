@@ -37,8 +37,8 @@ const LoginForm: React.FC = () => {
     };
     const response: Token = await loginUser(user);
     if (response) {
-      localStorage.setItem("$$access_token", response.data.access_token);
-      localStorage.setItem("$$token_type", response.data.token_type);
+      // localStorage.setItem("$$access_token", response.data.access_token);
+      // localStorage.setItem("$$token_type", response.data.token_type);
       router.push("/");
     } else {
       setLoginError(true);
