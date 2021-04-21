@@ -28,3 +28,21 @@ export const ContentContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const ButtonsContainer = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const TextContainer = styled.div`
+  width: 60%;
+`;
+
+export const Header = styled.div`
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;

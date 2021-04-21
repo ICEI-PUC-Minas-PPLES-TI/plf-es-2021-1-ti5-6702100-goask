@@ -106,3 +106,15 @@ export const updateTest = async (
     console.error(e);
   }
 };
+
+export const deleteTest = async (token: Token, id: number): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    return await api.delete(`/tests/${id}`, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
