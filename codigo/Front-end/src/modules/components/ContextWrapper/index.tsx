@@ -1,35 +1,33 @@
 import { Token } from "../../../models/Token";
+import { User } from "../../../models/User";
 import { AppProps } from "next/app";
-import { createContext, useContext, useState } from "react";
-
-interface Content extends AppProps {
-  sharedState: string;
-}
-
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 interface Context {
-  sharedState: {
-    user: any;
-    token: any;
-  };
-  setState: () => {};
+  user: User;
+  token: Token;
+  setUser: Dispatch<SetStateAction<User>>;
+  setToken: Dispatch<SetStateAction<Token>>;
 }
 
 const AppContext = createContext<Context>(null);
 
-const ContextWrapper: React.FC<Content> = ({
-  Component,
-  pageProps,
-  sharedState,
-  children,
-}) => {
-  const [token, setToken] = useState();
-  const setContextToken = (token) => {
-    setToken(token);
-  };
+const ContextWrapper: React.FC = ({ children }) => {
+  const [token, setToken] = useState<Token>();
+  const [user, setUser] = useState<User>();
+
   const objectSharedState = {
-    sharedState,
-    setState: setContextToken,
+    token,
+    user,
+    setUser,
+    setToken,
   };
+
   return (
     <AppContext.Provider value={objectSharedState}>
       {children}

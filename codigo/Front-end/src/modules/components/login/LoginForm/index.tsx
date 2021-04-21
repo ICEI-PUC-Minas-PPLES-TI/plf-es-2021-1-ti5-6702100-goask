@@ -13,17 +13,18 @@ import SnackBar from "../../SnackBar";
 import Link from "next/link";
 
 //From api
-import { loginUser } from "../../../../share/api/api";
-
-//From utils
-import { check } from "../../../../share/utils/loginChecker";
+import { loginUser, getUser } from "../../../../share/api/api";
 
 //From models
-import { LoginUser } from "../../../../models/User";
+import { LoginUser, User } from "../../../../models/User";
 import { Token } from "../../../../models/Token";
+
+//From Hooks
+import { useAppContext } from "../../../../modules/components/ContextWrapper";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
+  const context = useAppContext();
   const [loginError, setLoginError] = useState(false);
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,23 +36,22 @@ const LoginForm: React.FC = () => {
       useremail: email,
       password: pass,
     };
-    const response: Token = await loginUser(user);
-    if (response) {
-      // localStorage.setItem("$$access_token", response.data.access_token);
-      // localStorage.setItem("$$token_type", response.data.token_type);
+    const token: Token = await loginUser(user);
+    if (token) {
+      //salva o localstorage
+      sessionStorage.setItem("$$access_token", token.access_token);
+      sessionStorage.setItem("$$token_type", token.token_type);
+      //salva o contexto
+      context.setToken(token);
+      //caça o usuário
+      const user: User = await getUser(token);
+      //salva o usuário
+      context.setUser(user);
       router.push("/");
     } else {
       setLoginError(true);
     }
   };
-
-  const verify = async () => {
-    if (await check(localStorage.getItem("$$access_token"))) {
-      router.push("/");
-    }
-  };
-
-  verify();
 
   return (
     <div>

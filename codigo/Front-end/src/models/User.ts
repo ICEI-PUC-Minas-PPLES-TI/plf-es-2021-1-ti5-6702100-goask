@@ -9,11 +9,12 @@ export interface LoginUser {
   password: string;
 }
 
-export class User {
+export interface User {
   email: string;
+  name: string;
   idUser: number;
+  uuid: number;
   createdAt: string;
   updatedAt: string;
-  tests: any[];
-  rooms: any[];
+  rooms?: any[];
 }

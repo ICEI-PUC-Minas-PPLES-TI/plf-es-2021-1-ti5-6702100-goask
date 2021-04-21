@@ -2,12 +2,11 @@ import * as styles from "./styles";
 
 //Hooks
 import { useRouter } from "next/router";
-
-//Form utils
-import { check } from "../../../share/utils/loginChecker";
+import { useAppContext } from "../../../modules/components/ContextWrapper";
 
 const HomePage: React.FC = () => {
   const router = useRouter();
+  const context = useAppContext();
 
   const logout = () => {
     localStorage.removeItem("$$access_token");
@@ -16,9 +15,10 @@ const HomePage: React.FC = () => {
   };
 
   const verify = async () => {
-    if (!(await check(localStorage.getItem("$$access_token")))) {
-      router.push("/login");
-    }
+    console.log("CONTEXT = ", context);
+    setTimeout(() => {
+      console.log("CONTEXT = ", context);
+    }, 1000);
   };
 
   verify();
