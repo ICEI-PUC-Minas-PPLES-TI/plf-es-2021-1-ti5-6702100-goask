@@ -79,7 +79,7 @@ const Question: React.FC<Props> = (props) => {
   const handleAnswerPress = (answer: IAnswer) => {
     // TODO: send answer
     if (numberOfQuestionsAnswered + 1 === questions?.length) {
-      // TODO: navigate out of questions
+      navigation.replace('Ranking', {});
     } else {
       dispatch(increaseNumberOfQuestionsAnswered({}));
       navigation.replace('Question', {

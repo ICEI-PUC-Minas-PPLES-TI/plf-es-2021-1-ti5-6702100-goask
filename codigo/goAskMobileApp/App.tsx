@@ -12,6 +12,7 @@ import NameLogin from './screens/NameLogin';
 import RoomLogin from './screens/RoomLogin';
 import LoadingScreen from './screens/Loading';
 import QuestionScreen from './screens/Question';
+import RankingScreen from './screens/Ranking';
 
 const App = () => {
   const {Navigator, Screen} = createStackNavigator<RootStackParamList>();
@@ -44,6 +45,11 @@ const App = () => {
             <Screen
               name="Question"
               component={QuestionScreen}
+              options={{headerTransparent: true}}
+            />
+            <Screen
+              name="Ranking"
+              component={RankingScreen}
               options={{headerTransparent: true}}
             />
           </Navigator>
