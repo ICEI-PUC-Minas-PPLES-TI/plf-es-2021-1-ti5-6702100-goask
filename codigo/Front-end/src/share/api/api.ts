@@ -1,3 +1,4 @@
+import { Test } from "@models/Test";
 import { Token } from "@models/Token";
 import axios from "axios";
 import { RegisterUser, User, LoginUser } from "../../models/User";
@@ -39,6 +40,17 @@ export const getUser = async (token: Token): Promise<User> => {
 export const verifyToken = async (token: string): Promise<boolean> => {
   try {
     return true;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const getTests = async (token: Token): Promise<Test[]> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    return await api.get("/tests/", options).then((res) => res.data);
   } catch (e) {
     console.error(e);
   }
