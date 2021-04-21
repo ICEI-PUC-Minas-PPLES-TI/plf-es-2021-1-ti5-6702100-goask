@@ -1,4 +1,4 @@
-import { Test } from "@models/Test";
+import { PostTest, Test } from "@models/Test";
 import { Token } from "@models/Token";
 import axios from "axios";
 import { RegisterUser, User, LoginUser } from "../../models/User";
@@ -51,6 +51,23 @@ export const getTests = async (token: Token): Promise<Test[]> => {
       headers: { Authorization: `${token.token_type} ${token.access_token}` },
     };
     return await api.get("/tests/", options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const createTest = async (
+  token: Token,
+  test: PostTest
+): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    const data = test;
+
+    return await api.post("/tests/", data, options).then((res) => res.data);
   } catch (e) {
     console.error(e);
   }

@@ -1,8 +1,12 @@
 import * as styles from "./styles";
 
+//Models
+import { Test } from "@models/Test";
+
 //Hooks
 import { useRouter } from "next/router";
 import { useAppContext } from "../../components/ContextWrapper";
+import { useEffect, useState } from "react";
 
 //From next
 import Link from "next/link";
@@ -15,8 +19,6 @@ import TestsTable from "../../components/TestsTable";
 
 //API
 import { getTests } from "../../../share/api/api";
-import { Test } from "@models/Test";
-import { useEffect, useState } from "react";
 
 const MyTestsPage: React.FC = () => {
   const router = useRouter();
