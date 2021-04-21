@@ -1,3 +1,10 @@
+export interface PostTest {
+  name: string;
+  description: string;
+  idCategory: number;
+  idUser: number;
+}
+
 export interface Test {
   name: string;
   description: string;

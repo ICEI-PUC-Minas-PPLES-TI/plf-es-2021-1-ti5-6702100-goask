@@ -3,16 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   min-height: 100%;
-  background-color: #f1f1f1;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 `;
 
 export const TestsTable = styled.table`
   width: 100%;
   height: 100%;
-  margin-bottom: 50px;
   caption-side: top;
   border: none;
   border-collapse: collapse;
@@ -36,7 +36,7 @@ export const TestsTable = styled.table`
     font-weight: 700;
   }
   tbody tr {
-    :nth-of-type(odd) {
+    :nth-of-type(even) {
       background-color: #f7f7f7;
     }
     :hover {
