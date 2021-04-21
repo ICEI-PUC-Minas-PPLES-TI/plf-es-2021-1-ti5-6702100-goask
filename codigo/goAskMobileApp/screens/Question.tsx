@@ -45,17 +45,22 @@ const Question: React.FC<Props> = (props) => {
 
   // Create timer
   useEffect(() => {
+    let isMouted = true;
     setTimeout(() => {
-      if (secondsLeft > 0) {
+      if (secondsLeft > 0 && isMouted) {
         setSecondsLeft(secondsLeft - 1);
       } else {
-        if (minutesLeft > 0) {
+        if (minutesLeft > 0 && isMouted) {
           setMinutesLeft(minutesLeft - 1);
           setSecondsLeft(59);
         } else {
         }
       }
     }, 1000);
+
+    return () => {
+      isMouted = false;
+    };
   }, [secondsLeft, minutesLeft]);
 
   const questions = useAppSelector((state) => state.room.questions);
@@ -77,7 +82,7 @@ const Question: React.FC<Props> = (props) => {
       // TODO: navigate out of questions
     } else {
       dispatch(increaseNumberOfQuestionsAnswered({}));
-      navigation.navigate('Question', {
+      navigation.replace('Question', {
         questionId: questions![numberOfQuestionsAnswered + 1].idQuestion!,
       });
     }
