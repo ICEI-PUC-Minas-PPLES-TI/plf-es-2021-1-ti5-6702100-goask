@@ -4,6 +4,9 @@ import * as styles from "./styles";
 import { useRouter } from "next/router";
 import { useAppContext } from "../../../modules/components/ContextWrapper";
 
+//From next
+import Link from "next/link";
+
 const HomePage: React.FC = () => {
   const router = useRouter();
   const context = useAppContext();
@@ -14,15 +17,6 @@ const HomePage: React.FC = () => {
     router.push("/login");
   };
 
-  const verify = async () => {
-    console.log("CONTEXT = ", context);
-    setTimeout(() => {
-      console.log("CONTEXT = ", context);
-    }, 1000);
-  };
-
-  verify();
-
   return (
     <styles.Container>
       <div>
@@ -30,6 +24,10 @@ const HomePage: React.FC = () => {
           Home
           <br />
           <u onClick={logout}>Logout</u>
+          <br />
+          <Link href="/mytests">
+            <a>Meus quizes</a>
+          </Link>
         </h1>
       </div>
     </styles.Container>
