@@ -72,3 +72,15 @@ export const createTest = async (
     console.error(e);
   }
 };
+
+export const getTest = async (token: Token, id: number): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    return await api.get(`/tests/${id}`, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
