@@ -47,14 +47,6 @@ const SigninForm: React.FC = () => {
     }
   };
 
-  const verify = async () => {
-    if (await check(localStorage.getItem("$$access_token"))) {
-      router.push("/");
-    }
-  };
-
-  verify();
-
   return (
     <div>
       {signinError ? (
