@@ -1,3 +1,4 @@
+import {Player} from '../screens/Ranking';
 import {IQuestion} from '../types/question';
 import {IRoom} from '../types/room';
 
@@ -119,3 +120,14 @@ export const mockedRoom: IRoom = {
   name: 'Sala do Goa',
   idRoom: 0,
 };
+
+export const mockedWinners: Player[] = [
+  {
+    name: 'Matheus',
+    points: 300,
+    placing: 1,
+  },
+  {name: 'Bigode', points: 0, placing: 2},
+  {name: 'Leozin', points: -300, placing: 3},
+  {name: 'Webin', points: -500, placing: 4},
+];
