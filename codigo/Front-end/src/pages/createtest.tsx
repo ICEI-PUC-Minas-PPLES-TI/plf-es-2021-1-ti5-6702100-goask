@@ -1,8 +1,11 @@
 import CreateTestPage from "../modules/pages/CreateTest";
+import MainMenu from "../modules/layout/mainMenu";
 
 const CreateTest = () => (
   <>
-    <CreateTestPage />
+    <MainMenu>
+      <CreateTestPage />
+    </MainMenu>
   </>
 );
 

@@ -1,8 +1,11 @@
 import HomePage from "../modules/pages/Dashboard";
+import MainMenu from "../modules/layout/mainMenu";
 
 const Index = () => (
   <>
-    <HomePage />
+    <MainMenu>
+      <HomePage />
+    </MainMenu>
   </>
 );
 
