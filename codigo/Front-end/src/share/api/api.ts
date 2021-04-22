@@ -155,7 +155,7 @@ export const updateQuestion = async (
     };
 
     return await api
-      .put(`/questions/${id}`, data, options)
+      .put(`/questions`, data, options)
       .then((res) => res.data);
   } catch (e) {
     console.error(e);
