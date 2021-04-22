@@ -5,6 +5,7 @@ import GlobalStyle from "../share/styles/global";
 import theme from "../share/styles/themes";
 import ContextWrapper from "../modules/components/ContextWrapper";
 import PrivateRoutes from "src/modules/components/PrivateRoutes";
+import MainMenu from "../modules/layout/mainMenu";
 
 const GoAsk: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -12,7 +13,9 @@ const GoAsk: React.FC<AppProps> = ({ Component, pageProps }) => {
       <PrivateRoutes>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <Component {...pageProps} />
+          <MainMenu>
+            <Component {...pageProps} />
+          </MainMenu>
         </ThemeProvider>
       </PrivateRoutes>
     </ContextWrapper>

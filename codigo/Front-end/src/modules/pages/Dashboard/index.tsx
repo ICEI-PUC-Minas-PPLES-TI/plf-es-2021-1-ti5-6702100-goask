@@ -1,7 +1,5 @@
 import * as styles from "./styles";
 
-import MainMenu from "../../layout/mainMenu";
-
 //Hooks
 import { useRouter } from "next/router";
 
@@ -12,7 +10,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <styles.Container>
-      <MainMenu>
         <h1>Dashboard</h1>
         <styles.ButtonContainer>
           <styles.Button>
@@ -89,7 +86,6 @@ const Dashboard: React.FC = () => {
             </button>
           </styles.FeaturesBeginQuiz>
         </styles.FeaturesContainer>
-      </MainMenu>
     </styles.Container>
   );
 };
