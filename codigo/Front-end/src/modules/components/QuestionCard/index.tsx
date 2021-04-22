@@ -22,6 +22,14 @@ const QuestionCard: React.FC<Content> = ({
   const visible = "visible";
   const hidden = "hidden";
   const [open, setOpen] = useState(hidden);
+  const correctAnswer =
+    question && question.answers.filter((a) => a.isCorrect)[0];
+  const incorrectsAnswers =
+    question &&
+    question.answers
+      .sort((a) => a.idAnswer)
+      .reverse()
+      .filter((a) => !a.isCorrect);
 
   const changeVisibility = () => {
     if (open === hidden) {
@@ -98,25 +106,25 @@ const QuestionCard: React.FC<Content> = ({
               label="Verdadeira"
               name="correct"
               type="text"
-              value={question ? question.answers[0].answerText : ""}
+              value={question ? correctAnswer.answerText : ""}
             />
             <Input
               label="Falsa"
               name="r1"
               type="text"
-              value={question ? question.answers[1].answerText : ""}
+              value={question ? incorrectsAnswers[0].answerText : ""}
             />
             <Input
               label="Falsa"
               name="r2"
               type="text"
-              value={question ? question.answers[2].answerText : ""}
+              value={question ? incorrectsAnswers[1].answerText : ""}
             />
             <Input
               label="Falsa"
               name="r3"
               type="text"
-              value={question ? question.answers[3].answerText : ""}
+              value={question ? incorrectsAnswers[2].answerText : ""}
             />
             <Button text="Salvar" />
           </form>
