@@ -6,6 +6,23 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  /* Só pra arrumar pra entrega */
+  margin-top: -30px;
+  a {
+    text-decoration: none;
+    font-size: calc(
+      20px + (30 - 20) *
+        ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1399 - 320))
+    );
+    color: ${(props) => props.theme.colors.menuGrey};
+    margin: auto 0px;
+    transition-duration: 0.4s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.borders.red};
+      cursor: pointer;
+    }
+  }
 `;
 
 export const FirstContainer = styled.div`
@@ -16,12 +33,12 @@ export const FirstContainer = styled.div`
   min-width: ${(props) => props.theme.breakpoint.xs};
   padding: 50px 40px 0 40px;
   margin: 30px 30px 0 0;
-  box-shadow: 0 0 0 5px ${(props) => props.theme.colors.borders.darkBlue},
-    0 0 0 10px ${(props) => props.theme.colors.borders.lightBlue},
-    0 0 0 15px ${(props) => props.theme.colors.borders.green},
-    0 0 0 20px ${(props) => props.theme.colors.borders.lightGreen},
-    0 0 0 25px ${(props) => props.theme.colors.borders.orange},
-    0 0 0 30px ${(props) => props.theme.colors.borders.red};
+  box-shadow: 0 0px 0px 5px ${(props) => props.theme.colors.borders.darkBlue},
+    0px 0px 0px 10px ${(props) => props.theme.colors.borders.lightBlue},
+    0px 0px 0px 15px ${(props) => props.theme.colors.borders.green},
+    0px 0px 0px 20px ${(props) => props.theme.colors.borders.lightGreen},
+    0px 0px 0px 25px ${(props) => props.theme.colors.borders.orange},
+    0px 0px 0px 30px ${(props) => props.theme.colors.borders.red};
 `;
 
 export const SecondContainer = styled.div`

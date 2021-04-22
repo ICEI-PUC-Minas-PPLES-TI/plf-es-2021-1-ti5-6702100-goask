@@ -19,7 +19,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align content: center;
+  align-content: center;
   flex-wrap: wrap;
 `;
 
@@ -63,9 +63,8 @@ export const FeaturesContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align content: center;
+  align-content: center;
   flex-wrap: wrap;
-
 `;
 
 export const FeaturesStatics = styled.div`
@@ -127,6 +126,10 @@ export const FeaturesBeginQuiz = styled.div`
   border-radius: 30px;
   background-color: ${(props) => props.theme.colors.background};
 
+  a {
+    text-decoration: none;
+  }
+
   button {
     width: 100%;
     margin: 15% auto;
@@ -142,7 +145,6 @@ export const FeaturesBeginQuiz = styled.div`
     justify-content: center;
     padding: 12px 8px 8px 8px;
 
-
     p {
       font-size: calc(
         14px + (18 - 14) *
@@ -152,10 +154,9 @@ export const FeaturesBeginQuiz = styled.div`
       font-weight: bolder;
     }
 
-    span{
+    span {
       margin: auto 0;
       padding: 0 0 0 10px;
-  }
     }
 
     img {
