@@ -16,10 +16,8 @@ const Input: React.FC<InputConfig> = ({
 }) => {
   return (
     <styles.InputContainer>
-      <styles.IconDiv>
-        <img src={icon} alt={alt} />
-      </styles.IconDiv>
       <styles.InputDiv>
+        <styles.InputIcon><img src={icon} height="40px" width="40px" alt={alt} /></styles.InputIcon>
         <input required name={name} type={type} placeholder={placeHolder} />
       </styles.InputDiv>
     </styles.InputContainer>

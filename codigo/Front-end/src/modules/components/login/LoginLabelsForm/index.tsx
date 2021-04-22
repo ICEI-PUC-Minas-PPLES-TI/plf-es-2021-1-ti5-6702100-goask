@@ -13,21 +13,14 @@ import SnackBar from "../../SnackBar";
 import Link from "next/link";
 
 //From api
-import { loginUser, getUser } from "../../../../share/api/api";
+import { loginUser } from "../../../../share/api/api";
 
 //From models
-import { LoginUser, User } from "../../../../models/User";
+import { LoginUser } from "../../../../models/User";
 import { Token } from "../../../../models/Token";
-
-//From Hooks
-import { useAppContext } from "../../../../modules/components/ContextWrapper";
-
-import IndexHeader from "../../index/IndexHeader";
-import LoginLabelForm from "../LoginLabelsForm";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
-  const context = useAppContext();
   const [loginError, setLoginError] = useState(false);
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,27 +34,52 @@ const LoginForm: React.FC = () => {
     };
     const token: Token = await loginUser(user);
     if (token) {
-      //salva o sessionStorage
       sessionStorage.setItem("$$access_token", token.access_token);
       sessionStorage.setItem("$$token_type", token.token_type);
-      //salva o contexto
-      context.setToken(token);
-      //caça o usuário
-      const user: User = await getUser(token);
-      //salva o usuário
-      context.setUser(user);
       router.push("/");
     } else {
       setLoginError(true);
     }
-  }
+  };
+
   return (
-    <styles.Container>
-      <div>
-      <IndexHeader title="Login" />
-      <LoginLabelForm />
-    </div>
+    <div>
+      {loginError ? (
+        <SnackBar
+          message="Email ou senha inválidos"
+          backgroundColor="#BD232F"
+          timer={5000}
+        />
+      ) : (
+        <></>
+      )}
+      <styles.Container>
+        <form  onSubmit={login}>
+        <styles.FormContainer>
+          <Input
+            type="text"
+            icon="/mail-icon.svg"
+            placeHolder="Digite seu e-mail"
+            alt="E-mail"
+            name="email"
+          />
+          <Input
+            type="password"
+            icon="/password-icon.svg"
+            placeHolder="Digite sua senha"
+            alt="Senha"
+            name="pass"
+          />
+          <Link href="/signin">
+            <a>Não tenho cadastro</a>
+          </Link>
+          <styles.ButtonDiv>
+            <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
+          </styles.ButtonDiv>
+          </styles.FormContainer>
+        </form>
     </styles.Container>
+    </div>
   );
 };
 

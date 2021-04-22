@@ -53,6 +53,7 @@ export const verifyToken = async (token: string): Promise<boolean> => {
 
 export const getTests = async (token: Token): Promise<Test[]> => {
   try {
+    debugger
     const options = {
       headers: { Authorization: `${token.token_type} ${token.access_token}` },
     };
