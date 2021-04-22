@@ -35,6 +35,18 @@ export interface PostAnswer {
   isCorrect: boolean;
   answerText: string;
 }
+
+export interface PutQuestion {
+  questionText: string;
+  idTest: number;
+  answers: PutAnswer[];
+}
+
+export interface PutAnswer {
+  isCorrect: boolean;
+  answerText: string;
+  idAnswer: number;
+}
 export interface Answer {
   isCorrect: boolean;
   answerText: string;

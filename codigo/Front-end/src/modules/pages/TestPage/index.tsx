@@ -6,7 +6,14 @@ import { useAppContext } from "../../components/ContextWrapper";
 import { useEffect, useState } from "react";
 
 //From models
-import { PostQuestion, PostTest, Question, Test } from "@models/Test";
+import {
+  PostQuestion,
+  PostTest,
+  Question,
+  Test,
+  PutQuestion,
+  PutAnswer,
+} from "@models/Test";
 
 //Components
 import Button from "../../components/Button";
@@ -24,15 +31,18 @@ import {
   updateTest,
   deleteTest,
   createQuestion,
+  updateQuestion,
+  getQuestion,
 } from "../../../share/api/api";
 
 const MyTestsPage: React.FC = () => {
   const router = useRouter();
   const context = useAppContext();
   const timeSnackBar = 5000;
-  const [errorEdit, setErrorEdit] = useState(false);
-  const [edited, setEdited] = useState(false);
+  const [showBar, setShowBar] = useState(false);
   const [test, setTest] = useState<Test>();
+  const [color, setColor] = useState("#34B04A");
+  const [message, setMessage] = useState("");
 
   const { isShown, toggle } = useModal();
 
@@ -52,18 +62,62 @@ const MyTestsPage: React.FC = () => {
     }
   };
 
+  const updateSnackBar = (res, msgSuccess: string, msgError: string) => {
+    if (res) {
+      setMessage(msgSuccess);
+      setColor("#34B04A");
+    } else {
+      setMessage(msgError);
+      setColor("#BD232F");
+    }
+    setShowBar(true);
+    setTimeout(() => {
+      setShowBar(false);
+    }, timeSnackBar);
+  };
+
   const addQuestion = async (question: PostQuestion) => {
-    await createQuestion(context.token, question);
+    const res = await createQuestion(context.token, question);
+    updateSnackBar(
+      res,
+      "Questão criada com sucesso!",
+      "Não foi possível criar a questão."
+    );
     const newTest = await getTest(context.token, test.idTest);
     setTest(newTest);
   };
 
-  const updateQuestion = async (question: PostQuestion) => {
-    console.log("UPDATE = ", question);
+  const updateQuestionSubmit = async (question: PostQuestion, id: number) => {
+    const putAnswers: PutAnswer[] = [];
+
+    const originalAnswer = await getQuestion(context.token, id);
+
+    for (let q of originalAnswer.answers) {
+      putAnswers.push({
+        answerText: q.answerText,
+        idAnswer: q.idAnswer,
+        isCorrect: q.isCorrect,
+      });
+    }
+
+    const putQuestion: PutQuestion = {
+      questionText: question.questionText,
+      idTest: question.idTest,
+      answers: putAnswers,
+    };
+
+    const res = await updateQuestion(context.token, putQuestion, id);
+    updateSnackBar(
+      res,
+      "Questão atualizada com sucesso!",
+      "Não foi possível atualizar a questão."
+    );
+    const newTest = await getTest(context.token, test.idTest);
+    setTest(newTest);
   };
 
   const edit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setErrorEdit(false);
+    setShowBar(false);
     e.preventDefault();
 
     const name = e.currentTarget.testName.value;
@@ -79,15 +133,11 @@ const MyTestsPage: React.FC = () => {
     };
 
     const newTest = await updateTest(context.token, testEdited, test.idTest);
-
-    if (newTest) {
-      setEdited(true);
-      setTimeout(() => {
-        setEdited(false);
-      }, timeSnackBar);
-    } else {
-      setErrorEdit(true);
-    }
+    updateSnackBar(
+      newTest,
+      "Quiz atualizado com sucesso!",
+      "Não foi possível atualizar o quiz."
+    );
   };
 
   useEffect(() => {
@@ -108,21 +158,8 @@ const MyTestsPage: React.FC = () => {
           />
         }
       />
-      {errorEdit ? (
-        <Snackbar
-          message="Não foi possível editar o quiz"
-          backgroundColor="#BD232F"
-          timer={timeSnackBar}
-        />
-      ) : (
-        <></>
-      )}
-      {edited ? (
-        <Snackbar
-          message="Quiz editado com sucesso"
-          backgroundColor="#34B04A"
-          timer={5000}
-        />
+      {showBar ? (
+        <Snackbar message={message} backgroundColor={color} timer={5000} />
       ) : (
         <></>
       )}
@@ -159,7 +196,8 @@ const MyTestsPage: React.FC = () => {
             <styles.CardContainer key={index}>
               <QuestionCard
                 question={q}
-                submit={updateQuestion}
+                submit={updateQuestionSubmit}
+                questionId={q.idQuestion}
                 testId={test.idTest}
               />
             </styles.CardContainer>

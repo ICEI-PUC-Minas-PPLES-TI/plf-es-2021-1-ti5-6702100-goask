@@ -8,11 +8,17 @@ import Input from "../Input";
 
 interface Content {
   question: Question;
-  submit: (PostQuestion) => void;
+  submit: (PostQuestion, number?) => void;
   testId: number;
+  questionId?: number;
 }
 
-const QuestionCard: React.FC<Content> = ({ question, submit, testId }) => {
+const QuestionCard: React.FC<Content> = ({
+  question,
+  submit,
+  testId,
+  questionId,
+}) => {
   const visible = "visible";
   const hidden = "hidden";
   const [open, setOpen] = useState(hidden);
@@ -64,7 +70,11 @@ const QuestionCard: React.FC<Content> = ({ question, submit, testId }) => {
       idTest: testId,
       questionText: title,
     };
-    submit(question);
+    if (questionId) {
+      submit(question, questionId);
+    } else {
+      submit(question);
+    }
   };
 
   return (
