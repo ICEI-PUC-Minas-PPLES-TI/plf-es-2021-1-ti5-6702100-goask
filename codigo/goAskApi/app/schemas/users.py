@@ -31,7 +31,6 @@ class User(UserBase):
     uuid: str
     createdAt: date
     updatedAt: date
-    rooms: List[Room] = []
 
     class Config:
         orm_mode = True
