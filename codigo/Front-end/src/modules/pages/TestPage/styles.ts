@@ -26,7 +26,7 @@ export const QuestionContainer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  max-width: 70%;
+  max-width: 100%;
   height: 150px;
   background-color: #fff;
   margin-top: 50px;
@@ -37,9 +37,16 @@ export const ContentContainer = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
-  width: 40%;
+  width: 35%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  div {
+    max-width: 200px;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -47,7 +54,7 @@ export const TextContainer = styled.div`
 `;
 
 export const Header = styled.div`
-  max-width: 70%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +62,7 @@ export const Header = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  min-width: 70%;
+  min-width: 100%;
   background-color: #fff;
   border-radius: 30px;
   display: flex;

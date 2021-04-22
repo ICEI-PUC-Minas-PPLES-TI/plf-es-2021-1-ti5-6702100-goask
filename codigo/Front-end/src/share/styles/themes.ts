@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     menuBackground: "#ffffff",
-    background: "#f3f3f3",
+    background: "#e5e5e5",
     menuGrey: "#a9a9a9",
     borders: {
       lightGreen: "#32b24a",
