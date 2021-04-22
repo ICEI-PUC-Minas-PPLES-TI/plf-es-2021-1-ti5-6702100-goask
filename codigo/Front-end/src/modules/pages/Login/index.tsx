@@ -8,7 +8,7 @@ const LoginPage: React.FC = () => {
   return (
     <styles.Container>
       <LoginForm/>
-      <IndexImage></IndexImage>
+      <IndexImage/>
     </styles.Container>
   );
 };

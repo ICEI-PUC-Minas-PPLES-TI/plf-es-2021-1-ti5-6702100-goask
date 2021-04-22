@@ -12,7 +12,7 @@ const GoAsk: React.FC<AppProps> = ({ Component, pageProps }) => {
       <PrivateRoutes>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <Component {...pageProps} />
+            <Component {...pageProps} />
         </ThemeProvider>
       </PrivateRoutes>
     </ContextWrapper>

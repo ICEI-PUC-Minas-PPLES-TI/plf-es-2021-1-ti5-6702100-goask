@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   background: ${(props) => props.theme.colors.background};
   display: flex;
   flex-direction: row;
@@ -9,22 +9,19 @@ export const Container = styled.div`
 `;
 
 export const FirstContainer = styled.div`
-  min-height: 100vh;
+  height: 100%;
   border-radius: 0 15px 15px 0;
-  width: 25%;
-  background: background: ${(props) => props.theme.colors.menuBackground};
+  background: ${(props) => props.theme.colors.menuBackground};
   max-width: ${(props) => props.theme.breakpoint.xl};
   min-width: ${(props) => props.theme.breakpoint.xs};
-    padding: 50px 40px 0 40px;
-    margin: 0 30px 0 0;
-    box-shadow: 0 0 0 5px ${(props) => props.theme.colors.borders.darkBlue},
-      0 0 0 10px ${(props) => props.theme.colors.borders.lightBlue},
-      0 0 0 15px ${(props) => props.theme.colors.borders.green},
-      0 0 0 20px ${(props) => props.theme.colors.borders.lightGreen},
-      0 0 0 25px ${(props) => props.theme.colors.borders.orange},
-      0 0 0 30px ${(props) => props.theme.colors.borders.red};
-  }
-
+  padding: 50px 40px 0 40px;
+  margin: 30px 30px 0 0;
+  box-shadow: 0 0 0 5px ${(props) => props.theme.colors.borders.darkBlue},
+    0 0 0 10px ${(props) => props.theme.colors.borders.lightBlue},
+    0 0 0 15px ${(props) => props.theme.colors.borders.green},
+    0 0 0 20px ${(props) => props.theme.colors.borders.lightGreen},
+    0 0 0 25px ${(props) => props.theme.colors.borders.orange},
+    0 0 0 30px ${(props) => props.theme.colors.borders.red};
 `;
 
 export const SecondContainer = styled.div`
@@ -89,7 +86,7 @@ export const itemContainer = styled.div`
     );
     color: ${(props) => props.theme.colors.menuGrey};
     margin: auto 0px;
-    weight: 300;
+    /* weight: 300; */
   }
 `;
 
@@ -100,7 +97,7 @@ export const userContainer = styled.div`
   align-items: center;
   justify-content: start;
 
-  position: fixed;
+  position: absolute;
   bottom: 25px;
   img {
     width: 40px;
