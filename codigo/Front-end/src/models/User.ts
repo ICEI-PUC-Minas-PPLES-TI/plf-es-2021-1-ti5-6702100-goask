@@ -18,3 +18,8 @@ export interface User {
   updatedAt: string;
   rooms?: any[];
 }
+
+export interface UpdateUser {
+  email: string;
+  name: string;
+}

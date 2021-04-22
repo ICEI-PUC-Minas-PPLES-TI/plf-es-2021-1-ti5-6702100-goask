@@ -7,7 +7,8 @@ import {
 } from "@models/Test";
 import { Token } from "@models/Token";
 import axios from "axios";
-import { RegisterUser, User, LoginUser } from "../../models/User";
+import { apiResolver } from "next/dist/next-server/server/api-utils";
+import { RegisterUser, User, LoginUser,UpdateUser } from "../../models/User";
 
 export const api = axios.create({
   baseURL: "http://152.67.33.12:3232/",
@@ -50,6 +51,18 @@ export const verifyToken = async (token: string): Promise<boolean> => {
     console.error(e);
   }
 };
+
+export const updateUser = async (token:Token ,user: UpdateUser): Promise<User> => {
+  try{
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    return await api
+      .put("/users/",user,options).then((res) => res.data);
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 export const getTests = async (token: Token): Promise<Test[]> => {
   try {
