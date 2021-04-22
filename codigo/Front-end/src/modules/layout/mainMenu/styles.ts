@@ -8,21 +8,6 @@ export const Container = styled.div`
   align-items: flex-start;
   /* Só pra arrumar pra entrega */
   margin-top: -30px;
-  a {
-    text-decoration: none;
-    font-size: calc(
-      20px + (30 - 20) *
-        ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1399 - 320))
-    );
-    color: ${(props) => props.theme.colors.menuGrey};
-    margin: auto 0px;
-    transition-duration: 0.4s;
-
-    &:hover {
-      color: ${(props) => props.theme.colors.borders.red};
-      cursor: pointer;
-    }
-  }
 `;
 
 export const FirstContainer = styled.div`
@@ -81,6 +66,21 @@ export const LogoutContainer = styled.div`
 export const menuContainer = styled.div`
   width: 100%;
   margin: 25px 0px;
+  a {
+    text-decoration: none;
+    font-size: calc(
+      20px + (30 - 20) *
+        ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1399 - 320))
+    );
+    color: ${(props) => props.theme.colors.menuGrey};
+    margin: auto 0px;
+    transition-duration: 0.4s;
+
+    &:hover {
+      color: ${(props) => props.theme.colors.borders.red};
+      cursor: pointer;
+    }
+  }
 `;
 
 export const itemContainer = styled.div`
