@@ -18,6 +18,13 @@ export const Container = styled.div`
   }
 `;
 
+export const QuestionContainer = styled.div`
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const ContentContainer = styled.div`
   max-width: 70%;
   height: 150px;
@@ -45,4 +52,14 @@ export const Header = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const CardContainer = styled.div`
+  min-width: 70%;
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
 `;

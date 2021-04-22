@@ -1,4 +1,10 @@
-import { PostTest, Test } from "@models/Test";
+import {
+  PostQuestion,
+  PostTest,
+  PutQuestion,
+  Question,
+  Test,
+} from "@models/Test";
 import { Token } from "@models/Token";
 import axios from "axios";
 import { RegisterUser, User, LoginUser } from "../../models/User";
@@ -114,6 +120,62 @@ export const deleteTest = async (token: Token, id: number): Promise<Test> => {
     };
 
     return await api.delete(`/tests/${id}`, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const updateQuestion = async (
+  token: Token,
+  question: PutQuestion,
+  id: number
+): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    const data = {
+      idQuestion: id,
+      answers: question.answers,
+      questionText: question.questionText,
+    };
+
+    return await api
+      .put(`/questions/${id}`, data, options)
+      .then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const createQuestion = async (
+  token: Token,
+  question: PostQuestion
+): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    const data = question;
+
+    return await api.post(`/questions/`, data, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const getQuestion = async (
+  token: Token,
+  id: number
+): Promise<Question> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    return await api.get(`/questions/${id}`, options).then((res) => res.data);
   } catch (e) {
     console.error(e);
   }

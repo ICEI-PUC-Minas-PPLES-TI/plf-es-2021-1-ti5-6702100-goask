@@ -4,7 +4,6 @@ export interface PostTest {
   idCategory: number;
   idUser: number;
 }
-
 export interface Test {
   name: string;
   description: string;
@@ -26,6 +25,28 @@ export interface Question {
   updatedAt: Date;
 }
 
+export interface PostQuestion {
+  questionText: string;
+  idTest: number;
+  answers: PostAnswer[];
+}
+
+export interface PostAnswer {
+  isCorrect: boolean;
+  answerText: string;
+}
+
+export interface PutQuestion {
+  questionText: string;
+  idTest: number;
+  answers: PutAnswer[];
+}
+
+export interface PutAnswer {
+  isCorrect: boolean;
+  answerText: string;
+  idAnswer: number;
+}
 export interface Answer {
   isCorrect: boolean;
   answerText: string;

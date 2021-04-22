@@ -6,7 +6,14 @@ import { useAppContext } from "../../components/ContextWrapper";
 import { useEffect, useState } from "react";
 
 //From models
-import { PostTest, Test } from "@models/Test";
+import {
+  PostQuestion,
+  PostTest,
+  Question,
+  Test,
+  PutQuestion,
+  PutAnswer,
+} from "@models/Test";
 
 //Components
 import Button from "../../components/Button";
@@ -15,18 +22,27 @@ import Input from "../../components/Input";
 import Snackbar from "../../components/SnackBar";
 import Modal from "../../components/Modal";
 import ConfirmationModal from "../../components/ModalConfirmation";
+import QuestionCard from "../../components/QuestionCard";
 import { useModal } from "../../utils/useModal";
 
 //API
-import { getTest, updateTest, deleteTest } from "../../../share/api/api";
+import {
+  getTest,
+  updateTest,
+  deleteTest,
+  createQuestion,
+  updateQuestion,
+  getQuestion,
+} from "../../../share/api/api";
 
 const MyTestsPage: React.FC = () => {
   const router = useRouter();
   const context = useAppContext();
   const timeSnackBar = 5000;
-  const [errorEdit, setErrorEdit] = useState(false);
-  const [edited, setEdited] = useState(false);
+  const [showBar, setShowBar] = useState(false);
   const [test, setTest] = useState<Test>();
+  const [color, setColor] = useState("#34B04A");
+  const [message, setMessage] = useState("");
 
   const { isShown, toggle } = useModal();
 
@@ -39,13 +55,69 @@ const MyTestsPage: React.FC = () => {
 
   const render = async () => {
     const { id } = router.query;
-    const idNumber = Number.parseInt(id.toString());
-    const testResult = await getTest(context.token, idNumber);
-    setTest(testResult);
+    if (id) {
+      const idNumber = Number.parseInt(id.toString());
+      const testResult = await getTest(context.token, idNumber);
+      setTest(testResult);
+    }
+  };
+
+  const updateSnackBar = (res, msgSuccess: string, msgError: string) => {
+    if (res) {
+      setMessage(msgSuccess);
+      setColor("#34B04A");
+    } else {
+      setMessage(msgError);
+      setColor("#BD232F");
+    }
+    setShowBar(true);
+    setTimeout(() => {
+      setShowBar(false);
+    }, timeSnackBar);
+  };
+
+  const addQuestion = async (question: PostQuestion) => {
+    const res = await createQuestion(context.token, question);
+    updateSnackBar(
+      res,
+      "Questão criada com sucesso!",
+      "Não foi possível criar a questão."
+    );
+    const newTest = await getTest(context.token, test.idTest);
+    setTest(newTest);
+  };
+
+  const updateQuestionSubmit = async (question: PostQuestion, id: number) => {
+    const putAnswers: PutAnswer[] = [];
+
+    const originalAnswer = await getQuestion(context.token, id);
+
+    for (let q of originalAnswer.answers) {
+      putAnswers.push({
+        answerText: q.answerText,
+        idAnswer: q.idAnswer,
+        isCorrect: q.isCorrect,
+      });
+    }
+
+    const putQuestion: PutQuestion = {
+      questionText: question.questionText,
+      idTest: question.idTest,
+      answers: putAnswers,
+    };
+
+    const res = await updateQuestion(context.token, putQuestion, id);
+    updateSnackBar(
+      res,
+      "Questão atualizada com sucesso!",
+      "Não foi possível atualizar a questão."
+    );
+    const newTest = await getTest(context.token, test.idTest);
+    setTest(newTest);
   };
 
   const edit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setErrorEdit(false);
+    setShowBar(false);
     e.preventDefault();
 
     const name = e.currentTarget.testName.value;
@@ -61,15 +133,11 @@ const MyTestsPage: React.FC = () => {
     };
 
     const newTest = await updateTest(context.token, testEdited, test.idTest);
-
-    if (newTest) {
-      setEdited(true);
-      setTimeout(() => {
-        setEdited(false);
-      }, timeSnackBar);
-    } else {
-      setErrorEdit(true);
-    }
+    updateSnackBar(
+      newTest,
+      "Quiz atualizado com sucesso!",
+      "Não foi possível atualizar o quiz."
+    );
   };
 
   useEffect(() => {
@@ -90,24 +158,12 @@ const MyTestsPage: React.FC = () => {
           />
         }
       />
-      {errorEdit ? (
-        <Snackbar
-          message="Não foi possível editar o quiz"
-          backgroundColor="#BD232F"
-          timer={timeSnackBar}
-        />
+      {showBar ? (
+        <Snackbar message={message} backgroundColor={color} timer={5000} />
       ) : (
         <></>
       )}
-      {edited ? (
-        <Snackbar
-          message="Quiz editado com sucesso"
-          backgroundColor="#34B04A"
-          timer={5000}
-        />
-      ) : (
-        <></>
-      )}
+
       <form onSubmit={edit}>
         <styles.Header>
           <styles.TextContainer>
@@ -132,6 +188,29 @@ const MyTestsPage: React.FC = () => {
           />
         </styles.ContentContainer>
       </form>
+
+      <styles.QuestionContainer>
+        <Title>Questões</Title>
+        {test.questions.map((q: Question, index) => {
+          return (
+            <styles.CardContainer key={index}>
+              <QuestionCard
+                question={q}
+                submit={updateQuestionSubmit}
+                questionId={q.idQuestion}
+                testId={test.idTest}
+              />
+            </styles.CardContainer>
+          );
+        })}
+        <styles.CardContainer>
+          <QuestionCard
+            question={null}
+            submit={addQuestion}
+            testId={test.idTest}
+          />
+        </styles.CardContainer>
+      </styles.QuestionContainer>
     </styles.Container>
   ) : (
     <></>
