@@ -14,9 +14,11 @@ class Room(Base):
 
     idRoom = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
-    isActive = Column(Boolean)
-    isRunning = Column(Boolean)
+    isActive = Column(Boolean, default=True)
+    isRunning = Column(Boolean, default=False)
     createdAt = Column(DateTime(timezone=True), server_default=func.now())
     idUser = Column(Integer, ForeignKey("User.idUser", ondelete='CASCADE'))
+    idTest = Column(Integer, ForeignKey("Test.idTest"))
 
     owner = relationship("User", back_populates="rooms", lazy='joined')
+    test = relationship("Test", back_populates="rooms", lazy='joined')

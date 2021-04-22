@@ -1,4 +1,3 @@
-import * as styles from "./styles";
 
 //Hooks
 import { useRouter } from "next/router";
@@ -28,7 +27,7 @@ const HomePage: React.FC = () => {
   verify();
 
   return (
-    <styles.Container>
+  
       <div>
         <h1>
           Home
@@ -38,7 +37,6 @@ const HomePage: React.FC = () => {
           <u onClick={editar}>editar dados cadastrais</u>
         </h1>
       </div>
-    </styles.Container>
   );
 };
 

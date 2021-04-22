@@ -22,6 +22,9 @@ import { Token } from "../../../../models/Token";
 //From Hooks
 import { useAppContext } from "../../../../modules/components/ContextWrapper";
 
+import IndexHeader from "../../index/IndexHeader";
+import LoginLabelForm from "../LoginLabelsForm";
+
 const LoginForm: React.FC = () => {
   const router = useRouter();
   const context = useAppContext();
@@ -38,7 +41,7 @@ const LoginForm: React.FC = () => {
     };
     const token: Token = await loginUser(user);
     if (token) {
-      //salva o localstorage
+      //salva o sessionStorage
       sessionStorage.setItem("$$access_token", token.access_token);
       sessionStorage.setItem("$$token_type", token.token_type);
       //salva o contexto
@@ -51,44 +54,14 @@ const LoginForm: React.FC = () => {
     } else {
       setLoginError(true);
     }
-  };
-
+  }
   return (
-    <div>
-      {loginError ? (
-        <SnackBar
-          message="Email ou senha inválidos"
-          backgroundColor="#BD232F"
-          timer={5000}
-        />
-      ) : (
-        <></>
-      )}
-      <form onSubmit={login}>
-        <styles.Container>
-          <Input
-            type="text"
-            icon="/mail-icon.svg"
-            placeHolder="Digite seu e-mail"
-            alt="E-mail"
-            name="email"
-          />
-          <Input
-            type="password"
-            icon="/password-icon.svg"
-            placeHolder="Digite sua senha"
-            alt="Senha"
-            name="pass"
-          />
-          <Link href="/signin">
-            <a>Não tenho cadastro</a>
-          </Link>
-          <styles.ButtonDiv>
-            <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
-          </styles.ButtonDiv>
-        </styles.Container>
-      </form>
+    <styles.Container>
+      <div>
+      <IndexHeader title="Login" />
+      <LoginLabelForm />
     </div>
+    </styles.Container>
   );
 };
 

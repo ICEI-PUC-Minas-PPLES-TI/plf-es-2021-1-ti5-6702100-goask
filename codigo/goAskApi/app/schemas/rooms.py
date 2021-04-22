@@ -12,7 +12,8 @@ class RoomCreate(BaseModel):
     Quiz Room to be created representation.
     """
     name: str
-    test: Test
+    idTest: int
+    idUser: int
 
 
 class Room(RoomCreate):

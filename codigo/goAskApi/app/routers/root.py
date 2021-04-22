@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 from app.core.o_auth2_request_form import OAuth2RequestForm
-from app.core.auth import verify_password, create_access_token
+from app.core.auth import verify_password, create_access_token, check_token_access
 from app.crud import crud_user
 from app.db.database import SessionLocal
 from app.schemas.tokens import Token
@@ -35,7 +35,7 @@ def login_user_fast_api(form_data: OAuth2PasswordRequestForm = Depends(), db: Se
             headers={"WWW-Authenticate": "Bearer"},
         )
     else:
-        access_token_expires = timedelta(minutes=120)
+        access_token_expires = timedelta(minutes=1440)
         jwt = create_access_token(
             data={"uuid": db_user.uuid}, expires_delta=access_token_expires
         )
@@ -59,3 +59,11 @@ def login_user(form_data: OAuth2RequestForm = Depends(), db: Session = Depends(g
             data={"uuid": db_user.uuid}, expires_delta=access_token_expires
         )
         return {"access_token": jwt, "token_type": "bearer"}
+
+
+@router.get("/check", response_model=bool)
+def check_token(uuid: str = Depends(check_token_access), db: Session = Depends(get_db)):
+    db_user: User = crud_user.get_user_by_uuid(db, uuid)
+    if db_user:
+        return True
+    return False

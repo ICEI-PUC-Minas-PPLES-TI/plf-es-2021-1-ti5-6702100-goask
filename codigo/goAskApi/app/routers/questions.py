@@ -4,7 +4,6 @@ from sqlalchemy.orm import Session
 from app.core.auth import check_token_access
 from app.crud import crud_question
 from app.db.database import SessionLocal
-from app.models.users import User
 from app.schemas.questions import QuestionAnswerCreate, Question, QuestionUpdate
 
 router = APIRouter()
@@ -41,7 +40,7 @@ def update_question(question: QuestionUpdate, db: Session = Depends(get_db), uui
 
 
 @router.delete("/{question_id}", response_model=Question)
-def delete_user(question_id: int, db: Session = Depends(get_db), uuid: str = Depends(check_token_access)):
+def delete_question(question_id: int, db: Session = Depends(get_db), uuid: str = Depends(check_token_access)):
     db_question: Question = crud_question.get_question_by_id(db, question_id=question_id)
     if db_question is None:
         raise HTTPException(status_code=404, detail="Test not found")
