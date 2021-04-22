@@ -9,10 +9,14 @@ const HomePage: React.FC = () => {
   const context = useAppContext();
 
   const logout = () => {
-    localStorage.removeItem("$$access_token");
-    localStorage.removeItem("$$token_type");
+    sessionStorage.removeItem("$$access_token");
+    sessionStorage.removeItem("$$token_type");
     router.push("/login");
   };
+
+  const editar = () => {
+    router.push("/editUser")
+  }
 
   const verify = async () => {
     console.log("CONTEXT = ", context);
@@ -30,6 +34,8 @@ const HomePage: React.FC = () => {
           Home
           <br />
           <u onClick={logout}>Logout</u>
+          <br/>
+          <u onClick={editar}>editar dados cadastrais</u>
         </h1>
       </div>
     </styles.Container>
