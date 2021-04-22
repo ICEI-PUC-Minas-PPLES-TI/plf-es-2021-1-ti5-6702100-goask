@@ -193,18 +193,21 @@ const MyTestsPage: React.FC = () => {
 
       <styles.QuestionContainer>
         <Title>Questões</Title>
-        {test.questions.map((q: Question, index) => {
-          return (
-            <styles.CardContainer key={index}>
-              <QuestionCard
-                question={q}
-                submit={updateQuestionSubmit}
-                questionId={q.idQuestion}
-                testId={test.idTest}
-              />
-            </styles.CardContainer>
-          );
-        })}
+        {test.questions
+          .sort((q) => q.idQuestion)
+          .reverse()
+          .map((q: Question, index) => {
+            return (
+              <styles.CardContainer key={index}>
+                <QuestionCard
+                  question={q}
+                  submit={updateQuestionSubmit}
+                  questionId={q.idQuestion}
+                  testId={test.idTest}
+                />
+              </styles.CardContainer>
+            );
+          })}
         <styles.CardContainer>
           <QuestionCard
             question={null}
