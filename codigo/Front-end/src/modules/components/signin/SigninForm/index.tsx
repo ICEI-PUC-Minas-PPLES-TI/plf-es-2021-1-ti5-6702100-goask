@@ -16,7 +16,7 @@ import Link from "next/link";
 import { registerUser } from "../../../../share/api/api";
 
 //From utils
-import { check } from "../../../../share/utils/loginChecker";
+// import { check } from "../../../../share/utils/loginChecker";
 
 //From models
 import { RegisterUser, User } from "../../../../models/User";
@@ -58,37 +58,39 @@ const SigninForm: React.FC = () => {
       ) : (
         <></>
       )}
-      <form onSubmit={signin}>
-        <styles.Container>
-          <Input
-            type="text"
-            icon="/user.svg"
-            placeHolder="Digite seu nome"
-            alt="Nome"
-            name="username"
-          />
-          <Input
-            type="text"
-            icon="/mail-icon.svg"
-            placeHolder="Digite seu e-mail"
-            alt="E-mail"
-            name="email"
-          />{" "}
-          <Input
-            type="password"
-            icon="/password-icon.svg"
-            placeHolder="Digite sua senha"
-            alt="Senha"
-            name="pass"
-          />
-          <Link href="/login">
-            <a>Já possuo uma conta</a>
-          </Link>
-          <styles.ButtonDiv>
-            <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
-          </styles.ButtonDiv>
-        </styles.Container>
-      </form>
+      <styles.Container>
+        <form onSubmit={signin}>
+          <styles.FormContainer>
+            <Input
+              type="text"
+              icon="/user.svg"
+              placeHolder="Digite seu nome"
+              alt="Nome"
+              name="username"
+            />
+            <Input
+              type="text"
+              icon="/mail-icon.svg"
+              placeHolder="Digite seu e-mail"
+              alt="E-mail"
+              name="email"
+            />{" "}
+            <Input
+              type="password"
+              icon="/password-icon.svg"
+              placeHolder="Digite sua senha"
+              alt="Senha"
+              name="pass"
+            />
+            <Link href="/login">
+              <a>Já possuo uma conta</a>
+            </Link>
+            <styles.ButtonDiv>
+              <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
+            </styles.ButtonDiv>
+          </styles.FormContainer>
+        </form>
+      </styles.Container>
     </div>
   );
 };

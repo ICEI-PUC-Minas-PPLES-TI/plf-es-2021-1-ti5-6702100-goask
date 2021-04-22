@@ -47,7 +47,7 @@ export const Container = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoint.xl}) {
     min-width: 47%;
     margin: 0 30px 0 0;
-    padding: 70px 70px 0 70px;
+    padding: 38px 70px 0 70px;
 
     box-shadow: 0 0 0 5px ${(props) => props.theme.colors.borders.darkBlue},
       0 0 0 10px ${(props) => props.theme.colors.borders.lightBlue},
@@ -66,7 +66,7 @@ export const Container = styled.div`
       }
 
       @media (min-width: ${(props) => props.theme.breakpoint.xl}) {
-        padding: 20px 0px 0 0px;
+        padding: 0px 0px 0 0px;
       }
     }
   }

@@ -2,14 +2,21 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   min-width: 100%;
+`;
+
+export const FormContainer = styled.div`
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 40px 80px 0;
+
   a,
   p {
-    font-size: 22px;
+    font-size: calc(
+      18px + (22 - 18) *
+        ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1399 - 320))
+    );
     color: #c9515c;
     font-weight: 500;
     text-decoration: none;

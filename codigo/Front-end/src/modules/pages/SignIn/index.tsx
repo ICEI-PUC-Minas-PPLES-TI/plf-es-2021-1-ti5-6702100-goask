@@ -3,7 +3,7 @@ import * as styles from "./styles";
 //From components
 import IndexImage from "../../components/index/IndexImage";
 import IndexFormContainer from "../../components/index/IndexFormContainer";
-import FormContainerSignin from "../../components/signin/FormContainerSignin";
+import FormContainerSignin from "../../components/signin/SigninLabelsForm";
 
 const SignInPage: React.FC = () => {
   return (
