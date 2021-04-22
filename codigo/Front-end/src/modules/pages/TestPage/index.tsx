@@ -138,6 +138,8 @@ const MyTestsPage: React.FC = () => {
       "Quiz atualizado com sucesso!",
       "Não foi possível atualizar o quiz."
     );
+
+    setTest(newTest);
   };
 
   useEffect(() => {
