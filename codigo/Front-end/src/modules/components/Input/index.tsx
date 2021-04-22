@@ -11,7 +11,12 @@ const Input: React.FC<InputConfig> = ({ type, label, name, value }) => {
     <styles.Container>
       <styles.InputDiv>
         <label htmlFor={name}>{label}:</label>
-        <input required name={name} type={type} />
+        <input
+          required
+          name={name}
+          type={type}
+          defaultValue={value ? value : ""}
+        />
       </styles.InputDiv>
     </styles.Container>
   );

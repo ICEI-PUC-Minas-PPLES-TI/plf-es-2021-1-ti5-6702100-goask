@@ -1,4 +1,9 @@
 import * as styles from "./styles";
+
+//From next
+import Link from "next/link";
+
+//From models
 import { Test } from "@models/Test";
 
 interface Content {
@@ -20,7 +25,11 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
         <tbody>
           {tests.map((t: Test, index) => (
             <tr key={index}>
-              <td>{t.name}</td>
+              <td>
+                <Link href={`/test/${t.idTest}`}>
+                  <a>{t.name}</a>
+                </Link>
+              </td>
               <td>{t.description}</td>
               <td>{t.idTest}</td>
               <td>{t.createdAt}</td>

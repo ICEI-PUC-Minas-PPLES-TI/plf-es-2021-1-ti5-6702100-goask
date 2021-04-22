@@ -72,3 +72,49 @@ export const createTest = async (
     console.error(e);
   }
 };
+
+export const getTest = async (token: Token, id: number): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    return await api.get(`/tests/${id}`, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const updateTest = async (
+  token: Token,
+  test: PostTest,
+  id: number
+): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    const data = {
+      name: test.name,
+      description: test.description,
+      idTest: id,
+    };
+
+    return await api.put(`/tests/`, data, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const deleteTest = async (token: Token, id: number): Promise<Test> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    return await api.delete(`/tests/${id}`, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
