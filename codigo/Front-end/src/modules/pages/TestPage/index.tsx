@@ -6,7 +6,7 @@ import { useAppContext } from "../../components/ContextWrapper";
 import { useEffect, useState } from "react";
 
 //From models
-import { PostTest, Test } from "@models/Test";
+import { PostQuestion, PostTest, Question, Test } from "@models/Test";
 
 //Components
 import Button from "../../components/Button";
@@ -15,10 +15,16 @@ import Input from "../../components/Input";
 import Snackbar from "../../components/SnackBar";
 import Modal from "../../components/Modal";
 import ConfirmationModal from "../../components/ModalConfirmation";
+import QuestionCard from "../../components/QuestionCard";
 import { useModal } from "../../utils/useModal";
 
 //API
-import { getTest, updateTest, deleteTest } from "../../../share/api/api";
+import {
+  getTest,
+  updateTest,
+  deleteTest,
+  createQuestion,
+} from "../../../share/api/api";
 
 const MyTestsPage: React.FC = () => {
   const router = useRouter();
@@ -39,9 +45,21 @@ const MyTestsPage: React.FC = () => {
 
   const render = async () => {
     const { id } = router.query;
-    const idNumber = Number.parseInt(id.toString());
-    const testResult = await getTest(context.token, idNumber);
-    setTest(testResult);
+    if (id) {
+      const idNumber = Number.parseInt(id.toString());
+      const testResult = await getTest(context.token, idNumber);
+      setTest(testResult);
+    }
+  };
+
+  const addQuestion = async (question: PostQuestion) => {
+    await createQuestion(context.token, question);
+    const newTest = await getTest(context.token, test.idTest);
+    setTest(newTest);
+  };
+
+  const updateQuestion = async (question: PostQuestion) => {
+    console.log("UPDATE = ", question);
   };
 
   const edit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -108,6 +126,7 @@ const MyTestsPage: React.FC = () => {
       ) : (
         <></>
       )}
+
       <form onSubmit={edit}>
         <styles.Header>
           <styles.TextContainer>
@@ -132,6 +151,28 @@ const MyTestsPage: React.FC = () => {
           />
         </styles.ContentContainer>
       </form>
+
+      <styles.QuestionContainer>
+        <Title>Questões</Title>
+        {test.questions.map((q: Question, index) => {
+          return (
+            <styles.CardContainer key={index}>
+              <QuestionCard
+                question={q}
+                submit={updateQuestion}
+                testId={test.idTest}
+              />
+            </styles.CardContainer>
+          );
+        })}
+        <styles.CardContainer>
+          <QuestionCard
+            question={null}
+            submit={addQuestion}
+            testId={test.idTest}
+          />
+        </styles.CardContainer>
+      </styles.QuestionContainer>
     </styles.Container>
   ) : (
     <></>
