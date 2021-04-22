@@ -24,3 +24,5 @@ class Test(Base):
     category = relationship("Category", back_populates="tests", lazy='joined')
     questions = relationship("Question", back_populates="test", lazy='joined', cascade="all, delete-orphan",
                              passive_deletes=True)
+    rooms = relationship("Room", back_populates="test", lazy='joined', cascade="all, delete-orphan",
+                        passive_deletes=True)
