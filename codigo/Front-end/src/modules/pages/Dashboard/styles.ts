@@ -22,7 +22,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 31%;
+  width: 47%;
   height: 170px;
   margin: 0 auto 0 0;
 
