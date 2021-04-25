@@ -6,15 +6,15 @@ from app.models.rooms import Room
 
 
 def create_room(db: Session, room: RoomCreate):
-    db_room = Room(name=room.name, idTest=room.idTest, idUser=room.idUser)
+    db_room = Room(name=room.name, idTest=room.idTest, idUser=room.idUser, isPublic=room.isPublic)
     db.add(db_room)
     db.commit()
     db.refresh(db_room)
     return db_room
 
 
-def get_all_roons(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(Room).offset(skip).limit(limit).all()
+def get_all_roons(db: Session):
+    return db.query(Room).filter(Room.isPublic and Room.isActive and Room.isRunning == False).all()
 
 
 def get_all_roons_by_User(db: Session, user: User):

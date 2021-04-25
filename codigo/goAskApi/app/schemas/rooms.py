@@ -14,6 +14,7 @@ class RoomCreate(BaseModel):
     name: str
     idTest: int
     idUser: int
+    isPublic: bool
 
 
 class Room(RoomCreate):
