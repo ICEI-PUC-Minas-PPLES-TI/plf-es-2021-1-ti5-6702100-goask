@@ -9,6 +9,7 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  border: 2px solid #c9515c
 `;
 
 export const IconDiv = styled.div`
