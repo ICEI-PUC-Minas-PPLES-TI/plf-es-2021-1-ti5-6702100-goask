@@ -47,6 +47,7 @@ export const Button = styled.button`
   max-width: 220px;
   height: 60px;
   border-radius: 15px;
+  cursor: pointer;
 
   p {
     margin: 0px;
