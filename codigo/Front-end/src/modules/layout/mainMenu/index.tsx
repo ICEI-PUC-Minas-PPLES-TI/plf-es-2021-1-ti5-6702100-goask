@@ -37,7 +37,7 @@ const mainMenu: React.FC = ({ children }) => {
               </styles.itemContainer>
             </a>
           </Link>
-          <Link href="/editUser">
+          <Link href="/perfil">
             <a>
               <styles.itemContainer>
                 <img src="/people.svg" alt="Vá para Perfil" />

@@ -1,0 +1,184 @@
+import * as styles from "./styles";
+import Link from "next/link";
+
+//From components
+import { useAppContext } from "../../components/ContextWrapper";
+import Modal from "../../components/Modal";
+import { useModal } from "../../utils/useModal";
+import Snackbar from "../../components/SnackBar";
+import EditUserContentModal from "../../components/EditUserContentModal";
+
+
+//From models
+import { User,UpdateUser } from "../../../models/User";
+import { Token } from "../../../models/Token";
+
+//From Hooks
+import { useState } from "react";
+
+//api
+import { updateUser } from "src/share/api/api"
+
+
+const Perfil: React.FC = () => {
+  const context = useAppContext();
+  const user: User = context.user;
+
+  const token:Token = {
+    access_token: context.token.access_token,
+    token_type: context.token.token_type
+  }
+  const { isShown, toggle } = useModal();
+  const [showBar, setShowBar] = useState(false);
+  const [color, setColor] = useState("#34B04A");
+  const [message, setMessage] = useState("");
+
+  const onConfirm = async (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+        const name = e.currentTarget.username.value;
+        const email = e.currentTarget.email.value;
+        if(name && email){
+          const userUpdate:UpdateUser = {
+            name: name,
+            email:email
+          }
+          const response: User = await updateUser(token,userUpdate);
+          if(response){
+            context.setUser(response);
+            setColor("#34B04A")
+            setMessage("Dados alterados com sucesso")
+            setShowBar(true);
+            setTimeout(() => {
+              setShowBar(false);
+            }, 5000);
+            toggle();
+          } else {
+            setColor("#BD232F")
+            setMessage("Email desejado já existe, tente outro")
+            setShowBar(true);
+            setTimeout(() => {
+              setShowBar(false);
+            }, 5000);
+          }
+    }
+  }
+
+
+  return (
+    <styles.Container>
+      <Modal
+        isShown={isShown}
+        hide={toggle}
+        headerText="Alterar Cadastro"
+        modalContent={
+          <EditUserContentModal
+            onConfirm={onConfirm}
+            name={user.name}
+            email = {user.email}
+          />
+        }
+      />
+      {showBar ? (
+        <Snackbar message={message} backgroundColor={color} timer={5000} />
+      ) : (
+        <></>
+      )}
+      <styles.SubHeader>
+        <styles.TitleContainer>
+          <h1>Perfil</h1>
+        </styles.TitleContainer>
+        <styles.ButtonContainer>
+          <styles.Button onClick = {toggle}>
+            <p>Editar Perfil</p>
+          </styles.Button>
+
+          <styles.Button>
+            <Link href="/createtest">
+              <p>Criar o Quiz</p>
+            </Link>
+          </styles.Button>
+        </styles.ButtonContainer>
+      </styles.SubHeader>
+      <styles.UserStaticsContainer>
+        <styles.UserImageContainer>
+          <img src="/avatar.png" alt="Sua foto de perfil" />
+        </styles.UserImageContainer>
+        <styles.UserDetailsContainer>
+          <styles.UserIdentityContainer>
+            <h1>
+              {user.name}
+              <Link href="/editUser">
+                <img src="/edit.svg" alt="Edite o seu perfil agora" />
+              </Link>
+            </h1>
+            <h6>{user.email}</h6>
+          </styles.UserIdentityContainer>
+          <styles.UserStaticsDetailsContainer>
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/trophy.svg" alt="Jogos Ganhos" />
+              </span>
+              <div>
+                <h6>X</h6>
+                <p>XXX</p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/console.svg" alt="Recorde de Pontos" />
+              </span>
+              <div>
+                <h6>X</h6>
+                <p>XXX</p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/checked.svg" alt="Jogos Ganhos" />
+              </span>
+              <div>
+                <h6>X</h6>
+                <p>XXX</p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+          </styles.UserStaticsDetailsContainer>
+        </styles.UserDetailsContainer>
+      </styles.UserStaticsContainer>
+      <styles.SubToolsContainer>
+        <styles.SubtoolQuizzesContainer>
+          <h6>Meus quizzes</h6>
+          <p>
+            Veja aqui todos os quiz criados até o momento, tendo chance de criar
+            novos quizzes e/ou editá-los.
+          </p>
+          <div>
+            <Link href="/mytests">
+              <button>
+                <img src="/arrow-right.svg" alt="Os meus quizzes" />
+              </button>
+            </Link>
+          </div>
+        </styles.SubtoolQuizzesContainer>
+        <styles.UserDataContainer>
+          <h6>Dados Pessoais</h6>
+          <p>
+            <p>
+              <b>Nome: {user.name} </b>
+            </p>
+            <p>
+              <b>Username: {user.name}</b>
+            </p>
+            <p>
+              <b>email: {user.email}</b>
+            </p>
+            <p>
+              <b>Ultima atualização: {user.updatedAt}</b>
+            </p>
+          </p>
+        </styles.UserDataContainer>
+      </styles.SubToolsContainer>
+    </styles.Container>
+  );
+};
+
+export default Perfil;

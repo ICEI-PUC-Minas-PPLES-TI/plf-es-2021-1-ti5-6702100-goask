@@ -14,6 +14,7 @@ export const ConfirmationButtons = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  padding: 15px;
 
   button {
     border: solid 3px #c9515c;
@@ -32,7 +33,7 @@ export const ConfirmationButtons = styled.div`
 
 export const Message = styled.div`
   font-size: 1rem;
-  margin-bottom: 10px;
+  margin: 5px 10px;
   text-align: center;
 `;
 
