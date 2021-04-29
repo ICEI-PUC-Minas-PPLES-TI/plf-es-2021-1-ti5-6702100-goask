@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
     <styles.Container>
       <h1>Dashboard</h1>
       <styles.ButtonContainer>
-        <styles.Button>
+        <styles.Button onClick={() => router.push("/perfil")}>
           <p>Meu perfil</p>
           <span>
             <img src="/arrow-right.svg" alt="Vá para Perfil" />
