@@ -57,7 +57,7 @@ const mainMenu: React.FC = ({ children }) => {
         <styles.userContainer>
           <span>
             <img
-              src="/avatar.png"
+              src="/user-default.svg"
               height="auto"
               width="auto"
               alt="Meu perfil"

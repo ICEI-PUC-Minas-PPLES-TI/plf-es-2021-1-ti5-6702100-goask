@@ -8,61 +8,58 @@ import { useModal } from "../../utils/useModal";
 import Snackbar from "../../components/SnackBar";
 import EditUserContentModal from "../../components/EditUserContentModal";
 
-
 //From models
-import { User,UpdateUser } from "../../../models/User";
+import { User, UpdateUser } from "../../../models/User";
 import { Token } from "../../../models/Token";
 
 //From Hooks
 import { useState } from "react";
 
 //api
-import { updateUser } from "src/share/api/api"
-
+import { updateUser } from "src/share/api/api";
 
 const Perfil: React.FC = () => {
   const context = useAppContext();
   const user: User = context.user;
 
-  const token:Token = {
+  const token: Token = {
     access_token: context.token.access_token,
-    token_type: context.token.token_type
-  }
+    token_type: context.token.token_type,
+  };
   const { isShown, toggle } = useModal();
   const [showBar, setShowBar] = useState(false);
   const [color, setColor] = useState("#34B04A");
   const [message, setMessage] = useState("");
 
-  const onConfirm = async (e:React.FormEvent<HTMLFormElement>) => {
+  const onConfirm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-        const name = e.currentTarget.username.value;
-        const email = e.currentTarget.email.value;
-        if(name && email){
-          const userUpdate:UpdateUser = {
-            name: name,
-            email:email
-          }
-          const response: User = await updateUser(token,userUpdate);
-          if(response){
-            context.setUser(response);
-            setColor("#34B04A")
-            setMessage("Dados alterados com sucesso")
-            setShowBar(true);
-            setTimeout(() => {
-              setShowBar(false);
-            }, 5000);
-            toggle();
-          } else {
-            setColor("#BD232F")
-            setMessage("Email desejado já existe, tente outro")
-            setShowBar(true);
-            setTimeout(() => {
-              setShowBar(false);
-            }, 5000);
-          }
+    const name = e.currentTarget.username.value;
+    const email = e.currentTarget.email.value;
+    if (name && email) {
+      const userUpdate: UpdateUser = {
+        name: name,
+        email: email,
+      };
+      const response: User = await updateUser(token, userUpdate);
+      if (response) {
+        context.setUser(response);
+        setColor("#34B04A");
+        setMessage("Dados alterados com sucesso");
+        setShowBar(true);
+        setTimeout(() => {
+          setShowBar(false);
+        }, 5000);
+        toggle();
+      } else {
+        setColor("#BD232F");
+        setMessage("Email desejado já existe, tente outro");
+        setShowBar(true);
+        setTimeout(() => {
+          setShowBar(false);
+        }, 5000);
+      }
     }
-  }
-
+  };
 
   return (
     <styles.Container>
@@ -74,7 +71,7 @@ const Perfil: React.FC = () => {
           <EditUserContentModal
             onConfirm={onConfirm}
             name={user.name}
-            email = {user.email}
+            email={user.email}
           />
         }
       />
@@ -88,7 +85,7 @@ const Perfil: React.FC = () => {
           <h1>Perfil</h1>
         </styles.TitleContainer>
         <styles.ButtonContainer>
-          <styles.Button onClick = {toggle}>
+          <styles.Button onClick={toggle}>
             <p>Editar Perfil</p>
           </styles.Button>
 
@@ -101,7 +98,7 @@ const Perfil: React.FC = () => {
       </styles.SubHeader>
       <styles.UserStaticsContainer>
         <styles.UserImageContainer>
-          <img src="/avatar.png" alt="Sua foto de perfil" />
+          <img src="/user-default.svg" alt="Sua foto de perfil" />
         </styles.UserImageContainer>
         <styles.UserDetailsContainer>
           <styles.UserIdentityContainer>
