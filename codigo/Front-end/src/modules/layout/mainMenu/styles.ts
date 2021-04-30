@@ -61,6 +61,9 @@ export const LogoutContainer = styled.div`
   img {
     width: 25px;
     height: auto;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 

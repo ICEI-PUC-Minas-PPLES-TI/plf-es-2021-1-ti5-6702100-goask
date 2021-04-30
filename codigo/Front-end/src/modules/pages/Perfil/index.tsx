@@ -13,23 +13,24 @@ import { User, UpdateUser } from "../../../models/User";
 import { Token } from "../../../models/Token";
 
 //From Hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 //api
 import { updateUser } from "src/share/api/api";
 
 const Perfil: React.FC = () => {
   const context = useAppContext();
-  const user: User = context.user;
+  const [user, setUser] = useState(context.user);
 
-  const token: Token = {
-    access_token: context.token.access_token,
-    token_type: context.token.token_type,
-  };
   const { isShown, toggle } = useModal();
   const [showBar, setShowBar] = useState(false);
   const [color, setColor] = useState("#34B04A");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    setUser(context.user);
+  }, []);
 
   const onConfirm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,7 +41,7 @@ const Perfil: React.FC = () => {
         name: name,
         email: email,
       };
-      const response: User = await updateUser(token, userUpdate);
+      const response: User = await updateUser(context.token, userUpdate);
       if (response) {
         context.setUser(response);
         setColor("#34B04A");
@@ -70,8 +71,8 @@ const Perfil: React.FC = () => {
         modalContent={
           <EditUserContentModal
             onConfirm={onConfirm}
-            name={user.name}
-            email={user.email}
+            name={user?.name}
+            email={user?.email}
           />
         }
       />
@@ -102,13 +103,8 @@ const Perfil: React.FC = () => {
         </styles.UserImageContainer>
         <styles.UserDetailsContainer>
           <styles.UserIdentityContainer>
-            <h1>
-              {user.name}
-              <Link href="/editUser">
-                <img src="/edit.svg" alt="Edite o seu perfil agora" />
-              </Link>
-            </h1>
-            <h6>{user.email}</h6>
+            <h1>{user?.name}</h1>
+            <h6>{user?.email}</h6>
           </styles.UserIdentityContainer>
           <styles.UserStaticsDetailsContainer>
             <styles.FeaturesStaticsContainer>
@@ -160,16 +156,16 @@ const Perfil: React.FC = () => {
           <h6>Dados Pessoais</h6>
           <p>
             <p>
-              <b>Nome: {user.name} </b>
+              <b>Nome: {user?.name} </b>
             </p>
             <p>
-              <b>Username: {user.name}</b>
+              <b>Username: {user?.name}</b>
             </p>
             <p>
-              <b>email: {user.email}</b>
+              <b>email: {user?.email}</b>
             </p>
             <p>
-              <b>Ultima atualização: {user.updatedAt}</b>
+              <b>Ultima atualização: {user?.updatedAt}</b>
             </p>
           </p>
         </styles.UserDataContainer>

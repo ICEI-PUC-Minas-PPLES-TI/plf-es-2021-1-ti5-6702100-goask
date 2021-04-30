@@ -8,7 +8,7 @@ import {
 import { Token } from "@models/Token";
 import axios from "axios";
 import { apiResolver } from "next/dist/next-server/server/api-utils";
-import { RegisterUser, User, LoginUser,UpdateUser } from "../../models/User";
+import { RegisterUser, User, LoginUser, UpdateUser } from "../../models/User";
 
 export const api = axios.create({
   baseURL: "http://152.67.33.12:3232/",
@@ -44,25 +44,33 @@ export const getUser = async (token: Token): Promise<User> => {
   }
 };
 
-export const verifyToken = async (token: string): Promise<boolean> => {
+export const verifyToken = async (token: Token): Promise<boolean> => {
   try {
-    return true;
+    return await api
+      .get("/check", {
+        headers: {
+          Authorization: token.token_type + " " + token.access_token,
+        },
+      })
+      .then((res) => res.data);
   } catch (e) {
     console.error(e);
   }
 };
 
-export const updateUser = async (token:Token ,user: UpdateUser): Promise<User> => {
-  try{
+export const updateUser = async (
+  token: Token,
+  user: UpdateUser
+): Promise<User> => {
+  try {
     const options = {
       headers: { Authorization: `${token.token_type} ${token.access_token}` },
     };
-    return await api
-      .put("/users/",user,options).then((res) => res.data);
+    return await api.put("/users/", user, options).then((res) => res.data);
   } catch (e) {
     console.log(e);
   }
-}
+};
 
 export const getTests = async (token: Token): Promise<Test[]> => {
   try {
@@ -154,9 +162,7 @@ export const updateQuestion = async (
       questionText: question.questionText,
     };
 
-    return await api
-      .put(`/questions`, data, options)
-      .then((res) => res.data);
+    return await api.put(`/questions`, data, options).then((res) => res.data);
   } catch (e) {
     console.error(e);
   }
