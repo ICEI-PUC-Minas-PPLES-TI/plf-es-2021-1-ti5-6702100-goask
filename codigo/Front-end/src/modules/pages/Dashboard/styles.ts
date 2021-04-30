@@ -36,6 +36,11 @@ export const Button = styled.button`
   flex-direction: column;
   justify-content: center;
   padding: 22px 16px 16px 16px;
+  transition-duration: 0.4s;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.borders.green};
+  }
 
   p {
     font-size: calc(
@@ -142,6 +147,11 @@ export const FeaturesBeginQuiz = styled.div`
     flex-direction: row;
     justify-content: center;
     padding: 12px 8px 8px 8px;
+    transition-duration: 0.4s;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.borders.green};
+    }
 
     p {
       font-size: calc(

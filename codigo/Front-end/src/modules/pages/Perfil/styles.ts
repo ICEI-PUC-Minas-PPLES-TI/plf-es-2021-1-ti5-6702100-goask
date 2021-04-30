@@ -32,12 +32,21 @@ export const ButtonContainer = styled.div`
     border: 2px solid ${(props) => props.theme.colors.borders.red};
     background: transparent;
     margin: 0 10px 0 0;
+    transition-duration: 0.4s;
+    &:hover {
+      background-color: white;
+    }
   }
 
   & > button:nth-child(2n) {
     background-color: ${(props) => props.theme.colors.borders.red};
     border: 2px solid transparent;
     color: white;
+    transition-duration: 0.4s;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.borders.green};
+    }
   }
 `;
 
@@ -219,7 +228,6 @@ export const SubtoolQuizzesContainer = styled.div`
 
       img {
         margin: auto;
-        height
       }
     }
   }
