@@ -10,11 +10,9 @@ import EditUserContentModal from "../../components/EditUserContentModal";
 
 //From models
 import { User, UpdateUser } from "../../../models/User";
-import { Token } from "../../../models/Token";
 
 //From Hooks
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 //api
 import { updateUser } from "src/share/api/api";
