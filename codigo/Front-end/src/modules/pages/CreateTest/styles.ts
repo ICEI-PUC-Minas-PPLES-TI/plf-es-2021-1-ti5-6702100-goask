@@ -22,8 +22,9 @@ export const ContentContainer = styled.div`
   max-width: 70%;
   height: 150px;
   background-color: #fff;
-  margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 30px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,5 @@
 import {
+  Category,
   PostQuestion,
   PostTest,
   PutQuestion,
@@ -212,6 +213,17 @@ export const deleteQuestion = async (
     return await api
       .delete(`/questions/${id}`, options)
       .then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const getCategories = async (token: Token): Promise<Category[]> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    return await api.get(`/categories/`, options).then((res) => res.data);
   } catch (e) {
     console.error(e);
   }
