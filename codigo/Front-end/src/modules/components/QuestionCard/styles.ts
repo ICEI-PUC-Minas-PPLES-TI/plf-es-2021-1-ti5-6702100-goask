@@ -62,3 +62,14 @@ export const Body = styled.div<Props>`
     padding: 50px;
   }
 `;
+
+export const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    max-width: 50%;
+  }
+`;

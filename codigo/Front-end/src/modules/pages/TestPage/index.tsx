@@ -33,9 +33,10 @@ import {
   createQuestion,
   updateQuestion,
   getQuestion,
+  deleteQuestion,
 } from "../../../share/api/api";
 
-const MyTestsPage: React.FC = () => {
+const TestPage: React.FC = () => {
   const router = useRouter();
   const context = useAppContext();
   const timeSnackBar = 5000;
@@ -83,8 +84,10 @@ const MyTestsPage: React.FC = () => {
       "Questão criada com sucesso!",
       "Não foi possível criar a questão."
     );
-    const newTest = await getTest(context.token, test.idTest);
-    setTest(newTest);
+    console.log(res);
+    // setTest({ ...test, questions: res.questions });
+    // const newTest = await getTest(context.token, test.idTest);
+    // setTest(newTest);
   };
 
   const updateQuestionSubmit = async (question: PostQuestion, id: number) => {
@@ -111,6 +114,17 @@ const MyTestsPage: React.FC = () => {
       res,
       "Questão atualizada com sucesso!",
       "Não foi possível atualizar a questão."
+    );
+    const newTest = await getTest(context.token, test.idTest);
+    setTest(newTest);
+  };
+
+  const deleteQuestionSubmit = async (id: number) => {
+    const res = await deleteQuestion(context.token, id);
+    updateSnackBar(
+      res,
+      "Questão deletada com sucesso!",
+      "Não foi possível deletar a questão."
     );
     const newTest = await getTest(context.token, test.idTest);
     setTest(newTest);
@@ -160,6 +174,7 @@ const MyTestsPage: React.FC = () => {
           />
         }
       />
+
       {showBar ? (
         <Snackbar message={message} backgroundColor={color} timer={5000} />
       ) : (
@@ -202,6 +217,7 @@ const MyTestsPage: React.FC = () => {
                 <QuestionCard
                   question={q}
                   submit={updateQuestionSubmit}
+                  deleteSubmit={deleteQuestionSubmit}
                   questionId={q.idQuestion}
                   testId={test.idTest}
                 />
@@ -222,4 +238,4 @@ const MyTestsPage: React.FC = () => {
   );
 };
 
-export default MyTestsPage;
+export default TestPage;

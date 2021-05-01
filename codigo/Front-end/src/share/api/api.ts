@@ -199,3 +199,19 @@ export const getQuestion = async (
     console.error(e);
   }
 };
+
+export const deleteQuestion = async (
+  token: Token,
+  id: number
+): Promise<Question> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    return await api
+      .delete(`/questions/${id}`, options)
+      .then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
