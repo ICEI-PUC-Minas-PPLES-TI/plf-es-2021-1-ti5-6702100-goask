@@ -24,6 +24,7 @@ import Modal from "../../components/Modal";
 import ConfirmationModal from "../../components/ModalConfirmation";
 import QuestionCard from "../../components/QuestionCard";
 import { useModal } from "../../utils/useModal";
+import Select from "../../components/SelectCategories";
 
 //API
 import {
@@ -135,16 +136,18 @@ const TestPage: React.FC = () => {
     const name = e.currentTarget.testName.value;
     const description = e.currentTarget.desc.value;
     const idUser = test.idUser;
-    const idCategory = test.idCategory;
+    const idCategory = e.currentTarget.category.value;
+    alert(idCategory);
 
     const testEdited: PostTest = {
       name,
       description,
       idUser,
-      idCategory,
+      idCategory: 1,
     };
 
     const newTest = await updateTest(context.token, testEdited, test.idTest);
+    console.log(newTest);
     updateSnackBar(
       newTest,
       "Quiz atualizado com sucesso!",
@@ -193,6 +196,13 @@ const TestPage: React.FC = () => {
         </styles.Header>
         <styles.ContentContainer>
           <Input label="Nome" type="text" name="testName" value={test.name} />
+        </styles.ContentContainer>
+        <styles.ContentContainer>
+          <Select
+            label="Categoria"
+            name="category"
+            idSelected={test.category.idCategory}
+          />
         </styles.ContentContainer>
         <styles.ContentContainer>
           <Input

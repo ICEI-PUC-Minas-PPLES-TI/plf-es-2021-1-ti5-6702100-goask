@@ -18,7 +18,7 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
           <tr>
             <th>Nome do Quiz</th>
             <th>Descrição</th>
-            <th>Número da Sala</th>
+            <th>Categoria</th>
             <th>Data de criação</th>
           </tr>
         </thead>
@@ -31,7 +31,7 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
                 </Link>
               </td>
               <td>{t.description}</td>
-              <td>{t.idTest}</td>
+              <td>{t.category.name}</td>
               <td>{t.createdAt}</td>
             </tr>
           ))}
