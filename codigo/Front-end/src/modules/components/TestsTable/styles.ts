@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  min-width: 100%;
   min-height: 100%;
   background-color: #fff;
   display: flex;
@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const TestsTable = styled.table`
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   caption-side: top;
   border: none;
@@ -50,7 +50,6 @@ export const TestsTable = styled.table`
     }
     :hover {
       cursor: pointer;
-      background-color: #e5e5e5;
     }
   }
   caption {

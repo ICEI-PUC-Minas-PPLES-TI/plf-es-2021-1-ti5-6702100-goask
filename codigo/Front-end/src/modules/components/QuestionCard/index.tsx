@@ -30,11 +30,7 @@ const QuestionCard: React.FC<Content> = ({
   const correctAnswer =
     question && question.answers.filter((a) => a.isCorrect)[0];
   const incorrectsAnswers =
-    question &&
-    question.answers
-      .sort((a) => a.idAnswer)
-      .reverse()
-      .filter((a) => !a.isCorrect);
+    question && question.answers.filter((a) => !a.isCorrect);
 
   const changeVisibility = () => {
     if (open === hidden) {

@@ -150,7 +150,7 @@ export const updateQuestion = async (
   token: Token,
   question: PutQuestion,
   id: number
-): Promise<Test> => {
+): Promise<Question> => {
   try {
     const options = {
       headers: { Authorization: `${token.token_type} ${token.access_token}` },
@@ -162,6 +162,7 @@ export const updateQuestion = async (
       questionText: question.questionText,
     };
 
+    console.log("NOVA QUESTÂO ESPERADA: ", data);
     return await api.put(`/questions`, data, options).then((res) => res.data);
   } catch (e) {
     console.error(e);
@@ -171,7 +172,7 @@ export const updateQuestion = async (
 export const createQuestion = async (
   token: Token,
   question: PostQuestion
-): Promise<Test> => {
+): Promise<Question> => {
   try {
     const options = {
       headers: { Authorization: `${token.token_type} ${token.access_token}` },
