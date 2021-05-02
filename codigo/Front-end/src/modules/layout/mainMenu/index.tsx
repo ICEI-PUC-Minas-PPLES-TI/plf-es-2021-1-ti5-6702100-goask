@@ -14,6 +14,8 @@ const mainMenu: React.FC = ({ children }) => {
   const logout = () => {
     sessionStorage.removeItem("$$access_token");
     sessionStorage.removeItem("$$token_type");
+    context.setUser(null);
+    context.setToken(null);
     router.push("/login");
   };
 
