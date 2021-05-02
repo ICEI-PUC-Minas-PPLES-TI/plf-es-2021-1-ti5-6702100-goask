@@ -21,7 +21,6 @@ import TestsTable from "../../components/TestsTable";
 import { getTests } from "../../../share/api/api";
 
 const MyTestsPage: React.FC = () => {
-  const router = useRouter();
   const context = useAppContext();
   const [tests, setTests] = useState<Test[]>();
 

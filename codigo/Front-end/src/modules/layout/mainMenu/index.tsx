@@ -5,9 +5,11 @@ import Link from "next/link";
 
 //Hooks
 import { useRouter } from "next/router";
+import { useAppContext } from "../../components/ContextWrapper";
 
 const mainMenu: React.FC = ({ children }) => {
   const router = useRouter();
+  const context = useAppContext();
 
   const logout = () => {
     sessionStorage.removeItem("$$access_token");
@@ -63,7 +65,7 @@ const mainMenu: React.FC = ({ children }) => {
               alt="Meu perfil"
             />
           </span>
-          <p>XXX</p>
+          <p>{context?.user ? context.user.name : ""}</p>
         </styles.userContainer>
       </styles.FirstContainer>
       <styles.SecondContainer>{children}</styles.SecondContainer>
