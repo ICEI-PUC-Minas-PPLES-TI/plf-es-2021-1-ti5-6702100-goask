@@ -32,7 +32,7 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
               </td>
               <td>{t.description}</td>
               <td>{t.category.name}</td>
-              <td>{t.createdAt}</td>
+              <td>{t.createdAt.toString().replaceAll("-", "/")}</td>
             </tr>
           ))}
         </tbody>
