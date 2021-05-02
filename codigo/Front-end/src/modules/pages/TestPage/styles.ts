@@ -1,3 +1,4 @@
+import theme from "src/share/styles/themes";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -59,6 +60,11 @@ export const Header = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${theme.breakpoint.xl}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 export const CardContainer = styled.div`

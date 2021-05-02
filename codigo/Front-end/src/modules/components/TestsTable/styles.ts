@@ -7,7 +7,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
 `;
 
 export const TestsTable = styled.table`
@@ -43,10 +42,11 @@ export const TestsTable = styled.table`
   tr {
     color: black;
     font-weight: 700;
+    background-color: #f7f7f7;
   }
   tbody tr {
-    :nth-of-type(even) {
-      background-color: #f7f7f7;
+    :nth-of-type(odd) {
+      background-color: #fff;
     }
     :hover {
       cursor: pointer;

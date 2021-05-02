@@ -137,7 +137,6 @@ const TestPage: React.FC = () => {
     const description = e.currentTarget.desc.value;
     const idUser = test.idUser;
     const idCategory = e.currentTarget.category.value;
-    alert(idCategory);
 
     const testEdited: PostTest = {
       name,
