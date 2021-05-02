@@ -1,3 +1,4 @@
+import { Room } from "@models/Room";
 import {
   Category,
   PostQuestion,
@@ -224,6 +225,17 @@ export const getCategories = async (token: Token): Promise<Category[]> => {
       headers: { Authorization: `${token.token_type} ${token.access_token}` },
     };
     return await api.get(`/categories/`, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const getRooms = async (token: Token): Promise<Room[]> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    return await api.get(`/room/`, options).then((res) => res.data);
   } catch (e) {
     console.error(e);
   }

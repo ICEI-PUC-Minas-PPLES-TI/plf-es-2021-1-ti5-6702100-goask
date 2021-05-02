@@ -21,7 +21,7 @@ export const ButtonContainer = styled.div`
   align-content: center;
   flex-wrap: wrap;
 
-  @media (max-width: ${theme.breakpoint.xl}) {
+  @media (max-width: ${theme.breakpoint.lg}) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
