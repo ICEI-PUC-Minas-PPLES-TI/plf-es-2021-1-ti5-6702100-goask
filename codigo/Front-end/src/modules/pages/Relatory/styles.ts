@@ -19,10 +19,22 @@ export const Container = styled.div`
 
 export const TextContainer = styled.div`
   background-color: #fff;
-  padding: 30px;
+  padding: 10px 30px 30px;
   max-width: 70%;
   text-align: center;
+  border-radius: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    color: ${(props) => props.theme.colors.borders.red};
+    font-weight: 700;
+  }
 `;
 
 export const ContentContainer = styled.div`

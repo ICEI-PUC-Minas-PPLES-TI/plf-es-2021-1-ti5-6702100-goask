@@ -29,14 +29,17 @@ export const ButtonContainer = styled.div`
 
   & > button:first-child {
     color: ${(props) => props.theme.colors.borders.red};
-    border: 2px solid ${(props) => props.theme.colors.borders.red};
+    border: none;
     background: transparent;
     margin: 0 10px 0 0;
+    background-color: white;
     transition-duration: 0.4s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
     &:hover {
-      background-color: white;
+      background-color: ${(props) => props.theme.colors.borders.green};
+      color: white;
+      border: none;
     }
   }
 

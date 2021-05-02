@@ -90,7 +90,7 @@ const Perfil: React.FC = () => {
 
           <styles.Button>
             <Link href="/createtest">
-              <p>Criar o Quiz</p>
+              <p>Criar Quiz</p>
             </Link>
           </styles.Button>
         </styles.ButtonContainer>

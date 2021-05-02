@@ -12,15 +12,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 //Components
-import Button from "../../components/Button";
-import IconData from "../../components/IconDataContainer";
 import Title from "../../components/Title";
-import TestsTable from "../../components/TestsTable";
+import RelatoryTable from "../../components/RelatoryTable";
 
 //API
 import { getTests } from "../../../share/api/api";
 
-const MyTestsPage: React.FC = () => {
+const RelatoryPage: React.FC = () => {
   const context = useAppContext();
   const [tests, setTests] = useState<Test[]>();
 
@@ -40,13 +38,14 @@ const MyTestsPage: React.FC = () => {
           <Title>Relatório</Title>
         </div>
         <styles.TextContainer>
+          <h1>O que é o relatório?</h1>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
           consequuntur ducimus, deleniti ea similique numquam odio temporibus
           quia molestiae animi totam eveniet eius ratione voluptatem provident.
           Nihil voluptate fugit voluptatum.
         </styles.TextContainer>
         <styles.ContentContainer>
-          <TestsTable tests={tests} />
+          <RelatoryTable tests={tests} />
         </styles.ContentContainer>
       </styles.Container>
     );
@@ -55,4 +54,4 @@ const MyTestsPage: React.FC = () => {
   }
 };
 
-export default MyTestsPage;
+export default RelatoryPage;
