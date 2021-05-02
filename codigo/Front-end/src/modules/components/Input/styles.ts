@@ -19,6 +19,7 @@ export const InputDiv = styled.div`
   justify-content: center;
   background-color: #fff;
   color: #888;
+  padding: 20px;
 
   label {
     height: 30px;
