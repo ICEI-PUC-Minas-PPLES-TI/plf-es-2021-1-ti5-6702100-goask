@@ -14,6 +14,8 @@ const mainMenu: React.FC = ({ children }) => {
   const logout = () => {
     sessionStorage.removeItem("$$access_token");
     sessionStorage.removeItem("$$token_type");
+    context.setUser(null);
+    context.setToken(null);
     router.push("/login");
   };
 
@@ -51,7 +53,7 @@ const mainMenu: React.FC = ({ children }) => {
             <a>
               <styles.itemContainer>
                 <img src="/quiz.svg" alt="Vá para Quiz" />
-                Quizes
+                Quizzes
               </styles.itemContainer>
             </a>
           </Link>
