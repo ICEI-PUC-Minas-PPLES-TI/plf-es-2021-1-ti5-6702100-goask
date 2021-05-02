@@ -33,6 +33,8 @@ export const ButtonContainer = styled.div`
     background: transparent;
     margin: 0 10px 0 0;
     transition-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     &:hover {
       background-color: white;
     }
@@ -43,6 +45,7 @@ export const ButtonContainer = styled.div`
     border: 2px solid transparent;
     color: white;
     transition-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
     &:hover {
       background-color: ${(props) => props.theme.colors.borders.green};
@@ -72,6 +75,7 @@ export const UserStaticsContainer = styled.div`
   padding: 40px 30px;
   border-radius: 20px;
   background-color: ${(props) => props.theme.colors.menuBackground};
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   display: flex;
   align-content: center;
@@ -198,6 +202,7 @@ export const SubToolsContainer = styled.div`
 
 export const SubtoolQuizzesContainer = styled.div`
   margin: 0 20px 0 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   div {
     width: 100%;
@@ -233,4 +238,6 @@ export const SubtoolQuizzesContainer = styled.div`
   }
 `;
 
-export const UserDataContainer = styled.div``;
+export const UserDataContainer = styled.div`
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+`;
