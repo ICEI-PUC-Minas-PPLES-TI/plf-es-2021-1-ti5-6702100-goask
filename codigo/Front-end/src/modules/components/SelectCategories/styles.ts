@@ -19,6 +19,7 @@ export const SelectDiv = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #fff;
+  font-weight: 700;
   color: #888;
 
   label {
@@ -26,20 +27,6 @@ export const SelectDiv = styled.div`
     font-weight: 400px;
     font-size: 24px;
   }
-
-  /* input {
-    width: 80%;
-    
-    height: 30px;
-    color: #8d8a8a;
-    border: none;
-    border-bottom: 3px solid #888;
-    @media (max-width: ${theme.breakpoint.xl}) {
-      font-size: 20px;
-    }
-  } */
-
-  /* input: */
 `;
 
 export const SelectDefault = styled.select`
@@ -65,5 +52,6 @@ export const SelectDefault = styled.select`
     white-space: pre;
     min-height: 20px;
     padding: 0px 2px 1px;
+    font-weight: 500;
   }
 `;

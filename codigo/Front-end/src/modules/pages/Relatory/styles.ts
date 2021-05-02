@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const TextContainer = styled.div`
   background-color: #fff;
-  padding: 10px 30px 30px;
+  padding: 5px 30px 10px;
   max-width: 70%;
   text-align: center;
   border-radius: 40px;
@@ -29,7 +29,12 @@ export const TextContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 
-  h1 {
+  p {
+    width: 100%;
+    text-align: center;
+  }
+
+  h2 {
     width: 100%;
     text-align: center;
     color: ${(props) => props.theme.colors.borders.red};
@@ -40,6 +45,7 @@ export const TextContainer = styled.div`
 export const ContentContainer = styled.div`
   max-width: 70%;
   background-color: #fff;
+  margin-bottom: 50px;
   margin-top: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
