@@ -92,6 +92,7 @@ const QuestionCard: React.FC<Content> = ({
       <styles.Container>
         <styles.Header onClick={changeVisibility}>
           <p>{question ? question.questionText : "Nova questão"}</p>
+          <img src="/collapse.svg" alt="" />
         </styles.Header>
       </styles.Container>
       <styles.Container>
