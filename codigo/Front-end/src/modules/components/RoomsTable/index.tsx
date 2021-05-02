@@ -37,8 +37,8 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
                   }}
                 </td>
                 <td>{r.createdAt}</td>
-                <td>{r.isActive}</td>
                 <td>{r.isPublic}</td>
+                <td>{r.isActive}</td>
               </tr>
             ))}
         </tbody>
