@@ -50,6 +50,12 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
+export const createRoomButtonContainer = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+`
+
 export const TextContainer = styled.div`
   width: 60%;
 `;

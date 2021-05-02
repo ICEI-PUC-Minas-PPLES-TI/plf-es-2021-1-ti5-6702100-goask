@@ -10,6 +10,7 @@ import { Token } from "@models/Token";
 import axios from "axios";
 import { apiResolver } from "next/dist/next-server/server/api-utils";
 import { RegisterUser, User, LoginUser, UpdateUser } from "../../models/User";
+import { PostRoom,Room } from "@models/Room"
 
 export const api = axios.create({
   baseURL: "http://152.67.33.12:3232/",
@@ -228,3 +229,17 @@ export const getCategories = async (token: Token): Promise<Category[]> => {
     console.error(e);
   }
 };
+
+export const createRoom = async (token:Token, room: PostRoom): Promise<Room> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    const data = room;
+
+    return await api.post(`/room/`, data, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+}
