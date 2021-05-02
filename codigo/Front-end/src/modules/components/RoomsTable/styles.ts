@@ -23,15 +23,6 @@ export const TestsTable = styled.table`
   td {
     padding: 20px 20px;
     text-align: center;
-    a {
-      text-decoration: none;
-      color: #c9515c;
-
-      &:hover {
-        cursor: pointer;
-        color: #26265e;
-      }
-    }
   }
   th {
     padding: 20px 20px;
