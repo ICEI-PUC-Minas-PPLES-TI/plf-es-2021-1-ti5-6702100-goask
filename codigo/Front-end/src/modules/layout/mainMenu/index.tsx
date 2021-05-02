@@ -51,7 +51,7 @@ const mainMenu: React.FC = ({ children }) => {
             <a>
               <styles.itemContainer>
                 <img src="/quiz.svg" alt="Vá para Quiz" />
-                Quizes
+                Quizzes
               </styles.itemContainer>
             </a>
           </Link>

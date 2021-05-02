@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "src/share/styles/themes";
 
 export const Container = styled.div`
   h1 {
@@ -19,10 +20,16 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
+
+  @media (max-width: ${theme.breakpoint.xl}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
 `;
 
 export const Button = styled.button`
-  width: 47%;
+  width: 30%;
   height: 170px;
   margin: 0 auto 0 0;
 
@@ -56,6 +63,10 @@ export const Button = styled.button`
     height: auto;
     position: relative;
     float: right;
+  }
+
+  @media (max-width: ${theme.breakpoint.lg}) {
+    width: 80%;
   }
 `;
 
