@@ -27,6 +27,6 @@ async def websocket_endpoint(websocket: WebSocket):
                 await manager.add_rigth_answer(data_dict)
             elif data_dict.get('action') == 'send_result':
                 await manager.send_result(data_dict)
-            await manager.broadcast(data_dict['room_id'], f"Message: {data_dict['name']}")
+            # await manager.broadcast(data_dict['room_id'], f"Message: {data_dict['name']}")
     except WebSocketDisconnect:
         pass

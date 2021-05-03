@@ -13,6 +13,9 @@ html = """
     <body>
         <h1>WebSocket Chat</h1>
         <h2>Your ID: <span id="ws-id"></span></h2>
+        <button onclick="desconectar(event)">desconectar</button>
+        <button onclick="receive_res(event)">manda resposta</button>
+        <button onclick="send_result(event)">manda resultado</button>
         <form action="" onsubmit="sendMessage(event)">
             <input type="text" id="messageText" autocomplete="off"/>
             <button>Send</button>
@@ -31,11 +34,26 @@ html = """
                 messages.appendChild(message)
             };
             function sendMessage(event) {
-                var input = document.getElementById("messageText")
-                var send = {"room_id": "123", "name": input.value, "action": "connect"}
+                let input = document.getElementById("messageText")
+                let send = {"room_id": "123", "name": input.value, "action": "connect"}
                 ws.send(JSON.stringify(send))
                 input.value = ''
                 event.preventDefault()
+            }
+            function desconectar(event) {
+                let input = document.getElementById("messageText")
+                let send = {"room_id": "123", "name": input.value, "action": "disconnect"}
+                ws.send(JSON.stringify(send))
+            };
+            function receive_res(event) {
+                let input = document.getElementById("messageText")
+                let send = {"room_id": "123", "name": input.value, "action": "receive_res", "is_correct": "True"}
+                ws.send(JSON.stringify(send))
+            }
+            function send_result(event) {
+                let input = document.getElementById("messageText")
+                let send = {"room_id": "123", "name": input.value, "action": "send_result",}
+                ws.send(JSON.stringify(send)) 
             }
         </script>
     </body>
