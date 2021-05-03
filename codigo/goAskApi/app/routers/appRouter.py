@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
-from app.routers import users, root, categories, tests, questions, room, web_socket
+from app.routers import users, root, categories, tests, questions, room
+from app.websocket import web_socket
 
 app_routers = APIRouter()
 app_routers.include_router(root.router)
