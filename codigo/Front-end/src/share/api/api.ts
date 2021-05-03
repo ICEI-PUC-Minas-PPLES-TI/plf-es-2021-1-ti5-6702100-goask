@@ -230,6 +230,18 @@ export const getCategories = async (token: Token): Promise<Category[]> => {
   }
 };
 
+
+export const getRooms = async (token: Token): Promise<Room[]> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    return await api.get(`/room/`, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 export const createRoom = async (token:Token, room: PostRoom): Promise<Room> => {
   try {
     const options = {

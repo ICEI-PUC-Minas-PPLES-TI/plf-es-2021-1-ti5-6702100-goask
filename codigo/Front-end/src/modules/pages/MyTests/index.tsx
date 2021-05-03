@@ -21,7 +21,6 @@ import TestsTable from "../../components/TestsTable";
 import { getTests } from "../../../share/api/api";
 
 const MyTestsPage: React.FC = () => {
-  const router = useRouter();
   const context = useAppContext();
   const [tests, setTests] = useState<Test[]>();
 
@@ -38,7 +37,7 @@ const MyTestsPage: React.FC = () => {
     return (
       <styles.Container>
         <div>
-          <Title>Meus quizes</Title>
+          <Title>Meus quizzes</Title>
           <Link href="/createtest">
             <a>
               <Button text="Criar quiz" />
@@ -48,8 +47,8 @@ const MyTestsPage: React.FC = () => {
         <styles.ContentContainer>
           <IconData
             text={tests.length !== 1 ? "Quizes criados" : "Quiz criado"}
-            icon="/quizes.svg"
-            alt="quizes"
+            icon="/quizzes.svg"
+            alt="quizzes"
             value={tests.length}
           />
         </styles.ContentContainer>

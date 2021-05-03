@@ -15,3 +15,4 @@ export interface PostRoom {
     idUser: number;
     isPublic: boolean;
 }
+

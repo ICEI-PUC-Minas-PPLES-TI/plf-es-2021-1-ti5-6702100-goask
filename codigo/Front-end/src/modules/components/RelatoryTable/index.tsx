@@ -10,16 +10,16 @@ interface Content {
   tests: Test[];
 }
 
-const TestsTable: React.FC<Content> = ({ tests }) => {
+const RelatoryTable: React.FC<Content> = ({ tests }) => {
   return (
     <styles.Container>
       <styles.TestsTable>
         <thead>
           <tr>
             <th>Nome do Quiz</th>
-            <th>Descrição</th>
-            <th>Categoria</th>
-            <th>Data de criação</th>
+            <th>XXX</th>
+            <th>XXX</th>
+            <th>XXX</th>
           </tr>
         </thead>
         <tbody>
@@ -30,9 +30,9 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
                   <a>{t.name}</a>
                 </Link>
               </td>
-              <td>{t.description}</td>
-              <td>{t.category.name}</td>
-              <td>{t.createdAt.toString().replaceAll("-", "/")}</td>
+              <td>xxx</td>
+              <td>xxx</td>
+              <td>xxx</td>
             </tr>
           ))}
         </tbody>
@@ -41,4 +41,4 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
   );
 };
 
-export default TestsTable;
+export default RelatoryTable;

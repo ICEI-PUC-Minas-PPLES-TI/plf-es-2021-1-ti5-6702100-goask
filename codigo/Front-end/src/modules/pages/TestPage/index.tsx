@@ -241,6 +241,9 @@ const TestPage: React.FC = () => {
             </div>
           </styles.ButtonsContainer>
         </styles.Header>
+        <styles.InformationContainer>
+          <p>Clique no botão do canto inferior direito para criar uma sala </p>
+        </styles.InformationContainer>
         <styles.ContentContainer>
           <Input label="Nome" type="text" name="testName" value={test.name} />
         </styles.ContentContainer>

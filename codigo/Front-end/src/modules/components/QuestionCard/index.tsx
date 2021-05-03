@@ -6,8 +6,9 @@ import { PostQuestion, Question } from "@models/Test";
 import Button from "../Button";
 import Input from "../Input";
 
-//API
-import { deleteQuestion } from "../../../share/api/api";
+//Global
+import themes from "src/share/styles/themes";
+import theme from "src/share/styles/themes";
 
 interface Content {
   question: Question;
@@ -91,6 +92,7 @@ const QuestionCard: React.FC<Content> = ({
       <styles.Container>
         <styles.Header onClick={changeVisibility}>
           <p>{question ? question.questionText : "Nova questão"}</p>
+          <img src="/collapse.svg" alt="" />
         </styles.Header>
       </styles.Container>
       <styles.Container>
@@ -107,24 +109,28 @@ const QuestionCard: React.FC<Content> = ({
               label="Verdadeira"
               name="correct"
               type="text"
+              color={theme.colors.borders.lightGreen}
               value={question ? correctAnswer.answerText : ""}
             />
             <Input
               label="Falsa"
               name="r1"
               type="text"
+              color={theme.colors.borders.lightRed}
               value={question ? incorrectsAnswers[0].answerText : ""}
             />
             <Input
               label="Falsa"
               name="r2"
               type="text"
+              color={theme.colors.borders.lightRed}
               value={question ? incorrectsAnswers[1].answerText : ""}
             />
             <Input
               label="Falsa"
               name="r3"
               type="text"
+              color={theme.colors.borders.lightRed}
               value={question ? incorrectsAnswers[2].answerText : ""}
             />
             <styles.ButtonContainer>
