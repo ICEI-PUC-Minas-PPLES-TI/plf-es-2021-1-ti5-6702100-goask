@@ -13,6 +13,10 @@ manager = ConnectionManager()
 # @actions connect, disconnect, resceive_res, send_result
 # @params *action* , *name*, *room_id*, is_correct
 
+# FALTA
+# Vericar a quantidade de questoes
+# Enviar mensagem ao final do teste automatico
+
 @router_ws.websocket("")
 async def websocket_endpoint(websocket: WebSocket):
     await manager.connect(websocket)

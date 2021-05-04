@@ -1,7 +1,7 @@
+from typing import List
+
 from pydantic import BaseModel
 from datetime import date
-
-from app.schemas.tests import Test
 
 
 # Rooms
@@ -24,6 +24,7 @@ class Room(RoomCreate):
     isActive: bool
     isRunning: bool
     createdAt: date
+    roomdata: List[dict]
 
     class Config:
         orm_mode = True

@@ -3,6 +3,7 @@ from typing import Dict
 from starlette.websockets import WebSocket
 
 from app.websocket.connection_data import ConnectionData
+from app.websocket.connection_db import save_room_data, get_number_of_questions
 
 
 class ConnectionManager:
@@ -21,8 +22,9 @@ class ConnectionManager:
         for key in keys:
             if key == data_dict.get('name'):
                 is_exist = True
+        await get_number_of_questions(data_dict)
         if not is_exist:
-            connection = ConnectionData(websocket, data_dict.get('name'))
+            connection = ConnectionData(websocket, data_dict.get('name'), 2)
             self.active_connections.get(data_dict.get('room_id'))[data_dict.get('name')] = connection
         else:
             return await websocket.send_text(str({"error": True, "Message": "Name already exist"}))
@@ -33,7 +35,7 @@ class ConnectionManager:
             self.active_connections.pop(data_dict.get('room_id'))
 
     async def add_rigth_answer(self, data_dict: {}):
-        if data_dict.get('is_correct'):
+        if data_dict.get('is_correct') == 1:
             self.active_connections.get(data_dict.get('room_id')).get(data_dict.get('name')).add_rigth_answer()
 
     async def send_result(self, data_dict: {}):
@@ -43,6 +45,7 @@ class ConnectionManager:
         for key in keys:
             data = {'name': connections.get(key).name, 'rigth_answers': connections.get(key).rigth_answers}
             res.append(data)
+        await save_room_data(res, data_dict)
         for key in keys:
             await connections.get(key).websocket.send_text(str(res))
 
