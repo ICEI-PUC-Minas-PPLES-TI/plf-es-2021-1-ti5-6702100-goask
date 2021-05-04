@@ -13,16 +13,20 @@ def create_room(db: Session, room: RoomCreate):
     return db_room
 
 
-def get_all_roons(db: Session):
+def get_all_rooms(db: Session):
     return db.query(Room).filter(Room.isPublic and Room.isActive and Room.isRunning == False).all()
 
 
-def get_all_roons_by_User(db: Session, user: User):
+def get_all_rooms_by_User(db: Session, user: User):
     return db.query(Room).filter(Room.idUser == user.idUser).all()
 
 
 def get_room_by_id(db: Session, room_id: int):
     return db.query(Room).filter(Room.idRoom == room_id).first()
+
+
+def get_room_by_name(db: Session, room_name: str):
+    return db.query(Room).filter(Room.name == room_name).first()
 
 
 def update_running(db: Session, db_room: Room, isRunning: bool):
