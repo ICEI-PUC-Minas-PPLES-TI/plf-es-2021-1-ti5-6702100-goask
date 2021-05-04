@@ -3,7 +3,7 @@ import * as styles from "./styles";
 //Hooks
 import { useRouter } from "next/router";
 import { useAppContext } from "../../components/ContextWrapper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 //From models
 import { PostTest } from "@models/Test";
@@ -12,7 +12,6 @@ import { PostTest } from "@models/Test";
 import Button from "../../components/Button";
 import Title from "../../components/Title";
 import Input from "../../components/Input";
-import Select from "../../components/SelectCategories";
 import Snackbar from "../../components/SnackBar";
 
 //API
@@ -29,12 +28,11 @@ const MyTestsPage: React.FC = () => {
     const idCategory = 1;
     const name = e.currentTarget.testName.value;
     const description = e.currentTarget.desc.value;
-    const category = e.currentTarget.category.value;
     const test: PostTest = {
       name,
       description,
       idUser: context.user.idUser,
-      idCategory: category,
+      idCategory,
     };
     const testCreated = await createTest(context.token, test);
     if (testCreated) {
@@ -62,9 +60,6 @@ const MyTestsPage: React.FC = () => {
         </div>
         <styles.ContentContainer>
           <Input label="Nome" type="text" name="testName" />
-        </styles.ContentContainer>
-        <styles.ContentContainer>
-          <Select label="Categoria" name="category" />
         </styles.ContentContainer>
         <styles.ContentContainer>
           <Input label="Descrição" type="text" name="desc" />

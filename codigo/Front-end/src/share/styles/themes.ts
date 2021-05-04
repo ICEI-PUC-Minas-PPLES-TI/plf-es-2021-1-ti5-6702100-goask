@@ -10,7 +10,6 @@ const theme = {
       darkBlue: "#26265e",
       orange: "#F27225",
       red: "#C9515C",
-      lightRed: "#C91049",
     },
   },
   breakpoint: {

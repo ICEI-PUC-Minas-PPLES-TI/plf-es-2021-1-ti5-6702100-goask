@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 from app.core.auth import check_token_access
 from app.crud import crud_test, crud_user
 from app.db.database import SessionLocal
-from app.models.questions import Question
 from app.models.users import User
 from app.schemas.tests import Test, TestCreate, TestUpdate
 
@@ -32,9 +31,6 @@ def read_test(test_id: int, db: Session = Depends(get_db), uuid: str = Depends(c
     db_test: Test = crud_test.get_test_by_id(db, test_id)
     if db_test is None:
         raise HTTPException(status_code=404, detail="Test not found")
-    questions = db_test.questions
-    questions = sorted(questions, key=lambda q: q.idQuestion)
-    db_test.questions = questions
     return db_test
 
 
@@ -55,11 +51,7 @@ def update_test(test: TestUpdate, db: Session = Depends(get_db), uuid: str = Dep
     db_test: Test = crud_test.get_test_by_id(db, test_id=test.idTest)
     if db_test is None:
         raise HTTPException(status_code=404, detail="Test not found")
-    db_test: Test = crud_test.update_test(db=db, test=test, db_test=db_test, db_user=db_user)
-    questions = db_test.questions
-    questions = sorted(questions, key=lambda q: q.idQuestion)
-    db_test.questions = questions
-    return db_test
+    return crud_test.update_test(db=db, test=test, db_test=db_test, db_user=db_user)
 
 
 @router.delete("/{test_id}", response_model=Test)

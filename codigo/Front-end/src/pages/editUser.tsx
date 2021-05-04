@@ -1,9 +1,9 @@
 import EditUserPage from "../modules/pages/EditUser";
 
-const EditUser = () => (
+const Home = () => (
   <>
-    <EditUserPage />
+    <EditUserPage/>
   </>
 );
 
-export default EditUser;
+export default Home;
