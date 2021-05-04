@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../components/ContextWrapper";
 import { useEffect, useState } from "react";
 
+//From next
+import Link from "next/link";
+
 //From models
 import {
   PostQuestion,
@@ -77,12 +80,17 @@ const TestPage: React.FC = () => {
       isPublic
     }
     const response = await createRoom(context.token,room);
+    updateSnackBar(
+      response,
+      "Questão deletada com sucesso!",
+      "Não foi possível deletar a questão."
+    );
     if(response) {
       console.log("deu certo")
       console.log(response)
+      router.push(`/room/${response.idRoom}`)
       toggleRoom();
     } else {
-      console.log("deu ruim")
       toggleRoom();
     }
   }

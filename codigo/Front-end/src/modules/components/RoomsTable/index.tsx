@@ -40,7 +40,11 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
           {rooms &&
             rooms.map((r: Room, index) => (
               <tr key={index}>
-                <td>{r.name}</td>
+                <td>
+                  <Link href={`/room/${r.idRoom}`}>
+                  <a>{r.name}</a>
+                </Link>
+                </td>
                 <td>{getTest(r)}</td>
                 <td>
                   {r.isPublic ? (

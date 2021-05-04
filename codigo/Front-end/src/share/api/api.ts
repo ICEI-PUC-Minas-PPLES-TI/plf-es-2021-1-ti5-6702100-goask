@@ -255,3 +255,45 @@ export const createRoom = async (token:Token, room: PostRoom): Promise<Room> => 
     console.error(e);
   }
 }
+
+export const getRoom = async (token:Token, roomId:number): Promise<Room> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    const id = roomId;
+    
+    const response = await api.get(`/room/`, options).then((res) => res.data);
+    const room = response.filter((room:Room) => room.idRoom === id);
+    return room[0]
+
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export const startRoom = async (token:Token, roomId:number, running:boolean): Promise<Room> => {
+  try{
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    const id = roomId
+    return await api.put(`/room/${id}?isRunning=${!running}`,true,options).then((res) => res.data);
+    
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export const desactivateRoom = async (token:Token, roomId:number):Promise<Room> => {
+  try{
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    const id = roomId
+    return await api.put(`/room/turnoffroom/${roomId}`,options).then((res) => res.data);
+    
+  } catch (e) {
+    console.error(e);
+  }
+}
