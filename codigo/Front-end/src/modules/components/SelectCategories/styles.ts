@@ -1,10 +1,6 @@
 import theme from "src/share/styles/themes";
 import styled from "styled-components";
 
-interface Props {
-  color?: string;
-}
-
 export const Container = styled.div`
   background-color: #fff;
   width: 100%;
@@ -15,37 +11,47 @@ export const Container = styled.div`
   border-radius: 10px;
 `;
 
-export const InputDiv = styled.div<Props>`
+export const SelectDiv = styled.div`
   width: 100%;
   height: 30px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   font-weight: 700;
-  color: ${(props) => props.color || "#888"};
-  padding: 20px;
+  color: #888;
 
   label {
     height: 30px;
     font-weight: 400px;
     font-size: 24px;
   }
+`;
 
-  input {
-    width: 80%;
-    font-weight: 500;
-    font-size: 24px;
-    height: 30px;
-    color: #8d8a8a;
-    border: none;
-    border-bottom: 3px solid ${(props) => props.color || "#888"};
-    @media (max-width: ${theme.breakpoint.xl}) {
-      font-size: 20px;
-    }
+export const SelectDefault = styled.select`
+  width: 100%;
+  height: 35px;
+  background: white;
+  color: gray;
+  padding-left: 5px;
+  font-size: 14px;
+  border: none;
+  margin-left: 10px;
+  font-weight: 400px;
+  font-size: 20px;
+
+  &:focus {
+    outline: none;
   }
 
-  input:focus {
-    outline: none;
+  option {
+    color: black;
+    background: white;
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+    padding: 0px 2px 1px;
+    font-weight: 500;
   }
 `;

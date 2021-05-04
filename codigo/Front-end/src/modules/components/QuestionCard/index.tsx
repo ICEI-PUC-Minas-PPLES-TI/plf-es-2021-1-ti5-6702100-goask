@@ -6,9 +6,14 @@ import { PostQuestion, Question } from "@models/Test";
 import Button from "../Button";
 import Input from "../Input";
 
+//Global
+import themes from "src/share/styles/themes";
+import theme from "src/share/styles/themes";
+
 interface Content {
   question: Question;
   submit: (PostQuestion, number?) => void;
+  deleteSubmit?: (id) => void;
   testId: number;
   questionId?: number;
 }
@@ -16,6 +21,7 @@ interface Content {
 const QuestionCard: React.FC<Content> = ({
   question,
   submit,
+  deleteSubmit,
   testId,
   questionId,
 }) => {
@@ -25,11 +31,7 @@ const QuestionCard: React.FC<Content> = ({
   const correctAnswer =
     question && question.answers.filter((a) => a.isCorrect)[0];
   const incorrectsAnswers =
-    question &&
-    question.answers
-      .sort((a) => a.idAnswer)
-      .reverse()
-      .filter((a) => !a.isCorrect);
+    question && question.answers.filter((a) => !a.isCorrect);
 
   const changeVisibility = () => {
     if (open === hidden) {
@@ -56,7 +58,7 @@ const QuestionCard: React.FC<Content> = ({
     const r2 = e.currentTarget.r2.value;
     const r3 = e.currentTarget.r3.value;
 
-    const question: PostQuestion = {
+    let newQuestion: PostQuestion = {
       answers: [
         {
           answerText: correct,
@@ -79,9 +81,9 @@ const QuestionCard: React.FC<Content> = ({
       questionText: title,
     };
     if (questionId) {
-      submit(question, questionId);
+      submit(newQuestion, questionId);
     } else {
-      submit(question);
+      submit(newQuestion);
     }
   };
 
@@ -90,6 +92,7 @@ const QuestionCard: React.FC<Content> = ({
       <styles.Container>
         <styles.Header onClick={changeVisibility}>
           <p>{question ? question.questionText : "Nova questão"}</p>
+          <img src="/collapse.svg" alt="" />
         </styles.Header>
       </styles.Container>
       <styles.Container>
@@ -106,27 +109,40 @@ const QuestionCard: React.FC<Content> = ({
               label="Verdadeira"
               name="correct"
               type="text"
+              color={theme.colors.borders.lightGreen}
               value={question ? correctAnswer.answerText : ""}
             />
             <Input
               label="Falsa"
               name="r1"
               type="text"
+              color={theme.colors.borders.lightRed}
               value={question ? incorrectsAnswers[0].answerText : ""}
             />
             <Input
               label="Falsa"
               name="r2"
               type="text"
+              color={theme.colors.borders.lightRed}
               value={question ? incorrectsAnswers[1].answerText : ""}
             />
             <Input
               label="Falsa"
               name="r3"
               type="text"
+              color={theme.colors.borders.lightRed}
               value={question ? incorrectsAnswers[2].answerText : ""}
             />
-            <Button text="Salvar" />
+            <styles.ButtonContainer>
+              <div>
+                <Button text="Salvar" />
+              </div>
+              {deleteSubmit && (
+                <div onClick={() => deleteSubmit(questionId)}>
+                  <Button text="Deletar" submit={false} />
+                </div>
+              )}
+            </styles.ButtonContainer>
           </form>
         </styles.Body>
       </styles.Container>

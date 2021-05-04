@@ -1,6 +1,6 @@
 import { Token } from "../../../models/Token";
 import { User } from "../../../models/User";
-import { AppProps } from "next/app";
+
 import {
   createContext,
   Dispatch,

@@ -1,3 +1,4 @@
+import theme from "src/share/styles/themes";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -34,6 +35,7 @@ export const ContentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 
 export const ButtonsContainer = styled.div`
@@ -59,6 +61,11 @@ export const Header = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${theme.breakpoint.xl}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -69,4 +76,5 @@ export const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;

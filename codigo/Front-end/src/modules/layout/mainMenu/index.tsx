@@ -5,13 +5,17 @@ import Link from "next/link";
 
 //Hooks
 import { useRouter } from "next/router";
+import { useAppContext } from "../../components/ContextWrapper";
 
 const mainMenu: React.FC = ({ children }) => {
   const router = useRouter();
+  const context = useAppContext();
 
   const logout = () => {
     sessionStorage.removeItem("$$access_token");
     sessionStorage.removeItem("$$token_type");
+    context.setUser(null);
+    context.setToken(null);
     router.push("/login");
   };
 
@@ -37,7 +41,7 @@ const mainMenu: React.FC = ({ children }) => {
               </styles.itemContainer>
             </a>
           </Link>
-          <Link href="/editUser">
+          <Link href="/perfil">
             <a>
               <styles.itemContainer>
                 <img src="/people.svg" alt="Vá para Perfil" />
@@ -49,7 +53,7 @@ const mainMenu: React.FC = ({ children }) => {
             <a>
               <styles.itemContainer>
                 <img src="/quiz.svg" alt="Vá para Quiz" />
-                Quizes
+                Quizzes
               </styles.itemContainer>
             </a>
           </Link>
@@ -57,13 +61,13 @@ const mainMenu: React.FC = ({ children }) => {
         <styles.userContainer>
           <span>
             <img
-              src="/avatar.png"
+              src="/user-default.svg"
               height="auto"
               width="auto"
               alt="Meu perfil"
             />
           </span>
-          <p>XXX</p>
+          <p>{context?.user ? context.user.name : ""}</p>
         </styles.userContainer>
       </styles.FirstContainer>
       <styles.SecondContainer>{children}</styles.SecondContainer>
