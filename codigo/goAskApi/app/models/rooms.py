@@ -19,7 +19,7 @@ class Room(Base):
     createdAt = Column(DateTime(timezone=True), server_default=func.now())
     idUser = Column(Integer, ForeignKey("User.idUser", ondelete='CASCADE'))
     idTest = Column(Integer, ForeignKey("Test.idTest"))
-    roomdata = Column(JSON)
+    roomData = Column(JSON)
 
     owner = relationship("User", back_populates="rooms", lazy='joined')
     test = relationship("Test", back_populates="rooms", lazy='joined')

@@ -7,7 +7,6 @@ import {
 } from "@models/Test";
 import { Token } from "@models/Token";
 import axios from "axios";
-import { apiResolver } from "next/dist/next-server/server/api-utils";
 import { RegisterUser, User, LoginUser,UpdateUser } from "../../models/User";
 
 export const api = axios.create({

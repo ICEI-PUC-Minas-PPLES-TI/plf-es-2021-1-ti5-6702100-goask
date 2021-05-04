@@ -1,6 +1,6 @@
 from typing import List
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Json
 from datetime import date
 
 
@@ -24,7 +24,7 @@ class Room(RoomCreate):
     isActive: bool
     isRunning: bool
     createdAt: date
-    roomdata: List[dict]
+    roomData: Json
 
     class Config:
         orm_mode = True
