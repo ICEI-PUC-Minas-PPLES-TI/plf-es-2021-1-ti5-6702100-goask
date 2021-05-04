@@ -51,6 +51,12 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
+export const createRoomButtonContainer = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+`
+
 export const TextContainer = styled.div`
   width: 60%;
 `;
@@ -77,4 +83,29 @@ export const CardContainer = styled.div`
   align-items: center;
   margin-bottom: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+`;
+
+export const InformationContainer = styled.div`
+  background-color: #fff;
+  padding: 5px 30px 10px;
+  max-width: 70%;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  p {
+    width: 100%;
+    text-align: center;
+  }
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    color: ${(props) => props.theme.colors.borders.red};
+    font-weight: 700;
+  }
 `;

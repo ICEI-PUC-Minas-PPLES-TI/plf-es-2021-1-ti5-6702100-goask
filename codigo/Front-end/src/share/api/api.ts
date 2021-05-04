@@ -1,4 +1,3 @@
-import { Room } from "@models/Room";
 import {
   Category,
   PostQuestion,
@@ -11,6 +10,7 @@ import { Token } from "@models/Token";
 import axios from "axios";
 import { apiResolver } from "next/dist/next-server/server/api-utils";
 import { RegisterUser, User, LoginUser, UpdateUser } from "../../models/User";
+import { PostRoom,Room } from "@models/Room"
 
 export const api = axios.create({
   baseURL: "http://152.67.33.12:3232/",
@@ -230,6 +230,7 @@ export const getCategories = async (token: Token): Promise<Category[]> => {
   }
 };
 
+
 export const getRooms = async (token: Token): Promise<Room[]> => {
   try {
     const options = {
@@ -240,3 +241,59 @@ export const getRooms = async (token: Token): Promise<Room[]> => {
     console.error(e);
   }
 };
+
+export const createRoom = async (token:Token, room: PostRoom): Promise<Room> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+
+    const data = room;
+
+    return await api.post(`/room/`, data, options).then((res) => res.data);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export const getRoom = async (token:Token, roomId:number): Promise<Room> => {
+  try {
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    const id = roomId;
+    
+    const response = await api.get(`/room/`, options).then((res) => res.data);
+    const room = response.filter((room:Room) => room.idRoom === id);
+    return room[0]
+
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export const startRoom = async (token:Token, roomId:number, running:boolean): Promise<Room> => {
+  try{
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    const id = roomId
+    return await api.put(`/room/${id}?isRunning=${!running}`,true,options).then((res) => res.data);
+    
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export const desactivateRoom = async (token:Token, roomId:number):Promise<Room> => {
+  try{
+    const options = {
+      headers: { Authorization: `${token.token_type} ${token.access_token}` },
+    };
+    const id = roomId
+    return await api.put(`/room/turnoffroom/${roomId}`,options).then((res) => res.data);
+    
+  } catch (e) {
+    console.error(e);
+  }
+}

@@ -27,6 +27,7 @@ const RelatoryPage: React.FC = () => {
     const roomsResponse = await getRooms(context.token);
     setRooms(roomsResponse);
     console.log(rooms);
+    console.log(context.user)
   };
 
   useEffect(() => {
@@ -45,7 +46,7 @@ const RelatoryPage: React.FC = () => {
         </styles.TextContainer>
         <styles.ContentContainer>
           <RelatoryTable tests={tests} />
-        </styles.ContentContainer>
+        </styles.ContentContainer> 
 
         <styles.TextContainer>
           <h2>Histórico de salas</h2>

@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../components/ContextWrapper";
 import { useEffect, useState } from "react";
 
+//From next
+import Link from "next/link";
+
 //From models
 import {
   PostQuestion,
@@ -22,9 +25,12 @@ import Input from "../../components/Input";
 import Snackbar from "../../components/SnackBar";
 import Modal from "../../components/Modal";
 import ConfirmationModal from "../../components/ModalConfirmation";
+import ModalCreateRoom from "../../components/ModalCreateRoom";
 import QuestionCard from "../../components/QuestionCard";
 import { useModal } from "../../utils/useModal";
+import { useModalRoom } from "../../utils/useModalRoom";
 import Select from "../../components/SelectCategories";
+import RoomButton from "../../components/ButtonForm"
 
 //API
 import {
@@ -35,7 +41,9 @@ import {
   updateQuestion,
   getQuestion,
   deleteQuestion,
+  createRoom,
 } from "../../../share/api/api";
+import { PostRoom } from "@models/Room";
 
 const TestPage: React.FC = () => {
   const router = useRouter();
@@ -47,6 +55,7 @@ const TestPage: React.FC = () => {
   const [message, setMessage] = useState("");
 
   const { isShown, toggle } = useModal();
+  const { isShownRoom, toggleRoom} = useModalRoom();
 
   const onConfirm = async () => {
     await deleteTest(context.token, test.idTest);
@@ -54,6 +63,37 @@ const TestPage: React.FC = () => {
     toggle();
   };
   const onCancel = () => toggle();
+
+
+  const roomCreate = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const name = e.currentTarget.roomname.value;
+    console.log(name)
+    const idTest = test.idTest;
+    const idUser = test.idUser;
+    const isPublic = e.currentTarget.isPublic.value === "public" ? true : false ;
+    console.log(isPublic);
+    const room: PostRoom = {
+      name,
+      idTest,
+      idUser,
+      isPublic
+    }
+    const response = await createRoom(context.token,room);
+    updateSnackBar(
+      response,
+      "Questão deletada com sucesso!",
+      "Não foi possível deletar a questão."
+    );
+    if(response) {
+      console.log("deu certo")
+      console.log(response)
+      router.push(`/room/${response.idRoom}`)
+      toggleRoom();
+    } else {
+      toggleRoom();
+    }
+  }
 
   const render = async () => {
     const { id } = router.query;
@@ -175,12 +215,28 @@ const TestPage: React.FC = () => {
         }
       />
 
+      <Modal
+        isShown={isShownRoom}
+        hide={toggleRoom}
+        headerText="Crie sua sala"
+        modalContent={
+          <ModalCreateRoom
+            onSubmit={roomCreate}
+          />
+        }
+      />
+
       {showBar ? (
         <Snackbar message={message} backgroundColor={color} timer={5000} />
       ) : (
         <></>
       )}
 
+
+
+ 
+      
+      
       <form onSubmit={edit}>
         <styles.Header>
           <styles.TextContainer>
@@ -193,6 +249,9 @@ const TestPage: React.FC = () => {
             </div>
           </styles.ButtonsContainer>
         </styles.Header>
+        <styles.InformationContainer>
+          <p>Clique no botão do canto inferior direito para criar uma sala </p>
+        </styles.InformationContainer>
         <styles.ContentContainer>
           <Input label="Nome" type="text" name="testName" value={test.name} />
         </styles.ContentContainer>
@@ -212,7 +271,8 @@ const TestPage: React.FC = () => {
           />
         </styles.ContentContainer>
       </form>
-
+      
+      
       <styles.QuestionContainer>
         <Title>Questões</Title>
         {test.questions.map((q: Question, index) => {
@@ -236,6 +296,11 @@ const TestPage: React.FC = () => {
           />
         </styles.CardContainer>
       </styles.QuestionContainer>
+      <styles.createRoomButtonContainer>
+      <div onClick={toggleRoom}>
+              <RoomButton icon="/clipboard-add.svg" alt="Enviar" />
+      </div>
+      </styles.createRoomButtonContainer>
     </styles.Container>
   ) : (
     <></>
