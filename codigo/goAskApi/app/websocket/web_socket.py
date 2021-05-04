@@ -16,6 +16,7 @@ manager = ConnectionManager()
 # FALTA
 # Vericar a quantidade de questoes
 # Enviar mensagem ao final do teste automatico
+# ativar sala
 
 @router_ws.websocket("")
 async def websocket_endpoint(websocket: WebSocket):
