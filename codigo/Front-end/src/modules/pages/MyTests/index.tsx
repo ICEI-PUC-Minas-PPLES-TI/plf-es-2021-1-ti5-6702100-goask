@@ -21,7 +21,6 @@ import TestsTable from "../../components/TestsTable";
 import { getTests } from "../../../share/api/api";
 
 const MyTestsPage: React.FC = () => {
-  const router = useRouter();
   const context = useAppContext();
   const [tests, setTests] = useState<Test[]>();
 
@@ -34,31 +33,33 @@ const MyTestsPage: React.FC = () => {
     render();
   }, []);
 
-  return tests ? (
-    <styles.Container>
-      <div>
-        <Title>Meus quizes</Title>
-        <Link href="/createtest">
-          <a>
-            <Button text="Criar quiz" />
-          </a>
-        </Link>
-      </div>
-      <styles.ContentContainer>
-        <IconData
-          text={tests.length !== 1 ? "Quizes criados" : "Quiz criado"}
-          icon="/quizes.svg"
-          alt="quizes"
-          value={tests.length}
-        />
-      </styles.ContentContainer>
-      <styles.ContentContainer>
-        <TestsTable tests={tests} />
-      </styles.ContentContainer>
-    </styles.Container>
-  ) : (
-    <></>
-  );
+  if (tests) {
+    return (
+      <styles.Container>
+        <div>
+          <Title>Meus quizzes</Title>
+          <Link href="/createtest">
+            <a>
+              <Button text="Criar quiz" />
+            </a>
+          </Link>
+        </div>
+        <styles.ContentContainer>
+          <IconData
+            text={tests.length !== 1 ? "Quizes criados" : "Quiz criado"}
+            icon="/quizzes.svg"
+            alt="quizzes"
+            value={tests.length}
+          />
+        </styles.ContentContainer>
+        <styles.ContentContainer>
+          <TestsTable tests={tests} />
+        </styles.ContentContainer>
+      </styles.Container>
+    );
+  } else {
+    return <></>;
+  }
 };
 
 export default MyTestsPage;

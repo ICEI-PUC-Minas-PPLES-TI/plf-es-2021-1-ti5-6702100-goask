@@ -59,6 +59,18 @@ export const Body = styled.div<Props>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
+    padding: 10px 50px;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  div {
+    max-width: 50%;
   }
 `;

@@ -22,9 +22,11 @@ export const ContentContainer = styled.div`
   max-width: 70%;
   height: 150px;
   background-color: #fff;
-  margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 30px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
