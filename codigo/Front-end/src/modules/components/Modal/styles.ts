@@ -23,8 +23,8 @@ export const StyledModal = styled.div`
   z-index: 100;
   background: white;
   border-radius: 13px;
-  height: 100%;
-  width: 100%;
+  height: 200px;
+  width: 350px;
   display: flex;
   align-items: center;
   gap: 10px;

@@ -24,7 +24,6 @@ import Modal from "../../components/Modal";
 import ConfirmationModal from "../../components/ModalConfirmation";
 import QuestionCard from "../../components/QuestionCard";
 import { useModal } from "../../utils/useModal";
-import Select from "../../components/SelectCategories";
 
 //API
 import {
@@ -34,10 +33,9 @@ import {
   createQuestion,
   updateQuestion,
   getQuestion,
-  deleteQuestion,
 } from "../../../share/api/api";
 
-const TestPage: React.FC = () => {
+const MyTestsPage: React.FC = () => {
   const router = useRouter();
   const context = useAppContext();
   const timeSnackBar = 5000;
@@ -80,25 +78,25 @@ const TestPage: React.FC = () => {
 
   const addQuestion = async (question: PostQuestion) => {
     const res = await createQuestion(context.token, question);
-    test.questions.push(res);
     updateSnackBar(
       res,
       "Questão criada com sucesso!",
       "Não foi possível criar a questão."
     );
+    const newTest = await getTest(context.token, test.idTest);
+    setTest(newTest);
   };
 
   const updateQuestionSubmit = async (question: PostQuestion, id: number) => {
     const putAnswers: PutAnswer[] = [];
-    console.log("QUESTÃO RECEBIDA DO CARD", question);
 
     const originalAnswer = await getQuestion(context.token, id);
 
-    for (let i = 0; i < question.answers.length; i++) {
+    for (let q of originalAnswer.answers) {
       putAnswers.push({
-        answerText: question.answers[i].answerText,
-        idAnswer: originalAnswer.answers[i].idAnswer,
-        isCorrect: question.answers[i].isCorrect,
+        answerText: q.answerText,
+        idAnswer: q.idAnswer,
+        isCorrect: q.isCorrect,
       });
     }
 
@@ -109,24 +107,13 @@ const TestPage: React.FC = () => {
     };
 
     const res = await updateQuestion(context.token, putQuestion, id);
-    const index = test.questions.findIndex((q) => (q.idTest = res.idTest));
-    test.questions[index] = res;
     updateSnackBar(
       res,
       "Questão atualizada com sucesso!",
       "Não foi possível atualizar a questão."
     );
-  };
-
-  const deleteQuestionSubmit = async (id: number) => {
-    const res = await deleteQuestion(context.token, id);
     const newTest = await getTest(context.token, test.idTest);
     setTest(newTest);
-    updateSnackBar(
-      res,
-      "Questão deletada com sucesso!",
-      "Não foi possível deletar a questão."
-    );
   };
 
   const edit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -136,17 +123,16 @@ const TestPage: React.FC = () => {
     const name = e.currentTarget.testName.value;
     const description = e.currentTarget.desc.value;
     const idUser = test.idUser;
-    const idCategory = e.currentTarget.category.value;
+    const idCategory = test.idCategory;
 
     const testEdited: PostTest = {
       name,
       description,
       idUser,
-      idCategory: 1,
+      idCategory,
     };
 
     const newTest = await updateTest(context.token, testEdited, test.idTest);
-    console.log(newTest);
     updateSnackBar(
       newTest,
       "Quiz atualizado com sucesso!",
@@ -174,7 +160,6 @@ const TestPage: React.FC = () => {
           />
         }
       />
-
       {showBar ? (
         <Snackbar message={message} backgroundColor={color} timer={5000} />
       ) : (
@@ -197,13 +182,6 @@ const TestPage: React.FC = () => {
           <Input label="Nome" type="text" name="testName" value={test.name} />
         </styles.ContentContainer>
         <styles.ContentContainer>
-          <Select
-            label="Categoria"
-            name="category"
-            idSelected={test.category.idCategory}
-          />
-        </styles.ContentContainer>
-        <styles.ContentContainer>
           <Input
             label="Descrição"
             type="text"
@@ -215,19 +193,21 @@ const TestPage: React.FC = () => {
 
       <styles.QuestionContainer>
         <Title>Questões</Title>
-        {test.questions.map((q: Question, index) => {
-          return (
-            <styles.CardContainer key={index}>
-              <QuestionCard
-                question={q}
-                submit={updateQuestionSubmit}
-                deleteSubmit={deleteQuestionSubmit}
-                questionId={q.idQuestion}
-                testId={test.idTest}
-              />
-            </styles.CardContainer>
-          );
-        })}
+        {test.questions
+          .sort((q) => q.idQuestion)
+          .reverse()
+          .map((q: Question, index) => {
+            return (
+              <styles.CardContainer key={index}>
+                <QuestionCard
+                  question={q}
+                  submit={updateQuestionSubmit}
+                  questionId={q.idQuestion}
+                  testId={test.idTest}
+                />
+              </styles.CardContainer>
+            );
+          })}
         <styles.CardContainer>
           <QuestionCard
             question={null}
@@ -242,4 +222,4 @@ const TestPage: React.FC = () => {
   );
 };
 
-export default TestPage;
+export default MyTestsPage;

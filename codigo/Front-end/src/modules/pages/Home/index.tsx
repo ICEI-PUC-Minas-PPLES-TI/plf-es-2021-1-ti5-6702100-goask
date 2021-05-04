@@ -1,3 +1,4 @@
+
 //Hooks
 import { useRouter } from "next/router";
 import { useAppContext } from "../../../modules/components/ContextWrapper";
@@ -13,8 +14,8 @@ const HomePage: React.FC = () => {
   };
 
   const editar = () => {
-    router.push("/editUser");
-  };
+    router.push("/editUser")
+  }
 
   const verify = async () => {
     console.log("CONTEXT = ", context);
@@ -26,15 +27,16 @@ const HomePage: React.FC = () => {
   verify();
 
   return (
-    <div>
-      <h1>
-        Home
-        <br />
-        <u onClick={logout}>Logout</u>
-        <br />
-        <u onClick={editar}>editar dados cadastrais</u>
-      </h1>
-    </div>
+  
+      <div>
+        <h1>
+          Home
+          <br />
+          <u onClick={logout}>Logout</u>
+          <br/>
+          <u onClick={editar}>editar dados cadastrais</u>
+        </h1>
+      </div>
   );
 };
 

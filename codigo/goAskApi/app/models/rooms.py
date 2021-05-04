@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Date, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, JSON
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 
@@ -16,10 +16,10 @@ class Room(Base):
     name = Column(String, unique=True, index=True)
     isActive = Column(Boolean, default=True)
     isRunning = Column(Boolean, default=False)
-    isPublic = Column(Boolean, default=False)
     createdAt = Column(DateTime(timezone=True), server_default=func.now())
     idUser = Column(Integer, ForeignKey("User.idUser", ondelete='CASCADE'))
     idTest = Column(Integer, ForeignKey("Test.idTest"))
+    roomData = Column(JSON)
 
     owner = relationship("User", back_populates="rooms", lazy='joined')
     test = relationship("Test", back_populates="rooms", lazy='joined')

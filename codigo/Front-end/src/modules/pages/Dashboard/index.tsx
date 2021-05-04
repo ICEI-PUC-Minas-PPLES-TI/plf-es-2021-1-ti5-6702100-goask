@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
     <styles.Container>
       <h1>Dashboard</h1>
       <styles.ButtonContainer>
-        <styles.Button onClick={() => router.push("/perfil")}>
+        <styles.Button>
           <p>Meu perfil</p>
           <span>
             <img src="/arrow-right.svg" alt="Vá para Perfil" />
@@ -22,15 +22,15 @@ const Dashboard: React.FC = () => {
         <styles.Button onClick={() => router.push("/mytests")}>
           <p>Meus Quizzes</p>
           <span>
-            <img src="/arrow-right.svg" alt="Vá para os quizzes" />
+            <img src="/arrow-right.svg" alt="Vá para Perfil" />
           </span>
         </styles.Button>
-        <styles.Button onClick={() => router.push("/relatory")}>
-          <p>Relatório</p>
+        {/* <styles.Button>
+          <p>Meus Relatorios</p>
           <span>
-            <img src="/arrow-right.svg" alt="Vá para o relatório" />
+            <img src="/arrow-right.svg" alt="Vá para Perfil" />
           </span>
-        </styles.Button>
+        </styles.Button> */}
       </styles.ButtonContainer>
       <styles.FeaturesContainer>
         <styles.FeaturesStatics>

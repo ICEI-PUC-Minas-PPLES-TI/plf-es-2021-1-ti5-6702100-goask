@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import theme from "src/share/styles/themes";
 
 export const Container = styled.div`
   h1 {
@@ -20,16 +19,10 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-
-  @media (max-width: ${theme.breakpoint.lg}) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
 `;
 
 export const Button = styled.button`
-  width: 30%;
+  width: 31%;
   height: 170px;
   margin: 0 auto 0 0;
 
@@ -43,12 +36,6 @@ export const Button = styled.button`
   flex-direction: column;
   justify-content: center;
   padding: 22px 16px 16px 16px;
-  transition-duration: 0.4s;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.borders.green};
-  }
 
   p {
     font-size: calc(
@@ -64,10 +51,6 @@ export const Button = styled.button`
     height: auto;
     position: relative;
     float: right;
-  }
-
-  @media (max-width: ${theme.breakpoint.lg}) {
-    width: 80%;
   }
 `;
 
@@ -88,7 +71,6 @@ export const FeaturesStatics = styled.div`
   border-radius: 30px;
   padding: 20px 50px;
   background-color: ${(props) => props.theme.colors.menuBackground};
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 
 export const FeaturesStaticsContainer = styled.div`
@@ -160,12 +142,6 @@ export const FeaturesBeginQuiz = styled.div`
     flex-direction: row;
     justify-content: center;
     padding: 12px 8px 8px 8px;
-    transition-duration: 0.4s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    &:hover {
-      background-color: ${(props) => props.theme.colors.borders.green};
-    }
 
     p {
       font-size: calc(

@@ -9,13 +9,13 @@ export const Container = styled.div`
 `;
 
 export const FirstContainer = styled.div`
-  position: fixed;
-  min-height: 100vh;
-  border-radius: 0 15px 15px 0;
-  width: 25%;
-  background: ${(props) => props.theme.colors.menuBackground};
-  max-width: ${(props) => props.theme.breakpoint.xl};
-  min-width: ${(props) => props.theme.breakpoint.xs};
+position: fixed;
+min-height: 100vh;
+border-radius: 0 15px 15px 0;
+width: 25%;
+background: ${(props) => props.theme.colors.menuBackground};
+max-width: ${(props) => props.theme.breakpoint.xl};
+min-width: ${(props) => props.theme.breakpoint.xs};
   padding: 50px 40px 0 40px;
   margin: 0 30px 0 0;
   box-shadow: 0 0 0 5px ${(props) => props.theme.colors.borders.darkBlue},
@@ -24,6 +24,7 @@ export const FirstContainer = styled.div`
     0 0 0 20px ${(props) => props.theme.colors.borders.lightGreen},
     0 0 0 25px ${(props) => props.theme.colors.borders.orange},
     0 0 0 30px ${(props) => props.theme.colors.borders.red};
+}
 `;
 
 export const SecondContainer = styled.div`
@@ -61,9 +62,6 @@ export const LogoutContainer = styled.div`
   img {
     width: 25px;
     height: auto;
-    &:hover {
-      cursor: pointer;
-    }
   }
 `;
 

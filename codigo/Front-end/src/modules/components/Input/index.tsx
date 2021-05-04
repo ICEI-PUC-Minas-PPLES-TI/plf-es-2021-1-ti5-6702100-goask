@@ -4,13 +4,12 @@ interface InputConfig {
   label: string;
   name: string;
   value?: string;
-  color?: string;
 }
 
-const Input: React.FC<InputConfig> = ({ type, label, name, value, color }) => {
+const Input: React.FC<InputConfig> = ({ type, label, name, value }) => {
   return (
     <styles.Container>
-      <styles.InputDiv color={color}>
+      <styles.InputDiv>
         <label htmlFor={name}>{label}:</label>
         <input
           required

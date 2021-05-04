@@ -3,7 +3,6 @@ import * as styles from "./styles";
 //Hooks
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useAppContext } from "../../../../modules/components/ContextWrapper";
 
 //From components
 import Input from "../../index/Input";
@@ -14,7 +13,7 @@ import SnackBar from "../../SnackBar";
 import Link from "next/link";
 
 //From api
-import { loginUser, getUser } from "../../../../share/api/api";
+import { loginUser } from "../../../../share/api/api";
 
 //From models
 import { LoginUser } from "../../../../models/User";
@@ -22,7 +21,6 @@ import { Token } from "../../../../models/Token";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
-  const context = useAppContext();
   const [loginError, setLoginError] = useState(false);
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,9 +36,6 @@ const LoginForm: React.FC = () => {
     if (token) {
       sessionStorage.setItem("$$access_token", token.access_token);
       sessionStorage.setItem("$$token_type", token.token_type);
-      context.setToken(token);
-      const user = await getUser(token);
-      context.setUser(user);
       router.push("/");
     } else {
       setLoginError(true);
@@ -59,31 +54,31 @@ const LoginForm: React.FC = () => {
         <></>
       )}
       <styles.Container>
-        <form onSubmit={login}>
-          <styles.FormContainer>
-            <Input
-              type="text"
-              icon="/mail-icon.svg"
-              placeHolder="Digite seu e-mail"
-              alt="E-mail"
-              name="email"
-            />
-            <Input
-              type="password"
-              icon="/password-icon.svg"
-              placeHolder="Digite sua senha"
-              alt="Senha"
-              name="pass"
-            />
-            <Link href="/signin">
-              <a>Não tenho cadastro</a>
-            </Link>
-            <styles.ButtonDiv>
-              <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
-            </styles.ButtonDiv>
+        <form  onSubmit={login}>
+        <styles.FormContainer>
+          <Input
+            type="text"
+            icon="/mail-icon.svg"
+            placeHolder="Digite seu e-mail"
+            alt="E-mail"
+            name="email"
+          />
+          <Input
+            type="password"
+            icon="/password-icon.svg"
+            placeHolder="Digite sua senha"
+            alt="Senha"
+            name="pass"
+          />
+          <Link href="/signin">
+            <a>Não tenho cadastro</a>
+          </Link>
+          <styles.ButtonDiv>
+            <ButtonForm icon="/arrow-right.svg" alt="Enviar" />
+          </styles.ButtonDiv>
           </styles.FormContainer>
         </form>
-      </styles.Container>
+    </styles.Container>
     </div>
   );
 };
