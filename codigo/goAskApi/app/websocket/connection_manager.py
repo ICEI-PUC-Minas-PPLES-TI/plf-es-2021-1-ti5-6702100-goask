@@ -82,7 +82,11 @@ class ConnectionManager:
         connections = self.active_connections.get(data_dict.get('room_id'))
         keys = connections.keys()
         for key in keys:
-            await connections.get(key).websocket.send_json({'actived': 1})
+            await connections.get(key).websocket.send_json({
+                "room_id": data_dict.get('room_id'),
+                "action": 'send_results',
+                'actived': 1
+            })
 
     async def add_owner(self, websocket: WebSocket, data_dict):
         owner_connection = ConnectionOwnerData(websocket, data_dict.get('room_id'))
