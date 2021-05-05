@@ -84,7 +84,7 @@ class ConnectionManager:
         for key in keys:
             await connections.get(key).websocket.send_json({
                 "room_id": data_dict.get('room_id'),
-                "action": 'send_results',
+                "action": 'actived',
                 'actived': 1
             })
 
