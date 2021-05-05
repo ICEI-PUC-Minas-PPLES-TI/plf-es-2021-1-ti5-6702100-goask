@@ -34,7 +34,7 @@ const RoomPage: React.FC = () => {
       return (<h1>teste</h1>)
     }
 
-    const ws = new WebSocket("ws://127.0.0.1:8000/ws/owner")
+    const ws = new WebSocket("ws://152.67.33.12:3232/ws/owner")
 
     if(!players){
       ws.onopen = function name(event) {
