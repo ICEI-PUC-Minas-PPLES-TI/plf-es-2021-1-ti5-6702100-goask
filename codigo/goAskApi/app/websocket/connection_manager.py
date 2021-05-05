@@ -36,7 +36,7 @@ class ConnectionManager:
                         res.append({"name": connections.get(key).name})
                     await self.owner_connections.get(owner_key).websocket.send_json(res)
         else:
-            return await websocket.send_text(str({"error": True, "Message": "Name already exist"}))
+            return await websocket.send_json({"error": True, "Message": "Name already exist"})
 
     async def disconnect(self, data_dict: {}):
         self.active_connections.get(data_dict.get('room_id')).pop(data_dict.get('name'))
@@ -66,7 +66,7 @@ class ConnectionManager:
         connections = self.active_connections.get(data_dict.get('room_id'))
         keys = connections.keys()
         for key in keys:
-            await connections.get(key).websocket.send_text(str(result_data))
+            await connections.get(key).websocket.send_json(result_data)
         for key in self.owner_connections.keys():
             if self.owner_connections.get(key).room_id == data_dict.get('room_id'):
                 await self.owner_connections.get(key).websocket.send_json(result_data)
