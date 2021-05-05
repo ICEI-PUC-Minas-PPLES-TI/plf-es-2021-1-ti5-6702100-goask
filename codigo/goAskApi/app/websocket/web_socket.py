@@ -11,8 +11,8 @@ ownerManager = ConnectionManager()
 
 
 # data_dict
-# @actions connect, disconnect, resceive_res, send_result
-# @params *action* , *name*, *room_id*, is_correct
+# @actions connect, disconnect, resceive_res
+# @params *action* , *name*, *room_id*, ?is_correct? ?results? = [{name: str, right_answers: str}]
 
 
 @router_ws.websocket("")
@@ -27,8 +27,6 @@ async def websocket_endpoint(websocket: WebSocket):
                 await manager.disconnect(data_dict)
             elif data_dict.get('action') == 'receive_res':
                 await manager.add_rigth_answer(data_dict)
-            elif data_dict.get('action') == 'send_result':
-                await manager.send_result(data_dict)
             # await manager.broadcast(data_dict['room_id'], f"Message: {data_dict['name']}")
     except WebSocketDisconnect:
         pass
