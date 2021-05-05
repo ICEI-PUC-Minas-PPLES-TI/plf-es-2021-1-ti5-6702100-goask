@@ -127,7 +127,7 @@ class ConnectionManager:
         connections = self.active_connections.get(data_dict.get('room_id'))
         keys = connections.keys()
         for key in keys:
-            data = {'name': connections.get(key).name, 'rigth_answers': connections.get(key).rigth_answers}
+            data = {'name': connections.get(key).name, 'right_answers': connections.get(key).rigth_answers}
             res.append(data)
         return res
 
