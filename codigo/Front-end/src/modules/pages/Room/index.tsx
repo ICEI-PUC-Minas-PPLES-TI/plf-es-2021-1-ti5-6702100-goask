@@ -15,7 +15,6 @@ const RoomPage: React.FC = () => {
     const router = useRouter();
     const [room, setRoom] = useState<Room>();
     const [players, setPlayers] = useState([]);
-    const [run, setRunning] = useState<boolean>(false)
     
     const render = async () => {
         const { id } = router.query;
@@ -27,17 +26,6 @@ const RoomPage: React.FC = () => {
 
       };
 
-      const iniciateRoom = async () => {
-        const roomId = room.idRoom
-        const roomStarted = await startRoom(context.token,roomId,run);
-        setRunning(roomStarted.isRunning);
-        setRoom(roomStarted)
-      }
-
-      const dasativate = async () => {
-        const roomId = room.idRoom
-        const roomDesativated = await desactivateRoom(context.token,roomId);
-      }
       useEffect(() => {
         render(); 
       }, []);
@@ -47,7 +35,7 @@ const RoomPage: React.FC = () => {
       }
 
       const ws = new WebSocket("ws://127.0.0.1:8000/ws/owner")
-     
+
       ws.onopen = function name(event) {
         ws.send(JSON.stringify({"owner_id": String(context.user.idUser), "room_id": String(room.idRoom), "action": "disconnect"}))
         
@@ -62,8 +50,14 @@ const RoomPage: React.FC = () => {
       })
 
       receiveMessage()
-      
 
+      const iniciateRoom = async (ws: WebSocket) => {
+        const roomId = room.idRoom
+        const roomStarted = await startRoom(context.token,roomId, true);
+        setRoom(roomStarted)
+        ws.send(JSON.stringify({"owner_id": String(context.user.idUser), "room_id": String(room.idRoom), "action": "active"}))
+      }
+      
       return ( 
       <styles.Container>
         <styles.SubHeader>
@@ -71,8 +65,11 @@ const RoomPage: React.FC = () => {
           <h1>Sala {room.name}</h1>
         </styles.TitleContainer>
         <styles.ButtonContainer>
-          <styles.Button onClick={iniciateRoom} disabled={run}>
-            <p>Iniciar</p>
+          <styles.Button 
+            onClick={() => iniciateRoom(ws)} 
+            disabled={room.isActive && room.isRunning}
+          >
+            <p>{room.isActive && room.isRunning ? 'Já iniciado': 'Iniciar'}</p>
           </styles.Button>
          </styles.ButtonContainer>
         </styles.SubHeader>
@@ -81,7 +78,7 @@ const RoomPage: React.FC = () => {
           <p>Codigo de acesso a sala: {room.idRoom}</p>
         </styles.TextContainer>
         <styles.TextContainer>
-          <h2>Usuarios esperando:</h2>
+          <h2>Usuarios na Sala:</h2>
           {players && 
             players.map(player => <p key={player.name}>{player.name}</p>)
           }

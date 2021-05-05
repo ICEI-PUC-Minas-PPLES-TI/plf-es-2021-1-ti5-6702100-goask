@@ -14,26 +14,22 @@ ownerManager = ConnectionManager()
 # @actions connect, disconnect, resceive_res, send_result
 # @params *action* , *name*, *room_id*, is_correct
 
-# FALTA
-# Vericar a quantidade de questoes
-# Enviar mensagem ao final do teste automatico
-# ativar sala
 
 @router_ws.websocket("")
 async def websocket_endpoint(websocket: WebSocket):
-    await manager.connect(websocket)
+    await manager.enter(websocket)
     try:
         while True:
             data_dict = literal_eval(await websocket.receive_text())
             if data_dict.get('action') == 'connect':
-                await manager.add(websocket, data_dict)
+                await manager.connect(websocket, data_dict)
             elif data_dict.get('action') == 'disconnect':
                 await manager.disconnect(data_dict)
             elif data_dict.get('action') == 'receive_res':
                 await manager.add_rigth_answer(data_dict)
             elif data_dict.get('action') == 'send_result':
                 await manager.send_result(data_dict)
-            await manager.broadcast(data_dict['room_id'], f"Message: {data_dict['name']}")
+            # await manager.broadcast(data_dict['room_id'], f"Message: {data_dict['name']}")
     except WebSocketDisconnect:
         pass
 
@@ -45,7 +41,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
 @router_ws.websocket("/owner")
 async def websocket_endpoint(websocket: WebSocket):
-    await manager.connect(websocket)
+    await manager.enter(websocket)
     try:
         while True:
             data_dict = literal_eval(await websocket.receive_text())
@@ -53,5 +49,7 @@ async def websocket_endpoint(websocket: WebSocket):
                 await manager.add_owner(websocket, data_dict)
             elif data_dict.get('action') == 'disconnect':
                 await manager.disconnect_owner(data_dict)
+            elif data_dict.get('action') == 'active':
+                await manager.send_ative_room(data_dict)
     except WebSocketDisconnect:
         pass

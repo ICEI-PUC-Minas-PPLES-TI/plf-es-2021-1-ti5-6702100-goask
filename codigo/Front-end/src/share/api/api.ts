@@ -277,7 +277,7 @@ export const startRoom = async (token:Token, roomId:number, running:boolean): Pr
       headers: { Authorization: `${token.token_type} ${token.access_token}` },
     };
     const id = roomId
-    return await api.put(`/room/${id}?isRunning=${!running}`,true,options).then((res) => res.data);
+    return await api.put(`/room/${id}?isRunning=${running}`,true,options).then((res) => res.data);
     
   } catch (e) {
     console.error(e);

@@ -16,4 +16,7 @@ async def save_room_data(res, data_dict):
 
 async def get_number_of_questions(data_dict):
     db: Session = SessionLocal()
+    db_room: Room = db.query(Room).filter(Room.idRoom == data_dict.get('room_id')).first()
+    quantity_questions = len(db_room.test.questions)
     db.close()
+    return quantity_questions
