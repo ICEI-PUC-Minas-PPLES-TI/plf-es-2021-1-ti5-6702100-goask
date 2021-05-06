@@ -10,6 +10,7 @@ import store from './store';
 // Screens Imports
 import NameLogin from './screens/NameLogin';
 import RoomLogin from './screens/RoomLogin';
+import SecondLoadingScreen from './screens/SecondLoading';
 import LoadingScreen from './screens/Loading';
 import QuestionScreen from './screens/Question';
 import RankingScreen from './screens/Ranking';
@@ -50,6 +51,11 @@ const App = () => {
             <Screen
               name="Ranking"
               component={RankingScreen}
+              options={{headerTransparent: true}}
+            />
+            <Screen
+              name="SecondLoading"
+              component={SecondLoadingScreen}
               options={{headerTransparent: true}}
             />
           </Navigator>

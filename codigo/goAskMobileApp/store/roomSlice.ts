@@ -33,6 +33,13 @@ export const roomSlice = createSlice<RoomState, SliceCaseReducers<RoomState>>({
     increaseNumberOfQuestionsAnswered: (state) => {
       state.numberOfQuestionsAnswered += 1;
     },
+    clearRoom: (state) => {
+      state.room = undefined;
+      state.numberOfQuestions = undefined;
+      state.isLoading = false;
+      state.questions = undefined;
+      state.numberOfQuestionsAnswered = 0;
+    },
   },
 });
 
@@ -41,6 +48,7 @@ export const {
   changeQuestions,
   setLoading,
   increaseNumberOfQuestionsAnswered,
+  clearRoom,
 } = roomSlice.actions;
 
 export default roomSlice.reducer;

@@ -10,22 +10,12 @@ import {
 } from 'react-native';
 import {Image} from 'react-native-elements/dist/image/Image';
 import {increaseNumberOfQuestionsAnswered} from '../store/roomSlice';
-import {IAnswer, IQuestion} from '../types/question';
+import {IAnswer} from '../types/question';
 import {CONTAINER_STYLE_COLORS} from '../utils/colors';
 import {useAppDispatch, useAppSelector} from '../utils/hooks';
 import {RootStackParamList} from '../utils/navigationTypes';
+import AppWebSocket from '../api/AppWebSocket';
 import Styles from '../utils/styles';
-
-function getQuestionFromQuestions(
-  questions: IQuestion[],
-  questionId: number,
-): IQuestion | undefined {
-  for (const question of questions) {
-    if (question.idQuestion! === questionId) {
-      return question;
-    }
-  }
-}
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, 'Question'>;
@@ -33,8 +23,14 @@ interface Props {
 }
 
 const Question: React.FC<Props> = (props) => {
-  const {navigation, route} = props;
-  const {questionId} = route.params;
+  const {navigation} = props;
+  const questions = useAppSelector((state) => state.room.questions!);
+  const numberOfQuestionsAnswered = useAppSelector(
+    (state) => state.room.numberOfQuestionsAnswered,
+  );
+  const room = useAppSelector((state) => state.room.room);
+  const dispatch = useAppDispatch();
+
   const [minutesLeft, setMinutesLeft] = useState(1);
   const [secondsLeft, setSecondsLeft] = useState(0);
 
@@ -63,28 +59,22 @@ const Question: React.FC<Props> = (props) => {
     };
   }, [secondsLeft, minutesLeft]);
 
-  const questions = useAppSelector((state) => state.room.questions);
-  const numberOfQuestionsAnswered = useAppSelector(
-    (state) => state.room.numberOfQuestionsAnswered,
-  );
-  const room = useAppSelector((state) => state.room.room);
-  const dispatch = useAppDispatch();
+  useEffect(() => {
+    setMinutesLeft(1);
+    setSecondsLeft(0);
+  }, [numberOfQuestionsAnswered]);
 
   const question = useMemo(
-    () =>
-      questions ? getQuestionFromQuestions(questions!, questionId) : undefined,
-    [questionId, questions],
+    () => (questions ? questions[numberOfQuestionsAnswered] : undefined),
+    [numberOfQuestionsAnswered, questions],
   );
 
   const handleAnswerPress = (answer: IAnswer) => {
-    // TODO: send answer
+    AppWebSocket.sendAnswer(answer.isCorrect);
     if (numberOfQuestionsAnswered + 1 === questions?.length) {
-      navigation.replace('Ranking', {});
+      navigation.replace('SecondLoading', {});
     } else {
       dispatch(increaseNumberOfQuestionsAnswered({}));
-      navigation.replace('Question', {
-        questionId: questions![numberOfQuestionsAnswered + 1].idQuestion!,
-      });
     }
   };
 
