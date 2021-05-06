@@ -1,9 +1,12 @@
 export type RootStackParamList = {
-  NameLogin: {};
-  RoomLogin: {};
-  Loading: {};
-  Question: {
-    questionId: number;
+  NameLogin: {
+    error?: string;
   };
+  RoomLogin: {
+    error?: string;
+  };
+  Loading: {};
+  Question: {};
   Ranking: {};
+  SecondLoading: {};
 };

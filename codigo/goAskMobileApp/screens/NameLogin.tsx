@@ -1,16 +1,15 @@
 import {RouteProp} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import AppInput from '../components/AppInput';
 import {RootStackParamList} from '../utils/navigationTypes';
 import Styles from '../utils/styles';
 import {Icon} from 'react-native-elements';
-import {COLORS} from '../utils/colors';
+import {COLORS, CONTAINER_STYLE_COLORS} from '../utils/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useAppDispatch, useAppSelector} from '../utils/hooks';
-import {changeUserName, changeRoomName} from '../store/usersSlice';
-import {changeQuestions, changeRoom} from '../store/roomSlice';
+import {changeUserName} from '../store/usersSlice';
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, 'NameLogin'>;
@@ -19,20 +18,23 @@ interface Props {
 
 const NameLogin: React.FC<Props> = (props) => {
   const {navigation} = props;
+  const error = props.route.params?.error;
 
   const name = useAppSelector((state) => state.users.userName);
   const dispatch = useAppDispatch();
 
-  // Clean ups
-  useEffect(() => {
-    dispatch(changeUserName(''));
-    dispatch(changeRoomName(''));
-    dispatch(changeQuestions([]));
-    dispatch(changeRoom(undefined));
-  }, [dispatch]);
-
   const setName = (text: string) => {
     dispatch(changeUserName(text));
+  };
+
+  const handleSubmit = () => {
+    if (name) {
+      navigation.navigate('RoomLogin', {});
+    } else {
+      navigation.replace('NameLogin', {
+        error: 'Não se esqueça de digitar seu nome :)',
+      });
+    }
   };
 
   return (
@@ -57,10 +59,12 @@ const NameLogin: React.FC<Props> = (props) => {
           />
         </AppInput>
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('RoomLogin', {});
-        }}>
+      {!!error && (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      )}
+      <TouchableOpacity onPress={handleSubmit}>
         <Icon
           name="arrow-forward-circle"
           type="ionicon"
@@ -102,6 +106,18 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 30,
+  },
+  errorContainer: {
+    marginBottom: '5%',
+    marginHorizontal: '10%',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: CONTAINER_STYLE_COLORS.RED,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 

@@ -1,4 +1,5 @@
 import * as styles from "./styles";
+import themes from "src/share/styles/themes";
 
 //Hooks
 import { useRouter } from "next/router";
@@ -22,9 +23,12 @@ import Input from "../../components/Input";
 import Snackbar from "../../components/SnackBar";
 import Modal from "../../components/Modal";
 import ConfirmationModal from "../../components/ModalConfirmation";
+import ModalCreateRoom from "../../components/ModalCreateRoom";
 import QuestionCard from "../../components/QuestionCard";
 import { useModal } from "../../utils/useModal";
+import { useModalRoom } from "../../utils/useModalRoom";
 import Select from "../../components/SelectCategories";
+import ButtonForm from "../../components/ButtonForm";
 
 //API
 import {
@@ -35,7 +39,9 @@ import {
   updateQuestion,
   getQuestion,
   deleteQuestion,
+  createRoom,
 } from "../../../share/api/api";
+import { PostRoom } from "@models/Room";
 
 const TestPage: React.FC = () => {
   const router = useRouter();
@@ -47,6 +53,7 @@ const TestPage: React.FC = () => {
   const [message, setMessage] = useState("");
 
   const { isShown, toggle } = useModal();
+  const { isShownRoom, toggleRoom } = useModalRoom();
 
   const onConfirm = async () => {
     await deleteTest(context.token, test.idTest);
@@ -54,6 +61,36 @@ const TestPage: React.FC = () => {
     toggle();
   };
   const onCancel = () => toggle();
+
+  const roomCreate = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const name = e.currentTarget.roomname.value;
+    console.log(name);
+    const idTest = test.idTest;
+    const idUser = test.idUser;
+    const isPublic = e.currentTarget.isPublic.value === "public" ? true : false;
+    console.log(isPublic);
+    const room: PostRoom = {
+      name,
+      idTest,
+      idUser,
+      isPublic,
+    };
+    const response = await createRoom(context.token, room);
+    updateSnackBar(
+      response,
+      "Questão deletada com sucesso!",
+      "Não foi possível deletar a questão."
+    );
+    if (response) {
+      console.log("deu certo");
+      console.log(response);
+      router.push(`/room/${response.idRoom}`);
+      toggleRoom();
+    } else {
+      toggleRoom();
+    }
+  };
 
   const render = async () => {
     const { id } = router.query;
@@ -175,6 +212,13 @@ const TestPage: React.FC = () => {
         }
       />
 
+      <Modal
+        isShown={isShownRoom}
+        hide={toggleRoom}
+        headerText="Crie sua sala"
+        modalContent={<ModalCreateRoom onSubmit={roomCreate} />}
+      />
+
       {showBar ? (
         <Snackbar message={message} backgroundColor={color} timer={5000} />
       ) : (
@@ -187,12 +231,28 @@ const TestPage: React.FC = () => {
             <Title>{test.name.substring(0, 50)}</Title>
           </styles.TextContainer>
           <styles.ButtonsContainer>
-            <Button text="Editar quiz" />
+            <div>
+              <ButtonForm
+                icon="/edit-pencil.svg"
+                alt="Editar"
+                tooltip="Editar quiz"
+                color={themes.colors.borders.green}
+                brightness={true}
+              />
+            </div>
             <div onClick={toggle}>
-              <Button text="Deletar quiz" submit={false} />
+              <ButtonForm
+                icon="/trash.svg"
+                alt="Deletar"
+                tooltip="Deletar quiz"
+                submit={false}
+                color={themes.colors.borders.lightRed}
+                brightness={true}
+              />
             </div>
           </styles.ButtonsContainer>
         </styles.Header>
+
         <styles.ContentContainer>
           <Input label="Nome" type="text" name="testName" value={test.name} />
         </styles.ContentContainer>
@@ -236,6 +296,15 @@ const TestPage: React.FC = () => {
           />
         </styles.CardContainer>
       </styles.QuestionContainer>
+      <styles.createRoomButtonContainer>
+        <div onClick={toggleRoom}>
+          <ButtonForm
+            tooltip="Criar sala"
+            icon="/clipboard-add.svg"
+            alt="Enviar"
+          />
+        </div>
+      </styles.createRoomButtonContainer>
     </styles.Container>
   ) : (
     <></>

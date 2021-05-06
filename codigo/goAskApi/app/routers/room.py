@@ -34,12 +34,17 @@ def read_room_by_user(db: Session = Depends(get_db), uuid: str = Depends(check_t
     db_user = crud_user.get_user_by_uuid(db, uuid=uuid)
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
-    return crud_room.get_all_roons_by_User(db, db_user)
+    return crud_room.get_all_rooms_by_User(db, db_user)
 
 
 @router.get("/all", response_model=List[Room])
-def read_all_roons(db: Session = Depends(get_db)):
-    return crud_room.get_all_roons(db)
+def read_all_rooms(db: Session = Depends(get_db)):
+    return crud_room.get_all_rooms(db)
+
+
+@router.get('/name/{room_name}', response_model=Room)
+def read_room_by_name(room_name: str, db: Session = Depends(get_db)):
+    return crud_room.get_room_by_name(db, room_name)
 
 
 @router.put("/{room_id}", response_model=Room)

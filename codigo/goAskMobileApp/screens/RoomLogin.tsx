@@ -1,15 +1,19 @@
 import {RouteProp} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import AppInput from '../components/AppInput';
 import {RootStackParamList} from '../utils/navigationTypes';
 import Styles from '../utils/styles';
 import {Icon} from 'react-native-elements';
-import {COLORS} from '../utils/colors';
+import {COLORS, CONTAINER_STYLE_COLORS} from '../utils/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useAppDispatch, useAppSelector} from '../utils/hooks';
 import {changeRoomName} from '../store/usersSlice';
+import {clear} from '../store/loadingSlice';
+import {clearError, clearResults} from '../store/webSocketSlice';
+import {clearRoom} from '../store/roomSlice';
+import AppWebSocket from '../api/AppWebSocket';
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, 'RoomLogin'>;
@@ -18,12 +22,31 @@ interface Props {
 
 const RoomLogin: React.FC<Props> = (props) => {
   const {navigation} = props;
+  const {error} = props.route.params;
 
   const roomName = useAppSelector((state) => state.users.roomName);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(clear({}));
+    dispatch(clearError({}));
+    dispatch(clearResults({}));
+    dispatch(clearRoom({}));
+    AppWebSocket.close();
+  }, [error, dispatch]);
+
   const setRoomName = (text: string) => {
     dispatch(changeRoomName(text));
+  };
+
+  const handleSubmit = () => {
+    if (roomName) {
+      navigation.navigate('Loading', {});
+    } else {
+      navigation.replace('RoomLogin', {
+        error: 'Não se esqueça de digitar o nome da sala :D',
+      });
+    }
   };
 
   return (
@@ -31,7 +54,7 @@ const RoomLogin: React.FC<Props> = (props) => {
       <View style={styles.backIconView}>
         <TouchableOpacity
           onPress={() => {
-            navigation.goBack();
+            navigation.navigate('NameLogin', {error: ''});
           }}>
           <Icon
             name="arrow-back-circle-outline"
@@ -62,10 +85,12 @@ const RoomLogin: React.FC<Props> = (props) => {
           />
         </AppInput>
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Loading', {});
-        }}>
+      {error && (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      )}
+      <TouchableOpacity onPress={handleSubmit}>
         <Icon
           name="arrow-forward-circle"
           type="ionicon"
@@ -114,6 +139,18 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   backIcon: {marginLeft: 30, marginTop: 10},
+  errorContainer: {
+    marginBottom: '5%',
+    marginHorizontal: '10%',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: CONTAINER_STYLE_COLORS.RED,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
 });
 
 export default RoomLogin;

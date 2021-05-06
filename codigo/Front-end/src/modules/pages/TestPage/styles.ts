@@ -39,20 +39,29 @@ export const ContentContainer = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
-  width: 35%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-between;
+  max-width: 30%;
 
-  div {
-    max-width: 200px;
+  @media (max-width: ${theme.breakpoint.xl}) {
+    max-width: 100%;
   }
 `;
 
+export const createRoomButtonContainer = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+`;
+
 export const TextContainer = styled.div`
-  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+
+  h1 {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.div`

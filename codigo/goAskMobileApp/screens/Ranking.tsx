@@ -1,7 +1,8 @@
 import {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
+  BackHandler,
   FlatList,
   ListRenderItem,
   StyleSheet,
@@ -10,11 +11,11 @@ import {
   View,
 } from 'react-native';
 import {Image} from 'react-native-elements/dist/image/Image';
-import {useAppSelector} from '../utils/hooks';
+import {useAppDispatch, useAppSelector} from '../utils/hooks';
 import {RootStackParamList} from '../utils/navigationTypes';
 import Styles from '../utils/styles';
-import {mockedWinners} from '../mock';
 import {COLORS} from '../utils/colors';
+import {changeRoomName, changeUserName} from '../store/usersSlice';
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, 'Ranking'>;
@@ -29,18 +30,23 @@ export interface Player {
 
 const Ranking: React.FC<Props> = (props) => {
   const {navigation} = props;
+  const dispatch = useAppDispatch();
 
   const room = useAppSelector((state) => state.room.room);
-  const [winners, setWinners] = useState<Player[]>(mockedWinners);
+  const results = useAppSelector((state) => state.webSocket.results!);
 
   useEffect(() => {
-    // Faz requisição dos vencedores
+    // Remove Android back button listener
+    BackHandler.addEventListener('hardwareBackPress', () => true);
   }, []);
 
-  const renderPlayer: ListRenderItem<Player> = ({index, item}) => {
+  const renderPlayer: ListRenderItem<{name: string; right_answers: string}> = ({
+    index,
+    item,
+  }) => {
     if (index === 0) {
       return (
-        <View style={[styles.player, styles.winner]} key={item.placing}>
+        <View style={[styles.player, styles.winner]} key={item.name}>
           <Image
             source={require('../static/Trophy.png')}
             style={styles.trophy}
@@ -48,19 +54,19 @@ const Ranking: React.FC<Props> = (props) => {
           <View style={styles.playerInfo}>
             <Text style={[styles.bold, styles.text]}>{item.name}</Text>
             <Text style={[styles.points, styles.text]}>
-              <Text style={styles.bold}>{item.points}</Text> points
+              <Text style={styles.bold}>{item.right_answers}</Text> points
             </Text>
           </View>
         </View>
       );
     } else {
       return (
-        <View style={styles.player} key={item.placing}>
-          <Text style={[styles.placingText, styles.bold]}>{item.placing}º</Text>
+        <View style={styles.player} key={item.name}>
+          <Text style={[styles.placingText, styles.bold]}>{index + 1}º</Text>
           <View style={styles.playerInfo}>
             <Text style={[styles.bold, styles.text]}>{item.name}</Text>
             <Text style={[styles.points, styles.text]}>
-              <Text style={styles.bold}>{item.points}</Text> points
+              <Text style={styles.bold}>{item.right_answers}</Text> points
             </Text>
           </View>
         </View>
@@ -80,20 +86,22 @@ const Ranking: React.FC<Props> = (props) => {
         </View>
       </View>
       <Text style={[styles.winnerText, styles.bold]}>
-        Parabéns, <Text style={styles.redColor}>{winners[0].name}</Text>, você é
+        Parabéns, <Text style={styles.redColor}>{results[0].name}</Text>, você é
         o vencedor
       </Text>
 
       <FlatList
-        data={winners}
+        data={results}
         style={styles.podium}
         renderItem={renderPlayer}
-        keyExtractor={(item) => item.placing.toString()}
+        keyExtractor={(item) => item.name}
         scrollToOverflowEnabled={true}
       />
 
       <TouchableOpacity
         onPress={() => {
+          dispatch(changeUserName(''));
+          dispatch(changeRoomName(''));
           navigation.popToTop();
         }}>
         <View style={styles.exitButton}>

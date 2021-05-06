@@ -19,9 +19,12 @@ export const ConfirmationButtons = styled.div`
   button {
     border: solid 3px #c9515c;
     font-weight: 700;
+    height: 45px;
     font-size: 1rem;
     background-color: #c9515c;
     color: white;
+    transition: 0.4s;
+    border-radius: 20px;
 
     &:hover {
       cursor: pointer;
