@@ -68,15 +68,15 @@ class ConnectionManager:
         is_end = await self.__verify_end_quiz(data_dict)
         if is_end:
             return await self.__send_data_result(data_dict)
-        is_last_response = await self.__verify_last_response(data_dict)
-        if is_last_response:
-            keys = connections.keys()
-            for key in keys:
-                await connections.get(key).websocket.send_json({
-                    "room_id": data_dict.get('room_id'),
-                    "action": 'pass_question',
-                    "pass": 1
-                })
+        # is_last_response = await self.__verify_last_response(data_dict)
+        # if is_last_response:
+        #     keys = connections.keys()
+        #     for key in keys:
+        #         await connections.get(key).websocket.send_json({
+        #             "room_id": data_dict.get('room_id'),
+        #             "action": 'pass_question',
+        #             "pass": 1
+        #         })
 
     async def send_ative_room(self, data_dict):
         connections = self.active_connections.get(data_dict.get('room_id'))
