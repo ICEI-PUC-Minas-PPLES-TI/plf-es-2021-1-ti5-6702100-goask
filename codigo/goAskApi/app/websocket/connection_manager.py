@@ -61,22 +61,22 @@ class ConnectionManager:
                     await self.owner_connections.get(owner_key).websocket.send_json(res)
 
     async def add_rigth_answer(self, data_dict: {}):
+        connections = self.active_connections.get(data_dict.get('room_id'))
         if data_dict.get('is_correct') == 1:
-            self.active_connections.get(data_dict.get('room_id')).get(data_dict.get('name')).add_rigth_answer()
-        self.active_connections.get(data_dict.get('room_id')).get(data_dict.get('name')).add_responded_questions()
+            connections.get(data_dict.get('name')).add_rigth_answer()
+        connections.get(data_dict.get('name')).add_responded_questions()
         is_end = await self.__verify_end_quiz(data_dict)
         if is_end:
-            await self.__send_data_result(data_dict)
-
-    async def send_result(self, data_dict: {}):
-        result_data = await self.__generate_result_data(data_dict)
-        connections = self.active_connections.get(data_dict.get('room_id'))
-        keys = connections.keys()
-        for key in keys:
-            await connections.get(key).websocket.send_json(result_data)
-        for key in self.owner_connections.keys():
-            if self.owner_connections.get(key).room_id == data_dict.get('room_id'):
-                await self.owner_connections.get(key).websocket.send_json(result_data)
+            return await self.__send_data_result(data_dict)
+        is_last_response = await self.__verify_last_response(data_dict)
+        if is_last_response:
+            keys = connections.keys()
+            for key in keys:
+                await connections.get(key).websocket.send_json({
+                    "room_id": data_dict.get('room_id'),
+                    "action": 'pass_question',
+                    "pass": 1
+                })
 
     async def send_ative_room(self, data_dict):
         connections = self.active_connections.get(data_dict.get('room_id'))
@@ -102,6 +102,15 @@ class ConnectionManager:
     async def disconnect_owner(self, data_dict):
         if self.owner_connections.get(data_dict.get('owner_id')) is not None:
             self.owner_connections.pop(data_dict.get('owner_id'))
+
+    async def __verify_last_response(self, data_dict: {}):
+        connections = self.active_connections.get(data_dict.get('room_id'))
+        keys = connections.keys()
+        is_last_response: bool = True
+        for key in keys:
+            if not connections.get(key).responded_questions == data_dict.get('current_question'):
+                is_last_response = False
+        return is_last_response
 
     async def __verify_end_quiz(self, data_dict: {}):
         connections = self.active_connections.get(data_dict.get('room_id'))
@@ -134,6 +143,16 @@ class ConnectionManager:
             data = {'name': connections.get(key).name, 'right_answers': connections.get(key).rigth_answers}
             res.append(data)
         return res
+
+    async def send_result(self, data_dict: {}):
+        result_data = await self.__generate_result_data(data_dict)
+        connections = self.active_connections.get(data_dict.get('room_id'))
+        keys = connections.keys()
+        for key in keys:
+            await connections.get(key).websocket.send_json(result_data)
+        for key in self.owner_connections.keys():
+            if self.owner_connections.get(key).room_id == data_dict.get('room_id'):
+                await self.owner_connections.get(key).websocket.send_json(result_data)
 
     async def broadcast(self, key: str, message: str):
         connections = self.active_connections.get(key)
