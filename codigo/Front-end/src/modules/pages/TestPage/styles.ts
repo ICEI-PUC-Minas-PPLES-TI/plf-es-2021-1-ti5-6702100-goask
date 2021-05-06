@@ -39,15 +39,13 @@ export const ContentContainer = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
-  width: 35%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-between;
+  max-width: 30%;
 
-  div {
-    max-width: 200px;
+  @media (max-width: ${theme.breakpoint.xl}) {
+    max-width: 100%;
   }
 `;
 
@@ -55,10 +53,15 @@ export const createRoomButtonContainer = styled.div`
   position: fixed;
   bottom: 20px;
   right: 50px;
-`
+`;
 
 export const TextContainer = styled.div`
-  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+
+  h1 {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.div`
@@ -83,29 +86,4 @@ export const CardContainer = styled.div`
   align-items: center;
   margin-bottom: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-`;
-
-export const InformationContainer = styled.div`
-  background-color: #fff;
-  padding: 5px 30px 10px;
-  max-width: 70%;
-  text-align: center;
-  border-radius: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  p {
-    width: 100%;
-    text-align: center;
-  }
-
-  h2 {
-    width: 100%;
-    text-align: center;
-    color: ${(props) => props.theme.colors.borders.red};
-    font-weight: 700;
-  }
 `;

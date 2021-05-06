@@ -226,7 +226,7 @@ export const SubtoolQuizzesContainer = styled.div`
       transition: 0.5s;
 
       &:hover {
-        background-color: ${(props) => props.theme.colors.borders.darkBlue};
+        background-color: ${(props) => props.theme.colors.borders.green};
         cursor: pointer;
       }
 
