@@ -18,9 +18,12 @@ export const ConfirmationButtons = styled.div`
   button {
     border: solid 3px #c9515c;
     font-weight: 700;
+    height: 45px;
     font-size: 1rem;
     background-color: #c9515c;
+    border-radius: 20px;
     color: white;
+    transition: 0.4s;
 
     &:hover {
       cursor: pointer;
@@ -37,16 +40,23 @@ export const Container = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   padding: 0px 80px 0;
-  a,
-  p {
-    font-size: 22px;
-    color: #c9515c;
-    font-weight: 500;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #26265e;
-    transition: 0.5s;
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    a,
+    p {
+      font-size: 22px;
+      color: #c9515c;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #26265e;
+      transition: 0.5s;
+    }
   }
 `;
 
@@ -55,9 +65,8 @@ export const SubmitButton = styled.button`
   height: 30px;
 `;
 
-
 export const Select = styled.select`
-display: grid;
+  display: grid;
   grid-template-areas: "select";
   align-items: center;
   position: relative;
@@ -65,6 +74,10 @@ display: grid;
   select,
   &::after {
     grid-area: select;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   width: 400px;
@@ -77,10 +90,8 @@ display: grid;
   cursor: pointer;
   line-height: 1.1;
 
-  // Optional styles
-  // remove for transparency
   background-color: #fff;
-  background-image: linear-gradient(to top, #c9515c, #fff 33%);
+  background-image: linear-gradient(to top, #ddd, #fff 33%);
 
   // Custom arrow
   &:not(.select--multiple)::after {
@@ -91,5 +102,4 @@ display: grid;
     background-color: var(--select-arrow);
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   }
-`
-
+`;

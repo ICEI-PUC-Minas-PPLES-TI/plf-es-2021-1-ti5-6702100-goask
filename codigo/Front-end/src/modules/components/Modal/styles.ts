@@ -48,7 +48,8 @@ export const HeaderText = styled.div`
 `;
 
 export const CloseButton = styled.button`
-  font-size: 0.8rem;
+  margin-right: 15px;
+  margin-top: 5px;
   border: none;
   border-radius: 3px;
   background: none;
@@ -57,7 +58,7 @@ export const CloseButton = styled.button`
     color: #26265e;
   }
   color: #c9515c;
-  font-size: 25px;
+  font-size: 2rem;
   font-weight: 800;
 `;
 
