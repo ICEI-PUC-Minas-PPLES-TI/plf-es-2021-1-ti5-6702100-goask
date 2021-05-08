@@ -3,11 +3,21 @@ interface InputConfig {
   type: string;
   label: string;
   name: string;
+  defaultValue?: string;
   value?: string;
   color?: string;
+  onChange?: (e: any) => void;
 }
 
-const Input: React.FC<InputConfig> = ({ type, label, name, value, color }) => {
+const Input: React.FC<InputConfig> = ({
+  type,
+  label,
+  name,
+  defaultValue,
+  value,
+  color,
+  onChange,
+}) => {
   return (
     <styles.Container>
       <styles.InputDiv color={color}>
@@ -16,7 +26,9 @@ const Input: React.FC<InputConfig> = ({ type, label, name, value, color }) => {
           required
           name={name}
           type={type}
-          defaultValue={value ? value : ""}
+          defaultValue={defaultValue ? defaultValue : ""}
+          value={value}
+          onChange={onChange}
         />
       </styles.InputDiv>
     </styles.Container>

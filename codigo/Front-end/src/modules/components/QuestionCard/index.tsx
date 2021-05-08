@@ -33,6 +33,18 @@ const QuestionCard: React.FC<Content> = ({
   const incorrectsAnswers =
     question && question.answers.filter((a) => !a.isCorrect);
 
+  const [correct, setCorrect] = useState(correctAnswer?.answerText || "");
+  const [title, setTitle] = useState(question?.questionText || "");
+  const [r1, setR1] = useState(
+    incorrectsAnswers ? incorrectsAnswers[0].answerText : ""
+  );
+  const [r2, setR2] = useState(
+    incorrectsAnswers ? incorrectsAnswers[1].answerText : ""
+  );
+  const [r3, setR3] = useState(
+    incorrectsAnswers ? incorrectsAnswers[2].answerText : ""
+  );
+
   const changeVisibility = () => {
     if (open === hidden) {
       openDetails();
@@ -52,11 +64,11 @@ const QuestionCard: React.FC<Content> = ({
   const send = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const correct = e.currentTarget.correct.value;
-    const title = e.currentTarget.titleQuestion.value;
-    const r1 = e.currentTarget.r1.value;
-    const r2 = e.currentTarget.r2.value;
-    const r3 = e.currentTarget.r3.value;
+    // const correct = e.currentTarget.correct.value;
+    // const title = e.currentTarget.titleQuestion.value;
+    // const r1 = e.currentTarget.r1.value;
+    // const r2 = e.currentTarget.r2.value;
+    // const r3 = e.currentTarget.r3.value;
 
     let newQuestion: PostQuestion = {
       answers: [
@@ -83,6 +95,11 @@ const QuestionCard: React.FC<Content> = ({
     if (questionId) {
       submit(newQuestion, questionId);
     } else {
+      setCorrect("");
+      setR1("");
+      setR2("");
+      setR3("");
+      setTitle("");
       submit(newQuestion);
     }
   };
@@ -102,7 +119,8 @@ const QuestionCard: React.FC<Content> = ({
               label="Título"
               name="titleQuestion"
               type="text"
-              value={question ? question.questionText : ""}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
             <p>Respostas</p>
             <Input
@@ -110,28 +128,32 @@ const QuestionCard: React.FC<Content> = ({
               name="correct"
               type="text"
               color={theme.colors.borders.lightGreen}
-              value={question ? correctAnswer.answerText : ""}
+              value={correct}
+              onChange={(e) => setCorrect(e.target.value)}
             />
             <Input
               label="Falsa"
               name="r1"
               type="text"
               color={theme.colors.borders.lightRed}
-              value={question ? incorrectsAnswers[0].answerText : ""}
+              value={r1}
+              onChange={(e) => setR1(e.target.value)}
             />
             <Input
               label="Falsa"
               name="r2"
               type="text"
               color={theme.colors.borders.lightRed}
-              value={question ? incorrectsAnswers[1].answerText : ""}
+              value={r2}
+              onChange={(e) => setR2(e.target.value)}
             />
             <Input
               label="Falsa"
               name="r3"
               type="text"
               color={theme.colors.borders.lightRed}
-              value={question ? incorrectsAnswers[2].answerText : ""}
+              value={r3}
+              onChange={(e) => setR3(e.target.value)}
             />
             <styles.ButtonContainer>
               <div>
