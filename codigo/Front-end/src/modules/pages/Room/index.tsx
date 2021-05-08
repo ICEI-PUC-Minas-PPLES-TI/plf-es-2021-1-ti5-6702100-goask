@@ -30,7 +30,7 @@ const RoomPage: React.FC = () => {
   }, []);
 
   if (!room) {
-    return <h1>teste</h1>;
+    return <h1>Carregando sala</h1>;
   }
 
   const ws = new WebSocket("ws://152.67.33.12:3232/ws/owner");
@@ -98,14 +98,14 @@ const RoomPage: React.FC = () => {
     <styles.Container>
       <styles.SubHeader>
         <styles.TitleContainer>
-          <h1>Sala {room.name}</h1>
+          <h1>{room.name}</h1>
         </styles.TitleContainer>
-        <styles.ButtonContainer>
+        <styles.ButtonContainer disabledStyle={room.isActive || room.isRunning}>
           <styles.Button
             onClick={() => iniciateRoom(ws)}
-            disabled={room.isActive && room.isRunning}
+            disabled={room.isActive || room.isRunning}
           >
-            <p>{room.isActive && room.isRunning ? "Já iniciado" : "Iniciar"}</p>
+            <p>{room.isActive || room.isRunning ? "Já Iniciado" : "Iniciar"}</p>
           </styles.Button>
         </styles.ButtonContainer>
       </styles.SubHeader>

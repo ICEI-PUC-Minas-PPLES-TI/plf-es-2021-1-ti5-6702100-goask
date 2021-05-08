@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface Props {
+  disabledStyle?: boolean;
+}
+
 export const Container = styled.div`
   background-color: #e5e5e5;
   min-height: 100%;
@@ -34,24 +38,32 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div<Props>`
   width: auto;
   display: flex;
   justify-content: flex-end;
 
   & > button:first-child {
-    color: ${(props) => props.theme.colors.borders.red};
+    color: ${(props) =>
+      props.disabledStyle ? "white" : props.theme.colors.borders.red};
     border: none;
     background: transparent;
     margin: 0 10px 0 0;
-    background-color: white;
+    background-color: ${(props) =>
+      props.disabledStyle ? "rgba(0, 0, 0, 0.19)" : "white"};
     transition-duration: 0.4s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: ${(props) =>
+      !props.disabledStyle &&
+      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"};
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.borders.green};
-      color: white;
+      background-color: ${(props) =>
+        props.disabledStyle
+          ? "rgba(0, 0, 0, 0.23)"
+          : props.theme.colors.borders.green};
+      color: ${(props) => !props.disabledStyle && "white"};
       border: none;
+      cursor: ${(props) => (props.disabledStyle ? "default" : "pointer")};
     }
   }
 
