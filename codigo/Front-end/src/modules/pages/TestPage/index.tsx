@@ -17,7 +17,6 @@ import {
 } from "@models/Test";
 
 //Components
-import Button from "../../components/Button";
 import Title from "../../components/Title";
 import Input from "../../components/Input";
 import Snackbar from "../../components/SnackBar";
@@ -254,7 +253,12 @@ const TestPage: React.FC = () => {
         </styles.Header>
 
         <styles.ContentContainer>
-          <Input label="Nome" type="text" name="testName" value={test.name} />
+          <Input
+            label="Nome"
+            type="text"
+            name="testName"
+            defaultValue={test.name}
+          />
         </styles.ContentContainer>
         <styles.ContentContainer>
           <Select
@@ -268,7 +272,7 @@ const TestPage: React.FC = () => {
             label="Descrição"
             type="text"
             name="desc"
-            value={test.description}
+            defaultValue={test.description}
           />
         </styles.ContentContainer>
       </form>
