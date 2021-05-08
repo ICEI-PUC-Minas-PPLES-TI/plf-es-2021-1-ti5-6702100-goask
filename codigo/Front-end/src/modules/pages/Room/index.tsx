@@ -1,10 +1,12 @@
 import * as styles from "./styles";
 
 //Hooks
-import { useAppContext } from "../../components/ContextWrapper";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
+//Components
+import { useAppContext } from "../../components/ContextWrapper";
+import TitleRainbow from "../../components/TitleRainbow";
 //Models
 import { Room } from "../../../models/Room";
 
@@ -118,6 +120,7 @@ const RoomPage: React.FC = () => {
         </styles.ButtonContainer>
       </styles.SubHeader>
       <styles.TextContainer>
+        <TitleRainbow text="ATIVO" />
         <h2>Sala Criada por: {context.user.name}</h2>
         <p>Codigo de acesso a sala: {room.idRoom}</p>
       </styles.TextContainer>
