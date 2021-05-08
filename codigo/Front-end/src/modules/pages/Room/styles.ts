@@ -111,6 +111,14 @@ export const TextContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 
+  div {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
   p {
     width: 100%;
     text-align: center;

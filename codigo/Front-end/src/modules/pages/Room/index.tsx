@@ -24,14 +24,25 @@ const RoomPage: React.FC = () => {
     if (id) {
       const idNumber = Number.parseInt(id.toString());
       const roomResp: Room = await getRoom(context.token, idNumber);
-      if (roomResp) setRoom(roomResp);
-      else setMessage("Não foi possível encontrar a sala :(");
+      if (roomResp) {
+        setRoom(roomResp);
+      } else setMessage("Não foi possível encontrar a sala :(");
     }
   };
 
   useEffect(() => {
     render();
   }, []);
+
+  const selectStatus = (): string => {
+    if (room.isRunning) {
+      return "Aguardando Respostas";
+    } else if (room.isActive) {
+      return "Aguardando Jogadores";
+    } else {
+      return "Sala Finalizada";
+    }
+  };
 
   if (!room) {
     return <h1>{message}</h1>;
@@ -63,7 +74,6 @@ const RoomPage: React.FC = () => {
     new Promise((resolve, reject) => {
       ws.onmessage = function (event) {
         const data = JSON.parse(event.data);
-        console.log(data);
         setPlayers(data);
       };
     });
@@ -106,25 +116,28 @@ const RoomPage: React.FC = () => {
             {room.name} <span>#{room.idRoom}</span>
           </h1>
         </styles.TitleContainer>
-        <styles.ButtonContainer disabledStyle={room.isActive || room.isRunning}>
+        <styles.ButtonContainer
+          disabledStyle={!room.isActive || room.isRunning}
+        >
           <div>
             <styles.Button
               onClick={() => iniciateRoom(ws)}
               disabled={room.isActive || room.isRunning}
             >
               <p>
-                {room.isActive || room.isRunning ? "Já Iniciado" : "Iniciar"}
+                {!room.isActive || room.isRunning ? "Já Iniciado" : "Iniciar"}
               </p>
             </styles.Button>
           </div>
         </styles.ButtonContainer>
       </styles.SubHeader>
       <styles.TextContainer>
-        <TitleRainbow text="ATIVO" />
         <h2>Sala Criada por: {context.user.name}</h2>
         <p>Codigo de acesso a sala: {room.idRoom}</p>
       </styles.TextContainer>
       <styles.TextContainer>
+        <TitleRainbow text={room && selectStatus()} />
+
         <h2>
           {players ? (players.length > 1 ? "Usuarios" : "Usuário") : "Usuário"}{" "}
           na Sala ({players?.length || 0}):

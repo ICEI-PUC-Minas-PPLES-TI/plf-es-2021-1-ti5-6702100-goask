@@ -8,7 +8,7 @@ interface Content {
 }
 
 const TitleRainbow: React.FC<Content> = ({ text }) => {
-  const shuffleArray = (array) => {
+  const shuffleArray = (array: Array<any>): string[] => {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
       var temp = array[i];
@@ -18,7 +18,7 @@ const TitleRainbow: React.FC<Content> = ({ text }) => {
     return array;
   };
 
-  const createColorsArray = () => {
+  const createColorsArray = (): string[] => {
     const arr: Array<string> = [];
     for (let i in themes.colors.borders) {
       arr.push(themes.colors.borders[i]);
@@ -31,11 +31,17 @@ const TitleRainbow: React.FC<Content> = ({ text }) => {
   if (colors)
     return (
       <styles.Container>
-        {Array.from(text).map((c, index) => (
-          <styles.RainbowBlock color={colors[index % colors.length]}>
-            {c}
-          </styles.RainbowBlock>
-        ))}
+        {Object.assign([], text).map((c, index) =>
+          c.trim() === "" ? (
+            <styles.RainbowBlock color={colors[index % colors.length]}>
+              &nbsp;{c}
+            </styles.RainbowBlock>
+          ) : (
+            <styles.RainbowBlock color={colors[index % colors.length]}>
+              {c}
+            </styles.RainbowBlock>
+          )
+        )}
       </styles.Container>
     );
 };

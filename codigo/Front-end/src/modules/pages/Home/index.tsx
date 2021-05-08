@@ -16,15 +16,6 @@ const HomePage: React.FC = () => {
     router.push("/editUser");
   };
 
-  const verify = async () => {
-    console.log("CONTEXT = ", context);
-    setTimeout(() => {
-      console.log("CONTEXT = ", context);
-    }, 1000);
-  };
-
-  verify();
-
   return (
     <div>
       <h1>
