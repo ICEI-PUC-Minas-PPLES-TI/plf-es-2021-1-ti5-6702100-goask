@@ -36,9 +36,9 @@ const RoomPage: React.FC = () => {
 
   const selectStatus = (): string => {
     if (room.isRunning) {
-      return "Aguardando Respostas";
+      return "Aguardando Respostas...";
     } else if (room.isActive) {
-      return "Aguardando Jogadores";
+      return "Aguardando Jogadores...";
     } else {
       return "Sala Finalizada";
     }
@@ -108,6 +108,15 @@ const RoomPage: React.FC = () => {
     });
   };
 
+  const makeDate = () => {
+    if (room) {
+      const date = new Date(room.createdAt);
+      return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+    } else {
+      return new Date(0, 0, 0);
+    }
+  };
+
   return (
     <styles.Container>
       <styles.SubHeader>
@@ -132,8 +141,9 @@ const RoomPage: React.FC = () => {
         </styles.ButtonContainer>
       </styles.SubHeader>
       <styles.TextContainer>
-        <h2>Sala Criada por: {context.user.name}</h2>
-        <p>Codigo de acesso a sala: {room.idRoom}</p>
+        <h2>
+          Codigo de acesso a sala: <TitleRainbow text={room && room.name} />
+        </h2>
       </styles.TextContainer>
       <styles.TextContainer>
         <TitleRainbow text={room && selectStatus()} />
@@ -144,6 +154,12 @@ const RoomPage: React.FC = () => {
         </h2>
         {players &&
           players.map((player) => <p key={player.name}>{player.name}</p>)}
+      </styles.TextContainer>
+      <styles.TextContainer>
+        <p>
+          Sala Criada por <span>{context.user.name}</span>, no dia
+          <span> {makeDate()}</span>
+        </p>
       </styles.TextContainer>
     </styles.Container>
   );

@@ -122,6 +122,11 @@ export const TextContainer = styled.div`
   p {
     width: 100%;
     text-align: center;
+
+    span {
+      color: ${(props) => props.theme.colors.borders.red};
+      font-weight: 800;
+    }
   }
 
   h2 {
