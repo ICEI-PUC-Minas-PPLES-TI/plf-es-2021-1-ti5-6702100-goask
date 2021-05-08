@@ -15,13 +15,15 @@ const RoomPage: React.FC = () => {
   const router = useRouter();
   const [room, setRoom] = useState<Room>();
   const [players, setPlayers] = useState<Room[]>();
+  const [message, setMessage] = useState<string>("Carregando sala...");
 
   const render = async () => {
     const { id } = router.query;
     if (id) {
       const idNumber = Number.parseInt(id.toString());
       const roomResp: Room = await getRoom(context.token, idNumber);
-      setRoom(roomResp);
+      if (roomResp) setRoom(roomResp);
+      else setMessage("Não foi possível encontrar a sala :(");
     }
   };
 
@@ -30,7 +32,7 @@ const RoomPage: React.FC = () => {
   }, []);
 
   if (!room) {
-    return <h1>Carregando sala</h1>;
+    return <h1>{message}</h1>;
   }
 
   const ws = new WebSocket("ws://152.67.33.12:3232/ws/owner");
@@ -98,15 +100,21 @@ const RoomPage: React.FC = () => {
     <styles.Container>
       <styles.SubHeader>
         <styles.TitleContainer>
-          <h1>{room.name}</h1>
+          <h1>
+            {room.name} <span>#{room.idRoom}</span>
+          </h1>
         </styles.TitleContainer>
         <styles.ButtonContainer disabledStyle={room.isActive || room.isRunning}>
-          <styles.Button
-            onClick={() => iniciateRoom(ws)}
-            disabled={room.isActive || room.isRunning}
-          >
-            <p>{room.isActive || room.isRunning ? "Já Iniciado" : "Iniciar"}</p>
-          </styles.Button>
+          <div>
+            <styles.Button
+              onClick={() => iniciateRoom(ws)}
+              disabled={room.isActive || room.isRunning}
+            >
+              <p>
+                {room.isActive || room.isRunning ? "Já Iniciado" : "Iniciar"}
+              </p>
+            </styles.Button>
+          </div>
         </styles.ButtonContainer>
       </styles.SubHeader>
       <styles.TextContainer>
@@ -114,7 +122,10 @@ const RoomPage: React.FC = () => {
         <p>Codigo de acesso a sala: {room.idRoom}</p>
       </styles.TextContainer>
       <styles.TextContainer>
-        <h2>Usuarios na Sala:</h2>
+        <h2>
+          {players ? (players.length > 1 ? "Usuarios" : "Usuário") : "Usuário"}{" "}
+          na Sala ({players?.length || 0}):
+        </h2>
         {players &&
           players.map((player) => <p key={player.name}>{player.name}</p>)}
       </styles.TextContainer>
