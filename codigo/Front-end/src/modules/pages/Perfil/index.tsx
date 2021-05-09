@@ -19,16 +19,11 @@ import { updateUser } from "src/share/api/api";
 
 const Perfil: React.FC = () => {
   const context = useAppContext();
-  const [user, setUser] = useState(context.user);
 
   const { isShown, toggle } = useModal();
   const [showBar, setShowBar] = useState(false);
   const [color, setColor] = useState("#34B04A");
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    setUser(context.user);
-  }, []);
 
   const onConfirm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -69,8 +64,8 @@ const Perfil: React.FC = () => {
         modalContent={
           <EditUserContentModal
             onConfirm={onConfirm}
-            name={user?.name}
-            email={user?.email}
+            name={context?.user?.name}
+            email={context?.user?.email}
           />
         }
       />
@@ -101,8 +96,8 @@ const Perfil: React.FC = () => {
         </styles.UserImageContainer>
         <styles.UserDetailsContainer>
           <styles.UserIdentityContainer>
-            <h1>{user?.name}</h1>
-            <h6>{user?.email}</h6>
+            <h1>{context?.user?.name}</h1>
+            <h6>{context?.user?.email}</h6>
           </styles.UserIdentityContainer>
           <styles.UserStaticsDetailsContainer>
             <styles.FeaturesStaticsContainer>
@@ -154,16 +149,16 @@ const Perfil: React.FC = () => {
           <h6>Dados Pessoais</h6>
           <p>
             <p>
-              <b>Nome: {user?.name} </b>
+              <b>Nome: {context?.user?.name} </b>
             </p>
             <p>
-              <b>Username: {user?.name}</b>
+              <b>Username: {context?.user?.name}</b>
             </p>
             <p>
-              <b>email: {user?.email}</b>
+              <b>email: {context?.user?.email}</b>
             </p>
             <p>
-              <b>Ultima atualização: {user?.updatedAt}</b>
+              <b>Ultima atualização: {context?.user?.updatedAt}</b>
             </p>
           </p>
         </styles.UserDataContainer>

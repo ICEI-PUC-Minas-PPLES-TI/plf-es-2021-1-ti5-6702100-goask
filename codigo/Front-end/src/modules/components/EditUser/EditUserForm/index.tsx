@@ -33,7 +33,6 @@ const EditUserForm: React.FC = () => {
   };
   const user: User = context.user;
   const [signinError, setSigninError] = useState(false);
-  console.log(user);
   const update = async (e: React.FormEvent<HTMLFormElement>) => {
     setSigninError(false);
     e.preventDefault();
@@ -51,8 +50,6 @@ const EditUserForm: React.FC = () => {
       } else {
         setSigninError(true);
       }
-
-      console.log("response", response);
     }
   };
 

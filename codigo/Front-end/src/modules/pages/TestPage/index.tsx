@@ -64,11 +64,9 @@ const TestPage: React.FC = () => {
   const roomCreate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const name = e.currentTarget.roomname.value;
-    console.log(name);
     const idTest = test.idTest;
     const idUser = test.idUser;
     const isPublic = e.currentTarget.isPublic.value === "public" ? true : false;
-    console.log(isPublic);
     const room: PostRoom = {
       name,
       idTest,
@@ -82,8 +80,6 @@ const TestPage: React.FC = () => {
       "Não foi possível deletar a questão."
     );
     if (response) {
-      console.log("deu certo");
-      console.log(response);
       router.push(`/room/${response.idRoom}`);
       toggleRoom();
     } else {
@@ -126,7 +122,6 @@ const TestPage: React.FC = () => {
 
   const updateQuestionSubmit = async (question: PostQuestion, id: number) => {
     const putAnswers: PutAnswer[] = [];
-    console.log("QUESTÃO RECEBIDA DO CARD", question);
 
     const originalAnswer = await getQuestion(context.token, id);
 
@@ -182,7 +177,6 @@ const TestPage: React.FC = () => {
     };
 
     const newTest = await updateTest(context.token, testEdited, test.idTest);
-    console.log(newTest);
     updateSnackBar(
       newTest,
       "Quiz atualizado com sucesso!",
