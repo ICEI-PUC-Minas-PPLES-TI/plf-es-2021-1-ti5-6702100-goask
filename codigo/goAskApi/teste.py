@@ -35,7 +35,7 @@ html = """
             };
             function sendMessage(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "6", "name": input.value, "action": "connect"}
+                let send = {"room_id": "6", "name": input.value, "action": "connect", "current_question": 2}
                 ws.send(JSON.stringify(send))
                 input.value = ''
                 event.preventDefault()

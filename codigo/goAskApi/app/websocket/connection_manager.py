@@ -146,16 +146,6 @@ class ConnectionManager:
             res.append(data)
         return res
 
-    async def send_result(self, data_dict: {}):
-        result_data = await self.__generate_result_data(data_dict)
-        connections = self.active_connections.get(data_dict.get('room_id'))
-        keys = connections.keys()
-        for key in keys:
-            await connections.get(key).websocket.send_json(result_data)
-        for key in self.owner_connections.keys():
-            if self.owner_connections.get(key).room_id == data_dict.get('room_id'):
-                await self.owner_connections.get(key).websocket.send_json(result_data)
-
     async def broadcast(self, key: str, message: str):
         connections = self.active_connections.get(key)
         if connections is not None:
