@@ -35,24 +35,24 @@ html = """
             };
             function sendMessage(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "2", "name": input.value, "action": "connect"}
+                let send = {"room_id": "6", "name": input.value, "action": "connect"}
                 ws.send(JSON.stringify(send))
                 input.value = ''
                 event.preventDefault()
             }
             function desconectar(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "2", "name": input.value, "action": "disconnect"}
+                let send = {"room_id": "6", "name": input.value, "action": "disconnect"}
                 ws.send(JSON.stringify(send))
             };
             function receive_res(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "2", "name": input.value, "action": "receive_res", "is_correct": 1}
+                let send = {"room_id": "6", "name": input.value, "action": "receive_res", "is_correct": 1}
                 ws.send(JSON.stringify(send))
             }
             function send_result(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "2", "name": input.value, "action": "send_result",}
+                let send = {"room_id": "6", "name": input.value, "action": "send_result",}
                 ws.send(JSON.stringify(send)) 
             }
         </script>

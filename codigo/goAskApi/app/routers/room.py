@@ -48,19 +48,11 @@ def read_room_by_name(room_name: str, db: Session = Depends(get_db)):
 
 
 @router.put("/{room_id}", response_model=Room)
-def update_room_running(room_id: int, isRunning: bool = False, db: Session = Depends(get_db)):
+def update_room_running(room_id: int, db: Session = Depends(get_db)):
     db_room = crud_room.get_room_by_id(db, room_id)
     if db_room is None:
         raise HTTPException(status_code=404, detail="Room not found")
-    return crud_room.update_running(db=db, db_room=db_room, isRunning=isRunning)
-
-
-@router.put("/turnoffroom/{room_id}", response_model=Room)
-def turn_off_room_(room_id: int, db: Session = Depends(get_db)):
-    db_room = crud_room.get_room_by_id(db, room_id)
-    if db_room is None:
-        raise HTTPException(status_code=404, detail="Room not found")
-    return crud_room.update_turnoffroom(db=db, db_room=db_room)
+    return crud_room.update_running(db=db, db_room=db_room, isRunning=True)
 
 
 @router.get("/{test_id}", response_model=Test)
@@ -69,3 +61,4 @@ def read_test(test_id: int, db: Session = Depends(get_db)):
     if db_test is None:
         raise HTTPException(status_code=404, detail="Test not found")
     return db_test
+

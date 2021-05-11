@@ -1,7 +1,7 @@
-from typing import List
-
 from pydantic import BaseModel
 from datetime import date
+
+from pydantic.types import Json
 
 from app.schemas.tests import Test
 
@@ -28,6 +28,7 @@ class Room(RoomCreate):
     isRunning: bool
     createdAt: date
     test: Test
+    roomData: Json
 
     class Config:
         orm_mode = True

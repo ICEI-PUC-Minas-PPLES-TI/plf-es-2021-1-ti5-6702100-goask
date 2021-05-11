@@ -4,7 +4,7 @@ from starlette.websockets import WebSocket
 
 from app.websocket.connection_data import ConnectionData
 from app.websocket.connection_owner_data import ConnectionOwnerData
-from app.websocket.connection_db import save_room_data, get_number_of_questions
+from app.websocket.connection_db import save_room_data, get_number_of_questions, update_turn_off_room
 
 
 class ConnectionManager:
@@ -67,16 +67,17 @@ class ConnectionManager:
         connections.get(data_dict.get('name')).add_responded_questions()
         is_end = await self.__verify_end_quiz(data_dict)
         if is_end:
-            return await self.__send_data_result(data_dict)
-        # is_last_response = await self.__verify_last_response(data_dict)
-        # if is_last_response:
-        #     keys = connections.keys()
-        #     for key in keys:
-        #         await connections.get(key).websocket.send_json({
-        #             "room_id": data_dict.get('room_id'),
-        #             "action": 'pass_question',
-        #             "pass": 1
-        #         })
+            await self.__send_data_result(data_dict)
+            return update_turn_off_room(data_dict)
+        is_last_response = await self.__verify_last_response(data_dict)
+        if is_last_response:
+            keys = connections.keys()
+            for key in keys:
+                await connections.get(key).websocket.send_json({
+                    "room_id": data_dict.get('room_id'),
+                    "action": 'pass_question',
+                    "pass": 1
+                })
 
     async def send_ative_room(self, data_dict):
         connections = self.active_connections.get(data_dict.get('room_id'))
@@ -123,6 +124,7 @@ class ConnectionManager:
 
     async def __send_data_result(self, data_dict: {}):
         result_data = await self.__generate_result_data(data_dict)
+        await save_room_data(result_data, data_dict)
         connections = self.active_connections.get(data_dict.get('room_id'))
         keys = connections.keys()
         for key in keys:
