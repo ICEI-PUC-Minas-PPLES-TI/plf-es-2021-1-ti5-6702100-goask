@@ -11,7 +11,6 @@ import { Test } from "@models/Test";
 import { Room } from "@models/Room";
 
 //Global
-import themes from "src/share/styles/themes";
 import theme from "src/share/styles/themes";
 interface Content {
   tests: Test[];
@@ -22,6 +21,11 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
   const getTest = (r: Room) => {
     const test = tests.find((t) => (t.idTest = r.idTest));
     return test.name;
+  };
+
+  const formatDate = (stringDate: string): string => {
+    const date = new Date(stringDate);
+    return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
   };
 
   return (
@@ -42,8 +46,8 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
               <tr key={index}>
                 <td>
                   <Link href={`/room/${r.idRoom}`}>
-                  <a>{r.name}</a>
-                </Link>
+                    <a>{r.name}</a>
+                  </Link>
                 </td>
                 <td>{getTest(r)}</td>
                 <td>
@@ -66,7 +70,7 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
                     <Tag text="Não" color={theme.colors.borders.lightRed}></Tag>
                   )}
                 </td>
-                <td>{r.createdAt.toString().replaceAll("-", "/")}</td>
+                <td>{formatDate(r.createdAt.toString())}</td>
               </tr>
             ))}
         </tbody>

@@ -11,6 +11,11 @@ interface Content {
 }
 
 const TestsTable: React.FC<Content> = ({ tests }) => {
+  const formatDate = (stringDate: string): string => {
+    const date = new Date(stringDate);
+    return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+  };
+
   return (
     <styles.Container>
       <styles.TestsTable>
@@ -32,7 +37,7 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
               </td>
               <td>{t.description}</td>
               <td>{t.category.name}</td>
-              <td>{t.createdAt.toString().replaceAll("-", "/")}</td>
+              <td>{formatDate(t.createdAt.toString())}</td>
             </tr>
           ))}
         </tbody>
