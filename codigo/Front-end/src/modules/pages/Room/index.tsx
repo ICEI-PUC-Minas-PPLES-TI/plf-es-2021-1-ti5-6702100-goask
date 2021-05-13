@@ -16,9 +16,8 @@ const RoomPage: React.FC = () => {
   const context = useAppContext();
   const router = useRouter();
   const [room, setRoom] = useState<Room>();
-  const [players, setPlayers] = useState<Room[]>();
   const [message, setMessage] = useState<string>("Carregando sala...");
-
+  const [players, setPlayers] = useState([]);
   const render = async () => {
     const { id } = router.query;
     if (id) {
@@ -50,7 +49,7 @@ const RoomPage: React.FC = () => {
 
   const ws = new WebSocket("ws://152.67.33.12:3232/ws/owner");
 
-  if (!players) {
+  if (!players.length) {
     ws.onopen = function name(event) {
       ws.send(
         JSON.stringify({
@@ -147,13 +146,13 @@ const RoomPage: React.FC = () => {
       </styles.TextContainer>
       <styles.TextContainer>
         <TitleRainbow text={room && selectStatus()} />
-
         <h2>
           {players ? (players.length > 1 ? "Usuarios" : "Usuário") : "Usuário"}{" "}
           na Sala ({players?.length || 0}):
         </h2>
-        {players &&
-          players.map((player) => <p key={player.name}>{player.name}</p>)}
+        {!!players.length && 
+          players.map(player => <p key={player.name}>{player.name}</p>)
+        }
       </styles.TextContainer>
       <styles.TextContainer>
         <p>

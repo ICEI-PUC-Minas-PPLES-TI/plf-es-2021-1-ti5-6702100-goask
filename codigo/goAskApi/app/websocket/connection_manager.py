@@ -4,7 +4,8 @@ from starlette.websockets import WebSocket
 
 from app.websocket.connection_data import ConnectionData
 from app.websocket.connection_owner_data import ConnectionOwnerData
-from app.websocket.connection_db import save_room_data, get_number_of_questions
+from app.websocket.connection_db import save_room_data, get_number_of_questions, update_turn_off_room, \
+    verify_is_room_active
 
 
 class ConnectionManager:
@@ -16,6 +17,14 @@ class ConnectionManager:
         await websocket.accept()
 
     async def connect(self, websocket: WebSocket, data_dict: {}):
+        if not verify_is_room_active(data_dict):
+            return await websocket.send_json(
+                {"room_id": data_dict.get('room_id'),
+                 "action": "error_room_is_not_active",
+                 "error": {
+                     "isError": 1, "message": "Room not active"
+                 }
+                 })
         if self.active_connections.get(data_dict.get('room_id')) is None:
             self.active_connections[data_dict['room_id']] = {}
         connections = self.active_connections.get(data_dict.get('room_id'))
@@ -38,7 +47,7 @@ class ConnectionManager:
         else:
             return await websocket.send_json(
                 {"room_id": data_dict.get('room_id'),
-                 "action": data_dict.get('actiond'),
+                 "action": "error_user_already_exists",
                  "error": {
                      "isError": 1, "message": "Name already exist"
                  }
@@ -67,7 +76,8 @@ class ConnectionManager:
         connections.get(data_dict.get('name')).add_responded_questions()
         is_end = await self.__verify_end_quiz(data_dict)
         if is_end:
-            return await self.__send_data_result(data_dict)
+            await self.__send_data_result(data_dict)
+            return update_turn_off_room(data_dict)
         # is_last_response = await self.__verify_last_response(data_dict)
         # if is_last_response:
         #     keys = connections.keys()
@@ -123,6 +133,7 @@ class ConnectionManager:
 
     async def __send_data_result(self, data_dict: {}):
         result_data = await self.__generate_result_data(data_dict)
+        await save_room_data(result_data, data_dict)
         connections = self.active_connections.get(data_dict.get('room_id'))
         keys = connections.keys()
         for key in keys:
@@ -143,16 +154,6 @@ class ConnectionManager:
             data = {'name': connections.get(key).name, 'right_answers': connections.get(key).rigth_answers}
             res.append(data)
         return res
-
-    async def send_result(self, data_dict: {}):
-        result_data = await self.__generate_result_data(data_dict)
-        connections = self.active_connections.get(data_dict.get('room_id'))
-        keys = connections.keys()
-        for key in keys:
-            await connections.get(key).websocket.send_json(result_data)
-        for key in self.owner_connections.keys():
-            if self.owner_connections.get(key).room_id == data_dict.get('room_id'):
-                await self.owner_connections.get(key).websocket.send_json(result_data)
 
     async def broadcast(self, key: str, message: str):
         connections = self.active_connections.get(key)

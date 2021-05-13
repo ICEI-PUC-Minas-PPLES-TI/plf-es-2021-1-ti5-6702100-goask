@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 from app.core.auth import check_token_access
 from app.crud import crud_test, crud_user
 from app.db.database import SessionLocal
-from app.models.questions import Question
 from app.models.users import User
 from app.schemas.tests import Test, TestCreate, TestUpdate
 
