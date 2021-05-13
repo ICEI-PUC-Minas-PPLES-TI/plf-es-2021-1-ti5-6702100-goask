@@ -30,3 +30,9 @@ def update_turn_off_room(data_dict: {}):
     db.flush()
     db.commit()
     db.close()
+
+
+async def verify_is_room_active(data_dict: {}):
+    db: Session = SessionLocal()
+    db_room: Room = db.query(Room).filter(Room.idRoom == data_dict.get('room_id')).first()
+    return db_room.isActive
