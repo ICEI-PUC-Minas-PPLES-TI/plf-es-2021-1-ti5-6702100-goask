@@ -94,7 +94,7 @@ const RoomPage: React.FC = () => {
 
   const iniciateRoom = async (ws: WebSocket) => {
     const roomId = room.idRoom;
-    const roomStarted = await startRoom(context.token, roomId, false);
+    const roomStarted = await startRoom(context.token, roomId, true);
     setRoom(roomStarted);
     waitForSocketConnection(ws, function name(event) {
       ws.send(
@@ -130,7 +130,7 @@ const RoomPage: React.FC = () => {
           <div>
             <styles.Button
               onClick={() => iniciateRoom(ws)}
-              disabled={room.isActive || room.isRunning}
+              disabled={!room.isActive || room.isRunning}
             >
               <p>
                 {!room.isActive || room.isRunning ? "Já Iniciado" : "Iniciar"}

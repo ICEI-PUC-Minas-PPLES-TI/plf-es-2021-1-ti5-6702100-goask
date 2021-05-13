@@ -18,7 +18,6 @@ html = """
         <button onclick="send_result(event)">manda resultado</button>
         <form action="" onsubmit="sendMessage(event)">
             <input type="text" id="messageText" autocomplete="off"/>
-            <input type="text" id="currentQuestion" autocomplete="off"/>
             <button>Send</button>
         </form>
         <ul id='messages'>
@@ -36,10 +35,8 @@ html = """
             };
             function sendMessage(event) {
                 let input = document.getElementById("messageText")
-                let input2 = document.getElementById("currentQuestion")
-                let send = {"room_id": "8", "name": input.value, "action": "connect", "current_question": input2.value}
+                let send = {"room_id": "8", "name": input.value, "action": "connect"}
                 ws.send(JSON.stringify(send))
-                input.value = ''
                 event.preventDefault()
             }
             function desconectar(event) {

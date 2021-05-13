@@ -17,7 +17,8 @@ class ConnectionManager:
         await websocket.accept()
 
     async def connect(self, websocket: WebSocket, data_dict: {}):
-        if not verify_is_room_active(data_dict):
+        verify_room_active = await verify_is_room_active(data_dict)
+        if not verify_room_active:
             return await websocket.send_json(
                 {"room_id": data_dict.get('room_id'),
                  "action": "error_room_is_not_active",
