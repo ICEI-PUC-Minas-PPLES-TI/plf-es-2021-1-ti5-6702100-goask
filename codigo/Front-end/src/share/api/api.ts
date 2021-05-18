@@ -12,7 +12,7 @@ import { RegisterUser, User, LoginUser, UpdateUser } from "../../models/User";
 import { PostRoom, Room } from "@models/Room";
 
 export const api = axios.create({
-  baseURL: "http://152.67.33.12:3232/",
+  baseURL: "http://127.0.0.1:8000/",
 });
 
 export const registerUser = async (user: RegisterUser): Promise<User> => {

@@ -8,7 +8,7 @@ from app.models.rooms import Room
 async def save_room_data(res, data_dict: {}):
     db: Session = SessionLocal()
     db_room: Room = db.query(Room).filter(Room.idRoom == data_dict.get('room_id')).first()
-    db_room.roomdata = str(res)
+    db_room.roomData = res
     db.flush()
     db.commit()
     db.close()

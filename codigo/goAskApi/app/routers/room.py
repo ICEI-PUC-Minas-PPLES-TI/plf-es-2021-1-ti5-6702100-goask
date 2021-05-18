@@ -34,7 +34,8 @@ def read_room_by_user(db: Session = Depends(get_db), uuid: str = Depends(check_t
     db_user = crud_user.get_user_by_uuid(db, uuid=uuid)
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
-    return crud_room.get_all_rooms_by_User(db, db_user)
+    roons = crud_room.get_all_rooms_by_User(db, db_user)
+    return roons
 
 
 @router.get("/all", response_model=List[Room])
@@ -61,4 +62,3 @@ def read_test(test_id: int, db: Session = Depends(get_db)):
     if db_test is None:
         raise HTTPException(status_code=404, detail="Test not found")
     return db_test
-
