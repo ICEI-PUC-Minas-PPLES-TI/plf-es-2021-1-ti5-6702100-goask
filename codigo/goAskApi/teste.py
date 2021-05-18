@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+﻿from fastapi import FastAPI
 
 from fastapi.responses import HTMLResponse
 
@@ -18,6 +18,8 @@ html = """
         <button onclick="send_result(event)">manda resultado</button>
         <form action="" onsubmit="sendMessage(event)">
             <input type="text" id="messageText" autocomplete="off"/>
+            </br>
+            <input type="text" id="roomId" autocomplete="off"/>
             <button>Send</button>
         </form>
         <ul id='messages'>
@@ -25,7 +27,8 @@ html = """
         <script>
             var client_id = Date.now()
             document.querySelector("#ws-id").textContent = client_id;
-            var ws = new WebSocket(`ws://127.0.0.1:8000/ws`);
+            var ws = new WebSocket(`ws://152.67.33.12:3232/ws`);
+            // var ws = new WebSocket(`ws://127.0.0.1:8000/ws`);
             ws.onmessage = function(event) {
                 var messages = document.getElementById('messages')
                 var message = document.createElement('li')
@@ -35,18 +38,21 @@ html = """
             };
             function sendMessage(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "8", "name": input.value, "action": "connect"}
+                let input2 = document.getElementById("roomId")
+                let send = {"room_id": input2.value, "name": input.value, "action": "connect"}
                 ws.send(JSON.stringify(send))
                 event.preventDefault()
             }
             function desconectar(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "8", "name": input.value, "action": "disconnect"}
+                let input2 = document.getElementById("roomId")
+                let send = {"room_id": input2.value, "name": input.value, "action": "disconnect"}
                 ws.send(JSON.stringify(send))
             };
             function receive_res(event) {
                 let input = document.getElementById("messageText")
-                let send = {"room_id": "8", "name": input.value, "action": "receive_res", "is_correct": 1}
+                let input2 = document.getElementById("roomId")
+                let send = {"room_id": input2.value, "name": input.value, "action": "receive_res", "is_correct": 1}
                 ws.send(JSON.stringify(send))
             }
         </script>

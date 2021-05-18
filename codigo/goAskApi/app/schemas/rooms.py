@@ -1,3 +1,5 @@
+from typing import List
+
 from pydantic import BaseModel
 from datetime import date
 
@@ -19,6 +21,11 @@ class RoomCreate(BaseModel):
     isPublic: bool
 
 
+class ResponseJson(BaseModel):
+    name: str
+    right_answers: int
+
+
 class Room(RoomCreate):
     """
     Quiz Room representation.
@@ -28,7 +35,7 @@ class Room(RoomCreate):
     isRunning: bool
     createdAt: date
     test: Test
-    roomData: Json
+    roomData: List[ResponseJson]
 
     class Config:
         orm_mode = True
