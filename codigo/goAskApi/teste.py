@@ -27,7 +27,8 @@ html = """
         <script>
             var client_id = Date.now()
             document.querySelector("#ws-id").textContent = client_id;
-            var ws = new WebSocket(`ws://127.0.0.1:8000/ws`);
+            var ws = new WebSocket(`ws://152.67.33.12:3232/ws`);
+            // var ws = new WebSocket(`ws://127.0.0.1:8000/ws`);
             ws.onmessage = function(event) {
                 var messages = document.getElementById('messages')
                 var message = document.createElement('li')
