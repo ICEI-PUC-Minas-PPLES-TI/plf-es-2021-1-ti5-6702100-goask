@@ -159,7 +159,7 @@ const Loading: React.FC<Props> = (props) => {
   ]);
 
   useEffect(() => {
-    if (webSocketError && loadingStage === 'connectingToWebSocket') {
+    if (webSocketError) {
       goBackWithErrorMessage(webSocketError);
     }
   }, [goBackWithErrorMessage, webSocketError, loadingStage]);
