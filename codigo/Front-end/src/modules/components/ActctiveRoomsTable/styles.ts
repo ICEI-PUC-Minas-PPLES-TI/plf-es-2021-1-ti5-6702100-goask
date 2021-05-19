@@ -26,6 +26,7 @@ export const TestsTable = styled.table`
     a {
       text-decoration: none;
       color: #c9515c;
+      transition: 0.5s;
 
       &:hover {
         cursor: pointer;
