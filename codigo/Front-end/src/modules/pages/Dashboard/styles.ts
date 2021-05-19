@@ -80,6 +80,13 @@ export const FeaturesContainer = styled.div`
   justify-content: space-between;
   align-content: center;
   flex-wrap: wrap;
+  h6 {
+    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+        color: ${(props) => props.theme.colors.borders.green};
+      }
+  }
 `;
 
 export const FeaturesStatics = styled.div`
