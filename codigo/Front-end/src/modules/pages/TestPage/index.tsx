@@ -233,6 +233,15 @@ const TestPage: React.FC = () => {
                 brightness={true}
               />
             </div>
+            <div onClick={() => router.push(`/testRooms/${test.idTest}`)}>
+              <ButtonForm
+                tooltip="Visualizar Salas"
+                icon="/view.svg"
+                alt="Enviar"
+                color={themes.colors.borders.darkBlue}
+                brightness={true}
+              />
+            </div>
             <div onClick={toggle}>
               <ButtonForm
                 icon="/trash.svg"
@@ -303,15 +312,9 @@ const TestPage: React.FC = () => {
           />
         </div>
       </styles.createRoomButtonContainer>
-      <styles.SeeRoomsButtonContainer>
-        <div onClick={() => router.push(`/testRooms/${test.idTest}`)}>
-          <ButtonForm
-            tooltip="Visualizar Salas"
-            icon="/view.svg"
-            alt="Enviar"
-          />
-        </div>
-      </styles.SeeRoomsButtonContainer>
+      {/* <styles.SeeRoomsButtonContainer>
+        
+      </styles.SeeRoomsButtonContainer> */}
     </styles.Container>
   ) : (
     <></>

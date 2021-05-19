@@ -45,11 +45,13 @@ export const TestsTable = styled.table`
     background-color: #f7f7f7;
   }
   tbody tr {
+    transition: 0.5s;
     :nth-of-type(odd) {
       background-color: #fff;
     }
     :hover {
       cursor: pointer;
+      transform: scale(1.03);
     }
   }
   caption {

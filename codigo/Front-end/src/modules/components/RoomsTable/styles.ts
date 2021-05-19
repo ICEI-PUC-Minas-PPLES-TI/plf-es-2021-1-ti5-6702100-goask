@@ -44,12 +44,19 @@ export const TestsTable = styled.table`
     font-weight: 700;
     background-color: #f7f7f7;
   }
+  tbody tr > td:first-child {
+    font-size: 18px;
+  }
   tbody tr {
+    transition: 0.5s;
+    font-size: 14px;
+
     :nth-of-type(odd) {
       background-color: #fff;
     }
     :hover {
       cursor: pointer;
+      transform: scale(1.03);
     }
   }
   caption {

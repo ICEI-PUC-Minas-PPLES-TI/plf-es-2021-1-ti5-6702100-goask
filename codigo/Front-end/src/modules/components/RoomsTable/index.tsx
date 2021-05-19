@@ -43,35 +43,41 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
         <tbody>
           {rooms &&
             rooms.map((r: Room, index) => (
-              <tr key={index}>
-                <td>
-                  <Link href={`/room/${r.idRoom}`}>
+              <Link href={`/room/${r.idRoom}`}>
+                <tr key={index}>
+                  <td>
                     <a>{r.name}</a>
-                  </Link>
-                </td>
-                <td>{getTest(r)}</td>
-                <td>
-                  {r.isPublic ? (
-                    <Tag
-                      text="Sim"
-                      color={theme.colors.borders.lightGreen}
-                    ></Tag>
-                  ) : (
-                    <Tag text="Não" color={theme.colors.borders.lightRed}></Tag>
-                  )}
-                </td>
-                <td>
-                  {r.isActive ? (
-                    <Tag
-                      text="Sim"
-                      color={theme.colors.borders.lightGreen}
-                    ></Tag>
-                  ) : (
-                    <Tag text="Não" color={theme.colors.borders.lightRed}></Tag>
-                  )}
-                </td>
-                <td>{formatDate(r.createdAt.toString())}</td>
-              </tr>
+                  </td>
+                  <td>{getTest(r)}</td>
+                  <td>
+                    {r.isPublic ? (
+                      <Tag
+                        text="Sim"
+                        color={theme.colors.borders.lightGreen}
+                      ></Tag>
+                    ) : (
+                      <Tag
+                        text="Não"
+                        color={theme.colors.borders.lightRed}
+                      ></Tag>
+                    )}
+                  </td>
+                  <td>
+                    {r.isActive ? (
+                      <Tag
+                        text="Sim"
+                        color={theme.colors.borders.lightGreen}
+                      ></Tag>
+                    ) : (
+                      <Tag
+                        text="Não"
+                        color={theme.colors.borders.lightRed}
+                      ></Tag>
+                    )}
+                  </td>
+                  <td>{formatDate(r.createdAt.toString())}</td>
+                </tr>
+              </Link>
             ))}
         </tbody>
       </styles.TestsTable>

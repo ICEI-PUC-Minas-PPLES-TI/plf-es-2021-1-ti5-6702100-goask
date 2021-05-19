@@ -82,10 +82,6 @@ export const FeaturesContainer = styled.div`
   flex-wrap: wrap;
   h6 {
     cursor: pointer;
-    &:hover {
-        cursor: pointer;
-        color: ${(props) => props.theme.colors.borders.green};
-      }
   }
 `;
 
@@ -105,6 +101,12 @@ export const FeaturesStaticsContainer = styled.div`
   justify-content: flex-start;
   align-content: flex-start;
   margin: 0 0 5px 0;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 
   img {
     border: 1px solid ${(props) => props.theme.colors.borders.red};

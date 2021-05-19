@@ -2,12 +2,14 @@ import * as styles from "./styles";
 
 //Hooks
 import { useRouter } from "next/router";
+import { useAppContext } from "src/modules/components/ContextWrapper";
 
 //From next
 import Link from "next/link";
 
 const Dashboard: React.FC = () => {
   const router = useRouter();
+  const context = useAppContext();
 
   return (
     <styles.Container>
@@ -34,35 +36,53 @@ const Dashboard: React.FC = () => {
       </styles.ButtonContainer>
       <styles.FeaturesContainer>
         <styles.FeaturesStatics>
-          <styles.FeaturesStaticsContainer>
-            <span>
-              <img src="/trophy.svg" alt="Jogos Ganhos" />
-            </span>
-            <div>
-              <h6>X</h6>
-              <p>XXX</p>
-            </div>
-          </styles.FeaturesStaticsContainer>
-          <styles.FeaturesStaticsContainer>
-            <span>
-              <img src="/console.svg" alt="Recorde de Pontos" />
-            </span>
-            <div>
-            <Link href="/activeRooms">
-              <h6>Active Rooms</h6>
-            </Link>
-              <p>XXX</p>
-            </div>
-          </styles.FeaturesStaticsContainer>
-          <styles.FeaturesStaticsContainer>
-            <span>
-              <img src="/checked.svg" alt="Jogos Ganhos" />
-            </span>
-            <div>
-              <h6>X</h6>
-              <p>XXX</p>
-            </div>
-          </styles.FeaturesStaticsContainer>
+          <Link href="/mytests">
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/trophy.svg" alt="Quiz criados" />
+              </span>
+              <div>
+                <h6>{context.statistic?.qtd_tests || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_tests === 1
+                    ? "Quiz criado"
+                    : "Quizzes criados"}
+                </p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+          </Link>
+
+          <Link href="/relatory">
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/console.svg" alt="Salas criadas" />
+              </span>
+              <div>
+                <h6>{context.statistic?.qtd_rooms || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_rooms === 1
+                    ? "Sala criada"
+                    : "Salas criadas"}
+                </p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+          </Link>
+
+          <Link href="/activeRooms">
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/checked.svg" alt="Salas ativas" />
+              </span>
+              <div>
+                <h6>{context.statistic?.qtd_rooms_actives || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_rooms_actives === 1
+                    ? "Sala ativa"
+                    : "Salas ativas"}
+                </p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+          </Link>
         </styles.FeaturesStatics>
         <styles.FeaturesBeginQuiz>
           {/* <styles.InputDiv>

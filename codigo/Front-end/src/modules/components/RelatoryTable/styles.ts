@@ -16,12 +16,16 @@ export const TestsTable = styled.table`
   border: none;
   border-collapse: collapse;
   caption-side: bottom;
+
   td,
   th {
     border: none;
   }
-  td {
+  td:first-child,
+  th:first-child {
     padding: 20px 20px;
+  }
+  td {
     text-align: center;
     a {
       text-decoration: none;
@@ -34,22 +38,31 @@ export const TestsTable = styled.table`
     }
   }
   th {
-    padding: 20px 20px;
+    padding: 10px 8px;
     text-align: center;
     background-color: #c9515c;
     color: white;
   }
+  tr > th:first-child {
+    font-size: 18px;
+  }
+  tr > td :first-child {
+    font-size: 18px;
+  }
   tr {
     color: black;
-    font-weight: 700;
     background-color: #f7f7f7;
+    font-size: 14px;
+    font-weight: 700;
   }
   tbody tr {
+    transition: 0.5s;
     :nth-of-type(odd) {
       background-color: #fff;
     }
     :hover {
       cursor: pointer;
+      transform: scale(1.03);
     }
   }
   caption {

@@ -13,7 +13,7 @@ import SnackBar from "../../SnackBar";
 import Link from "next/link";
 
 //From api
-import { loginUser, getUser } from "../../../../share/api/api";
+import { loginUser, getUser, getStatistics } from "../../../../share/api/api";
 
 //From models
 import { LoginUser, User } from "../../../../models/User";
@@ -24,6 +24,7 @@ import { useAppContext } from "../../../../modules/components/ContextWrapper";
 
 import IndexHeader from "../../index/IndexHeader";
 import LoginLabelForm from "../LoginLabelsForm";
+import { Statistic } from "@models/Statistic";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
@@ -50,17 +51,24 @@ const LoginForm: React.FC = () => {
       const user: User = await getUser(token);
       //salva o usuário
       context.setUser(user);
+
+      //caça estatísticas
+      const statistics: Statistic = await getStatistics(token);
+
+      //salva estatísticas
+      context.setStatistic(statistics);
+
       router.push("/");
     } else {
       setLoginError(true);
     }
-  }
+  };
   return (
     <styles.Container>
       <div>
-      <IndexHeader title="Login" />
-      <LoginLabelForm />
-    </div>
+        <IndexHeader title="Login" />
+        <LoginLabelForm />
+      </div>
     </styles.Container>
   );
 };
