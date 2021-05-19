@@ -48,7 +48,9 @@ const Dashboard: React.FC = () => {
               <img src="/console.svg" alt="Recorde de Pontos" />
             </span>
             <div>
-              <h6>X</h6>
+            <Link href="/activeRooms">
+              <h6>Active Rooms</h6>
+            </Link>
               <p>XXX</p>
             </div>
           </styles.FeaturesStaticsContainer>

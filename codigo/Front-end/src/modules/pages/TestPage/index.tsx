@@ -303,6 +303,15 @@ const TestPage: React.FC = () => {
           />
         </div>
       </styles.createRoomButtonContainer>
+      <styles.SeeRoomsButtonContainer>
+        <div onClick={() => router.push(`/testRooms/${test.idTest}`)}>
+          <ButtonForm
+            tooltip="Visualizar Salas"
+            icon="/view.svg"
+            alt="Enviar"
+          />
+        </div>
+      </styles.SeeRoomsButtonContainer>
     </styles.Container>
   ) : (
     <></>

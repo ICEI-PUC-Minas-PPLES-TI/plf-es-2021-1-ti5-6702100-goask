@@ -55,6 +55,12 @@ export const createRoomButtonContainer = styled.div`
   right: 50px;
 `;
 
+export const SeeRoomsButtonContainer = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 160px;
+`;
+
 export const TextContainer = styled.div`
   display: flex;
   justify-content: flex-start;
