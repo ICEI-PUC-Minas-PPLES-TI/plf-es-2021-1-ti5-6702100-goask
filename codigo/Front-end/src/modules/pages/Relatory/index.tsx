@@ -42,17 +42,17 @@ const RelatoryPage: React.FC = () => {
           <h2>O que é o relatório?</h2>
           <p>O relatório mostra alguns dados estatíticos de seus quizzes.</p>
         </styles.TextContainer>
-        <styles.ContentContainer>
+        <styles.ContentTableContainer>
           <RelatoryTable tests={tests} rooms={rooms} />
-        </styles.ContentContainer>
+        </styles.ContentTableContainer>
 
         <styles.TextContainer>
           <h2>Histórico de salas</h2>
           <p>Esse é um registro com todas as salas que você criou!</p>
         </styles.TextContainer>
-        <styles.ContentContainer>
+        <styles.ContentTableContainer>
           <RoomsTable rooms={rooms} tests={tests} />
-        </styles.ContentContainer>
+        </styles.ContentTableContainer>
       </styles.Container>
     );
   } else {
