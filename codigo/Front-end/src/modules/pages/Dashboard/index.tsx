@@ -36,36 +36,42 @@ const Dashboard: React.FC = () => {
       </styles.ButtonContainer>
       <styles.FeaturesContainer>
         <styles.FeaturesStatics>
-          <styles.FeaturesStaticsContainer>
-            <span>
-              <img src="/trophy.svg" alt="Jogos Ganhos" />
-            </span>
-            <div>
-              <h6>{context.statistic?.qtd_tests || 0}</h6>
-              <p>
-                {context.statistic?.qtd_tests === 1
-                  ? "Teste criado"
-                  : "Testes criados"}
-              </p>
-            </div>
-          </styles.FeaturesStaticsContainer>
-          <styles.FeaturesStaticsContainer>
-            <span>
-              <img src="/console.svg" alt="Recorde de Pontos" />
-            </span>
-            <div>
-              <h6>{context.statistic?.qtd_rooms || 0}</h6>
-              <p>
-                {context.statistic?.qtd_rooms === 1
-                  ? "Sala criada"
-                  : "Salas criadas"}
-              </p>
-            </div>
-          </styles.FeaturesStaticsContainer>
+          <Link href="/mytests">
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/trophy.svg" alt="Quiz criados" />
+              </span>
+              <div>
+                <h6>{context.statistic?.qtd_tests || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_tests === 1
+                    ? "Quiz criado"
+                    : "Quizzes criados"}
+                </p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+          </Link>
+
+          <Link href="/relatory">
+            <styles.FeaturesStaticsContainer>
+              <span>
+                <img src="/console.svg" alt="Salas criadas" />
+              </span>
+              <div>
+                <h6>{context.statistic?.qtd_rooms || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_rooms === 1
+                    ? "Sala criada"
+                    : "Salas criadas"}
+                </p>
+              </div>
+            </styles.FeaturesStaticsContainer>
+          </Link>
+
           <Link href="/activeRooms">
             <styles.FeaturesStaticsContainer>
               <span>
-                <img src="/checked.svg" alt="Jogos Ganhos" />
+                <img src="/checked.svg" alt="Salas ativas" />
               </span>
               <div>
                 <h6>{context.statistic?.qtd_rooms_actives || 0}</h6>
