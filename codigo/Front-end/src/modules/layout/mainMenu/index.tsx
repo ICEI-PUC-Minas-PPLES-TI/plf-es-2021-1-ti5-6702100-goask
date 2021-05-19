@@ -16,6 +16,7 @@ const mainMenu: React.FC = ({ children }) => {
     sessionStorage.removeItem("$$token_type");
     context.setUser(null);
     context.setToken(null);
+    context.setStatistic(null);
     router.push("/login");
   };
 
