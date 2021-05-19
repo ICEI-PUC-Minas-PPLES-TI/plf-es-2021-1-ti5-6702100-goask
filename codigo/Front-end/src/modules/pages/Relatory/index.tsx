@@ -32,7 +32,7 @@ const RelatoryPage: React.FC = () => {
     render();
   }, []);
 
-  if (tests) {
+  if (tests && rooms) {
     return (
       <styles.Container>
         <div>
@@ -43,7 +43,7 @@ const RelatoryPage: React.FC = () => {
           <p>O relatório mostra alguns dados estatíticos de seus quizzes.</p>
         </styles.TextContainer>
         <styles.ContentContainer>
-          <RelatoryTable tests={tests} />
+          <RelatoryTable tests={tests} rooms={rooms} />
         </styles.ContentContainer>
 
         <styles.TextContainer>
