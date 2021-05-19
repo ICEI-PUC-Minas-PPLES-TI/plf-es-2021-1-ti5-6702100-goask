@@ -29,16 +29,16 @@ const TestsTable: React.FC<Content> = ({ tests }) => {
         </thead>
         <tbody>
           {tests.map((t: Test, index) => (
-            <tr key={index}>
-              <td>
-                <Link href={`/test/${t.idTest}`}>
+            <Link href={`/test/${t.idTest}`}>
+              <tr key={index}>
+                <td>
                   <a>{t.name}</a>
-                </Link>
-              </td>
-              <td>{t.description}</td>
-              <td>{t.category.name}</td>
-              <td>{formatDate(t.createdAt.toString())}</td>
-            </tr>
+                </td>
+                <td>{t.description}</td>
+                <td>{t.category.name}</td>
+                <td>{formatDate(t.createdAt.toString())}</td>
+              </tr>
+            </Link>
           ))}
         </tbody>
       </styles.TestsTable>

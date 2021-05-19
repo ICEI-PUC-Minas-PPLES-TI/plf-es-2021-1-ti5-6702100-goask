@@ -93,20 +93,20 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
         </thead>
         <tbody>
           {tests.map((t: Test, index) => (
-            <tr key={index}>
-              <td>
-                <Link href={`/test/${t.idTest}`}>
+            <Link href={`/test/${t.idTest}`}>
+              <tr key={index}>
+                <td>
                   <a>{t.name}</a>
-                </Link>
-              </td>
-              <td>{t.questions.length}</td>
-              <td>{getHits(t)}</td>
-              <td>{getHits(t, true)}</td>
-              <td>{getAvg(t)}</td>
-              <td>{getMax(t)}</td>
-              <td>{getPlayers(t)}</td>
-              <td>{getRooms(t)}</td>
-            </tr>
+                </td>
+                <td>{t.questions.length}</td>
+                <td>{getHits(t)}</td>
+                <td>{getHits(t, true)}</td>
+                <td>{getAvg(t)}</td>
+                <td>{getMax(t)}</td>
+                <td>{getPlayers(t)}</td>
+                <td>{getRooms(t)}</td>
+              </tr>
+            </Link>
           ))}
         </tbody>
       </styles.TestsTable>
