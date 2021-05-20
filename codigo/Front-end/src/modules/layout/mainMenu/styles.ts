@@ -172,6 +172,7 @@ export const SecondContainer = styled.div`
 
   @media (max-width: ${(props) => props.theme.breakpoint.lg}) {
     margin: 120px 0 0 10px;
+    padding: 50px 30px 0 30px;
   }
 `;
 

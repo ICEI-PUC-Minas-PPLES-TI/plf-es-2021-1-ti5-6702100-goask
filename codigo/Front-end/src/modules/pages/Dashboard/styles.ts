@@ -20,18 +20,13 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-
-  @media (max-width: ${theme.breakpoint.lg}) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
 `;
 
 export const Button = styled.button`
   width: 30%;
+  min-width: 170px;
   height: 170px;
-  margin: 0 auto 0 0;
+  margin: 0 auto 15px 0;
 
   outline: none;
   cursor: pointer;
@@ -67,7 +62,7 @@ export const Button = styled.button`
   }
 
   @media (max-width: ${theme.breakpoint.lg}) {
-    width: 80%;
+    width: 30%;
   }
 `;
 
@@ -87,11 +82,16 @@ export const FeaturesContainer = styled.div`
 
 export const FeaturesStatics = styled.div`
   width: 47%;
+  min-width: 170px;
   height: 270px;
   border-radius: 30px;
   padding: 20px 50px;
   background-color: ${(props) => props.theme.colors.menuBackground};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  @media (max-width: ${theme.breakpoint.lg}) {
+    padding: 20px 15px;
+  }
 `;
 
 export const FeaturesStaticsContainer = styled.div`
@@ -102,6 +102,7 @@ export const FeaturesStaticsContainer = styled.div`
   align-content: flex-start;
   margin: 0 0 5px 0;
   transition: 0.3s;
+  word-break: break-all;
 
   &:hover {
     transform: scale(1.1);
@@ -147,6 +148,7 @@ export const FeaturesStaticsContainer = styled.div`
 export const FeaturesBeginQuiz = styled.div`
   padding: 40px 50px;
   width: 47%;
+  min-width: 170px;
   height: 270px;
   border-radius: 30px;
   background-color: ${(props) => props.theme.colors.background};
@@ -157,6 +159,7 @@ export const FeaturesBeginQuiz = styled.div`
 
   button {
     width: 100%;
+    min-width: 120px;
     margin: 15% auto;
 
     outline: none;
@@ -194,6 +197,10 @@ export const FeaturesBeginQuiz = styled.div`
       width: 30px;
       height: auto;
     }
+  }
+  @media (max-width: ${theme.breakpoint.lg}) {
+    margin: 15px 0 0 0;
+    padding: 20px 15px 0 15px;
   }
 `;
 
