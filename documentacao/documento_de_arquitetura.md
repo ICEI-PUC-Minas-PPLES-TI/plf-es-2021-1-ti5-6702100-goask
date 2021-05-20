@@ -400,6 +400,9 @@ Evidências dos testes realizados
 
 Evidências dos testes realizados
 
+Abaixo está sendo exibida uma imagem que demonstra senhas criptografadas no banco de dados do sistema.
+
+![Senha Criptografada](imagens/Criptografia.jpeg "Senha Criptografada")
 
 
 
