@@ -22,6 +22,49 @@ const mainMenu: React.FC = ({ children }) => {
 
   return (
     <styles.Container>
+      <styles.MobileFirstContainer>
+        <a href="" className="logo">
+          <img src="/logo.svg" alt="GoAsk" height="100" />
+        </a>
+        <input className="menu-btn" type="checkbox" id="menu-btn" />
+        <label className="menu-icon" htmlFor="menu-btn">
+          <span className="navicon"></span>
+        </label>
+        <ul className="menu">
+          <li>
+            <a href="/">
+              <span>
+                <img src="/home.svg" alt="Vá para Dashboard" height="20px" />
+              </span>
+              &nbsp; Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="/perfil">
+              <span>
+                <img src="/people.svg" alt="Vá para Perfil" height="20px" />
+              </span>
+              &nbsp; Perfil
+            </a>
+          </li>
+          <li>
+            <a href="/mytests">
+              <span>
+                <img src="/quiz.svg" alt="Vá para Quiz" height="20px" />
+              </span>
+              &nbsp; Quizzes
+            </a>
+          </li>
+          <li>
+            <a onClick={logout}>
+              <span>
+                <img src="/logout.svg" alt="Sair Agora" height="20px" />
+              </span>
+              &nbsp; Logout
+            </a>
+          </li>
+        </ul>
+      </styles.MobileFirstContainer>
       <styles.FirstContainer>
         <styles.LogoutContainer>
           <u onClick={logout}>
