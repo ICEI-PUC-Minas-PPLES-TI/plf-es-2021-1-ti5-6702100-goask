@@ -6,13 +6,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+  @media (max-width: ${(props) => props.theme.breakpoint.lg}) {
     display: inline;
   }
 `;
 
 export const FirstContainer = styled.div`
-  @media (min-width: ${(props) => props.theme.breakpoint.md}) {
+  @media (min-width: ${(props) => props.theme.breakpoint.lg}) {
     position: fixed;
     min-height: 100vh;
     border-radius: 0 15px 15px 0;
@@ -30,7 +30,7 @@ export const FirstContainer = styled.div`
       0 0 0 30px ${(props) => props.theme.colors.borders.red};
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+  @media (max-width: ${(props) => props.theme.breakpoint.lg}) {
     display: none;
   }
 `;
@@ -158,7 +158,7 @@ export const MobileFirstContainer = styled.header`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoint.md}) {
+  @media (min-width: ${(props) => props.theme.breakpoint.lg}) {
     display: none;
   }
 `;
@@ -170,7 +170,7 @@ export const SecondContainer = styled.div`
   max-width: ${(props) => props.theme.breakpoint.xl};
   min-width: ${(props) => props.theme.breakpoint.xs};
 
-  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+  @media (max-width: ${(props) => props.theme.breakpoint.lg}) {
     margin: 120px 0 0 10px;
   }
 `;
