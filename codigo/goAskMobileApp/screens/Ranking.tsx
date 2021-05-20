@@ -74,6 +74,10 @@ const Ranking: React.FC<Props> = (props) => {
     }
   };
 
+  const sortedResults = [...results].sort(
+    (player, otherPlayer) => +otherPlayer.right_answers - +player.right_answers,
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -86,12 +90,12 @@ const Ranking: React.FC<Props> = (props) => {
         </View>
       </View>
       <Text style={[styles.winnerText, styles.bold]}>
-        Parabéns, <Text style={styles.redColor}>{results[0].name}</Text>, você é
-        o vencedor
+        Parabéns, <Text style={styles.redColor}>{sortedResults[0].name}</Text>,
+        você é o vencedor
       </Text>
 
       <FlatList
-        data={results}
+        data={sortedResults}
         style={styles.podium}
         renderItem={renderPlayer}
         keyExtractor={(item) => item.name}
