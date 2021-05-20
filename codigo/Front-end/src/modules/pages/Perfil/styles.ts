@@ -8,6 +8,10 @@ export const SubHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+    display: inline;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -57,7 +61,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  min-width: 200px;
+  min-width: 150px;
   width: 100%;
   max-width: 220px;
   height: 60px;
@@ -71,6 +75,10 @@ export const Button = styled.button`
         ((100vw - ${(props) => props.theme.breakpoint.sm}) / (1399 - 320))
     );
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+    min-width: 100px;
+  }
 `;
 
 export const UserStaticsContainer = styled.div`
@@ -82,6 +90,10 @@ export const UserStaticsContainer = styled.div`
 
   display: flex;
   align-content: center;
+
+  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+    display: block;
+  }
 `;
 
 export const UserImageContainer = styled.div`
@@ -89,6 +101,16 @@ export const UserImageContainer = styled.div`
   img {
     width: 170px;
     height: auto;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+    text-align: center;
+
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50px;
+    }
   }
 `;
 
@@ -122,20 +144,32 @@ export const UserDetailsContainer = styled.div`
   }
 `;
 
-export const UserIdentityContainer = styled.div``;
+export const UserIdentityContainer = styled.div`
+  @media (min-width: ${(props) =>
+      props.theme.breakpoint.md}) and (max-width: ${(props) =>
+      props.theme.breakpoint.lg}) {
+    margin: 0 0 0 5%;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoint.md}) {
+    text-align: center;
+  }
+`;
 
 export const UserStaticsDetailsContainer = styled.div`
   display: flex;
   width: 100%;
+  @media (max-width: ${(props) => props.theme.breakpoint.lg}) {
+    margin: 20px 0 0 0;
+  }
 `;
 
 export const FeaturesStaticsContainer = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
-  width: 31%;
   justify-content: flex-start;
   align-content: flex-start;
-  margin: 0 0 5px 0;
+  margin: 0 0 5px 0px;
 
   img {
     border: 1px solid ${(props) => props.theme.colors.borders.red};
@@ -150,7 +184,6 @@ export const FeaturesStaticsContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 0 0 20px;
     h6 {
       font-size: calc(
         18px + (24 - 18) *
@@ -171,6 +204,35 @@ export const FeaturesStaticsContainer = styled.div`
       font-weight: bolder;
     }
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoint.lg}) {
+    display: inline;
+    text-align: center;
+    word-break: break-all;
+
+    img {
+      width: 50px;
+      margin: 0 5px 0 0;
+    }
+
+    p {
+      padding: 0 10px;
+    }
+  }
+
+  @media (min-width:${(props) =>
+    props.theme.breakpoint.lg}) and (max-width: 1106px) {
+      display: inline;
+    text-align: center;
+    word-break: break-all;
+      img {
+        width: 55px;
+        margin: 0 5px 0 0;
+      }
+
+      p {
+        padding: 0 10px;
+      }
 `;
 
 export const SubToolsContainer = styled.div`
@@ -237,6 +299,14 @@ export const SubtoolQuizzesContainer = styled.div`
       img {
         margin: auto;
       }
+
+      @media (max-width: ${(props) => props.theme.breakpoint.lg}) {
+        width: 40px;
+        height: 40px;
+
+        img{
+          width: 30px;
+        }
     }
   }
 `;
