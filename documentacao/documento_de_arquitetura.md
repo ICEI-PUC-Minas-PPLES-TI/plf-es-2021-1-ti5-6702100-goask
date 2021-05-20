@@ -47,7 +47,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[17/03/2021]** | [Matheus Felipe]                                      | [Diagrama de Visão]                                                                                               | [4.2]      |
 | **[17/03/2021]** | [Thiago Silva]                                        | [Descrição de casos de uso e histórias de usuário]                                                                | [4.3]      |
 | **[24/03/2021]** | [Thiago Silva]                                        | [Atualuzação diagrama de casos de uso]                                                                            | [4.4]      |
-
+| **[20/05/2021]** | [Guilherme Oliveira]                                        | [Adição avaliação da arquitetura]                                                                            | [4.5]      |
 
 
 ## SUMÁRIO
@@ -58,7 +58,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
    1.3. Definições e Abreviaturas <br />
 
 2. [Requisitos](#requisitos "Requisitos") <br />
-   ' 2.1. Requisitos Funcionais <br />
+   2.1. Requisitos Funcionais <br />
    2.2. Requisitos Não-Funcionais <br />
    2.3. Restrições Arquiteturais <br />
    2.4. Mecanismos Arquiteturais <br />
@@ -136,7 +136,7 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 
 | **ID** | **Descrição**                                                                                                               |
 | ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
+| RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 10 segundos após o usuário digitar seu código. |
 | RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado                                                 |
 | RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout                                                   |
 | RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                                 |
@@ -347,33 +347,29 @@ Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos 
 
 # 4. Avaliação da Arquitetura
 
-_Esta seção descreve a avaliação da arquitetura apresentada, baseada no método ATAM._
-
 ## 4.1. Cenários
 
-_Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos não funcionais sendo satisfeitos. Os requisitos a seguir são apenas exemplos de possíveis requisitos, devendo ser revistos, adequados a cada projeto e complementados de forma a terem uma especificação completa e auto-explicativa._
+**Cenário 1 - Desempelho na conexão com a sala:** Nesse cenário será testado a velocidade de resposta do sistema mobile ao tentar se conectar em uma sala.  Assim, o teste a será feito a partir de logs da aplicação mobile, onde mostrará o tempo inicial da chamada e o tempo final de reposta.
 
-**Cenário 1 - Acessibilidade:** Suspendisse consequat consectetur velit. Sed sem risus, dictum dictum facilisis vitae, commodo quis leo. Vivamus nulla sem, cursus a mollis quis, interdum at nulla. Nullam dictum congue mauris. Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
+**Cenário 2 - Segurança de acesso:** Nesse cenário será testado a segurança no acesso do usuário, o qual irá verificar se as senhas dos cadastrados estão sendo salvas criptogradas no banco de dados. Dessa forma, para testar esse cenaria srá acessado o banco e verificado na tabela de usuarios na coluna de senha, se a senha está sendo salva criptografada.
 
-**Cenário 2 - Interoperabilidade:** Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ut accumsan erat. Pellentesque in enim tempus, iaculis sem in, semper arcu.
+**Cenário 3 - Responsividade:** Nesse cenário será testado a responsividade da aplicação web, onde o sistema deverá se adapatar a difirentes tamanhos de telas. Assim, o teste será feito como o uso de um navegador web polyPane, oqual mostra na mesma tela varias dimensões de telas.
 
-**Cenário 3 - Manutenibilidade:** Phasellus magna tellus, consectetur quis scelerisque eget, ultricies eu ligula. Sed rhoncus fermentum nisi, a ullamcorper leo fringilla id. Nulla lacinia sem vel magna ornare, non tincidunt ipsum rhoncus. Nam euismod semper ante id tristique. Mauris vel elit augue.
-
-**Cenário 4 - Segurança:** Suspendisse consectetur porta tortor non convallis. Sed lobortis erat sed dignissim dignissim. Nunc eleifend elit et aliquet imperdiet. Ut eu quam at lacus tincidunt fringilla eget maximus metus. Praesent finibus, sapien eget molestie porta, neque turpis congue risus, vel porttitor sapien tortor ac nulla. Aliquam erat volutpat.
+**Cenário 4 - Acesso simutâneo:** Nesse cenário será testado se o sistema mobile criado suporta acesso sumultâneo. A fim de testar esse requisito serão feito diversos acessos simultaneos para testar se o sistema permanecerá funcionando de maneira eficiente.
 
 ## 4.2. Avaliação
 
 _Apresente as medidas registradas na coleta de dados. O que não for possível quantificar apresente uma justificativa baseada em evidências qualitativas que suportam o atendimento do requisito não-funcional. Apresente uma avaliação geral da arquitetura indicando os pontos fortes e as limitações da arquitetura proposta._
 
-| **Atributo de Qualidade:** | Segurança                                                                                                                                                                                                                                                              |
+| **Atributo de Qualidade:** | Desenpenho                                                                                                                                                                                                                                                              |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Requisito de Qualidade** | Acesso aos recursos restritos deve ser controlado                                                                                                                                                                                                                      |
-| **Preocupação:**           | Os acessos de usuários devem ser controlados de forma que cada um tenha acesso apenas aos recursos condizentes as suas credenciais.                                                                                                                                    |
-| **Cenários(s):**           | Cenário 4                                                                                                                                                                                                                                                              |
-| **Ambiente:**              | Sistema em operação normal                                                                                                                                                                                                                                             |
-| **Estímulo:**              | Acesso do administrador do sistema as funcionalidades de cadastro de novos produtos e exclusão de produtos.                                                                                                                                                            |
-| **Mecanismo:**             | O servidor de aplicação (Rails) gera um _token_ de acesso para o usuário que se autentica no sistema. Este _token_ é transferido para a camada de visualização (Angular) após a autenticação e o tratamento visual das funcionalidades podem ser tratados neste nível. |
-| **Medida de Resposta:**    | As áreas restritas do sistema devem ser disponibilizadas apenas quando há o acesso de usuários credenciados.                                                                                                                                                           |
+| **Requisito de Qualidade** | Desempelho na conexão com a sala                                                                                                                                                                                                                      |
+| **Preocupação:**           | Os acessos as salas devem ser feitos com o maior desenpenho possível, para garantir que o o mesmo não perca a vontade de fazer o quiz.                                                                                                                                    |
+| **Cenários(s):**           | Cenário 1                                                                                                                                                                                                                                                              |
+| **Ambiente:**              | Sistema mobile                                                                                                                                                                                                           |
+| **Estímulo:**              | Procurar e acessar um sala aberta para poder fazer o quiz.                                                                                                                                                          |
+| **Mecanismo:**             | O aplicação mobile envia uma requisição de procura de salas para o servidor e depois envia um solicitação de abertura webSocket, se encontrar a sala o usuário será incluso na sala caso ao contrario receberá uma mensagem de sala não encontrada. |
+| **Medida de Resposta:**    | Uma resposta do servidor deve ser enviada em até 10 segundos independente da sala ser encontrada ou não.                                                                                                                                                           |
 
 **Considerações sobre a arquitetura:**
 
@@ -384,9 +380,69 @@ _Apresente as medidas registradas na coleta de dados. O que não for possível q
 
 Evidências dos testes realizados
 
-_Apresente imagens, descreva os testes de tal forma que se comprove a realização da avaliação._
 
-<a name="referencias"></a>
+| **Atributo de Qualidade:** | Segurança                                                                                                                                                                                                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisito de Qualidade** | Segurança de acesso                                                                                                                                                                                          |
+| **Preocupação:**           | Impedir que alguem que tenha acesso ao banco de dados não possa se conectar na aplicação web ultilizando senha de terceiros, garantindo assim a segurança do usuário.                                                                                                                                   |
+| **Cenários(s):**           | Cenário 2                                                                                                                                                                                                                                                              |
+| **Ambiente:**              | Sistema web                                                                                                                                                                                                           |
+| **Estímulo:**              | Usuário ter privacidade no ambiente web.                                                                                                                                                          |
+| **Mecanismo:**             | Ao cadastrar o usuário, o sistema deve criptografar a senha e salvar no banco de dados. |
+| **Medida de Resposta:**    | Ao consultar o banco de dados a senha deve estar salva criptografada.                                                                                                                                                           |
+
+**Considerações sobre a arquitetura:**
+
+| **Riscos:**                  | Não existe |
+| ---------------------------- | ---------- |
+| **Pontos de Sensibilidade:** | Não existe |
+| _ **Tradeoff** _ **:**       | Não existe |
+
+Evidências dos testes realizados
+
+
+
+
+| **Atributo de Qualidade:** | Responsividade                                                                                                                                                                                                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisito de Qualidade** | O sistema deve se adatar a diferentes medidas de layout.                                                                                                                                                           |
+| **Preocupação:**           | Garantir que usuários com diferentes resoluções de telas possam ultilizar a aplicação com layout amigavel.                                                                                                                                  |
+| **Cenários(s):**           | Cenário 3                                                                                                                                                                                                                                                              |
+| **Ambiente:**              | Sistema web                                                                                                                                                                                                           |
+| **Estímulo:**              | Usuário poder acesar do celular, tablet e pc.                                                                                                                                                          |
+| **Mecanismo:**             | Ao alterar as dimensões da tela, os componentes da aplicação devem se adptar de acordo com as novas dimensões. |
+| **Medida de Resposta:**    | ***Ao consultar o banco de dados a senha deve estar salva criptografada.***                                                                                                                                                           |
+
+**Considerações sobre a arquitetura:**
+
+| **Riscos:**                  | Não existe |
+| ---------------------------- | ---------- |
+| **Pontos de Sensibilidade:** | Não existe |
+| _ **Tradeoff** _ **:**       | Não existe |
+
+Evidências dos testes realizados
+
+
+| **Atributo de Qualidade:** | Desempenho e Disponibilidade                                                                                                                                                                                                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisito de Qualidade** | Acesso simutâneo                                                                                                                                                           |
+| **Preocupação:**           | Garantir que mesmo com diversos acessos simultâneos os sistema permanece funcionando de maneira eficiênte.                                                                                                                                  |
+| **Cenários(s):**           | Cenário 4                                                                                                                                                                                                                                                              |
+| **Ambiente:**              | Sistema mobile                                                                                                                                                                                                           |
+| **Estímulo:**              | Usuário possa ter uma boa experiência com a aplicação, mesmo que esteja com um grande carga de usuários acessados.                                                                                                                                                        |
+| **Mecanismo:**             | ***Ao alterar as dimensões da tela, os componentes da aplicação devem se adptar de acordo com as novas dimensões.*** |
+| **Medida de Resposta:**    | ***Ao consultar o banco de dados a senha deve estar salva criptografada.***                                                                                                                                                           |
+
+**Considerações sobre a arquitetura:**
+
+| **Riscos:**                  | Não existe |
+| ---------------------------- | ---------- |
+| **Pontos de Sensibilidade:** | Não existe |
+| _ **Tradeoff** _ **:**       | Não existe |
+
+Evidências dos testes realizados
+
+
 
 # 5. REFERÊNCIAS
 
