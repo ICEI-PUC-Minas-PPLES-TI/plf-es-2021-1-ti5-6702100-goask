@@ -32,7 +32,11 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
 
     const totalQuestions = totalPlays * questions;
 
-    return percentage ? (corrects * 100) / totalQuestions + "%" : corrects;
+    if (totalQuestions === 0) return 0;
+
+    return percentage
+      ? ((corrects * 100) / totalQuestions).toFixed(2) + "%"
+      : corrects;
   };
 
   const getPlayers = (test: Test) => {
@@ -50,7 +54,8 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
   };
 
   const getAvg = (test: Test) => {
-    return +getHits(test) / getPlayers(test);
+    const divisor = getPlayers(test);
+    return divisor > 0 ? (+getHits(test) / divisor).toFixed(2) : 0;
   };
 
   const getMax = (test: Test) => {
