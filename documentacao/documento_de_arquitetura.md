@@ -361,7 +361,7 @@ Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos 
 
 | **Atributo de Qualidade:** | Desempenho                                              |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Requisito de Qualidade** | Desempelho na conexão com a              |
+| **Requisito de Qualidade** | Desempenho na conexão com o back end.              |
 | **Preocupação:**           | Os acessos as salas devem ser feitos com o maior desenpenho possível, para garantir que o o mesmo não perca a vontade de fazer o quiz.                                                                                                                                |
 | **Cenários(s):**           | Cenário 1                                                                                                       |
 | **Ambiente:**              | Sistema mobile                                                        |
@@ -376,8 +376,9 @@ Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos 
 | **Pontos de Sensibilidade:** | Não existe |
 | _ **Tradeoff** _ **:**       | Não existe |
 
-Evidências dos testes realizados
+Evidências dos testes realizados:
 
+![Teste de Desempenho](imagens/desempenho.png "Teste de Desempenho")
 
 | **Atributo de Qualidade:** | Segurança                                                            |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
