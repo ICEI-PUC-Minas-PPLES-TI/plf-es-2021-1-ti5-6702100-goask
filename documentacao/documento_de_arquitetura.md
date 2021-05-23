@@ -359,14 +359,12 @@ Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos 
 
 ## 4.2. Avaliação
 
-_Apresente as medidas registradas na coleta de dados. O que não for possível quantificar apresente uma justificativa baseada em evidências qualitativas que suportam o atendimento do requisito não-funcional. Apresente uma avaliação geral da arquitetura indicando os pontos fortes e as limitações da arquitetura proposta._
-
-| **Atributo de Qualidade:** | Desenpenho                                                                                                                                                                                                                                                              |
+| **Atributo de Qualidade:** | Desempenho                                              |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Requisito de Qualidade** | Desempelho na conexão com a sala                                                                                                                                                                                                                      |
-| **Preocupação:**           | Os acessos as salas devem ser feitos com o maior desenpenho possível, para garantir que o o mesmo não perca a vontade de fazer o quiz.                                                                                                                                    |
-| **Cenários(s):**           | Cenário 1                                                                                                                                                                                                                                                              |
-| **Ambiente:**              | Sistema mobile                                                                                                                                                                                                           |
+| **Requisito de Qualidade** | Desempelho na conexão com a              |
+| **Preocupação:**           | Os acessos as salas devem ser feitos com o maior desenpenho possível, para garantir que o o mesmo não perca a vontade de fazer o quiz.                                                                                                                                |
+| **Cenários(s):**           | Cenário 1                                                                                                       |
+| **Ambiente:**              | Sistema mobile                                                        |
 | **Estímulo:**              | Procurar e acessar um sala aberta para poder fazer o quiz.                                                                                                                                                          |
 | **Mecanismo:**             | O aplicação mobile envia uma requisição de procura de salas para o servidor e depois envia um solicitação de abertura webSocket, se encontrar a sala o usuário será incluso na sala caso ao contrario receberá uma mensagem de sala não encontrada. |
 | **Medida de Resposta:**    | Uma resposta do servidor deve ser enviada em até 10 segundos independente da sala ser encontrada ou não.                                                                                                                                                           |
@@ -381,13 +379,13 @@ _Apresente as medidas registradas na coleta de dados. O que não for possível q
 Evidências dos testes realizados
 
 
-| **Atributo de Qualidade:** | Segurança                                                                                                                                                                                                                                                              |
+| **Atributo de Qualidade:** | Segurança                                                            |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Requisito de Qualidade** | Segurança de acesso                                                                                                                                                                                          |
+| **Requisito de Qualidade** | Segurança de acesso                                                                                         |
 | **Preocupação:**           | Impedir que alguem que tenha acesso ao banco de dados não possa se conectar na aplicação web ultilizando senha de terceiros, garantindo assim a segurança do usuário.                                                                                                                                   |
-| **Cenários(s):**           | Cenário 2                                                                                                                                                                                                                                                              |
-| **Ambiente:**              | Sistema web                                                                                                                                                                                                           |
-| **Estímulo:**              | Usuário ter privacidade no ambiente web.                                                                                                                                                          |
+| **Cenários(s):**           | Cenário 2                                                    |
+| **Ambiente:**              | Sistema web                                                                                                       |
+| **Estímulo:**              | Usuário ter privacidade no ambiente web.                                                                                                           |
 | **Mecanismo:**             | Ao cadastrar o usuário, o sistema deve criptografar a senha e salvar no banco de dados. |
 | **Medida de Resposta:**    | Ao consultar o banco de dados a senha deve estar salva criptografada.                                                                                                                                                           |
 
@@ -406,7 +404,7 @@ Abaixo está sendo exibida uma imagem que demonstra senhas criptografadas no ban
 
 
 
-| **Atributo de Qualidade:** | Responsividade                                                                                                                                                                                                                                                              |
+| **Atributo de Qualidade:** | Responsividade                                                                                                                       |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Requisito de Qualidade** | O sistema deve se adatar a diferentes medidas de layout.                                                                                                                                                           |
 | **Preocupação:**           | Garantir que usuários com diferentes resoluções de telas possam ultilizar a aplicação com layout amigavel.                                                                                                                                  |
@@ -414,7 +412,7 @@ Abaixo está sendo exibida uma imagem que demonstra senhas criptografadas no ban
 | **Ambiente:**              | Sistema web                                                                                                                                                                                                           |
 | **Estímulo:**              | Usuário poder acesar do celular, tablet e pc.                                                                                                                                                          |
 | **Mecanismo:**             | Ao alterar as dimensões da tela, os componentes da aplicação devem se adptar de acordo com as novas dimensões. |
-| **Medida de Resposta:**    | ***Ao consultar o banco de dados a senha deve estar salva criptografada.***                                                                                                                                                           |
+| **Medida de Resposta:**    | Ao acessar o sistema web, o usuário deve ser capaz  de executar qualquer funcionalidade dele independente do dispositivo.                                                                                                                                                        |
 
 **Considerações sobre a arquitetura:**
 
@@ -423,7 +421,29 @@ Abaixo está sendo exibida uma imagem que demonstra senhas criptografadas no ban
 | **Pontos de Sensibilidade:** | Não existe |
 | _ **Tradeoff** _ **:**       | Não existe |
 
-Evidências dos testes realizados
+A seguir, imagens da responsividade da tela de dashboard. Primeiro a dashboard em um celular:
+
+![Dashboard Celular](imagens/Dashboard-Celular.png "Dashboard Celular")
+
+Agora, a dashboard em um IPad:
+
+![Dashboard IPad](imagens/Dashboard-IPad.png "Dashboard PC")
+
+Por fim, a dashboard em um computador:
+
+![Dashboard IPad](imagens/Dashboard-PC.png "Dashboard PC")
+
+A seguir, imagens da responsividade da tela de peril. Primeiro o perfil em um celular:
+
+![Perfil Celular](imagens/Perfil-Celular.png "Perfil Celular")
+
+Agora, o perfil em um IPad:
+
+![Perfil IPad](imagens/Perfil-IPad.png "Perfil PC")
+
+Por fim, o perfil em um computador:
+
+![Perfil IPad](imagens/Perfil-PC.png "Perfil PC")
 
 
 | **Atributo de Qualidade:** | Desempenho e Disponibilidade                                                                                                                                                                                                                                                              |
