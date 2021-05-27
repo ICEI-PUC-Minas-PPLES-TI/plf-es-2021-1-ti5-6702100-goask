@@ -8,4 +8,4 @@ Liste os artefatos produzidos, com suas localizaçãoes e descrição do conteú
 
 - **ApresentacaoInicial.pptx**: slides de apresentação com a ideia inicial do projeto.
 
-- **ApresentacaoFinal.pptx**: slides de apresentação com a ideia final do projeto.
+- **Apresentacao Final.pptx**: slides de apresentação com a ideia final do projeto.
