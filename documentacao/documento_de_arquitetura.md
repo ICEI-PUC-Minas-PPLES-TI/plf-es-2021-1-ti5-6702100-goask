@@ -49,7 +49,7 @@ _**Resumo**. O GoAsk é um sistema que busca fortalecer o relacionamento entre a
 | **[20/05/2021]** | [Guilherme Oliveira, Thiago Silva, Guilherme Diniz]                                        | [Adição da avaliação de arquitetura]                                                                            | [6.1]      |
 | **[25/05/2021]** | [Guilherme Oliveira]                                        | [Revisão e atualização da avaliação de arquitetura]                                                                            | [6.2]      |
 | **[26/05/2021]** | [Guilherme Oliveira]                                        | [ Atualização das imagens]                                                                            | [6.3]      |
-| **[26/05/2021]** | [Matheus Felipe Ferreira Martins]                                        | [Resumo]                                                                            | [6.4]      |
+| **[26/05/2021]** | [Matheus Felipe]                                        | [Resumo]                                                                            | [6.4]      |
 
 
 
