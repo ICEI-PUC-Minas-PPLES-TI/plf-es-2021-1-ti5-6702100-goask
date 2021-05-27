@@ -468,6 +468,6 @@ A seguir, imagens de entrada simultânea:
 
 <a name="apendices"></a>
 
-# 6. APÊNDICES
+# 5. APÊNDICES
 
 [Repositório com o código do trabalho](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask)
