@@ -26,8 +26,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final,
-mostrar algum resultado relevante do trabalho (até 10 linhas)._
+_**Resumo**. O GoAsk é um sistema que busca fortalecer o relacionamento entre a tecnologia e os estudos sobre qualquer assunto, a fim de resolver problemas de nivelamento entre os estudantes, distrações externas e repetições de cenários. Para alcançar esse objetivo, o GoAsk fornecerá um sistema web que permitirá a administração de quizes ou testes rápidos com uma liberdade de escolha de tema e tempo para responder as perguntas criadas, qualquer um poderá usar essa ferramenta, seja professores, assistentes ou os próprios estudantes que pretendem ensinar, aprender ou simplesmente se divertir. O sistema também fornecerá uma versão mobile no qual diversos usuários podem acessar a sala de um quiz e concorrerem entre si e contra o tempo, com um sistema de pontuação que exibe um ranking de colocoção dos participantes. Enfim, o GoAsk tem como missão tornar o aprendizado mais descontraído, leve e autônomo, que permita momentos de diversão e trívia com amigos e desenvolva habilidades técnicas e sociais por meio da curiosidade e brincadeira para todos seus usuários e todos assuntos._
 
 ---
 
@@ -46,7 +45,11 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 | **[17/03/2021]** | [Guilherme Diniz ]                                    | [Modelo de Dados]                                                                                                 | [4.1]      |
 | **[17/03/2021]** | [Matheus Felipe]                                      | [Diagrama de Visão]                                                                                               | [4.2]      |
 | **[17/03/2021]** | [Thiago Silva]                                        | [Descrição de casos de uso e histórias de usuário]                                                                | [4.3]      |
-| **[24/03/2021]** | [Thiago Silva]                                        | [Atualuzação diagrama de casos de uso]                                                                            | [4.4]      || **[26/05/2021]** | [Matheus Felipe Ferreira Martins]                                        | [Resumo]                                                                            | [5.0]      |
+| **[24/03/2021]** | [Thiago Silva]                                        | [Atualuzação diagrama de casos de uso]                                                                            | [4.4]      |
+| **[20/05/2021]** | [Guilherme Oliveira, Thiago Silva, Guilherme Diniz]                                        | [Adição da avaliação de arquitetura]                                                                            | [6.1]      |
+| **[25/05/2021]** | [Guilherme Oliveira]                                        | [Revisão e atualização da avaliação de arquitetura]                                                                            | [6.2]      |
+| **[26/05/2021]** | [Guilherme Oliveira]                                        | [ Atualização das imagens]                                                                            | [6.3]      |
+| **[26/05/2021]** | [Matheus Felipe Ferreira Martins]                                        | [Resumo]                                                                            | [6.4]      |
 
 
 
@@ -58,7 +61,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
    1.3. Definições e Abreviaturas <br />
 
 2. [Requisitos](#requisitos "Requisitos") <br />
-   ' 2.1. Requisitos Funcionais <br />
+   2.1. Requisitos Funcionais <br />
    2.2. Requisitos Não-Funcionais <br />
    2.3. Restrições Arquiteturais <br />
    2.4. Mecanismos Arquiteturais <br />
@@ -72,9 +75,7 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
    4.1. Cenários <br />
    4.2. Avaliação <br />
 
-5. [Referências](#referencias "REFERÊNCIAS")<br />
-
-6. [Apêndices](#apendices "APÊNDICES")<br />
+5. [Apêndices](#apendices "APÊNDICES")<br />
 
 <a name="apresentacao"></a>
 
@@ -136,7 +137,7 @@ Esta seção descreve os requisitos comtemplados no projeto GoAsk.
 
 | **ID** | **Descrição**                                                                                                               |
 | ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 5 segundos após o usuário digitar seu código. |
+| RNF001 | O sistema deve exibir a sala ou uma mensagem de sala não encontrada no máximo 10 segundos após o usuário digitar seu código. |
 | RNF002 | O sistema deverá persistir as senhas de seus usuários de modo criptografado                                                 |
 | RNF003 | O sistema deve ser responsivo para adaptar a diferentes medidas de layout                                                   |
 | RNF004 | O sistema deve ser desenvolvido como um sistema distribuído                                                                 |
@@ -170,7 +171,7 @@ As restrições arquiteturais impostas ao projeto são:
 
 # 3. Modelagem e projeto arquitetural
 
-![Visão Geral da Solução](imagens/visao.png "Visão Geral da Solução")
+![Visão Geral da Solução](imagens/ModelagemArquitetural.png "Visão Geral da Solução")
 
 
 **Figura 1 - Visão Geral da Solução. Fonte: os próprios autores.**
@@ -331,7 +332,7 @@ Como mostrado na Figura 3, nossa aplicação apresenta três camadas maiores, al
 
 ## 3.3. Modelo de dados 
 
-![Diagrama de Entidade Relacionamento (ER) ](imagens/der.png "Diagrama de Entidade Relacionamento (ER) ")
+![Diagrama de Entidade Relacionamento (ER) ](imagens/ModeloBD.png "Diagrama de Entidade Relacionamento (ER) ")
 
 **Figura 4 – Diagrama de Entidade Relacionamento (ER) - Fonte: o próprio grupo.**
 
@@ -347,67 +348,128 @@ Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos 
 
 # 4. Avaliação da Arquitetura
 
-_Esta seção descreve a avaliação da arquitetura apresentada, baseada no método ATAM._
-
 ## 4.1. Cenários
 
-_Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos não funcionais sendo satisfeitos. Os requisitos a seguir são apenas exemplos de possíveis requisitos, devendo ser revistos, adequados a cada projeto e complementados de forma a terem uma especificação completa e auto-explicativa._
+**Cenário 1 - Desempelho na conexão com a sala:** Nesse cenário será testado a velocidade de resposta do sistema mobile ao tentar se conectar em uma sala.  Assim, o teste a será feito a partir de logs da aplicação mobile, onde mostrará o tempo inicial da chamada e o tempo final de reposta.
 
-**Cenário 1 - Acessibilidade:** Suspendisse consequat consectetur velit. Sed sem risus, dictum dictum facilisis vitae, commodo quis leo. Vivamus nulla sem, cursus a mollis quis, interdum at nulla. Nullam dictum congue mauris. Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
+**Cenário 2 - Segurança de acesso:** Nesse cenário será testado a segurança no acesso do usuário, o qual irá verificar se as senhas dos cadastrados estão sendo salvas criptogradas no banco de dados. Dessa forma, para testar esse cenário será acessado o banco de dados e verificado na tabela de usuarios na coluna de senha, se a senha está sendo salva criptografada.
 
-**Cenário 2 - Interoperabilidade:** Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ut accumsan erat. Pellentesque in enim tempus, iaculis sem in, semper arcu.
+**Cenário 3 - Responsividade:** Nesse cenário será testado a responsividade da aplicação web, onde o sistema deverá se adaptar a difirentes tamanhos de telas. Assim, o teste será feito como o uso de um navegador web ultilizando o devtools para mostrar a responsividade.
 
-**Cenário 3 - Manutenibilidade:** Phasellus magna tellus, consectetur quis scelerisque eget, ultricies eu ligula. Sed rhoncus fermentum nisi, a ullamcorper leo fringilla id. Nulla lacinia sem vel magna ornare, non tincidunt ipsum rhoncus. Nam euismod semper ante id tristique. Mauris vel elit augue.
-
-**Cenário 4 - Segurança:** Suspendisse consectetur porta tortor non convallis. Sed lobortis erat sed dignissim dignissim. Nunc eleifend elit et aliquet imperdiet. Ut eu quam at lacus tincidunt fringilla eget maximus metus. Praesent finibus, sapien eget molestie porta, neque turpis congue risus, vel porttitor sapien tortor ac nulla. Aliquam erat volutpat.
+**Cenário 4 - Acesso simultâneo:** Nesse cenário será testado se o sistema mobile criado suporta acesso sumultâneo. A fim de testar esse requisito, serão feito diversos acessos simultaneos para testar se o sistema permanecerá funcionando de maneira eficiente.
 
 ## 4.2. Avaliação
 
-_Apresente as medidas registradas na coleta de dados. O que não for possível quantificar apresente uma justificativa baseada em evidências qualitativas que suportam o atendimento do requisito não-funcional. Apresente uma avaliação geral da arquitetura indicando os pontos fortes e as limitações da arquitetura proposta._
-
-| **Atributo de Qualidade:** | Segurança                                                                                                                                                                                                                                                              |
+| **Atributo de Qualidade:** | Desempenho                                              |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Requisito de Qualidade** | Acesso aos recursos restritos deve ser controlado                                                                                                                                                                                                                      |
-| **Preocupação:**           | Os acessos de usuários devem ser controlados de forma que cada um tenha acesso apenas aos recursos condizentes as suas credenciais.                                                                                                                                    |
-| **Cenários(s):**           | Cenário 4                                                                                                                                                                                                                                                              |
-| **Ambiente:**              | Sistema em operação normal                                                                                                                                                                                                                                             |
-| **Estímulo:**              | Acesso do administrador do sistema as funcionalidades de cadastro de novos produtos e exclusão de produtos.                                                                                                                                                            |
-| **Mecanismo:**             | O servidor de aplicação (Rails) gera um _token_ de acesso para o usuário que se autentica no sistema. Este _token_ é transferido para a camada de visualização (Angular) após a autenticação e o tratamento visual das funcionalidades podem ser tratados neste nível. |
-| **Medida de Resposta:**    | As áreas restritas do sistema devem ser disponibilizadas apenas quando há o acesso de usuários credenciados.                                                                                                                                                           |
+| **Requisito de Qualidade** | Desempenho na conexão com o back end.              |
+| **Preocupação:**           | Os acessos as salas devem ser feitos com o maior desempenho possível, para garantir que o o mesmo não perca a vontade de fazer o quiz.                                                                                                                                |
+| **Cenários(s):**           | Cenário 1                                                                                                       |
+| **Ambiente:**              | Sistema mobile                                                        |
+| **Estímulo:**              | Procurar e acessar um sala aberta para poder fazer o quiz.                                                                                                                                                          |
+| **Mecanismo:**             | O aplicação mobile envia uma requisição de procura de salas para o servidor e depois envia um solicitação de abertura webSocket, se encontrar a sala o usuário será incluso na sala caso ao contrario receberá uma mensagem de sala não encontrada. |
+| **Medida de Resposta:**    | Uma resposta do servidor deve ser enviada em até 10 segundos independente da sala ser encontrada ou não.                                                                                                                                                           |
 
 **Considerações sobre a arquitetura:**
 
-| **Riscos:**                  | Não existe |
+| **Riscos:**                  | Médio |
 | ---------------------------- | ---------- |
-| **Pontos de Sensibilidade:** | Não existe |
+| **Pontos de Sensibilidade:** | Desinteresse do usuário fazer o quiz |
 | _ **Tradeoff** _ **:**       | Não existe |
 
-Evidências dos testes realizados
+A seguir, imagens de desempenho:
 
-_Apresente imagens, descreva os testes de tal forma que se comprove a realização da avaliação._
+![Teste de Desempenho](imagens/desempenho.png "Teste de Desempenho")
 
-<a name="referencias"></a>
+| **Atributo de Qualidade:** | Segurança                                                            |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisito de Qualidade** | Segurança de acesso                                                                                         |
+| **Preocupação:**           | Impedir que alguém que tenha acesso ao banco de dados não possa se conectar na aplicação web ultilizando senha de terceiros, garantindo assim a segurança do usuário.                                                                                                                                   |
+| **Cenários(s):**           | Cenário 2                                                    |
+| **Ambiente:**              | Sistema web                                                                                                       |
+| **Estímulo:**              | Usuário ter privacidade no ambiente web.                                                                                                           |
+| **Mecanismo:**             | Ao cadastrar o usuário, o sistema deve criptografar a senha e salvar no banco de dados. |
+| **Medida de Resposta:**    | Ao consultar o banco de dados a senha deve estar salva criptografada.                                                                                                                                                           |
 
-# 5. REFERÊNCIAS
+**Considerações sobre a arquitetura:**
 
-_Como um projeto da arquitetura de uma aplicação não requer revisão bibliográfica, a inclusão das referências não é obrigatória. No entanto, caso você deseje incluir referências relacionadas às tecnologias, padrões, ou metodologias que serão usadas no seu trabalho, relacione-as de acordo com a ABNT._
+| **Riscos:**                  | Baixo |
+| ---------------------------- | ---------- |
+| **Pontos de Sensibilidade:** | Usuários terem privacidade no acesso da aplicação mobile |
+| _ **Tradeoff** _ **:**       | Não existe |
 
-Verifique no link abaixo como devem ser as referências no padrão ABNT:
+Abaixo está sendo exibida uma imagem que demonstra senhas criptografadas no banco de dados do sistema.
 
-http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
+![Senha Criptografada](imagens/Criptografia.jpeg "Senha Criptografada")
 
-**[1]** - _ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019. E-book. ISBN 9788543025001._
 
-**[2]** - _COPPIN, Ben. **Inteligência artificial**. Rio de Janeiro, RJ: LTC, c2010. E-book. ISBN 978-85-216-2936-8._
 
-**[3]** - _CORMEN, Thomas H. et al. **Algoritmos: teoria e prática**. Rio de Janeiro, RJ: Elsevier, Campus, c2012. xvi, 926 p. ISBN 9788535236996._
+| **Atributo de Qualidade:** | Responsividade                                                                                                                       |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisito de Qualidade** | O sistema deve se adatar a diferentes medidas de layout.                                                                                                                                                           |
+| **Preocupação:**           | Garantir que usuários com diferentes resoluções de telas possam ultilizar a aplicação com layout amigavel.                                                                                                                                  |
+| **Cenários(s):**           | Cenário 3                                                                                                                                                                                                                                                              |
+| **Ambiente:**              | Sistema web                                                                                                                                                                                                           |
+| **Estímulo:**              | Usuário poder acesar do celular, tablet e pc.                                                                                                                                                          |
+| **Mecanismo:**             | Ao alterar as dimensões da tela, os componentes da aplicação devem se adptar de acordo com as novas dimensões. |
+| **Medida de Resposta:**    | Ao acessar o sistema web, o usuário deve ser capaz  de executar qualquer funcionalidade dele independente do dispositivo.                                                                                                                                                        |
 
-**[4]** - _SUTHERLAND, Jeffrey Victor. **Scrum: a arte de fazer o dobro do trabalho na metade do tempo**. 2. ed. rev. São Paulo, SP: Leya, 2016. 236, [4] p. ISBN 9788544104514._
+**Considerações sobre a arquitetura:**
 
-**[5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
+| **Riscos:**                  | Baixo |
+| ---------------------------- | ---------- |
+| **Pontos de Sensibilidade:** | Usuários não conseguirem usar no celular|
+| _ **Tradeoff** _ **:**       | Não existe |
+
+A seguir, imagens da responsividade da tela de dashboard. Primeiro a dashboard em um celular:
+
+![Dashboard Celular](imagens/Dashboard-Celular.png "Dashboard Celular")
+
+Agora, a dashboard em um IPad:
+
+![Dashboard IPad](imagens/Dashboard-IPad.png "Dashboard PC")
+
+Por fim, a dashboard em um computador:
+
+![Dashboard IPad](imagens/Dashboard-PC.png "Dashboard PC")
+
+A seguir, imagens da responsividade da tela de peril. Primeiro o perfil em um celular:
+
+![Perfil Celular](imagens/Perfil-Celular.png "Perfil Celular")
+
+Agora, o perfil em um IPad:
+
+![Perfil IPad](imagens/Perfil-IPad.png "Perfil PC")
+
+Por fim, o perfil em um computador:
+
+![Perfil IPad](imagens/Perfil-PC.png "Perfil PC")
+
+
+| **Atributo de Qualidade:** | Desempenho e Disponibilidade                                                                                                                                                                                                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requisito de Qualidade** | Acesso simultâneo                                                                                                                                                           |
+| **Preocupação:**           | Garantir que mesmo com diversos acessos simultâneos os sistema permanece funcionando de maneira eficiênte.                                                                                                                                  |
+| **Cenários(s):**           | Cenário 4                                                                                                                                                                                                                                                              |
+| **Ambiente:**              | Sistema mobile                                                                                                                                                                                                           |
+| **Estímulo:**              | Usuário possa ter uma boa experiência com a aplicação, mesmo que esteja com um grande carga de usuários acessados.                                                                                                                                                        |
+| **Mecanismo:**             | Ao acessar o quiz o sistema permitirá que multiplos usuários acessem o mesmo quiz, para que possa responde-lo. |
+| **Medida de Resposta:**    | Ao acessar a tela da sala na aplicação web o criador do quiz poderá ver quem já está esperando na sala.                                                                                                                                                           |
+**Considerações sobre a arquitetura:**
+
+| **Riscos:**                  | Alto |
+| ---------------------------- | ---------- |
+| **Pontos de Sensibilidade:** | Perda da conexão dos usuárioa que estão repondendo o quiz |
+| _ **Tradeoff** _ **:**       | Não existe |
+
+A seguir, imagens de entrada simultânea:
+
+![Teste de entrada silmultânea](imagens/goask_simul_1.jpeg "Tela entrando na sala")
+
+![Teste de entrada silmultânea](imagens/goask_simul_2.jpeg "Tela como usuários dentro da sala")
 
 <a name="apendices"></a>
 
-# 6. APÊNDICES
+# 5. APÊNDICES
 
-_Inclua o URL do repositório (Github, Bitbucket, etc) onde você armazenou o código da sua prova de conceito/protótipo arquitetural da aplicação como anexos. A inclusão da URL desse repositório de código servirá como base para garantir a autenticidade dos trabalhos._
+[Repositório com o código do trabalho](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask)
