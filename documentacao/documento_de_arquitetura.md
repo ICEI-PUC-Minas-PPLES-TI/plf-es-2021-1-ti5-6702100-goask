@@ -457,7 +457,7 @@ Por fim, o perfil em um computador:
 
 | **Riscos:**                  | Alto |
 | ---------------------------- | ---------- |
-| **Pontos de Sensibilidade:** | Peda da conexaão dos usuárioa que estão repondendo o quiz |
+| **Pontos de Sensibilidade:** | Perda da conexão dos usuárioa que estão repondendo o quiz |
 | _ **Tradeoff** _ **:**       | Não existe |
 
 A seguir, imagens de entrada simultânea:
