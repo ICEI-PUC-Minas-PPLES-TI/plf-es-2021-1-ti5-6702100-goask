@@ -1,32 +1,35 @@
 import * as styles from "./styles";
 
-//From next
-import Link from "next/link";
+//Models
+import { Test } from "@models/Test";
+import { Room } from "@models/Room";
 
 //From components
 import Tag from "../Tag";
 
-//From models
-import { Test } from "@models/Test";
-import { Room } from "@models/Room";
+//From next
+import Link from "next/link";
 
 //Global
 import theme from "src/share/styles/themes";
+
+//Hooks
+import { useEffect, useState } from "react";
+
 interface Content {
-  tests: Test[];
+  test: Test;
   rooms: Room[];
 }
-
-const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
-  const getTest = (r: Room) => {
-    const test = tests.find((t) => (t.idTest = r.idTest));
-    return test.name;
-  };
-
+const TestRoomsTable: React.FC<Content> = ({ test, rooms }) => {
   const formatDate = (stringDate: string): string => {
     const date = new Date(stringDate);
     return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
   };
+
+  const getRoomsTest = () => {
+    return rooms.filter((r: Room) => r.idTest === test.idTest);
+  };
+  rooms = getRoomsTest();
 
   return (
     <styles.Container>
@@ -34,7 +37,6 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
         <thead>
           <tr>
             <th>Sala</th>
-            <th>Quiz</th>
             <th>Publico</th>
             <th>Ativo</th>
             <th>Criação</th>
@@ -48,7 +50,6 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
                   <td>
                     <a>{r.name}</a>
                   </td>
-                  <td>{getTest(r)}</td>
                   <td>
                     {r.isPublic ? (
                       <Tag
@@ -85,4 +86,4 @@ const RelatoryTable: React.FC<Content> = ({ tests, rooms }) => {
   );
 };
 
-export default RelatoryTable;
+export default TestRoomsTable;

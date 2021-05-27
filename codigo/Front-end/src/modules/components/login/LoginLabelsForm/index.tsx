@@ -14,11 +14,12 @@ import SnackBar from "../../SnackBar";
 import Link from "next/link";
 
 //From api
-import { loginUser, getUser } from "../../../../share/api/api";
+import { loginUser, getUser, getStatistics } from "../../../../share/api/api";
 
 //From models
 import { LoginUser } from "../../../../models/User";
 import { Token } from "../../../../models/Token";
+import { Statistic } from "@models/Statistic";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
@@ -41,6 +42,8 @@ const LoginForm: React.FC = () => {
       context.setToken(token);
       const user = await getUser(token);
       context.setUser(user);
+      const statistics: Statistic = await getStatistics(token);
+      context.setStatistic(statistics);
       router.push("/");
     } else {
       setLoginError(true);

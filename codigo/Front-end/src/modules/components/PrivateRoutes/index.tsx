@@ -1,6 +1,7 @@
 //api
 import { getUser } from "src/share/api/api";
 import { verifyToken } from "../../../share/api/api";
+import { getStatistics } from "../../../share/api/api";
 
 //componentes
 import { useAppContext } from "../../../modules/components/ContextWrapper";
@@ -11,6 +12,8 @@ import { User } from "../../../models/User";
 //Hooks
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { Statistic } from "@models/Statistic";
+import { getHeapStatistics } from "node:v8";
 
 const PrivateRoutes: React.FC = ({ children }) => {
   const routes = useRouter();
@@ -37,6 +40,13 @@ const PrivateRoutes: React.FC = ({ children }) => {
 
     //salva o usuário
     context.setUser(user);
+
+    const statistic: Statistic = await getStatistics({
+      access_token,
+      token_type,
+    });
+
+    context.setStatistic(statistic);
 
     routes.push("/");
   };

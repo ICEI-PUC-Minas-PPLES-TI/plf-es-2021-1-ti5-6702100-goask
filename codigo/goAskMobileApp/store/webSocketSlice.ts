@@ -33,6 +33,7 @@ export const webSocketSlice = createSlice<
       state.isCreated = false;
       state.isOpened = false;
       state.connectionsRetry = 0;
+      state.hasStarted = false;
     },
     addConnectionRetry: (state) => {
       state.connectionsRetry += 1;

@@ -102,11 +102,15 @@ const Perfil: React.FC = () => {
           <styles.UserStaticsDetailsContainer>
             <styles.FeaturesStaticsContainer>
               <span>
-                <img src="/trophy.svg" alt="Jogos Ganhos" />
+                <img src="/trophy.svg" alt="Quiz criados" />
               </span>
               <div>
-                <h6>X</h6>
-                <p>XXX</p>
+                <h6>{context.statistic?.qtd_tests || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_tests === 1
+                    ? "Quiz criado"
+                    : "Quizzes criados"}
+                </p>
               </div>
             </styles.FeaturesStaticsContainer>
             <styles.FeaturesStaticsContainer>
@@ -114,8 +118,12 @@ const Perfil: React.FC = () => {
                 <img src="/console.svg" alt="Recorde de Pontos" />
               </span>
               <div>
-                <h6>X</h6>
-                <p>XXX</p>
+                <h6>{context.statistic?.qtd_rooms || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_rooms === 1
+                    ? "Sala criada"
+                    : "Salas criadas"}
+                </p>
               </div>
             </styles.FeaturesStaticsContainer>
             <styles.FeaturesStaticsContainer>
@@ -123,8 +131,12 @@ const Perfil: React.FC = () => {
                 <img src="/checked.svg" alt="Jogos Ganhos" />
               </span>
               <div>
-                <h6>X</h6>
-                <p>XXX</p>
+                <h6>{context.statistic?.qtd_rooms_actives || 0}</h6>
+                <p>
+                  {context.statistic?.qtd_rooms_actives === 1
+                    ? "Sala ativa"
+                    : "Salas ativas"}
+                </p>
               </div>
             </styles.FeaturesStaticsContainer>
           </styles.UserStaticsDetailsContainer>

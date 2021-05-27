@@ -10,6 +10,7 @@ import { Token } from "@models/Token";
 import axios from "axios";
 import { RegisterUser, User, LoginUser, UpdateUser } from "../../models/User";
 import { PostRoom, Room } from "@models/Room";
+import { Statistic } from "@models/Statistic";
 
 export const api = axios.create({
   baseURL: "http://152.67.33.12:3232/",
@@ -303,5 +304,19 @@ export const desactivateRoom = async (
       .then((res) => res.data);
   } catch (e) {
     console.error(e);
+  }
+};
+
+export const getStatistics = async (token: Token): Promise<Statistic> => {
+  try {
+    return await api
+      .get("/statistic/home", {
+        headers: {
+          Authorization: token.token_type + " " + token.access_token,
+        },
+      })
+      .then((res) => res.data);
+  } catch (e) {
+    console.log(e);
   }
 };

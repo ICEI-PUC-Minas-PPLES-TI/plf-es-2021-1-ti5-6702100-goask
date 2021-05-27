@@ -16,20 +16,17 @@ export const TestsTable = styled.table`
   border: none;
   border-collapse: collapse;
   caption-side: bottom;
-
   td,
   th {
     border: none;
   }
-  td:first-child,
-  th:first-child {
-    padding: 20px 20px;
-  }
   td {
+    padding: 20px 20px;
     text-align: center;
     a {
       text-decoration: none;
       color: #c9515c;
+      transition: 0.5s;
 
       &:hover {
         cursor: pointer;
@@ -38,31 +35,22 @@ export const TestsTable = styled.table`
     }
   }
   th {
-    padding: 10px 8px;
+    padding: 20px 20px;
     text-align: center;
     background-color: #c9515c;
     color: white;
   }
-  tr > th:first-child {
-    font-size: 18px;
-  }
-  tr > td :first-child {
-    font-size: 18px;
-  }
   tr {
     color: black;
-    background-color: #f7f7f7;
-    font-size: 14px;
     font-weight: 700;
+    background-color: #f7f7f7;
   }
   tbody tr {
-    transition: 0.5s;
     :nth-of-type(odd) {
       background-color: #fff;
     }
     :hover {
       cursor: pointer;
-      transform: scale(1.03);
     }
   }
   caption {

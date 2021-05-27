@@ -42,7 +42,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 30%;
+  max-width: 50%;
 
   @media (max-width: ${theme.breakpoint.xl}) {
     max-width: 100%;
@@ -53,6 +53,12 @@ export const createRoomButtonContainer = styled.div`
   position: fixed;
   bottom: 20px;
   right: 50px;
+`;
+
+export const SeeRoomsButtonContainer = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 160px;
 `;
 
 export const TextContainer = styled.div`

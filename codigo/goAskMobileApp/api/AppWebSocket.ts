@@ -19,7 +19,12 @@ export interface WSMessageMobile {
 
 export interface WSMessageServer {
   room_id: string;
-  action: 'send_results' | 'actived' | 'connect';
+  action:
+    | 'send_results'
+    | 'actived'
+    | 'connect'
+    | 'error_user_already_exists'
+    | 'error_room_is_not_active';
   results?: {name: string; right_answers: string}[];
   error?: {isError: 0 | 1; message: string};
 }
@@ -40,14 +45,15 @@ class AppWebSocket {
       console.log('[WebSocket] New message arrived: ');
       console.log(message);
       switch (message.action) {
-        case 'connect':
-          if (message.error && message.error.message) {
-            store.dispatch(
-              setError(
-                'Infelizmente, já existe um usuário com este nome conectado :/',
-              ),
-            );
-          }
+        case 'error_user_already_exists':
+          store.dispatch(
+            setError(
+              'Infelizmente, já existe um usuário com este nome conectado :/',
+            ),
+          );
+          break;
+        case 'error_room_is_not_active':
+          store.dispatch(setError('Essa sala não está ativa :/'));
           break;
         case 'actived':
           store.dispatch(startQuiz({}));
@@ -91,6 +97,17 @@ class AppWebSocket {
     });
   }
 
+  public static sendDisconectMessage() {
+    console.log('[WebSocket] Send disconect message');
+    const name = store.getState().users.userName;
+    const room_id = store.getState().room.room?.idRoom?.toString() as string;
+    this.sendMessage({
+      action: 'disconnect',
+      name: name,
+      room_id: room_id,
+    });
+  }
+
   public static sendAnswer(isCorrect: boolean) {
     console.log('[WebSocket] Sending answer message');
     const name = store.getState().users.userName;
@@ -105,6 +122,9 @@ class AppWebSocket {
 
   public static close() {
     console.log('[WebSocket] Closing');
+    if (this._instance?._connection) {
+      this.sendDisconectMessage();
+    }
     store.dispatch(clearConnection({}));
     if (this._instance) {
       if (this._instance._connection) {

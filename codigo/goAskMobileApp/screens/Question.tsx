@@ -1,6 +1,6 @@
 import {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   BackHandler,
   StyleSheet,
@@ -34,6 +34,18 @@ const Question: React.FC<Props> = (props) => {
   const [minutesLeft, setMinutesLeft] = useState(1);
   const [secondsLeft, setSecondsLeft] = useState(0);
 
+  const sendAnswer = useCallback(
+    (isCorrect: boolean) => {
+      AppWebSocket.sendAnswer(isCorrect);
+      if (numberOfQuestionsAnswered + 1 === questions?.length) {
+        navigation.replace('SecondLoading', {});
+      } else {
+        dispatch(increaseNumberOfQuestionsAnswered({}));
+      }
+    },
+    [dispatch, navigation, numberOfQuestionsAnswered, questions],
+  );
+
   useEffect(() => {
     // Remove Android back button listener
     BackHandler.addEventListener('hardwareBackPress', () => true);
@@ -50,6 +62,7 @@ const Question: React.FC<Props> = (props) => {
           setMinutesLeft(minutesLeft - 1);
           setSecondsLeft(59);
         } else {
+          // sendAnswer(false);
         }
       }
     }, 1000);
@@ -57,11 +70,12 @@ const Question: React.FC<Props> = (props) => {
     return () => {
       isMouted = false;
     };
-  }, [secondsLeft, minutesLeft]);
+  }, [minutesLeft, secondsLeft, sendAnswer]);
 
   useEffect(() => {
     setMinutesLeft(1);
     setSecondsLeft(0);
+    console.log(question?.answers);
   }, [numberOfQuestionsAnswered]);
 
   const question = useMemo(
@@ -70,12 +84,7 @@ const Question: React.FC<Props> = (props) => {
   );
 
   const handleAnswerPress = (answer: IAnswer) => {
-    AppWebSocket.sendAnswer(answer.isCorrect);
-    if (numberOfQuestionsAnswered + 1 === questions?.length) {
-      navigation.replace('SecondLoading', {});
-    } else {
-      dispatch(increaseNumberOfQuestionsAnswered({}));
-    }
+    sendAnswer(answer.isCorrect);
   };
 
   return (
