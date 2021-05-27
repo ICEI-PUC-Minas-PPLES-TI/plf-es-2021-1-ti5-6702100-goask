@@ -7,3 +7,5 @@ Liste os artefatos produzidos, com suas localizaçãoes e descrição do conteú
   - **ATA-2021-02-19.md**: Ata de reunião do dia 19 de fevereiro de 2021.
 
 - **ApresentacaoInicial.pptx**: slides de apresentação com a ideia inicial do projeto.
+
+- **Apresentacao Final.pptx**: slides de apresentação com a ideia final do projeto.
