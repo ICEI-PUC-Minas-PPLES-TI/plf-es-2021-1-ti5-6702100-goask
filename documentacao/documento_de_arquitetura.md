@@ -46,7 +46,9 @@ _**Resumo**. O GoAsk é um sistema que busca fortalecer o relacionamento entre a
 | **[17/03/2021]** | [Matheus Felipe]                                      | [Diagrama de Visão]                                                                                               | [4.2]      |
 | **[17/03/2021]** | [Thiago Silva]                                        | [Descrição de casos de uso e histórias de usuário]                                                                | [4.3]      |
 | **[24/03/2021]** | [Thiago Silva]                                        | [Atualuzação diagrama de casos de uso]                                                                            | [4.4]      |
-| **[20/05/2021]** | [Guilherme Oliveira]                                        | [Adição avaliação da arquitetura]                                                                            | [4.5]      |
+| **[20/05/2021]** | [Guilherme Oliveira, Thiago Silva, Guilherme Diniz]                                        | [Adição da avaliação de arquitetura]                                                                            | [6.1]      |
+| **[25/05/2021]** | [Guilherme Oliveira]                                        | [Revisão e atualização da avaliação de arquitetura]                                                                            | [6.2]      |
+| **[26/05/2021]** | [Guilherme Oliveira]                                        | [ Atualização das imagens]                                                                            | [6.3]      |
 
 
 ## SUMÁRIO
@@ -71,9 +73,7 @@ _**Resumo**. O GoAsk é um sistema que busca fortalecer o relacionamento entre a
    4.1. Cenários <br />
    4.2. Avaliação <br />
 
-5. [Referências](#referencias "REFERÊNCIAS")<br />
-
-6. [Apêndices](#apendices "APÊNDICES")<br />
+5. [Apêndices](#apendices "APÊNDICES")<br />
 
 <a name="apresentacao"></a>
 
@@ -169,7 +169,7 @@ As restrições arquiteturais impostas ao projeto são:
 
 # 3. Modelagem e projeto arquitetural
 
-![Visão Geral da Solução](imagens/visao.png "Visão Geral da Solução")
+![Visão Geral da Solução](imagens/ModelagemArquitetural.png "Visão Geral da Solução")
 
 
 **Figura 1 - Visão Geral da Solução. Fonte: os próprios autores.**
@@ -330,7 +330,7 @@ Como mostrado na Figura 3, nossa aplicação apresenta três camadas maiores, al
 
 ## 3.3. Modelo de dados 
 
-![Diagrama de Entidade Relacionamento (ER) ](imagens/der.png "Diagrama de Entidade Relacionamento (ER) ")
+![Diagrama de Entidade Relacionamento (ER) ](imagens/ModeloBD.png "Diagrama de Entidade Relacionamento (ER) ")
 
 **Figura 4 – Diagrama de Entidade Relacionamento (ER) - Fonte: o próprio grupo.**
 
@@ -350,18 +350,18 @@ Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos 
 
 **Cenário 1 - Desempelho na conexão com a sala:** Nesse cenário será testado a velocidade de resposta do sistema mobile ao tentar se conectar em uma sala.  Assim, o teste a será feito a partir de logs da aplicação mobile, onde mostrará o tempo inicial da chamada e o tempo final de reposta.
 
-**Cenário 2 - Segurança de acesso:** Nesse cenário será testado a segurança no acesso do usuário, o qual irá verificar se as senhas dos cadastrados estão sendo salvas criptogradas no banco de dados. Dessa forma, para testar esse cenaria srá acessado o banco e verificado na tabela de usuarios na coluna de senha, se a senha está sendo salva criptografada.
+**Cenário 2 - Segurança de acesso:** Nesse cenário será testado a segurança no acesso do usuário, o qual irá verificar se as senhas dos cadastrados estão sendo salvas criptogradas no banco de dados. Dessa forma, para testar esse cenário será acessado o banco de dados e verificado na tabela de usuarios na coluna de senha, se a senha está sendo salva criptografada.
 
-**Cenário 3 - Responsividade:** Nesse cenário será testado a responsividade da aplicação web, onde o sistema deverá se adapatar a difirentes tamanhos de telas. Assim, o teste será feito como o uso de um navegador web polyPane, oqual mostra na mesma tela varias dimensões de telas.
+**Cenário 3 - Responsividade:** Nesse cenário será testado a responsividade da aplicação web, onde o sistema deverá se adaptar a difirentes tamanhos de telas. Assim, o teste será feito como o uso de um navegador web ultilizando o devtools para mostrar a responsividade.
 
-**Cenário 4 - Acesso simutâneo:** Nesse cenário será testado se o sistema mobile criado suporta acesso sumultâneo. A fim de testar esse requisito serão feito diversos acessos simultaneos para testar se o sistema permanecerá funcionando de maneira eficiente.
+**Cenário 4 - Acesso simultâneo:** Nesse cenário será testado se o sistema mobile criado suporta acesso sumultâneo. A fim de testar esse requisito, serão feito diversos acessos simultaneos para testar se o sistema permanecerá funcionando de maneira eficiente.
 
 ## 4.2. Avaliação
 
 | **Atributo de Qualidade:** | Desempenho                                              |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Requisito de Qualidade** | Desempenho na conexão com o back end.              |
-| **Preocupação:**           | Os acessos as salas devem ser feitos com o maior desenpenho possível, para garantir que o o mesmo não perca a vontade de fazer o quiz.                                                                                                                                |
+| **Preocupação:**           | Os acessos as salas devem ser feitos com o maior desempenho possível, para garantir que o o mesmo não perca a vontade de fazer o quiz.                                                                                                                                |
 | **Cenários(s):**           | Cenário 1                                                                                                       |
 | **Ambiente:**              | Sistema mobile                                                        |
 | **Estímulo:**              | Procurar e acessar um sala aberta para poder fazer o quiz.                                                                                                                                                          |
@@ -370,19 +370,19 @@ Para nossa aplicação, decidimos usar o SGBD PostgreSql para persistência dos 
 
 **Considerações sobre a arquitetura:**
 
-| **Riscos:**                  | Não existe |
+| **Riscos:**                  | Médio |
 | ---------------------------- | ---------- |
-| **Pontos de Sensibilidade:** | Não existe |
+| **Pontos de Sensibilidade:** | Desinteresse do usuário fazer o quiz |
 | _ **Tradeoff** _ **:**       | Não existe |
 
-Evidências dos testes realizados:
+A seguir, imagens de desempenho:
 
 ![Teste de Desempenho](imagens/desempenho.png "Teste de Desempenho")
 
 | **Atributo de Qualidade:** | Segurança                                                            |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Requisito de Qualidade** | Segurança de acesso                                                                                         |
-| **Preocupação:**           | Impedir que alguem que tenha acesso ao banco de dados não possa se conectar na aplicação web ultilizando senha de terceiros, garantindo assim a segurança do usuário.                                                                                                                                   |
+| **Preocupação:**           | Impedir que alguém que tenha acesso ao banco de dados não possa se conectar na aplicação web ultilizando senha de terceiros, garantindo assim a segurança do usuário.                                                                                                                                   |
 | **Cenários(s):**           | Cenário 2                                                    |
 | **Ambiente:**              | Sistema web                                                                                                       |
 | **Estímulo:**              | Usuário ter privacidade no ambiente web.                                                                                                           |
@@ -391,12 +391,10 @@ Evidências dos testes realizados:
 
 **Considerações sobre a arquitetura:**
 
-| **Riscos:**                  | Não existe |
+| **Riscos:**                  | Baixo |
 | ---------------------------- | ---------- |
-| **Pontos de Sensibilidade:** | Não existe |
+| **Pontos de Sensibilidade:** | Usuários terem privacidade no acesso da aplicação mobile |
 | _ **Tradeoff** _ **:**       | Não existe |
-
-Evidências dos testes realizados
 
 Abaixo está sendo exibida uma imagem que demonstra senhas criptografadas no banco de dados do sistema.
 
@@ -416,9 +414,9 @@ Abaixo está sendo exibida uma imagem que demonstra senhas criptografadas no ban
 
 **Considerações sobre a arquitetura:**
 
-| **Riscos:**                  | Não existe |
+| **Riscos:**                  | Baixo |
 | ---------------------------- | ---------- |
-| **Pontos de Sensibilidade:** | Não existe |
+| **Pontos de Sensibilidade:** | Usuários não conseguirem usar no celular|
 | _ **Tradeoff** _ **:**       | Não existe |
 
 A seguir, imagens da responsividade da tela de dashboard. Primeiro a dashboard em um celular:
@@ -448,45 +446,28 @@ Por fim, o perfil em um computador:
 
 | **Atributo de Qualidade:** | Desempenho e Disponibilidade                                                                                                                                                                                                                                                              |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Requisito de Qualidade** | Acesso simutâneo                                                                                                                                                           |
+| **Requisito de Qualidade** | Acesso simultâneo                                                                                                                                                           |
 | **Preocupação:**           | Garantir que mesmo com diversos acessos simultâneos os sistema permanece funcionando de maneira eficiênte.                                                                                                                                  |
 | **Cenários(s):**           | Cenário 4                                                                                                                                                                                                                                                              |
 | **Ambiente:**              | Sistema mobile                                                                                                                                                                                                           |
 | **Estímulo:**              | Usuário possa ter uma boa experiência com a aplicação, mesmo que esteja com um grande carga de usuários acessados.                                                                                                                                                        |
-| **Mecanismo:**             | ***Ao alterar as dimensões da tela, os componentes da aplicação devem se adptar de acordo com as novas dimensões.*** |
-| **Medida de Resposta:**    | ***Ao consultar o banco de dados a senha deve estar salva criptografada.***                                                                                                                                                           |
-
+| **Mecanismo:**             | Ao acessar o quiz o sistema permitirá que multiplos usuários acessem o mesmo quiz, para que possa responde-lo. |
+| **Medida de Resposta:**    | Ao acessar a tela da sala na aplicação web o criador do quiz poderá ver quem já está esperando na sala.                                                                                                                                                           |
 **Considerações sobre a arquitetura:**
 
-| **Riscos:**                  | Não existe |
+| **Riscos:**                  | Alto |
 | ---------------------------- | ---------- |
-| **Pontos de Sensibilidade:** | Não existe |
+| **Pontos de Sensibilidade:** | Peda da conexaão dos usuárioa que estão repondendo o quiz |
 | _ **Tradeoff** _ **:**       | Não existe |
 
-Evidências dos testes realizados
+A seguir, imagens de entrada simultânea:
 
+![Teste de entrada silmultânea](imagens/goask_simul_1.jpeg "Tela entrando na sala")
 
-
-# 5. REFERÊNCIAS
-
-_Como um projeto da arquitetura de uma aplicação não requer revisão bibliográfica, a inclusão das referências não é obrigatória. No entanto, caso você deseje incluir referências relacionadas às tecnologias, padrões, ou metodologias que serão usadas no seu trabalho, relacione-as de acordo com a ABNT._
-
-Verifique no link abaixo como devem ser as referências no padrão ABNT:
-
-http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
-
-**[1]** - _ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019. E-book. ISBN 9788543025001._
-
-**[2]** - _COPPIN, Ben. **Inteligência artificial**. Rio de Janeiro, RJ: LTC, c2010. E-book. ISBN 978-85-216-2936-8._
-
-**[3]** - _CORMEN, Thomas H. et al. **Algoritmos: teoria e prática**. Rio de Janeiro, RJ: Elsevier, Campus, c2012. xvi, 926 p. ISBN 9788535236996._
-
-**[4]** - _SUTHERLAND, Jeffrey Victor. **Scrum: a arte de fazer o dobro do trabalho na metade do tempo**. 2. ed. rev. São Paulo, SP: Leya, 2016. 236, [4] p. ISBN 9788544104514._
-
-**[5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
+![Teste de entrada silmultânea](imagens/goask_simul_2.jpeg "Tela como usuários dentro da sala")
 
 <a name="apendices"></a>
 
 # 6. APÊNDICES
 
-_Inclua o URL do repositório (Github, Bitbucket, etc) onde você armazenou o código da sua prova de conceito/protótipo arquitetural da aplicação como anexos. A inclusão da URL desse repositório de código servirá como base para garantir a autenticidade dos trabalhos._
+[Repositório com o código do trabalho](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask)
