@@ -178,7 +178,7 @@ As restrições arquiteturais impostas ao projeto são:
 
 Ao acessar o sistema, o cliente web receberá a interface disponibilizada pelo ReactJs, enquanto para o cliente mobile a interface é renderizada pelo ReactNative, ambos será utilizado a programação em TypeScript para manter o coódigo mais padronizado e auxiliar na descoberta de erros durante o desenvolvimento. Haverá também o Redux para armazenar alguns dados usados a fim de aumentar o desempenho e o NextJs para tornar a aplicação mais performática.
 
-A comunicação com o back-end é por meio de uma api RESTful programada em python e disponibilizada com o framework FastApi. Por meio do python, a aplicação implementa o servidor de mensageria RabbitMQ e se conecta ao banco de dados PostgreSQL pela técnica ORM. Todo o projeto é envolvido pelo ambiente virtual disponibilizado pelo Docker.
+A comunicação com o back-end é por meio de uma api RESTful programada em python e disponibilizada com o framework FastApi. Por meio do python, a aplicação implementa o websocket para a comunicação em tempo real e se conecta ao banco de dados PostgreSQL pela técnica ORM. Todo o projeto é envolvido pelo ambiente virtual disponibilizado pelo Docker.
 
 ## 3.1. Visão de Negócio (Funcionalidades)
 
