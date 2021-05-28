@@ -19,14 +19,39 @@ O sistema também fornecerá uma versão mobile no qual diversos usuários podem
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+```bash
+# Clonar o repositório
+git clone https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask.git
+```
 
-## Histórico de versões
+### Execução - Frontend web
 
-* 0.1.1
-    * CHANGE: Atualização das documentacoes. Código permaneceu inalterado.
-* 0.1.0
-    * Implementação da funcionalidade X pertencente ao processo P.
-* 0.0.1
-    * Trabalhando na modelagem do processo de negócios.
+```bash
+# Caminho para o projeto
+cd ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask/codigo/Front-end/
+
+# Instala dependências
+yarn
+
+# Executa o front
+yarn dev
+```
+
+### Execução - Frontend Mobile
+
+```bash
+# Caminho para o projeto
+cd ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask/codigo/goAskMobileApp/
+
+# Instala dependências
+npm install
+
+# Inicializa o Metro Bundler
+npx react-native start
+
+# Inicializa a aplicação
+# Importante: é necessário que um emulador já esteja rodando e que esse comando seja executado em outra janela.
+npx react-native run-android
+
+```
 
