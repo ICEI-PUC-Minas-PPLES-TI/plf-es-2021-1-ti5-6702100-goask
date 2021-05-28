@@ -39,6 +39,8 @@ yarn dev
 
 ### Execução - Frontend Mobile
 
+Primeiro, é necessário instalar as dependências e inicializar o Metro Bundler.
+
 ```bash
 # Caminho para o projeto
 cd ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask/codigo/goAskMobileApp/
@@ -48,10 +50,14 @@ npm install
 
 # Inicializa o Metro Bundler
 npx react-native start
-
-# Inicializa a aplicação
-# Importante: é necessário que um emulador já esteja rodando e que esse comando seja executado em outra janela.
-npx react-native run-android
-
 ```
 
+Depois, basta abrir uma nova janela, abrir um emulador Android a sua escolha e rodar o projeto.
+
+```bash
+npx react-native run-android
+```
+Para rodar em iOS, é necessário um Mac.  
+Infelizmente, ninguem do grupo tem um Mac.  
+Logo, nós não estamos familiarizados com o passo a passo.  
+Para informações desse tipo, basta acessar [React Native](https://reactnative.dev)
