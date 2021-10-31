@@ -1,0 +1,29 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: GoAsk
+authors:
+  - family-names: Campos Barata Diniz
+    given-names: Guilherme 
+  - family-names: Oliveira Antonio
+    given-names: Guilherme 
+  - family-names: Ferreira Martins
+    given-names: Matheus Felipe 
+  - family-names: Christovão da Silva
+    given-names: Ricardo 
+  - family-names: Queiroz Silva
+    given-names: Thiago Jorge 
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Bastos De Paula
+    given-names: Hugo 
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Alves de Oliveira
+    given-names: Pedro 
+keywords:
+  - Perguntas e Respostas
+  - Aprendizagem
+repository-code: https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti5-6702100-goask 
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2021-06-20
